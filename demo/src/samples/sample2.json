@@ -1,0 +1,2699 @@
+[
+  {
+    "objects": [
+      {
+        "type": "constructedWall",
+        "x": 25,
+        "y": 27,
+        "hits": 9750,
+        "hitsMax": 300000000,
+        "_isDisabled": false,
+        "_id": "c56e2f92c18f9af02fcb1192",
+        "room": "sim"
+      },
+      {
+        "_id": "013793a3e7574063048c91e2",
+        "type": "creep",
+        "name": "attacker1",
+        "body": [
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "move",
+            "hits": 100
+          },
+          {
+            "type": "move",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "heal",
+            "hits": 100
+          },
+          {
+            "type": "heal",
+            "hits": 100
+          },
+          {
+            "type": "heal",
+            "hits": 100
+          },
+          {
+            "type": "work",
+            "hits": 100
+          },
+          {
+            "type": "work",
+            "hits": 100
+          }
+        ],
+        "x": 23,
+        "y": 25,
+        "user": "54bff72ab32a10f73a57d017",
+        "room": "sim",
+        "energy": 0,
+        "power": 0,
+        "energyCapacity": 0,
+        "hits": 1300,
+        "hitsMax": 1300,
+        "spawning": false,
+        "fatigue": 0,
+        "ageTime": 1547,
+        "_isDisabled": false,
+        "actionLog": {
+          "attacked": null,
+          "healed": null,
+          "attack": {
+            "x": 24,
+            "y": 25
+          },
+          "rangedAttack": null,
+          "rangedMassAttack": null,
+          "heal": null,
+          "harvest": null,
+          "heal": null,
+          "repair": null,
+          "build": null,
+          "say": null,
+          "upgradeController": null,
+          "reserveController": null
+        }
+      },
+      {
+        "_id": "325a312038a53923a5eec66f",
+        "type": "creep",
+        "name": "enemy1",
+        "body": [
+          {
+            "type": "tough",
+            "hits": 100
+          },
+          {
+            "type": "tough",
+            "hits": 100
+          },
+          {
+            "type": "tough",
+            "hits": 100
+          },
+          {
+            "type": "tough",
+            "hits": 100
+          },
+          {
+            "type": "tough",
+            "hits": 100
+          },
+          {
+            "type": "tough",
+            "hits": 100
+          },
+          {
+            "type": "tough",
+            "hits": 100
+          },
+          {
+            "type": "tough",
+            "hits": 100
+          },
+          {
+            "type": "move",
+            "hits": 100
+          },
+          {
+            "type": "move",
+            "hits": 100
+          },
+          {
+            "type": "move",
+            "hits": 100
+          },
+          {
+            "type": "move",
+            "hits": 100
+          },
+          {
+            "type": "move",
+            "hits": 100
+          },
+          {
+            "type": "move",
+            "hits": 100
+          },
+          {
+            "type": "move",
+            "hits": 100
+          },
+          {
+            "type": "move",
+            "hits": 100
+          },
+          {
+            "type": "ranged_attack",
+            "hits": 100
+          },
+          {
+            "type": "ranged_attack",
+            "hits": 100
+          },
+          {
+            "type": "ranged_attack",
+            "hits": 100
+          },
+          {
+            "type": "ranged_attack",
+            "hits": 100
+          },
+          {
+            "type": "ranged_attack",
+            "hits": 100
+          },
+          {
+            "type": "ranged_attack",
+            "hits": 100
+          }
+        ],
+        "x": 24,
+        "y": 25,
+        "user": "1",
+        "room": "sim",
+        "energy": 0,
+        "power": 0,
+        "energyCapacity": 0,
+        "hits": 2200,
+        "hitsMax": 2200,
+        "spawning": false,
+        "fatigue": 0,
+        "ageTime": 1570,
+        "_isDisabled": false
+      }
+    ],
+    "users": {
+      "0": {
+        "username": "Player 1"
+      },
+      "1": {
+        "username": "player"
+      },
+      "2": {
+        "username": "Invader"
+      },
+      "3": {
+        "username": "Source Keeper"
+      },
+      "54bff72ab32a10f73a57d017": {
+        "ok": 1,
+        "_id": "54bff72ab32a10f73a57d017",
+        "email": "chivcha.lov@gmail.com",
+        "username": "player",
+        "cpu": 30,
+        "badge": {
+          "type": 9,
+          "color1": 31,
+          "color2": 53,
+          "color3": 74,
+          "param": 0,
+          "flip": false
+        },
+        "password": true,
+        "lastRespawnDate": 1489085471747,
+        "gcl": 50000000,
+        "credits": 3000,
+        "subscription": false,
+        "money": 0,
+        "subscriptionTokens": 4
+      }
+    },
+    "info": {},
+    "gameTime": 70,
+    "flags": [],
+    "visual": ""
+  },
+  {
+    "objects": [
+      {
+        "type": "constructedWall",
+        "x": 25,
+        "y": 27,
+        "hits": 9750,
+        "hitsMax": 300000000,
+        "_isDisabled": false,
+        "_id": "c56e2f92c18f9af02fcb1192",
+        "room": "sim"
+      },
+      {
+        "_id": "013793a3e7574063048c91e2",
+        "type": "creep",
+        "name": "attacker1",
+        "body": [
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "move",
+            "hits": 100
+          },
+          {
+            "type": "move",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "heal",
+            "hits": 100
+          },
+          {
+            "type": "heal",
+            "hits": 100
+          },
+          {
+            "type": "heal",
+            "hits": 100
+          },
+          {
+            "type": "work",
+            "hits": 100
+          },
+          {
+            "type": "work",
+            "hits": 100
+          }
+        ],
+        "x": 23,
+        "y": 25,
+        "user": "54bff72ab32a10f73a57d017",
+        "room": "sim",
+        "energy": 0,
+        "power": 0,
+        "energyCapacity": 0,
+        "hits": 1300,
+        "hitsMax": 1300,
+        "spawning": false,
+        "fatigue": 0,
+        "ageTime": 1547,
+        "_isDisabled": false,
+        "actionLog": {
+          "attacked": null,
+          "healed": null,
+          "attack": {
+            "x": 24,
+            "y": 25
+          },
+          "rangedAttack": null,
+          "rangedMassAttack": null,
+          "heal": null,
+          "harvest": null,
+          "heal": null,
+          "repair": null,
+          "build": null,
+          "say": null,
+          "upgradeController": null,
+          "reserveController": null
+        }
+      },
+      {
+        "_id": "325a312038a53923a5eec66f",
+        "type": "creep",
+        "name": "enemy1",
+        "body": [
+          {
+            "type": "tough",
+            "hits": 100
+          },
+          {
+            "type": "tough",
+            "hits": 100
+          },
+          {
+            "type": "tough",
+            "hits": 100
+          },
+          {
+            "type": "tough",
+            "hits": 100
+          },
+          {
+            "type": "tough",
+            "hits": 100
+          },
+          {
+            "type": "tough",
+            "hits": 100
+          },
+          {
+            "type": "tough",
+            "hits": 100
+          },
+          {
+            "type": "tough",
+            "hits": 100
+          },
+          {
+            "type": "move",
+            "hits": 100
+          },
+          {
+            "type": "move",
+            "hits": 100
+          },
+          {
+            "type": "move",
+            "hits": 100
+          },
+          {
+            "type": "move",
+            "hits": 100
+          },
+          {
+            "type": "move",
+            "hits": 100
+          },
+          {
+            "type": "move",
+            "hits": 100
+          },
+          {
+            "type": "move",
+            "hits": 100
+          },
+          {
+            "type": "move",
+            "hits": 100
+          },
+          {
+            "type": "ranged_attack",
+            "hits": 100
+          },
+          {
+            "type": "ranged_attack",
+            "hits": 100
+          },
+          {
+            "type": "ranged_attack",
+            "hits": 100
+          },
+          {
+            "type": "ranged_attack",
+            "hits": 100
+          },
+          {
+            "type": "ranged_attack",
+            "hits": 100
+          },
+          {
+            "type": "ranged_attack",
+            "hits": 100
+          }
+        ],
+        "x": 24,
+        "y": 25,
+        "user": "1",
+        "room": "sim",
+        "energy": 0,
+        "power": 0,
+        "energyCapacity": 0,
+        "hits": 2200,
+        "hitsMax": 2200,
+        "spawning": false,
+        "fatigue": 0,
+        "ageTime": 1570,
+        "_isDisabled": false
+      }
+    ],
+    "users": {
+      "0": {
+        "username": "Player 1"
+      },
+      "1": {
+        "username": "player"
+      },
+      "2": {
+        "username": "Invader"
+      },
+      "3": {
+        "username": "Source Keeper"
+      },
+      "54bff72ab32a10f73a57d017": {
+        "ok": 1,
+        "_id": "54bff72ab32a10f73a57d017",
+        "email": "chivcha.lov@gmail.com",
+        "username": "player",
+        "cpu": 30,
+        "badge": {
+          "type": 9,
+          "color1": 31,
+          "color2": 53,
+          "color3": 74,
+          "param": 0,
+          "flip": false
+        },
+        "password": true,
+        "lastRespawnDate": 1489085471747,
+        "gcl": 50000000,
+        "credits": 3000,
+        "subscription": false,
+        "money": 0,
+        "subscriptionTokens": 4
+      }
+    },
+    "info": {},
+    "gameTime": 71,
+    "flags": [],
+    "visual": ""
+  },
+  {
+    "objects": [
+      {
+        "type": "constructedWall",
+        "x": 25,
+        "y": 27,
+        "hits": 9690,
+        "hitsMax": 300000000,
+        "_isDisabled": false,
+        "_id": "c56e2f92c18f9af02fcb1192",
+        "room": "sim"
+      },
+      {
+        "_id": "013793a3e7574063048c91e2",
+        "type": "creep",
+        "name": "attacker1",
+        "body": [
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "move",
+            "hits": 100
+          },
+          {
+            "type": "move",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "heal",
+            "hits": 100
+          },
+          {
+            "type": "heal",
+            "hits": 100
+          },
+          {
+            "type": "heal",
+            "hits": 100
+          },
+          {
+            "type": "work",
+            "hits": 100
+          },
+          {
+            "type": "work",
+            "hits": 100
+          }
+        ],
+        "x": 23,
+        "y": 25,
+        "user": "54bff72ab32a10f73a57d017",
+        "room": "sim",
+        "energy": 0,
+        "power": 0,
+        "energyCapacity": 0,
+        "hits": 1300,
+        "hitsMax": 1300,
+        "spawning": false,
+        "fatigue": 0,
+        "ageTime": 1547,
+        "_isDisabled": false,
+        "actionLog": {
+          "attacked": null,
+          "healed": null,
+          "attack": {
+            "x": 24,
+            "y": 25
+          },
+          "rangedAttack": null,
+          "rangedMassAttack": null,
+          "heal": null,
+          "harvest": null,
+          "heal": null,
+          "repair": null,
+          "build": null,
+          "say": null,
+          "upgradeController": null,
+          "reserveController": null
+        }
+      },
+      {
+        "_id": "325a312038a53923a5eec66f",
+        "type": "creep",
+        "name": "enemy1",
+        "body": [
+          {
+            "type": "tough",
+            "hits": 0
+          },
+          {
+            "type": "tough",
+            "hits": 0
+          },
+          {
+            "type": "tough",
+            "hits": 0
+          },
+          {
+            "type": "tough",
+            "hits": 70
+          },
+          {
+            "type": "tough",
+            "hits": 100
+          },
+          {
+            "type": "tough",
+            "hits": 100
+          },
+          {
+            "type": "tough",
+            "hits": 100
+          },
+          {
+            "type": "tough",
+            "hits": 100
+          },
+          {
+            "type": "move",
+            "hits": 100
+          },
+          {
+            "type": "move",
+            "hits": 100
+          },
+          {
+            "type": "move",
+            "hits": 100
+          },
+          {
+            "type": "move",
+            "hits": 100
+          },
+          {
+            "type": "move",
+            "hits": 100
+          },
+          {
+            "type": "move",
+            "hits": 100
+          },
+          {
+            "type": "move",
+            "hits": 100
+          },
+          {
+            "type": "move",
+            "hits": 100
+          },
+          {
+            "type": "ranged_attack",
+            "hits": 100
+          },
+          {
+            "type": "ranged_attack",
+            "hits": 100
+          },
+          {
+            "type": "ranged_attack",
+            "hits": 100
+          },
+          {
+            "type": "ranged_attack",
+            "hits": 100
+          },
+          {
+            "type": "ranged_attack",
+            "hits": 100
+          },
+          {
+            "type": "ranged_attack",
+            "hits": 100
+          }
+        ],
+        "x": 24,
+        "y": 25,
+        "user": "1",
+        "room": "sim",
+        "energy": 0,
+        "power": 0,
+        "energyCapacity": 0,
+        "hits": 1870,
+        "hitsMax": 2200,
+        "spawning": false,
+        "fatigue": 0,
+        "ageTime": 1570,
+        "_isDisabled": false,
+        "actionLog": {
+          "attacked": {
+            "x": 23,
+            "y": 25
+          },
+          "healed": null,
+          "attack": null,
+          "rangedAttack": {
+            "x": 25,
+            "y": 27
+          },
+          "rangedMassAttack": null,
+          "heal": null,
+          "harvest": null,
+          "heal": null,
+          "repair": null,
+          "build": null,
+          "say": null,
+          "upgradeController": null,
+          "reserveController": null
+        }
+      }
+    ],
+    "users": {
+      "0": {
+        "username": "Player 1"
+      },
+      "1": {
+        "username": "player"
+      },
+      "2": {
+        "username": "Invader"
+      },
+      "3": {
+        "username": "Source Keeper"
+      },
+      "54bff72ab32a10f73a57d017": {
+        "ok": 1,
+        "_id": "54bff72ab32a10f73a57d017",
+        "email": "chivcha.lov@gmail.com",
+        "username": "player",
+        "cpu": 30,
+        "badge": {
+          "type": 9,
+          "color1": 31,
+          "color2": 53,
+          "color3": 74,
+          "param": 0,
+          "flip": false
+        },
+        "password": true,
+        "lastRespawnDate": 1489085471747,
+        "gcl": 50000000,
+        "credits": 3000,
+        "subscription": false,
+        "money": 0,
+        "subscriptionTokens": 4
+      }
+    },
+    "info": {},
+    "gameTime": 72,
+    "flags": [],
+    "visual": ""
+  },
+  {
+    "objects": [
+      {
+        "type": "constructedWall",
+        "x": 25,
+        "y": 27,
+        "hits": 9630,
+        "hitsMax": 300000000,
+        "_isDisabled": false,
+        "_id": "c56e2f92c18f9af02fcb1192",
+        "room": "sim"
+      },
+      {
+        "_id": "013793a3e7574063048c91e2",
+        "type": "creep",
+        "name": "attacker1",
+        "body": [
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "move",
+            "hits": 100
+          },
+          {
+            "type": "move",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "heal",
+            "hits": 100
+          },
+          {
+            "type": "heal",
+            "hits": 100
+          },
+          {
+            "type": "heal",
+            "hits": 100
+          },
+          {
+            "type": "work",
+            "hits": 100
+          },
+          {
+            "type": "work",
+            "hits": 100
+          }
+        ],
+        "x": 23,
+        "y": 25,
+        "user": "54bff72ab32a10f73a57d017",
+        "room": "sim",
+        "energy": 0,
+        "power": 0,
+        "energyCapacity": 0,
+        "hits": 1300,
+        "hitsMax": 1300,
+        "spawning": false,
+        "fatigue": 0,
+        "ageTime": 1547,
+        "_isDisabled": false,
+        "actionLog": {
+          "attacked": null,
+          "healed": null,
+          "attack": {
+            "x": 24,
+            "y": 25
+          },
+          "rangedAttack": null,
+          "rangedMassAttack": null,
+          "heal": null,
+          "harvest": null,
+          "heal": null,
+          "repair": null,
+          "build": null,
+          "say": null,
+          "upgradeController": null,
+          "reserveController": null
+        }
+      },
+      {
+        "_id": "325a312038a53923a5eec66f",
+        "type": "creep",
+        "name": "enemy1",
+        "body": [
+          {
+            "type": "tough",
+            "hits": 0
+          },
+          {
+            "type": "tough",
+            "hits": 0
+          },
+          {
+            "type": "tough",
+            "hits": 0
+          },
+          {
+            "type": "tough",
+            "hits": 0
+          },
+          {
+            "type": "tough",
+            "hits": 0
+          },
+          {
+            "type": "tough",
+            "hits": 0
+          },
+          {
+            "type": "tough",
+            "hits": 40
+          },
+          {
+            "type": "tough",
+            "hits": 100
+          },
+          {
+            "type": "move",
+            "hits": 100
+          },
+          {
+            "type": "move",
+            "hits": 100
+          },
+          {
+            "type": "move",
+            "hits": 100
+          },
+          {
+            "type": "move",
+            "hits": 100
+          },
+          {
+            "type": "move",
+            "hits": 100
+          },
+          {
+            "type": "move",
+            "hits": 100
+          },
+          {
+            "type": "move",
+            "hits": 100
+          },
+          {
+            "type": "move",
+            "hits": 100
+          },
+          {
+            "type": "ranged_attack",
+            "hits": 100
+          },
+          {
+            "type": "ranged_attack",
+            "hits": 100
+          },
+          {
+            "type": "ranged_attack",
+            "hits": 100
+          },
+          {
+            "type": "ranged_attack",
+            "hits": 100
+          },
+          {
+            "type": "ranged_attack",
+            "hits": 100
+          },
+          {
+            "type": "ranged_attack",
+            "hits": 100
+          }
+        ],
+        "x": 24,
+        "y": 25,
+        "user": "1",
+        "room": "sim",
+        "energy": 0,
+        "power": 0,
+        "energyCapacity": 0,
+        "hits": 1540,
+        "hitsMax": 2200,
+        "spawning": false,
+        "fatigue": 0,
+        "ageTime": 1570,
+        "_isDisabled": false,
+        "actionLog": {
+          "attacked": {
+            "x": 23,
+            "y": 25
+          },
+          "healed": null,
+          "attack": null,
+          "rangedAttack": {
+            "x": 25,
+            "y": 27
+          },
+          "rangedMassAttack": null,
+          "heal": null,
+          "harvest": null,
+          "heal": null,
+          "repair": null,
+          "build": null,
+          "say": null,
+          "upgradeController": null,
+          "reserveController": null
+        }
+      }
+    ],
+    "users": {
+      "0": {
+        "username": "Player 1"
+      },
+      "1": {
+        "username": "player"
+      },
+      "2": {
+        "username": "Invader"
+      },
+      "3": {
+        "username": "Source Keeper"
+      },
+      "54bff72ab32a10f73a57d017": {
+        "ok": 1,
+        "_id": "54bff72ab32a10f73a57d017",
+        "email": "chivcha.lov@gmail.com",
+        "username": "player",
+        "cpu": 30,
+        "badge": {
+          "type": 9,
+          "color1": 31,
+          "color2": 53,
+          "color3": 74,
+          "param": 0,
+          "flip": false
+        },
+        "password": true,
+        "lastRespawnDate": 1489085471747,
+        "gcl": 50000000,
+        "credits": 3000,
+        "subscription": false,
+        "money": 0,
+        "subscriptionTokens": 4
+      }
+    },
+    "info": {},
+    "gameTime": 73,
+    "flags": [],
+    "visual": ""
+  },
+  {
+    "objects": [
+      {
+        "type": "constructedWall",
+        "x": 25,
+        "y": 27,
+        "hits": 9570,
+        "hitsMax": 300000000,
+        "_isDisabled": false,
+        "_id": "c56e2f92c18f9af02fcb1192",
+        "room": "sim"
+      },
+      {
+        "_id": "013793a3e7574063048c91e2",
+        "type": "creep",
+        "name": "attacker1",
+        "body": [
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "move",
+            "hits": 100
+          },
+          {
+            "type": "move",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "heal",
+            "hits": 100
+          },
+          {
+            "type": "heal",
+            "hits": 100
+          },
+          {
+            "type": "heal",
+            "hits": 100
+          },
+          {
+            "type": "work",
+            "hits": 100
+          },
+          {
+            "type": "work",
+            "hits": 100
+          }
+        ],
+        "x": 23,
+        "y": 25,
+        "user": "54bff72ab32a10f73a57d017",
+        "room": "sim",
+        "energy": 0,
+        "power": 0,
+        "energyCapacity": 0,
+        "hits": 1300,
+        "hitsMax": 1300,
+        "spawning": false,
+        "fatigue": 0,
+        "ageTime": 1547,
+        "_isDisabled": false,
+        "actionLog": {
+          "attacked": null,
+          "healed": null,
+          "attack": {
+            "x": 24,
+            "y": 25
+          },
+          "rangedAttack": null,
+          "rangedMassAttack": null,
+          "heal": null,
+          "harvest": null,
+          "heal": null,
+          "repair": null,
+          "build": null,
+          "say": null,
+          "upgradeController": null,
+          "reserveController": null
+        }
+      },
+      {
+        "_id": "325a312038a53923a5eec66f",
+        "type": "creep",
+        "name": "enemy1",
+        "body": [
+          {
+            "type": "tough",
+            "hits": 0
+          },
+          {
+            "type": "tough",
+            "hits": 0
+          },
+          {
+            "type": "tough",
+            "hits": 0
+          },
+          {
+            "type": "tough",
+            "hits": 0
+          },
+          {
+            "type": "tough",
+            "hits": 0
+          },
+          {
+            "type": "tough",
+            "hits": 0
+          },
+          {
+            "type": "tough",
+            "hits": 0
+          },
+          {
+            "type": "tough",
+            "hits": 0
+          },
+          {
+            "type": "move",
+            "hits": 0
+          },
+          {
+            "type": "move",
+            "hits": 10
+          },
+          {
+            "type": "move",
+            "hits": 100
+          },
+          {
+            "type": "move",
+            "hits": 100
+          },
+          {
+            "type": "move",
+            "hits": 100
+          },
+          {
+            "type": "move",
+            "hits": 100
+          },
+          {
+            "type": "move",
+            "hits": 100
+          },
+          {
+            "type": "move",
+            "hits": 100
+          },
+          {
+            "type": "ranged_attack",
+            "hits": 100
+          },
+          {
+            "type": "ranged_attack",
+            "hits": 100
+          },
+          {
+            "type": "ranged_attack",
+            "hits": 100
+          },
+          {
+            "type": "ranged_attack",
+            "hits": 100
+          },
+          {
+            "type": "ranged_attack",
+            "hits": 100
+          },
+          {
+            "type": "ranged_attack",
+            "hits": 100
+          }
+        ],
+        "x": 24,
+        "y": 25,
+        "user": "1",
+        "room": "sim",
+        "energy": 0,
+        "power": 0,
+        "energyCapacity": 0,
+        "hits": 1210,
+        "hitsMax": 2200,
+        "spawning": false,
+        "fatigue": 0,
+        "ageTime": 1570,
+        "_isDisabled": false,
+        "actionLog": {
+          "attacked": {
+            "x": 23,
+            "y": 25
+          },
+          "healed": null,
+          "attack": null,
+          "rangedAttack": {
+            "x": 25,
+            "y": 27
+          },
+          "rangedMassAttack": null,
+          "heal": null,
+          "harvest": null,
+          "heal": null,
+          "repair": null,
+          "build": null,
+          "say": null,
+          "upgradeController": null,
+          "reserveController": null
+        }
+      }
+    ],
+    "users": {
+      "0": {
+        "username": "Player 1"
+      },
+      "1": {
+        "username": "player"
+      },
+      "2": {
+        "username": "Invader"
+      },
+      "3": {
+        "username": "Source Keeper"
+      },
+      "54bff72ab32a10f73a57d017": {
+        "ok": 1,
+        "_id": "54bff72ab32a10f73a57d017",
+        "email": "chivcha.lov@gmail.com",
+        "username": "player",
+        "cpu": 30,
+        "badge": {
+          "type": 9,
+          "color1": 31,
+          "color2": 53,
+          "color3": 74,
+          "param": 0,
+          "flip": false
+        },
+        "password": true,
+        "lastRespawnDate": 1489085471747,
+        "gcl": 50000000,
+        "credits": 3000,
+        "subscription": false,
+        "money": 0,
+        "subscriptionTokens": 4
+      }
+    },
+    "info": {},
+    "gameTime": 74,
+    "flags": [],
+    "visual": ""
+  },
+  {
+    "objects": [
+      {
+        "type": "constructedWall",
+        "x": 25,
+        "y": 27,
+        "hits": 9510,
+        "hitsMax": 300000000,
+        "_isDisabled": false,
+        "_id": "c56e2f92c18f9af02fcb1192",
+        "room": "sim"
+      },
+      {
+        "_id": "013793a3e7574063048c91e2",
+        "type": "creep",
+        "name": "attacker1",
+        "body": [
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "move",
+            "hits": 100
+          },
+          {
+            "type": "move",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          }
+        ],
+        "x": 23,
+        "y": 25,
+        "user": "54bff72ab32a10f73a57d017",
+        "room": "sim",
+        "energy": 0,
+        "power": 0,
+        "energyCapacity": 0,
+        "hits": 1300,
+        "hitsMax": 1300,
+        "spawning": false,
+        "fatigue": 0,
+        "ageTime": 1547,
+        "_isDisabled": false,
+        "actionLog": {
+          "attacked": null,
+          "healed": null,
+          "attack": {
+            "x": 24,
+            "y": 25
+          },
+          "rangedAttack": null,
+          "rangedMassAttack": null,
+          "heal": null,
+          "harvest": null,
+          "heal": null,
+          "repair": null,
+          "build": null,
+          "say": null,
+          "upgradeController": null,
+          "reserveController": null
+        }
+      },
+      {
+        "_id": "325a312038a53923a5eec66f",
+        "type": "creep",
+        "name": "enemy1",
+        "body": [
+          {
+            "type": "tough",
+            "hits": 0
+          },
+          {
+            "type": "tough",
+            "hits": 0
+          },
+          {
+            "type": "tough",
+            "hits": 0
+          },
+          {
+            "type": "tough",
+            "hits": 0
+          },
+          {
+            "type": "tough",
+            "hits": 0
+          },
+          {
+            "type": "tough",
+            "hits": 0
+          },
+          {
+            "type": "tough",
+            "hits": 0
+          },
+          {
+            "type": "tough",
+            "hits": 0
+          },
+          {
+            "type": "move",
+            "hits": 0
+          },
+          {
+            "type": "move",
+            "hits": 0
+          },
+          {
+            "type": "move",
+            "hits": 0
+          },
+          {
+            "type": "move",
+            "hits": 0
+          },
+          {
+            "type": "move",
+            "hits": 0
+          },
+          {
+            "type": "move",
+            "hits": 80
+          },
+          {
+            "type": "move",
+            "hits": 100
+          },
+          {
+            "type": "move",
+            "hits": 100
+          },
+          {
+            "type": "ranged_attack",
+            "hits": 100
+          },
+          {
+            "type": "ranged_attack",
+            "hits": 100
+          },
+          {
+            "type": "ranged_attack",
+            "hits": 100
+          },
+          {
+            "type": "ranged_attack",
+            "hits": 100
+          },
+          {
+            "type": "ranged_attack",
+            "hits": 100
+          },
+          {
+            "type": "ranged_attack",
+            "hits": 100
+          }
+        ],
+        "x": 24,
+        "y": 25,
+        "user": "1",
+        "room": "sim",
+        "energy": 0,
+        "power": 0,
+        "energyCapacity": 0,
+        "hits": 880,
+        "hitsMax": 2200,
+        "spawning": false,
+        "fatigue": 0,
+        "ageTime": 1570,
+        "_isDisabled": false,
+        "actionLog": {
+          "attacked": {
+            "x": 23,
+            "y": 25
+          },
+          "healed": null,
+          "attack": null,
+          "rangedAttack": {
+            "x": 25,
+            "y": 27
+          },
+          "rangedMassAttack": null,
+          "heal": null,
+          "harvest": null,
+          "heal": null,
+          "repair": null,
+          "build": null,
+          "say": null,
+          "upgradeController": null,
+          "reserveController": null
+        }
+      }
+    ],
+    "users": {
+      "0": {
+        "username": "Player 1"
+      },
+      "1": {
+        "username": "player"
+      },
+      "2": {
+        "username": "Invader"
+      },
+      "3": {
+        "username": "Source Keeper"
+      },
+      "54bff72ab32a10f73a57d017": {
+        "ok": 1,
+        "_id": "54bff72ab32a10f73a57d017",
+        "email": "chivcha.lov@gmail.com",
+        "username": "player",
+        "cpu": 30,
+        "badge": {
+          "type": 9,
+          "color1": 31,
+          "color2": 53,
+          "color3": 74,
+          "param": 0,
+          "flip": false
+        },
+        "password": true,
+        "lastRespawnDate": 1489085471747,
+        "gcl": 50000000,
+        "credits": 3000,
+        "subscription": false,
+        "money": 0,
+        "subscriptionTokens": 4
+      }
+    },
+    "info": {},
+    "gameTime": 75,
+    "flags": [],
+    "visual": ""
+  },
+  {
+    "objects": [
+      {
+        "type": "constructedWall",
+        "x": 25,
+        "y": 27,
+        "hits": 9450,
+        "hitsMax": 300000000,
+        "_isDisabled": false,
+        "_id": "c56e2f92c18f9af02fcb1192",
+        "room": "sim"
+      },
+      {
+        "_id": "013793a3e7574063048c91e2",
+        "type": "creep",
+        "name": "attacker1",
+        "body": [
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "move",
+            "hits": 100
+          },
+          {
+            "type": "move",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          }
+        ],
+        "x": 23,
+        "y": 25,
+        "user": "54bff72ab32a10f73a57d017",
+        "room": "sim",
+        "energy": 0,
+        "power": 0,
+        "energyCapacity": 0,
+        "hits": 1300,
+        "hitsMax": 1300,
+        "spawning": false,
+        "fatigue": 0,
+        "ageTime": 1547,
+        "_isDisabled": false,
+        "actionLog": {
+          "attacked": null,
+          "healed": null,
+          "attack": {
+            "x": 24,
+            "y": 25
+          },
+          "rangedAttack": null,
+          "rangedMassAttack": null,
+          "heal": null,
+          "harvest": null,
+          "heal": null,
+          "repair": null,
+          "build": null,
+          "say": null,
+          "upgradeController": null,
+          "reserveController": null
+        }
+      },
+      {
+        "_id": "325a312038a53923a5eec66f",
+        "type": "creep",
+        "name": "enemy1",
+        "body": [
+          {
+            "type": "tough",
+            "hits": 0
+          },
+          {
+            "type": "tough",
+            "hits": 0
+          },
+          {
+            "type": "tough",
+            "hits": 0
+          },
+          {
+            "type": "tough",
+            "hits": 0
+          },
+          {
+            "type": "tough",
+            "hits": 0
+          },
+          {
+            "type": "tough",
+            "hits": 0
+          },
+          {
+            "type": "tough",
+            "hits": 0
+          },
+          {
+            "type": "tough",
+            "hits": 0
+          },
+          {
+            "type": "move",
+            "hits": 0
+          },
+          {
+            "type": "move",
+            "hits": 0
+          },
+          {
+            "type": "move",
+            "hits": 0
+          },
+          {
+            "type": "move",
+            "hits": 0
+          },
+          {
+            "type": "move",
+            "hits": 0
+          },
+          {
+            "type": "move",
+            "hits": 0
+          },
+          {
+            "type": "move",
+            "hits": 0
+          },
+          {
+            "type": "move",
+            "hits": 0
+          },
+          {
+            "type": "ranged_attack",
+            "hits": 50
+          },
+          {
+            "type": "ranged_attack",
+            "hits": 100
+          },
+          {
+            "type": "ranged_attack",
+            "hits": 100
+          },
+          {
+            "type": "ranged_attack",
+            "hits": 100
+          },
+          {
+            "type": "ranged_attack",
+            "hits": 100
+          },
+          {
+            "type": "ranged_attack",
+            "hits": 100
+          }
+        ],
+        "x": 24,
+        "y": 25,
+        "user": "1",
+        "room": "sim",
+        "energy": 0,
+        "power": 0,
+        "energyCapacity": 0,
+        "hits": 550,
+        "hitsMax": 2200,
+        "spawning": false,
+        "fatigue": 0,
+        "ageTime": 1570,
+        "_isDisabled": false,
+        "actionLog": {
+          "attacked": {
+            "x": 23,
+            "y": 25
+          },
+          "healed": null,
+          "attack": null,
+          "rangedAttack": {
+            "x": 25,
+            "y": 27
+          },
+          "rangedMassAttack": null,
+          "heal": null,
+          "harvest": null,
+          "heal": null,
+          "repair": null,
+          "build": null,
+          "say": null,
+          "upgradeController": null,
+          "reserveController": null
+        }
+      }
+    ],
+    "users": {
+      "0": {
+        "username": "Player 1"
+      },
+      "1": {
+        "username": "player"
+      },
+      "2": {
+        "username": "Invader"
+      },
+      "3": {
+        "username": "Source Keeper"
+      },
+      "54bff72ab32a10f73a57d017": {
+        "ok": 1,
+        "_id": "54bff72ab32a10f73a57d017",
+        "email": "chivcha.lov@gmail.com",
+        "username": "player",
+        "cpu": 30,
+        "badge": {
+          "type": 9,
+          "color1": 31,
+          "color2": 53,
+          "color3": 74,
+          "param": 0,
+          "flip": false
+        },
+        "password": true,
+        "lastRespawnDate": 1489085471747,
+        "gcl": 50000000,
+        "credits": 3000,
+        "subscription": false,
+        "money": 0,
+        "subscriptionTokens": 4
+      }
+    },
+    "info": {},
+    "gameTime": 76,
+    "flags": [],
+    "visual": ""
+  },
+  {
+    "objects": [
+      {
+        "type": "constructedWall",
+        "x": 25,
+        "y": 27,
+        "hits": 9390,
+        "hitsMax": 300000000,
+        "_isDisabled": false,
+        "_id": "c56e2f92c18f9af02fcb1192",
+        "room": "sim"
+      },
+      {
+        "_id": "013793a3e7574063048c91e2",
+        "type": "creep",
+        "name": "attacker1",
+        "body": [
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "move",
+            "hits": 100
+          },
+          {
+            "type": "move",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          }
+        ],
+        "x": 23,
+        "y": 25,
+        "user": "54bff72ab32a10f73a57d017",
+        "room": "sim",
+        "energy": 0,
+        "power": 0,
+        "energyCapacity": 0,
+        "hits": 1300,
+        "hitsMax": 1300,
+        "spawning": false,
+        "fatigue": 0,
+        "ageTime": 1547,
+        "_isDisabled": false,
+        "actionLog": {
+          "attacked": null,
+          "healed": null,
+          "attack": {
+            "x": 24,
+            "y": 25
+          },
+          "rangedAttack": null,
+          "rangedMassAttack": null,
+          "heal": null,
+          "harvest": null,
+          "heal": null,
+          "repair": null,
+          "build": null,
+          "say": null,
+          "upgradeController": null,
+          "reserveController": null
+        }
+      },
+      {
+        "_id": "325a312038a53923a5eec66f",
+        "type": "creep",
+        "name": "enemy1",
+        "body": [
+          {
+            "type": "tough",
+            "hits": 0
+          },
+          {
+            "type": "tough",
+            "hits": 0
+          },
+          {
+            "type": "tough",
+            "hits": 0
+          },
+          {
+            "type": "tough",
+            "hits": 0
+          },
+          {
+            "type": "tough",
+            "hits": 0
+          },
+          {
+            "type": "tough",
+            "hits": 0
+          },
+          {
+            "type": "tough",
+            "hits": 0
+          },
+          {
+            "type": "tough",
+            "hits": 0
+          },
+          {
+            "type": "move",
+            "hits": 0
+          },
+          {
+            "type": "move",
+            "hits": 0
+          },
+          {
+            "type": "move",
+            "hits": 0
+          },
+          {
+            "type": "move",
+            "hits": 0
+          },
+          {
+            "type": "move",
+            "hits": 0
+          },
+          {
+            "type": "move",
+            "hits": 0
+          },
+          {
+            "type": "move",
+            "hits": 0
+          },
+          {
+            "type": "move",
+            "hits": 0
+          },
+          {
+            "type": "ranged_attack",
+            "hits": 0
+          },
+          {
+            "type": "ranged_attack",
+            "hits": 0
+          },
+          {
+            "type": "ranged_attack",
+            "hits": 0
+          },
+          {
+            "type": "ranged_attack",
+            "hits": 20
+          },
+          {
+            "type": "ranged_attack",
+            "hits": 100
+          },
+          {
+            "type": "ranged_attack",
+            "hits": 100
+          }
+        ],
+        "x": 24,
+        "y": 25,
+        "user": "1",
+        "room": "sim",
+        "energy": 0,
+        "power": 0,
+        "energyCapacity": 0,
+        "hits": 220,
+        "hitsMax": 2200,
+        "spawning": false,
+        "fatigue": 0,
+        "ageTime": 1570,
+        "_isDisabled": false,
+        "actionLog": {
+          "attacked": {
+            "x": 23,
+            "y": 25
+          },
+          "healed": null,
+          "attack": null,
+          "rangedAttack": {
+            "x": 25,
+            "y": 27
+          },
+          "rangedMassAttack": null,
+          "heal": null,
+          "harvest": null,
+          "heal": null,
+          "repair": null,
+          "build": null,
+          "say": null,
+          "upgradeController": null,
+          "reserveController": null
+        }
+      }
+    ],
+    "users": {
+      "0": {
+        "username": "Player 1"
+      },
+      "1": {
+        "username": "player"
+      },
+      "2": {
+        "username": "Invader"
+      },
+      "3": {
+        "username": "Source Keeper"
+      },
+      "54bff72ab32a10f73a57d017": {
+        "ok": 1,
+        "_id": "54bff72ab32a10f73a57d017",
+        "email": "chivcha.lov@gmail.com",
+        "username": "player",
+        "cpu": 30,
+        "badge": {
+          "type": 9,
+          "color1": 31,
+          "color2": 53,
+          "color3": 74,
+          "param": 0,
+          "flip": false
+        },
+        "password": true,
+        "lastRespawnDate": 1489085471747,
+        "gcl": 50000000,
+        "credits": 3000,
+        "subscription": false,
+        "money": 0,
+        "subscriptionTokens": 4
+      }
+    },
+    "info": {},
+    "gameTime": 77,
+    "flags": [],
+    "visual": ""
+  },
+  {
+    "objects": [
+      {
+        "type": "constructedWall",
+        "x": 25,
+        "y": 27,
+        "hits": 9360,
+        "hitsMax": 300000000,
+        "_isDisabled": false,
+        "_id": "c56e2f92c18f9af02fcb1192",
+        "room": "sim"
+      },
+      {
+        "_id": "013793a3e7574063048c91e2",
+        "type": "creep",
+        "name": "attacker1",
+        "body": [
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "move",
+            "hits": 100
+          },
+          {
+            "type": "move",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          }
+        ],
+        "x": 23,
+        "y": 25,
+        "user": "54bff72ab32a10f73a57d017",
+        "room": "sim",
+        "energy": 0,
+        "power": 0,
+        "energyCapacity": 0,
+        "hits": 1300,
+        "hitsMax": 1300,
+        "spawning": false,
+        "fatigue": 0,
+        "ageTime": 1547,
+        "_isDisabled": false,
+        "actionLog": {
+          "attacked": null,
+          "healed": null,
+          "attack": {
+            "x": 24,
+            "y": 25
+          },
+          "rangedAttack": null,
+          "rangedMassAttack": null,
+          "heal": null,
+          "harvest": null,
+          "heal": null,
+          "repair": null,
+          "build": null,
+          "say": null,
+          "upgradeController": null,
+          "reserveController": null
+        }
+      },
+      {
+        "type": "energy",
+        "x": 24,
+        "y": 25,
+        "room": "sim",
+        "energy": 274,
+        "resourceType": "energy",
+        "_id": "d5e9a299e7006dc5f7436902"
+      }
+    ],
+    "users": {
+      "0": {
+        "username": "Player 1"
+      },
+      "1": {
+        "username": "player"
+      },
+      "2": {
+        "username": "Invader"
+      },
+      "3": {
+        "username": "Source Keeper"
+      },
+      "54bff72ab32a10f73a57d017": {
+        "ok": 1,
+        "_id": "54bff72ab32a10f73a57d017",
+        "email": "chivcha.lov@gmail.com",
+        "username": "player",
+        "cpu": 30,
+        "badge": {
+          "type": 9,
+          "color1": 31,
+          "color2": 53,
+          "color3": 74,
+          "param": 0,
+          "flip": false
+        },
+        "password": true,
+        "lastRespawnDate": 1489085471747,
+        "gcl": 50000000,
+        "credits": 3000,
+        "subscription": false,
+        "money": 0,
+        "subscriptionTokens": 4
+      }
+    },
+    "info": {},
+    "gameTime": 78,
+    "flags": [],
+    "visual": ""
+  },
+  {
+    "objects": [
+      {
+        "type": "constructedWall",
+        "x": 25,
+        "y": 27,
+        "hits": 9360,
+        "hitsMax": 300000000,
+        "_isDisabled": false,
+        "_id": "c56e2f92c18f9af02fcb1192",
+        "room": "sim"
+      },
+      {
+        "_id": "013793a3e7574063048c91e2",
+        "type": "creep",
+        "name": "attacker1",
+        "body": [
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "move",
+            "hits": 100
+          },
+          {
+            "type": "move",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          }
+        ],
+        "x": 23,
+        "y": 25,
+        "user": "54bff72ab32a10f73a57d017",
+        "room": "sim",
+        "energy": 0,
+        "power": 0,
+        "energyCapacity": 0,
+        "hits": 1300,
+        "hitsMax": 1300,
+        "spawning": false,
+        "fatigue": 0,
+        "ageTime": 1547,
+        "_isDisabled": false,
+        "actionLog": {
+          "attacked": null,
+          "healed": null,
+          "attack": null,
+          "rangedAttack": null,
+          "rangedMassAttack": null,
+          "heal": null,
+          "harvest": null,
+          "heal": null,
+          "repair": null,
+          "build": null,
+          "say": null,
+          "upgradeController": null,
+          "reserveController": null
+        }
+      },
+      {
+        "type": "energy",
+        "x": 24,
+        "y": 25,
+        "room": "sim",
+        "energy": 273,
+        "resourceType": "energy",
+        "_id": "d5e9a299e7006dc5f7436902",
+        "_isDisabled": false
+      }
+    ],
+    "users": {
+      "0": {
+        "username": "Player 1"
+      },
+      "1": {
+        "username": "player"
+      },
+      "2": {
+        "username": "Invader"
+      },
+      "3": {
+        "username": "Source Keeper"
+      },
+      "54bff72ab32a10f73a57d017": {
+        "ok": 1,
+        "_id": "54bff72ab32a10f73a57d017",
+        "email": "chivcha.lov@gmail.com",
+        "username": "player",
+        "cpu": 30,
+        "badge": {
+          "type": 9,
+          "color1": 31,
+          "color2": 53,
+          "color3": 74,
+          "param": 0,
+          "flip": false
+        },
+        "password": true,
+        "lastRespawnDate": 1489085471747,
+        "gcl": 50000000,
+        "credits": 3000,
+        "subscription": false,
+        "money": 0,
+        "subscriptionTokens": 4
+      }
+    },
+    "info": {},
+    "gameTime": 79,
+    "flags": [],
+    "visual": ""
+  },
+  {
+    "objects": [
+      {
+        "type": "constructedWall",
+        "x": 25,
+        "y": 27,
+        "hits": 9360,
+        "hitsMax": 300000000,
+        "_isDisabled": false,
+        "_id": "c56e2f92c18f9af02fcb1192",
+        "room": "sim"
+      },
+      {
+        "_id": "013793a3e7574063048c91e2",
+        "type": "creep",
+        "name": "attacker1",
+        "body": [
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "move",
+            "hits": 100
+          },
+          {
+            "type": "move",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          },
+          {
+            "type": "attack",
+            "hits": 100
+          }
+        ],
+        "x": 23,
+        "y": 25,
+        "user": "54bff72ab32a10f73a57d017",
+        "room": "sim",
+        "energy": 0,
+        "power": 0,
+        "energyCapacity": 0,
+        "hits": 1300,
+        "hitsMax": 1300,
+        "spawning": false,
+        "fatigue": 0,
+        "ageTime": 1547,
+        "_isDisabled": false,
+        "actionLog": {
+          "attacked": null,
+          "healed": null,
+          "attack": null,
+          "rangedAttack": null,
+          "rangedMassAttack": null,
+          "heal": null,
+          "harvest": null,
+          "heal": null,
+          "repair": null,
+          "build": null,
+          "say": null,
+          "upgradeController": null,
+          "reserveController": null
+        }
+      },
+      {
+        "type": "energy",
+        "x": 24,
+        "y": 25,
+        "room": "sim",
+        "energy": 272,
+        "resourceType": "energy",
+        "_id": "d5e9a299e7006dc5f7436902",
+        "_isDisabled": false
+      }
+    ],
+    "users": {
+      "0": {
+        "username": "Player 1"
+      },
+      "1": {
+        "username": "player"
+      },
+      "2": {
+        "username": "Invader"
+      },
+      "3": {
+        "username": "Source Keeper"
+      },
+      "54bff72ab32a10f73a57d017": {
+        "ok": 1,
+        "_id": "54bff72ab32a10f73a57d017",
+        "email": "chivcha.lov@gmail.com",
+        "username": "player",
+        "cpu": 30,
+        "badge": {
+          "type": 9,
+          "color1": 31,
+          "color2": 53,
+          "color3": 74,
+          "param": 0,
+          "flip": false
+        },
+        "password": true,
+        "lastRespawnDate": 1489085471747,
+        "gcl": 50000000,
+        "credits": 3000,
+        "subscription": false,
+        "money": 0,
+        "subscriptionTokens": 4
+      }
+    },
+    "info": {},
+    "gameTime": 80,
+    "flags": [],
+    "visual": ""
+  }
+]

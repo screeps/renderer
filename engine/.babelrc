@@ -1,0 +1,9 @@
+{
+  "presets": ["es2017"],
+  "plugins": [
+    "babel-plugin-transform-class-properties",
+    "babel-plugin-transform-exponentiation-operator",
+    "babel-plugin-transform-object-rest-spread",
+    "transform-es2015-spread"
+  ]
+}

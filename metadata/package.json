@@ -1,0 +1,32 @@
+{
+  "name": "@screeps/renderer-metadata",
+  "version": "1.0.0",
+  "description": "This library contains the renderer engine used in Screeps game.",
+  "main": "dist/renderer-metadata.js",
+  "files": [
+    "dist",
+    "images"
+  ],
+  "author": "Fedor Shubin <fedor@vedidev.com>",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/screeps/renderer.git"
+  },
+  "scripts": {
+    "build": "webpack --progress --colors",
+    "dev": "webpack --progress --colors --watch",
+    "dev-no-progress": "webpack --colors --watch",
+    "prepublish": "npm run build"
+  },
+  "devDependencies": {
+    "@screeps/common": "*",
+    "eslint": "^4.9.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-loader": "^2.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "webpack": "^4.17.1",
+    "webpack-cli": "^3.1.0"
+  },
+  "dependencies": {}
+}

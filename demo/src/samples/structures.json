@@ -1,0 +1,351 @@
+[
+  {
+    "objects": [
+      {
+        "type": "container",
+        "x": 22,
+        "y": 21,
+        "room": "sim",
+        "energy": 1000,
+        "energyCapacity": 2000,
+        "hits": 250000,
+        "hitsMax": 250000,
+        "nextDecayTime": 108,
+        "_id": "aa5f8a1bcd606a79457b44b6",
+        "_isDisabled": false,
+        "H": 500
+      },
+      {
+        "type": "extension",
+        "x": 24,
+        "y": 21,
+        "room": "sim",
+        "user": "54bff72ab32a10f73a57d017",
+        "energy": 100,
+        "energyCapacity": 200,
+        "hits": 1000,
+        "hitsMax": 1000,
+        "_id": "1cec33b1b1caf747d5bc366e",
+        "_isDisabled": false,
+        "off": false
+      },
+      {
+        "type": "keeperLair",
+        "x": 26,
+        "y": 21,
+        "room": "sim",
+        "ticksToSpawn": 1,
+        "user": "3",
+        "_id": "64a5603fe4a1539b77653f3a",
+        "_isDisabled": false,
+        "nextSpawnTime": 308
+      },
+      {
+        "type": "lab",
+        "x": 28,
+        "y": 21,
+        "room": "sim",
+        "user": "54bff72ab32a10f73a57d017",
+        "mineralAmount": 1500,
+        "mineralType": "L",
+        "mineralCapacity": 3000,
+        "energy": 1000,
+        "energyCapacity": 2000,
+        "hits": 500,
+        "hitsMax": 500,
+        "cooldown": 0,
+        "_id": "270a09d6e975fdc76560e5ce",
+        "_isDisabled": false,
+        "actionLog": {
+          "runReaction": null
+        }
+      },
+      {
+        "type": "link",
+        "x": 30,
+        "y": 21,
+        "room": "sim",
+        "user": "54bff72ab32a10f73a57d017",
+        "energy": 400,
+        "energyCapacity": 800,
+        "hits": 1000,
+        "hitsMax": 1000,
+        "cooldown": 0,
+        "_id": "1b6bb11192243f9f8049f16f",
+        "_isDisabled": false,
+        "actionLog": {
+          "transferEnergy": null
+        }
+      },
+      {
+        "type": "nuker",
+        "x": 22,
+        "y": 23,
+        "room": "sim",
+        "user": "54bff72ab32a10f73a57d017",
+        "hits": 1000,
+        "hitsMax": 1000,
+        "energy": 150000,
+        "energyCapacity": 300000,
+        "G": 2500,
+        "GCapacity": 5000,
+        "cooldownTime": 18,
+        "_id": "b23f8d8124cfe2d226e80bac",
+        "_isDisabled": false
+      },
+      {
+        "type": "observer",
+        "x": 24,
+        "y": 23,
+        "room": "sim",
+        "user": "54bff72ab32a10f73a57d017",
+        "hits": 500,
+        "hitsMax": 500,
+        "_id": "3367f29c20d5ae30c3f9421e",
+        "_isDisabled": false,
+        "observeRoom": null
+      },
+      {
+        "type": "powerBank",
+        "x": 26,
+        "y": 23,
+        "room": "sim",
+        "power": 2371,
+        "hits": 2000000,
+        "hitsMax": 2000000,
+        "decayTime": 5008,
+        "_id": "baa27054ed55487d5a39ee71",
+        "_isDisabled": false
+      },
+      {
+        "type": "powerSpawn",
+        "x": 28,
+        "y": 23,
+        "room": "sim",
+        "user": "54bff72ab32a10f73a57d017",
+        "power": 50,
+        "powerCapacity": 100,
+        "energy": 2500,
+        "energyCapacity": 5000,
+        "hits": 5000,
+        "hitsMax": 5000,
+        "_id": "469077c140233bd3ef656b5f",
+        "_isDisabled": false
+      },
+      {
+        "type": "source",
+        "x": 30,
+        "y": 23,
+        "room": "sim",
+        "energy": 1500,
+        "energyCapacity": 3000,
+        "ticksToRegeneration": 300,
+        "_id": "f99589276fc58130850de90e",
+        "_isDisabled": false,
+        "nextRegenerationTime": 309
+      },
+      {
+        "type": "spawn",
+        "x": 22,
+        "y": 25,
+        "room": "sim",
+        "name": "Spawn1",
+        "user": "54bff72ab32a10f73a57d017",
+        "energy": 153,
+        "energyCapacity": 300,
+        "hits": 5000,
+        "hitsMax": 5000,
+        "spawning": null,
+        "_id": "0dbfb5659fe6bac6a7ae0640",
+        "_isDisabled": false,
+        "off": false
+      },
+      {
+        "type": "storage",
+        "x": 24,
+        "y": 25,
+        "room": "sim",
+        "user": "54bff72ab32a10f73a57d017",
+        "energy": 500000,
+        "energyCapacity": 1000000,
+        "L": 300000,
+        "hits": 10000,
+        "hitsMax": 10000,
+        "_id": "9371251d6b6ec30f40cffc5a",
+        "_isDisabled": false
+      },
+      {
+        "type": "terminal",
+        "x": 26,
+        "y": 25,
+        "room": "sim",
+        "user": "54bff72ab32a10f73a57d017",
+        "energy": 150000,
+        "energyCapacity": 300000,
+        "hits": 3000,
+        "hitsMax": 3000,
+        "_id": "9758750f6303635cf2993b08",
+        "_isDisabled": false
+      },
+      {
+        "type": "tower",
+        "x": 28,
+        "y": 25,
+        "room": "sim",
+        "user": "54bff72ab32a10f73a57d017",
+        "energy": 500,
+        "energyCapacity": 1000,
+        "hits": 3000,
+        "hitsMax": 3000,
+        "_id": "22fa78bda5872a29a798bc69",
+        "_isDisabled": false,
+        "actionLog": {
+          "attack": null,
+          "heal": null,
+          "repair": null
+        }
+      },
+      {
+        "type": "controller",
+        "x": 30,
+        "y": 25,
+        "room": "sim",
+        "level": 8,
+        "_id": "408d9a5c019068b4135733e5",
+        "_isDisabled": false,
+        "progress": 0,
+        "user": "54bff72ab32a10f73a57d017",
+        "downgradeTime": 150009
+      },
+      {
+        "type": "mineral",
+        "x": 22,
+        "y": 27,
+        "room": "sim",
+        "mineralType": "Z",
+        "mineralAmount": 64686.92355929926,
+        "ticksToRegeneration": null,
+        "_id": "77d376cdce19d60d6bbd5b6a",
+        "_isDisabled": false
+      },
+      {
+        "type": "mineral",
+        "x": 24,
+        "y": 27,
+        "room": "sim",
+        "mineralType": "K",
+        "mineralAmount": 38868.67639907885,
+        "ticksToRegeneration": null,
+        "_id": "1c1ea508d09f55035d2522d7",
+        "_isDisabled": false
+      },
+      {
+        "type": "mineral",
+        "x": 26,
+        "y": 27,
+        "room": "sim",
+        "mineralType": "U",
+        "mineralAmount": 59802.73757842947,
+        "ticksToRegeneration": null,
+        "_id": "354d8bb200d7fc2f635ac878",
+        "_isDisabled": false
+      },
+      {
+        "type": "mineral",
+        "x": 28,
+        "y": 27,
+        "room": "sim",
+        "mineralType": "L",
+        "mineralAmount": 44729.58752369256,
+        "ticksToRegeneration": null,
+        "_id": "7816ecc6a783bb5b1b04e6e6",
+        "_isDisabled": false
+      },
+      {
+        "type": "mineral",
+        "x": 30,
+        "y": 27,
+        "room": "sim",
+        "mineralType": "X",
+        "mineralAmount": 46825.76501219951,
+        "ticksToRegeneration": null,
+        "_id": "ad1bc7315cd5829377940bd3",
+        "_isDisabled": false
+      },
+      {
+        "type": "mineral",
+        "x": 22,
+        "y": 29,
+        "room": "sim",
+        "mineralType": "H",
+        "mineralAmount": 55618.2673564552,
+        "ticksToRegeneration": null,
+        "_id": "70b4cbbd9b889144565ea5d0",
+        "_isDisabled": false
+      },
+      {
+        "type": "mineral",
+        "x": 24,
+        "y": 29,
+        "room": "sim",
+        "mineralType": "O",
+        "mineralAmount": 42284.14461137561,
+        "ticksToRegeneration": null,
+        "_id": "a5113d4ea12676e829e8179a",
+        "_isDisabled": false
+      },
+      {
+        "type": "extractor",
+        "x": 24,
+        "y": 29,
+        "room": "sim",
+        "user": "54bff72ab32a10f73a57d017",
+        "hits": 500,
+        "hitsMax": 500,
+        "_id": "054572fe3186132bc8e7f4b6",
+        "_isDisabled": false,
+        "cooldown": 9
+      }
+    ],
+    "users": {
+      "0": {
+        "username": "Player 1"
+      },
+      "1": {
+        "username": "Player 2"
+      },
+      "2": {
+        "username": "Invader"
+      },
+      "3": {
+        "username": "Source Keeper"
+      },
+      "54bff72ab32a10f73a57d017": {
+        "ok": 1,
+        "_id": "54bff72ab32a10f73a57d017",
+        "email": "chivcha.lov@gmail.com",
+        "username": "player",
+        "cpu": 30,
+        "badge": {
+          "type": 9,
+          "color1": 31,
+          "color2": 53,
+          "color3": 74,
+          "param": 0,
+          "flip": false
+        },
+        "password": true,
+        "lastRespawnDate": 1489085471747,
+        "gcl": 50000000,
+        "credits": 3000,
+        "subscription": false,
+        "money": 0,
+        "subscriptionTokens": 4
+      }
+    },
+    "info": {},
+    "gameTime": 13,
+    "flags": [],
+    "visual": ""
+  }
+]

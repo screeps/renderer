@@ -1,0 +1,269 @@
+[
+  {
+    "objects": [
+      {
+        "_id": "56f38f0db529d7dd02c61566",
+        "type": "spawn",
+        "x": 23,
+        "y": 16,
+        "room": "E3N15",
+        "notifyWhenAttacked": true,
+        "name": "Spawn42",
+        "user": "561e4d4645f3f7244a7622e8",
+        "energy": 0,
+        "energyCapacity": 300,
+        "hits": 5000,
+        "hitsMax": 5000,
+        "off": false,
+        "spawning": {
+          "name": "C_31235",
+          "needTime": 114,
+          "remainingTime": 94
+        },
+        "_updated": 13053927,
+        "_isDisabled": false
+      }
+    ],
+    "users": {
+      "0": {
+        "username": "Player 1"
+      },
+      "1": {
+        "username": "Player 2"
+      },
+      "2": {
+        "username": "Invader"
+      },
+      "3": {
+        "username": "Source Keeper"
+      },
+      "54bff72ab32a10f73a57d017": {
+        "ok": 1,
+        "_id": "54bff72ab32a10f73a57d017",
+        "email": "chivcha.lov@gmail.com",
+        "username": "player",
+        "cpu": 30,
+        "badge": {
+          "type": 9,
+          "color1": 31,
+          "color2": 53,
+          "color3": 74,
+          "param": 0,
+          "flip": false
+        },
+        "password": true,
+        "lastRespawnDate": 1489085471747,
+        "gcl": 50000000,
+        "credits": 3000,
+        "subscription": false,
+        "money": 0,
+        "subscriptionTokens": 4
+      }
+    },
+    "info": {},
+    "gameTime": 30,
+    "flags": [],
+    "visual": ""
+  },
+  {
+    "objects": [
+      {
+        "_id": "56f38f0db529d7dd02c61566",
+        "type": "spawn",
+        "x": 23,
+        "y": 16,
+        "room": "E3N15",
+        "notifyWhenAttacked": true,
+        "name": "Spawn42",
+        "user": "561e4d4645f3f7244a7622e8",
+        "energy": 300,
+        "energyCapacity": 300,
+        "hits": 5000,
+        "hitsMax": 5000,
+        "off": false,
+        "spawning": {
+          "name": "C_31235",
+          "needTime": 114,
+          "remainingTime": 94
+        },
+        "_updated": 13053927,
+        "_isDisabled": false
+      }
+    ],
+    "users": {
+      "0": {
+        "username": "Player 1"
+      },
+      "1": {
+        "username": "Player 2"
+      },
+      "2": {
+        "username": "Invader"
+      },
+      "3": {
+        "username": "Source Keeper"
+      },
+      "54bff72ab32a10f73a57d017": {
+        "ok": 1,
+        "_id": "54bff72ab32a10f73a57d017",
+        "email": "chivcha.lov@gmail.com",
+        "username": "player",
+        "cpu": 30,
+        "badge": {
+          "type": 9,
+          "color1": 31,
+          "color2": 53,
+          "color3": 74,
+          "param": 0,
+          "flip": false
+        },
+        "password": true,
+        "lastRespawnDate": 1489085471747,
+        "gcl": 50000000,
+        "credits": 3000,
+        "subscription": false,
+        "money": 0,
+        "subscriptionTokens": 4
+      }
+    },
+    "info": {},
+    "gameTime": 31,
+    "flags": [],
+    "visual": ""
+  },
+  {
+    "objects": [
+
+    ],
+    "users": {
+      "0": {
+        "username": "Player 1"
+      },
+      "1": {
+        "username": "Player 2"
+      },
+      "2": {
+        "username": "Invader"
+      },
+      "3": {
+        "username": "Source Keeper"
+      },
+      "54bff72ab32a10f73a57d017": {
+        "ok": 1,
+        "_id": "54bff72ab32a10f73a57d017",
+        "email": "chivcha.lov@gmail.com",
+        "username": "player",
+        "cpu": 30,
+        "badge": {
+          "type": 9,
+          "color1": 31,
+          "color2": 53,
+          "color3": 74,
+          "param": 0,
+          "flip": false
+        },
+        "password": true,
+        "lastRespawnDate": 1489085471747,
+        "gcl": 50000000,
+        "credits": 3000,
+        "subscription": false,
+        "money": 0,
+        "subscriptionTokens": 4
+      }
+    },
+    "info": {},
+    "gameTime": 32,
+    "flags": [],
+    "visual": ""
+  },
+  {
+    "objects": [
+
+    ],
+    "users": {
+      "0": {
+        "username": "Player 1"
+      },
+      "1": {
+        "username": "Player 2"
+      },
+      "2": {
+        "username": "Invader"
+      },
+      "3": {
+        "username": "Source Keeper"
+      },
+      "54bff72ab32a10f73a57d017": {
+        "ok": 1,
+        "_id": "54bff72ab32a10f73a57d017",
+        "email": "chivcha.lov@gmail.com",
+        "username": "player",
+        "cpu": 30,
+        "badge": {
+          "type": 9,
+          "color1": 31,
+          "color2": 53,
+          "color3": 74,
+          "param": 0,
+          "flip": false
+        },
+        "password": true,
+        "lastRespawnDate": 1489085471747,
+        "gcl": 50000000,
+        "credits": 3000,
+        "subscription": false,
+        "money": 0,
+        "subscriptionTokens": 4
+      }
+    },
+    "info": {},
+    "gameTime": 33,
+    "flags": [],
+    "visual": ""
+  },
+  {
+    "objects": [
+
+    ],
+    "users": {
+      "0": {
+        "username": "Player 1"
+      },
+      "1": {
+        "username": "Player 2"
+      },
+      "2": {
+        "username": "Invader"
+      },
+      "3": {
+        "username": "Source Keeper"
+      },
+      "54bff72ab32a10f73a57d017": {
+        "ok": 1,
+        "_id": "54bff72ab32a10f73a57d017",
+        "email": "chivcha.lov@gmail.com",
+        "username": "player",
+        "cpu": 30,
+        "badge": {
+          "type": 9,
+          "color1": 31,
+          "color2": 53,
+          "color3": 74,
+          "param": 0,
+          "flip": false
+        },
+        "password": true,
+        "lastRespawnDate": 1489085471747,
+        "gcl": 50000000,
+        "credits": 3000,
+        "subscription": false,
+        "money": 0,
+        "subscriptionTokens": 4
+      }
+    },
+    "info": {},
+    "gameTime": 34,
+    "flags": [],
+    "visual": ""
+  }
+]
