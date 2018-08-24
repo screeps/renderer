@@ -19,8 +19,9 @@ import object from './object';
  * @param params.payload.color=0xffffff
  * @param params.payload.x
  * @param params.payload.y
- * @param params.payload.pivotX
- * @param params.payload.pivotY
+ * @param params.payload.pivot
+ * @param params.payload.pivot.x
+ * @param params.payload.pivot.y
  * @param params.payload.texture=objectTexture
  * @returns {*}
  */
@@ -45,8 +46,9 @@ export default (params) => {
         return;
     }
     let resource;
-    if (_.isString(texture)) {
-        resource = resourceManager.getCachedResource(texture);
+    const parsedTexture = actionHelper.parseExpression(texture, params);
+    if (_.isString(parsedTexture)) {
+        resource = resourceManager.getCachedResource(parsedTexture);
     } else {
         resource = texture;
         if (!resource) {

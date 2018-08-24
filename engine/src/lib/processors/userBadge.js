@@ -20,6 +20,7 @@ export default (params) => {
             parentId,
             radius = CIRCLE_PAYLOAD.radius,
             color = CIRCLE_PAYLOAD.color,
+            ...restPayload
         } = {},
         scope,
         scope: { [parentId]: parent },
@@ -34,8 +35,10 @@ export default (params) => {
     if (userBadgeUrl) {
         const spritePayload = {
             ...BADGE_PAYLOAD,
-            ...{ width: 2 * radius, texture: userBadgeUrl },
+            width: 2 * radius,
+            texture: userBadgeUrl,
             parentId,
+            ...restPayload,
         };
         const scope = { [parentId]: parent };
         return sprite({ payload: spritePayload, scope, ...otherParams });

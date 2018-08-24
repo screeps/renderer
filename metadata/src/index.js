@@ -21,6 +21,7 @@ import nuker from './objects/nuker.metadata';
 import observer from './objects/observer.metadata';
 import portal from './objects/portal.metadata';
 import powerBank from './objects/powerBank.metadata';
+import powerCreep from './objects/powerCreep.metadata';
 import powerSpawn from './objects/powerSpawn.metadata';
 import rampart from './objects/rampart.metadata';
 import road from './objects/road.metadata';
@@ -167,6 +168,7 @@ export default {
         observer,
         portal,
         powerBank,
+        powerCreep,
         powerSpawn,
         road,
         source,

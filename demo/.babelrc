@@ -4,6 +4,8 @@
     "react"
   ],
   "plugins": [
-    "babel-plugin-transform-class-properties"
+    "transform-class-properties",
+    "transform-object-rest-spread",
+    "transform-es2015-spread"
   ]
 }

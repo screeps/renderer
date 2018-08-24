@@ -13,13 +13,14 @@ const TWEEN_DURATION = 0.6;
 
 const COLORS = {
     default: 0xffe56d,
-    rangedAttack: 0x5d80b2,
+    attack: 0xFF5555,
+    attackAndHeal: 0xFFFF55,
     heal: 0x65fd62,
+    power: 0xCC3D3E,
+    rangedAttack: 0x5d80b2,
+    reserveController: 0xFFFFFF,
     runReaction: 0xffffff,
     transferEnergy: 0xffe56d,
-    attack: 0xFF5555,
-    reserveController: 0xFFFFFF,
-    attackAndHeal: 0xFFFF55,
 };
 
 function createCoverSprite(resources, rootContainer, scope, world) {
@@ -171,8 +172,8 @@ function createChildCoverSpriteAction(scope, tint, tickDuration, delay = 0) {
 
 function createRangedShotAction(
     stage, world, fromObject, toObject, tickDuration, worldOptions, color,
-    lineWidth = 12, blur) {
-    const duration = TWEEN_DURATION * tickDuration;
+    lineWidth = 12, blur, partInTick = TWEEN_DURATION) {
+    const duration = partInTick * tickDuration;
     const rangedAttackObject = new Graphics();
     rangedAttackObject.x = fromObject.x;
     rangedAttackObject.y = fromObject.y;
@@ -195,11 +196,11 @@ function createRangedShotAction(
 
 function pushRangedShotActionWithBlur(
     actionsArray, stage, world, fromObject, toObject, tickDuration, worldOptions, color,
-    lineWidth, blur) {
+    lineWidth, blur, partInTick) {
     actionsArray.push(createRangedShotAction(stage, world, fromObject, toObject, tickDuration,
-        worldOptions, color, lineWidth));
+        worldOptions, color, lineWidth, undefined, partInTick));
     actionsArray.push(createRangedShotAction(stage, world, fromObject, toObject, tickDuration,
-        worldOptions, color, lineWidth, blur));
+        worldOptions, color, lineWidth, blur, partInTick));
 }
 
 export default (params) => {
@@ -221,18 +222,19 @@ export default (params) => {
     } = params;
     const { actionLog: {
         attacked = null,
-        healed = null,
         attack = null,
+        build = null,
         harvest = null,
         heal = null,
-        build = null,
+        healed = null,
+        power = null,
         rangedAttack = null,
         rangedHeal = null,
         repair = null,
+        reserveController = null,
         runReaction = null,
         transferEnergy = null,
         upgradeController = null,
-        reserveController = null,
     } = {} } = state;
     const parent = parentId ? scope[parentId] : rootContainer;
     if (!parent) {
@@ -306,6 +308,19 @@ export default (params) => {
     if (rangedHeal) {
         pushRangedShotActionWithBlur(actionsToApply, stage, world, rootContainer, rangedHeal,
             tickDuration, worldOptions, COLORS.heal, 12, 5);
+    }
+    if (power) {
+        pushRangedShotActionWithBlur(actionsToApply, stage, world, rootContainer, power,
+            tickDuration, worldOptions, COLORS.power, 12, 5, 0.3);
+        if (scope.mainContainer) {
+            const { x: targetX, y: targetY } = convertGameXYToWorld(power, worldOptions);
+            actionsToApply.push({
+                action: new RotateTo(
+                    calculateAngle(rootContainer.x, rootContainer.y, targetX, targetY),
+                    Math.max(tickDuration / 5, 0.4)),
+                target: scope.mainContainer,
+            });
+        }
     }
     if (build) {
         pushRangedShotActionWithBlur(actionsToApply, stage, world, rootContainer, build,

@@ -10,6 +10,7 @@ import disappear from './disappear';
 import draw from './draw';
 import moveTo from './moveTo';
 import object from './object';
+import powerInfluence from './powerInfluence';
 import resourceCircle from './resourceCircle';
 import road from './road';
 import runAction from './runAction';
@@ -30,6 +31,7 @@ export default {
     draw,
     moveTo,
     object,
+    powerInfluence,
     resourceCircle,
     road,
     runAction,
