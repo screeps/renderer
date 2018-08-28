@@ -10,4 +10,5 @@ export default {
         },
     ],
     disappearProcessor: { type: 'disappear' },
+    zIndex: -1
 };

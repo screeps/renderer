@@ -121,4 +121,5 @@ export default {
             },
         },
     ],
+    zIndex: 7
 };
