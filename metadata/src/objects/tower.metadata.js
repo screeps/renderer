@@ -5,6 +5,8 @@
 import mathHelper from '../../../helpers/mathHelper';
 
 const ENERGY_BAR_FULL_HEIGHT = 66.7;
+const isNpc = ({ state: { user } }) => user === '3' || user === '2';
+const isNotNpc = (...params) => !isNpc(...params);
 
 /**
  * Sprite for base.
@@ -61,9 +63,28 @@ export default {
         {
             type: 'sprite',
             once: 'true',
+            when: isNotNpc,
             payload: {
                 id: 'towerRotatable',
                 texture: 'tower-rotatable',
+                pivot: {
+                    y: 32,
+                },
+                width: 115,
+                height: 115,
+            },
+            actions: [{
+                action: 'RotateTo',
+                params: [{ $random: Math.PI * 2 }, 0],
+            }],
+        },
+        {
+            type: 'sprite',
+            once: 'true',
+            when: isNpc,
+            payload: {
+                id: 'towerRotatable',
+                texture: 'tower-rotatable-npc',
                 pivot: {
                     y: 32,
                 },
@@ -120,6 +141,7 @@ export default {
         },
         {
             type: 'draw',
+            when: isNotNpc,
             payload: {
                 parentId: 'towerRotatable',
                 drawings: [

@@ -240,6 +240,24 @@
         }
       },
       {
+        "type": "tower",
+        "x": 28,
+        "y": 29,
+        "room": "sim",
+        "user": "2",
+        "energy": 500,
+        "energyCapacity": 1000,
+        "hits": 3000,
+        "hitsMax": 3000,
+        "_id": "22fa78bda5872a29a798bc70",
+        "_isDisabled": false,
+        "actionLog": {
+          "attack": null,
+          "heal": null,
+          "repair": null
+        }
+      },
+      {
         "type": "controller",
         "x": 30,
         "y": 25,
