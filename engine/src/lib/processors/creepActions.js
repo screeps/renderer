@@ -272,13 +272,17 @@ export default (params) => {
             convertGameXYToWorld(harvest, worldOptions)));
     }
     if (reserveController) {
-        if (!posChanged) {
+        if (state.type === 'invaderCore') {
+            pushRangedShotActionWithBlur(actionsToApply, stage, world, rootContainer,
+                reserveController, tickDuration, worldOptions, COLORS.reserveController, 18, 5);
+        } else if (!posChanged) {
             createBiteAction(actionsToApply, rootContainer, scope, state, reserveController,
                 tickDuration, worldOptions);
         }
 
         actionsToApply.push(createCoverSpriteAction(scope, COLORS.reserveController,
-            tickDuration * 0.9, convertGameXYToWorld(reserveController, worldOptions)));
+            tickDuration * 0.9, convertGameXYToWorld(reserveController, worldOptions),
+            state.type === 'invaderCore' ? tickDuration * 0.3 : 0));
     }
     if (heal) {
         if (state.type === 'tower') {
@@ -315,7 +319,7 @@ export default (params) => {
     }
     if (build) {
         pushRangedShotActionWithBlur(actionsToApply, stage, world, rootContainer, build,
-            tickDuration, worldOptions, COLORS.default, 12, 5);
+            tickDuration, worldOptions, COLORS.default, state.type === 'invaderCore' ? 18 : 12, 5);
 
         actionsToApply.push(createCoverSpriteAction(scope, COLORS.default, tickDuration * 0.9,
             convertGameXYToWorld(build, worldOptions), tickDuration * 0.3));
