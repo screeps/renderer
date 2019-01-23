@@ -1,6 +1,4 @@
-/**
- * Created by vedi on 29/08/2017.
- */
+import constants from '@screeps/common/lib/constants';
 
 const arc = {
     color: 0xCCCCCC,
@@ -20,6 +18,11 @@ export default {
                     (needTime ? (((2 * Math.PI) * (needTime - remainingTime)) / needTime) : 0);
             },
         },
+        {
+            id: 'ttl',
+            func: ({ state: { decayTime }, stateExtra: { gameTime } }) =>
+                Math.floor((decayTime - gameTime) / 100) * 100,
+        },
     ],
     processors: [
         {
@@ -31,15 +34,16 @@ export default {
                 height: 200,
             },
         },
-        // {
-        //     type: 'sprite',
-        //     once: 'true',
-        //     payload: {
-        //         texture: 'invaderCore-ttl',
-        //         width: 200,
-        //         height: 200,
-        //     },
-        // },
+        {
+            type: 'siteProgress',
+            payload: {
+                color: 0xff0d39,
+                radius: 23,
+                lineWidth: 0,
+                progress: { $calc: 'ttl' },
+                progressTotal: constants.STRONGHOLD_DECAY_TICKS,
+            },
+        },
         {
             type: 'draw',
             props: ['spawningAngle'],

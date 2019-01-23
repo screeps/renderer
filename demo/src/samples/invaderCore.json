@@ -7,6 +7,7 @@
         "y": 29,
         "_id": "f22c392ae391f8e9038027a5",
         "room": "sim",
+        "decayTime": 150000,
         "spawning": {
           "name": "invader1",
           "needTime": 4,
@@ -33,6 +34,7 @@
         "y": 29,
         "_id": "f22c392ae391f8e9038027a5",
         "room": "sim",
+        "decayTime": 100000,
         "spawning": {
           "name": "invader1",
           "needTime": 4,
@@ -59,6 +61,7 @@
         "y": 29,
         "_id": "f22c392ae391f8e9038027a5",
         "room": "sim",
+        "decayTime": 50000,
         "spawning": {
           "name": "invader1",
           "needTime": 4,
@@ -85,6 +88,7 @@
         "y": 29,
         "_id": "f22c392ae391f8e9038027a5",
         "room": "sim",
+        "decayTime": 1,
         "spawning": {
           "name": "invader1",
           "needTime": 4,
@@ -111,6 +115,7 @@
         "y": 29,
         "_id": "f22c392ae391f8e9038027a5",
         "room": "sim",
+        "decayTime": -10,
         "spawning": null,
         "actionLog": {
           "build": null,
