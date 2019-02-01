@@ -2,6 +2,8 @@
  * Created by vedi on 23/04/2017.
  */
 
+import { calculateAngle } from '../../../helpers/mathHelper';
+
 const CELL_SIZE = 100;
 
 const BADGE_GEOMETRY = {
@@ -25,7 +27,6 @@ export default {
             id: 'rotation',
             props: ['x', 'y'],
             func: ({ prevState: { x: prevX, y: prevY } = {}, state: { x, y } }) => {
-                const { calculateAngle } = screeps.mathHelper;
                 return (prevX !== undefined && prevY !== undefined ?
                     calculateAngle(prevX, prevY, x, y) : 0);
             },
@@ -33,17 +34,17 @@ export default {
         {
             id: 'texture',
             props: ['level'],
-            func: ({ state: { level, class: className } }) => `${className}-lvl${level}`,
+            func: ({ state: { level, className } }) => `${className}-lvl${Math.min(4, Math.ceil(level / 6))}`,
         },
         {
             id: 'badgePivotY',
-            props: ['class'],
-            func: ({ state: { class: className } }) => BADGE_GEOMETRY[className].pivotY,
+            props: ['className'],
+            func: ({ state: { className } }) => BADGE_GEOMETRY[className].pivotY,
         },
         {
             id: 'badgeSize',
-            props: ['class'],
-            func: ({ state: { class: className } }) => BADGE_GEOMETRY[className].size,
+            props: ['className'],
+            func: ({ state: { className } }) => BADGE_GEOMETRY[className].size,
         },
     ],
     processors: [
@@ -99,10 +100,10 @@ export default {
             type: 'say',
             layer: 'effects',
             when: ({
-                state: { actionLog: { say } = {} },
-                stateExtra: { gameData: { showCreepSpeech } },
-                calcs: { isOwner },
-            }) =>
+                       state: { actionLog: { say } = {} },
+                       stateExtra: { gameData: { showCreepSpeech } },
+                       calcs: { isOwner },
+                   }) =>
                 !!showCreepSpeech && !!say && (say.isPublic || isOwner),
             payload: {
                 say: { $state: 'actionLog.say' },
@@ -167,5 +168,5 @@ export default {
         },
     ],
     disappearProcessor: { type: 'disappear' },
-    zIndex: 6,
+    zIndex: 13,
 };

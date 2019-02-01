@@ -158,7 +158,8 @@
         "spawning": null,
         "_id": "0dbfb5659fe6bac6a7ae0640",
         "_isDisabled": false,
-        "off": false
+        "off": false,
+        "effects": {}
       },
       {
         "type": "storage",
@@ -215,7 +216,8 @@
         "_isDisabled": false,
         "progress": 0,
         "user": "54bff72ab32a10f73a57d017",
-        "downgradeTime": 150009
+        "downgradeTime": 150009,
+        "isPowerEnabled": true
       },
       {
         "type": "mineral",

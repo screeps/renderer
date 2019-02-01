@@ -3,46 +3,48 @@
  */
 
 import { Sprite, Container } from 'pixi.js';
-import { convertGameXYToWorld } from '../mathHelper';
+import constants from '@screeps/common/lib/constants';
+
+import { convertGameXYToWorld } from '../../../../helpers/mathHelper';
 
 import { AlphaTo, DelayTime, ScaleTo, Sequence, Spawn } from '../actions';
 
 const INFLUENCE_TEXTURE = {
-    CORRUPT_SOURCE: 'corrupt-source',
-    DISABLE_SPAWN: 'disable-spawn',
-    DISABLE_TOWER: 'disable-tower',
-    DRAIN_EXTENSION: 'drain-extension',
-    EXTEND_MINERAL: 'extend-mineral',
-    EXTEND_SOURCE: 'extend-source',
-    GENERATE_OPS: 'generate-ops',
-    OPERATE_EXTENSION: 'operate-extension',
-    OPERATE_LAB: 'operate-lab',
-    OPERATE_OBSERVER: 'operate-observer',
-    OPERATE_SPAWN: 'operate-spawn',
-    OPERATE_STORAGE: 'operate-storage',
-    OPERATE_TERMINAL: 'operate-terminal',
-    OPERATE_TOWER: 'operate-tower',
-    SHIELD: 'shield',
+    [constants.PWR_CORRUPT_SOURCE]: 'corrupt-source',
+    [constants.PWR_DISABLE_SPAWN]: 'disable-spawn',
+    [constants.PWR_DISABLE_TOWER]: 'disable-tower',
+    [constants.PWR_DRAIN_EXTENSION]: 'drain-extension',
+    [constants.PWR_EXTEND_MINERAL]: 'extend-mineral',
+    [constants.PWR_EXTEND_SOURCE]: 'extend-source',
+    [constants.PWR_GENERATE_OPS]: 'generate-ops',
+    [constants.PWR_OPERATE_EXTENSION]: 'operate-extension',
+    [constants.PWR_OPERATE_LAB]: 'operate-lab',
+    [constants.PWR_OPERATE_OBSERVER]: 'operate-observer',
+    [constants.PWR_OPERATE_SPAWN]: 'operate-spawn',
+    [constants.PWR_OPERATE_STORAGE]: 'operate-storage',
+    [constants.PWR_OPERATE_TERMINAL]: 'operate-terminal',
+    [constants.PWR_OPERATE_TOWER]: 'operate-tower',
+    [constants.PWR_SHIELD]: 'shield',
 
-    BERSERK: 'berserk',
-    DEFEND: 'defend',
-    DISABLE: 'disable',
-    ENCOURAGE: 'encourage',
-    EXHAUST: 'exhaust',
-    RENEW: 'renew',
-    SIGHT: 'sight',
-    SUMMON: 'summon',
+    [constants.PWR_BERSERK]: 'berserk',
+    [constants.PWR_DEFEND]: 'defend',
+    [constants.PWR_DISABLE]: 'disable',
+    [constants.PWR_ENCOURAGE]: 'encourage',
+    [constants.PWR_EXHAUST]: 'exhaust',
+    [constants.PWR_RENEW]: 'renew',
+    [constants.PWR_SIGHT]: 'sight',
+    [constants.PWR_SUMMON]: 'summon',
 
-    DEMOLISH: 'demolish',
-    HARVEST_ENERGY: 'harvest-energy',
-    HARVEST_MINERAL: 'harvest-mineral',
-    KILL: 'kill',
-    MASS_REPAIR: 'mass-repair',
-    PUNCH: 'punch',
-    REFLECT: 'reflect',
-    REINFORCE: 'reinforce',
-    REMOTE_TRANSFER: 'remote-transfer',
-    SNIPE: 'snipe',
+    [constants.PWR_DEMOLISH]: 'demolish',
+    [constants.PWR_HARVEST_ENERGY]: 'harvest-energy',
+    [constants.PWR_HARVEST_MINERAL]: 'harvest-mineral',
+    [constants.PWR_KILL]: 'kill',
+    [constants.PWR_MASS_REPAIR]: 'mass-repair',
+    [constants.PWR_PUNCH]: 'punch',
+    [constants.PWR_REFLECT]: 'reflect',
+    [constants.PWR_REINFORCE]: 'reinforce',
+    [constants.PWR_REMOTE_TRANSFER]: 'remote-transfer',
+    [constants.PWR_SNIPE]: 'snipe',
 };
 
 function createCoverSprite(texture, rootContainer, scope, world) {
@@ -104,7 +106,7 @@ export default (params) => {
             options: worldOptions,
         },
     } = params;
-    const { actionLog: { power: { id: powerId, x, y } = {} } = {} } = state;
+    const { actionLog: { power } = {} } = state;
     const parent = parentId ? scope[parentId] : rootContainer;
     if (!parent) {
         logger.warn('No parent available with id', parentId);
@@ -115,10 +117,10 @@ export default (params) => {
     }
 
     const actionsToApply = [];
-    if (powerId) {
-        const textureKey = INFLUENCE_TEXTURE[powerId];
+    if (power) {
+        const textureKey = INFLUENCE_TEXTURE[power.id];
         if (!textureKey) {
-            console.log('No texture key provided for power id', powerId);
+            console.log('No texture key provided for power id', power.id);
         }
         const texture = stage.resources[textureKey];
         if (!texture) {
@@ -126,7 +128,7 @@ export default (params) => {
         }
         const sprite = createCoverSprite(texture, rootContainer, scope, world);
         actionsToApply.push(createCoverSpriteAction(sprite, tickDuration * 0.9,
-            convertGameXYToWorld({ x, y }, worldOptions), 0.3));
+            convertGameXYToWorld({ x: power.x, y: power.y }, worldOptions), 0.3));
     }
     applyActions(actionsToApply, stage.actionManager);
 };

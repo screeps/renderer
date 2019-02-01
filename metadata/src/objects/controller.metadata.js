@@ -404,6 +404,52 @@ export default {
                 alpha: 1,
             },
         },
+        {
+            type: 'sprite',
+            layer: 'effects',
+            id: 'flare',
+            props: ['isPowerEnabled'],
+            payload: {
+                texture: 'flare3',
+                width: 400,
+                height: 400,
+                alpha: 0,
+                blendMode: 1,
+                tint: 0xFF0000,
+            },
+            when: ({ state: { isPowerEnabled } }) => !!isPowerEnabled,
+            actions: [
+                {
+                    action: 'Repeat',
+                    params: [{
+                            action: 'Sequence',
+                            params: [
+                                [
+                                    {
+                                        action: 'AlphaTo',
+                                        params: [0.4, 0.2],
+                                    },
+                                    {
+                                        action: 'AlphaTo',
+                                        params: [0, 1],
+                                    },
+                                    {
+                                        action: 'DelayTime',
+                                        params: [2],
+                                    },
+                                ],
+                            ],
+                        }],
+                },
+                {
+                    action: 'Repeat',
+                    params: [{
+                        action: 'RotateBy',
+                        params: [2 * Math.PI, 1],
+                    }],
+                }
+            ],
+        },
     ],
     zIndex: 4,
 };

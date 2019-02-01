@@ -1,4 +1,5 @@
 import StateDrive from '../StateDriver';
+import constants from '@screeps/common/lib/constants';
 
 const OWNER = '54bff72ab32a10f73a57d017';
 
@@ -53,8 +54,8 @@ const COMMON_OPERATOR_DATA = {
     name: 'scout1',
     user: OWNER,
     room: 'sim',
-    class: 'operator',
-    level: 1,
+    className: 'operator',
+    level: 0,
     x: 19,
     y: 21,
 };
@@ -63,7 +64,7 @@ const COMMON_EXECUTOR_DATA = {
     ...COMMON_OPERATOR_DATA,
     _id: 'powerCreepExecutor',
     name: 'scout2',
-    class: 'executor',
+    className: 'executor',
     x: 20,
     y: 24,
 };
@@ -72,7 +73,7 @@ const COMMON_COMMANDER_DATA = {
     ...COMMON_OPERATOR_DATA,
     _id: 'powerCreepCommander',
     name: 'scout3',
-    class: 'commander',
+    className: 'commander',
     x: 22,
     y: 27,
 };
@@ -262,28 +263,28 @@ export default [
     createState([
         operatorDriver
             .setActionLog({
-                power: { id: POWER_ID.CORRUPT_SOURCE, ...sourceDriver.getState('x', 'y') },
+                power: { id: constants.PWR_CORRUPT_SOURCE, ...sourceDriver.getState('x', 'y') },
             })
             .say({
-                message: POWER_ID.CORRUPT_SOURCE,
+                message: 'CORRUPT_SOURCE',
                 isPublic: true,
             })
             .createState(),
         commanderDriver
             .setActionLog({
-                power: { id: POWER_ID.BERSERK, ...towerDriver.getState('x', 'y') },
+                power: { id: constants.PWR_BERSERK, ...towerDriver.getState('x', 'y') },
             })
             .say({
-                message: POWER_ID.BERSERK,
+                message: 'BERSERK',
                 isPublic: true,
             })
             .createState(),
         executorDriver
             .setActionLog({
-                power: { id: POWER_ID.DEMOLISH, ...spawnDriver.getState('x', 'y') },
+                power: { id: constants.PWR_DEMOLISH, ...spawnDriver.getState('x', 'y') },
             })
             .say({
-                message: POWER_ID.DEMOLISH,
+                message: 'DEMOLISH',
                 isPublic: true,
             })
             .createState(),
@@ -291,28 +292,28 @@ export default [
     createState([
         operatorDriver
             .setActionLog({
-                power: { id: POWER_ID.DISABLE_SPAWN, ...spawnDriver.getState('x', 'y') },
+                power: { id: constants.PWR_DISABLE_SPAWN, ...spawnDriver.getState('x', 'y') },
             })
             .say({
-                message: POWER_ID.DISABLE_SPAWN,
+                message: 'DISABLE_SPAWN',
                 isPublic: true,
             })
             .createState(),
         commanderDriver
             .setActionLog({
-                power: { id: POWER_ID.DEFEND, ...towerDriver.getState('x', 'y') },
+                power: { id: constants.PWR_DEFEND, ...towerDriver.getState('x', 'y') },
             })
             .say({
-                message: POWER_ID.DEFEND,
+                message: 'DEFEND',
                 isPublic: true,
             })
             .createState(),
         executorDriver
             .setActionLog({
-                power: { id: POWER_ID.HARVEST_ENERGY, ...spawnDriver.getState('x', 'y') },
+                power: { id: constants.PWR_HARVEST_ENERGY, ...spawnDriver.getState('x', 'y') },
             })
             .say({
-                message: POWER_ID.HARVEST_ENERGY,
+                message: 'HARVEST_ENERGY',
                 isPublic: true,
             })
             .createState(),
@@ -320,28 +321,28 @@ export default [
     createState([
         operatorDriver
             .setActionLog({
-                power: { id: POWER_ID.DISABLE_TOWER, ...towerDriver.getState('x', 'y') },
+                power: { id: constants.PWR_DISABLE_TOWER, ...towerDriver.getState('x', 'y') },
             })
             .say({
-                message: POWER_ID.DISABLE_TOWER,
+                message: 'DISABLE_TOWER',
                 isPublic: true,
             })
             .createState(),
         commanderDriver
             .setActionLog({
-                power: { id: POWER_ID.DISABLE, ...sourceDriver.getState('x', 'y') },
+                power: { id: constants.PWR_DISABLE, ...sourceDriver.getState('x', 'y') },
             })
             .say({
-                message: POWER_ID.DISABLE,
+                message: 'DISABLE',
                 isPublic: true,
             })
             .createState(),
         executorDriver
             .setActionLog({
-                power: { id: POWER_ID.HARVEST_MINERAL, ...mineralDriver.getState('x', 'y') },
+                power: { id: constants.PWR_HARVEST_MINERAL, ...mineralDriver.getState('x', 'y') },
             })
             .say({
-                message: POWER_ID.HARVEST_MINERAL,
+                message: 'HARVEST_MINERAL',
                 isPublic: true,
             })
             .createState(),
@@ -349,28 +350,28 @@ export default [
     createState([
         operatorDriver
             .setActionLog({
-                power: { id: POWER_ID.DRAIN_EXTENSION, ...extensionDriver.getState('x', 'y') },
+                power: { id: constants.PWR_DRAIN_EXTENSION, ...extensionDriver.getState('x', 'y') },
             })
             .say({
-                message: POWER_ID.DRAIN_EXTENSION,
+                message: 'DRAIN_EXTENSION',
                 isPublic: true,
             })
             .createState(),
         commanderDriver
             .setActionLog({
-                power: { id: POWER_ID.ENCOURAGE, ...towerDriver.getState('x', 'y') },
+                power: { id: constants.PWR_ENCOURAGE, ...towerDriver.getState('x', 'y') },
             })
             .say({
-                message: POWER_ID.ENCOURAGE,
+                message: 'ENCOURAGE',
                 isPublic: true,
             })
             .createState(),
         executorDriver
             .setActionLog({
-                power: { id: POWER_ID.KILL, ...terminalDriver.getState('x', 'y') },
+                power: { id: constants.PWR_KILL, ...terminalDriver.getState('x', 'y') },
             })
             .say({
-                message: POWER_ID.KILL,
+                message: 'KILL',
                 isPublic: true,
             })
             .createState(),
@@ -378,28 +379,28 @@ export default [
     createState([
         operatorDriver
             .setActionLog({
-                power: { id: POWER_ID.EXTEND_MINERAL, ...mineralDriver.getState('x', 'y') },
+                power: { id: constants.PWR_EXTEND_MINERAL, ...mineralDriver.getState('x', 'y') },
             })
             .say({
-                message: POWER_ID.EXTEND_MINERAL,
+                message: 'EXTEND_MINERAL',
                 isPublic: true,
             })
             .createState(),
         commanderDriver
             .setActionLog({
-                power: { id: POWER_ID.EXHAUST, ...towerDriver.getState('x', 'y') },
+                power: { id: constants.PWR_EXHAUST, ...towerDriver.getState('x', 'y') },
             })
             .say({
-                message: POWER_ID.EXHAUST,
+                message: 'EXHAUST',
                 isPublic: true,
             })
             .createState(),
         executorDriver
             .setActionLog({
-                power: { id: POWER_ID.MASS_REPAIR, ...terminalDriver.getState('x', 'y') },
+                power: { id: constants.PWR_MASS_REPAIR, ...terminalDriver.getState('x', 'y') },
             })
             .say({
-                message: POWER_ID.MASS_REPAIR,
+                message: 'MASS_REPAIR',
                 isPublic: true,
             })
             .createState(),
@@ -407,28 +408,28 @@ export default [
     createState([
         operatorDriver
             .setActionLog({
-                power: { id: POWER_ID.EXTEND_SOURCE, ...sourceDriver.getState('x', 'y') },
+                power: { id: constants.PWR_EXTEND_SOURCE, ...sourceDriver.getState('x', 'y') },
             })
             .say({
-                message: POWER_ID.EXTEND_SOURCE,
+                message: 'EXTEND_SOURCE',
                 isPublic: true,
             })
             .createState(),
         commanderDriver
             .setActionLog({
-                power: { id: POWER_ID.RENEW, ...towerDriver.getState('x', 'y') },
+                power: { id: constants.PWR_RENEW, ...towerDriver.getState('x', 'y') },
             })
             .say({
-                message: POWER_ID.RENEW,
+                message: 'RENEW',
                 isPublic: true,
             })
             .createState(),
         executorDriver
             .setActionLog({
-                power: { id: POWER_ID.PUNCH, ...terminalDriver.getState('x', 'y') },
+                power: { id: constants.PWR_PUNCH, ...terminalDriver.getState('x', 'y') },
             })
             .say({
-                message: POWER_ID.PUNCH,
+                message: 'PUNCH',
                 isPublic: true,
             })
             .createState(),
@@ -436,28 +437,28 @@ export default [
     createState([
         operatorDriver
             .setActionLog({
-                power: { id: POWER_ID.GENERATE_OPS, ...sourceDriver.getState('x', 'y') },
+                power: { id: constants.PWR_GENERATE_OPS, ...sourceDriver.getState('x', 'y') },
             })
             .say({
-                message: POWER_ID.GENERATE_OPS,
+                message: 'GENERATE_OPS',
                 isPublic: true,
             })
             .createState(),
         commanderDriver
             .setActionLog({
-                power: { id: POWER_ID.SIGHT, ...towerDriver.getState('x', 'y') },
+                power: { id: constants.PWR_SIGHT, ...towerDriver.getState('x', 'y') },
             })
             .say({
-                message: POWER_ID.SIGHT,
+                message: 'SIGHT',
                 isPublic: true,
             })
             .createState(),
         executorDriver
             .setActionLog({
-                power: { id: POWER_ID.PUNCH, ...terminalDriver.getState('x', 'y') },
+                power: { id: constants.PWR_PUNCH, ...terminalDriver.getState('x', 'y') },
             })
             .say({
-                message: POWER_ID.PUNCH,
+                message: 'PUNCH',
                 isPublic: true,
             })
             .createState(),
@@ -465,28 +466,28 @@ export default [
     createState([
         operatorDriver
             .setActionLog({
-                power: { id: POWER_ID.OPERATE_EXTENSION, ...extensionDriver.getState('x', 'y') },
+                power: { id: constants.PWR_OPERATE_EXTENSION, ...extensionDriver.getState('x', 'y') },
             })
             .say({
-                message: POWER_ID.OPERATE_EXTENSION,
+                message: 'OPERATE_EXTENSION',
                 isPublic: true,
             })
             .createState(),
         commanderDriver
             .setActionLog({
-                power: { id: POWER_ID.SUMMON, ...towerDriver.getState('x', 'y') },
+                power: { id: constants.PWR_SUMMON, ...towerDriver.getState('x', 'y') },
             })
             .say({
-                message: POWER_ID.SUMMON,
+                message: 'SUMMON',
                 isPublic: true,
             })
             .createState(),
         executorDriver
             .setActionLog({
-                power: { id: POWER_ID.REFLECT, ...terminalDriver.getState('x', 'y') },
+                power: { id: constants.PWR_REFLECT, ...terminalDriver.getState('x', 'y') },
             })
             .say({
-                message: POWER_ID.REFLECT,
+                message: 'REFLECT',
                 isPublic: true,
             })
             .createState(),
@@ -494,20 +495,20 @@ export default [
     createState([
         operatorDriver
             .setActionLog({
-                power: { id: POWER_ID.OPERATE_LAB, ...labDriver.getState('x', 'y') },
+                power: { id: constants.PWR_OPERATE_LAB, ...labDriver.getState('x', 'y') },
             })
             .say({
-                message: POWER_ID.OPERATE_LAB,
+                message: 'OPERATE_LAB',
                 isPublic: true,
             })
             .createState(),
         commanderDriver.createState(),
         executorDriver
             .setActionLog({
-                power: { id: POWER_ID.REINFORCE, ...terminalDriver.getState('x', 'y') },
+                power: { id: constants.PWR_REINFORCE, ...terminalDriver.getState('x', 'y') },
             })
             .say({
-                message: POWER_ID.REINFORCE,
+                message: 'REINFORCE',
                 isPublic: true,
             })
             .createState(),
@@ -515,20 +516,20 @@ export default [
     createState([
         operatorDriver
             .setActionLog({
-                power: { id: POWER_ID.OPERATE_OBSERVER, ...observerDriver.getState('x', 'y') },
+                power: { id: constants.PWR_OPERATE_OBSERVER, ...observerDriver.getState('x', 'y') },
             })
             .say({
-                message: POWER_ID.OPERATE_OBSERVER,
+                message: 'OPERATE_OBSERVER',
                 isPublic: true,
             })
             .createState(),
         commanderDriver.createState(),
         executorDriver
             .setActionLog({
-                power: { id: POWER_ID.REMOTE_TRANSFER, ...terminalDriver.getState('x', 'y') },
+                power: { id: constants.PWR_REMOTE_TRANSFER, ...terminalDriver.getState('x', 'y') },
             })
             .say({
-                message: POWER_ID.REMOTE_TRANSFER,
+                message: 'REMOTE_TRANSFER',
                 isPublic: true,
             })
             .createState(),
@@ -536,20 +537,20 @@ export default [
     createState([
         operatorDriver
             .setActionLog({
-                power: { id: POWER_ID.OPERATE_SPAWN, ...spawnDriver.getState('x', 'y') },
+                power: { id: constants.PWR_OPERATE_SPAWN, ...spawnDriver.getState('x', 'y') },
             })
             .say({
-                message: POWER_ID.OPERATE_SPAWN,
+                message: 'OPERATE_SPAWN',
                 isPublic: true,
             })
             .createState(),
         commanderDriver.createState(),
         executorDriver
             .setActionLog({
-                power: { id: POWER_ID.SNIPE, ...terminalDriver.getState('x', 'y') },
+                power: { id: constants.PWR_SNIPE, ...terminalDriver.getState('x', 'y') },
             })
             .say({
-                message: POWER_ID.SNIPE,
+                message: 'SNIPE',
                 isPublic: true,
             })
             .createState(),
@@ -557,23 +558,10 @@ export default [
     createState([
         operatorDriver
             .setActionLog({
-                power: { id: POWER_ID.OPERATE_STORAGE, ...storageDriver.getState('x', 'y') },
+                power: { id: constants.PWR_OPERATE_STORAGE, ...storageDriver.getState('x', 'y') },
             })
             .say({
-                message: POWER_ID.OPERATE_STORAGE,
-                isPublic: true,
-            })
-            .createState(),
-        commanderDriver.createState(),
-        executorDriver.createState(),
-    ]),
-    createState([
-        operatorDriver
-            .setActionLog({
-                power: { id: POWER_ID.OPERATE_TERMINAL, ...terminalDriver.getState('x', 'y') },
-            })
-            .say({
-                message: POWER_ID.OPERATE_TERMINAL,
+                message: 'OPERATE_STORAGE',
                 isPublic: true,
             })
             .createState(),
@@ -583,10 +571,10 @@ export default [
     createState([
         operatorDriver
             .setActionLog({
-                power: { id: POWER_ID.OPERATE_TOWER, ...towerDriver.getState('x', 'y') },
+                power: { id: constants.PWR_OPERATE_TERMINAL, ...terminalDriver.getState('x', 'y') },
             })
             .say({
-                message: POWER_ID.OPERATE_TOWER,
+                message: 'OPERATE_TERMINAL',
                 isPublic: true,
             })
             .createState(),
@@ -596,10 +584,23 @@ export default [
     createState([
         operatorDriver
             .setActionLog({
-                power: { id: POWER_ID.SHIELD, ...extensionDriver.getState('x', 'y') },
+                power: { id: constants.PWR_OPERATE_TOWER, ...towerDriver.getState('x', 'y') },
             })
             .say({
-                message: POWER_ID.SHIELD,
+                message: 'OPERATE_TOWER',
+                isPublic: true,
+            })
+            .createState(),
+        commanderDriver.createState(),
+        executorDriver.createState(),
+    ]),
+    createState([
+        operatorDriver
+            .setActionLog({
+                power: { id: constants.PWR_SHIELD, ...extensionDriver.getState('x', 'y') },
+            })
+            .say({
+                message: 'SHIELD',
                 isPublic: true,
             })
             .createState(),

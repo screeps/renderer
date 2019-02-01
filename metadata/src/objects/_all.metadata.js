@@ -68,5 +68,52 @@ export default {
             },
             actions: [blinking(0, 0.5, 0.3, 1.5)],
         },
+        {
+            type: 'sprite',
+            layer: 'effects',
+            id: 'flare',
+            props: ['effects'],
+            payload: {
+                texture: 'flare3',
+                width: 300,
+                height: 300,
+                alpha: 0,
+                blendMode: 1,
+                tint: 0xFF0000,
+            },
+            when: ({ state: { effects }, stateExtra: { gameTime} }) =>
+                effects && Object.values(effects).some(effect => effect.endTime > gameTime),
+            actions: [
+                {
+                    action: 'Repeat',
+                    params: [{
+                        action: 'Sequence',
+                        params: [
+                            [
+                                {
+                                    action: 'AlphaTo',
+                                    params: [0.4, 0.2],
+                                },
+                                {
+                                    action: 'AlphaTo',
+                                    params: [0, 1],
+                                },
+                                {
+                                    action: 'DelayTime',
+                                    params: [2],
+                                },
+                            ],
+                        ],
+                    }],
+                },
+                {
+                    action: 'Repeat',
+                    params: [{
+                        action: 'RotateBy',
+                        params: [2 * Math.PI, 1],
+                    }],
+                }
+            ],
+        },
     ],
 };

@@ -314,12 +314,14 @@ export default (params) => {
             tickDuration, worldOptions, COLORS.power, 12, 5, 0.3);
         if (scope.mainContainer) {
             const { x: targetX, y: targetY } = convertGameXYToWorld(power, worldOptions);
-            actionsToApply.push({
-                action: new RotateTo(
-                    calculateAngle(rootContainer.x, rootContainer.y, targetX, targetY),
-                    Math.max(tickDuration / 5, 0.4)),
-                target: scope.mainContainer,
-            });
+            if (rootContainer.x !== targetX || rootContainer.y !== targetY) {
+                actionsToApply.push({
+                    action: new RotateTo(
+                        calculateAngle(rootContainer.x, rootContainer.y, targetX, targetY),
+                        Math.max(tickDuration / 5, 0.4)),
+                    target: scope.mainContainer,
+                });
+            }
         }
     }
     if (build) {
