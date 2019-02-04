@@ -10,12 +10,12 @@ import { convertGameXYToWorld } from '../../../../helpers/mathHelper';
 import { AlphaTo, DelayTime, ScaleTo, Sequence, Spawn } from '../actions';
 
 const INFLUENCE_TEXTURE = {
-    [constants.PWR_CORRUPT_SOURCE]: 'corrupt-source',
-    [constants.PWR_DISABLE_SPAWN]: 'disable-spawn',
-    [constants.PWR_DISABLE_TOWER]: 'disable-tower',
+    [constants.PWR_DISRUPT_SOURCE]: 'disrupt-source',
+    [constants.PWR_DISRUPT_SPAWN]: 'disrupt-spawn',
+    [constants.PWR_DISRUPT_TOWER]: 'disrupt-tower',
     [constants.PWR_DRAIN_EXTENSION]: 'drain-extension',
-    [constants.PWR_EXTEND_MINERAL]: 'extend-mineral',
-    [constants.PWR_EXTEND_SOURCE]: 'extend-source',
+    [constants.PWR_REGENERATE_MINERAL]: 'regenerate-mineral',
+    [constants.PWR_REGENERATE_SOURCE]: 'regenerate-source',
     [constants.PWR_GENERATE_OPS]: 'generate-ops',
     [constants.PWR_OPERATE_EXTENSION]: 'operate-extension',
     [constants.PWR_OPERATE_LAB]: 'operate-lab',
