@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+    <defs>
+        <style>
+            .cls-1,.cls-2,.cls-3{fill:none;stroke-linecap:round;stroke-linejoin:round;}.cls-1,.cls-2{stroke:#cc3d3e;}.cls-1{stroke-dasharray:4.32
+            4.32;}.cls-2{stroke-width:1.15px;stroke-dasharray:6.53 6.53;}.cls-3{stroke:#f4e383;}
+        </style>
+    </defs>
+    <title>Operate_power_spawn</title>
+    <g id="Layer_2" data-name="Layer 2" transform="translate(4.025 4.025)">
+        <g id="Слой_1" data-name="Слой 1">
+            <circle class="cls-1" cx="10.97" cy="10.97" r="6.88"/>
+            <circle class="cls-2" cx="10.97" cy="10.97" r="10.4"/>
+            <line class="cls-3" x1="10.97" y1="8.65" x2="10.97" y2="13.29"/>
+            <line class="cls-3" x1="13.29" y1="10.97" x2="8.65" y2="10.97"/>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32.73 32.73">
+    <defs>
+        <style>
+            .cls-1{fill:none;stroke:#cc3d3e;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:2.92
+            2.92;}.cls-2{fill:#f4e383;}.cls-3{fill:#cc3d3e;}.cls-0{fill:none}
+        </style>
+    </defs>
+    <title>Fortify</title>
+    <g id="Layer_2" data-name="Layer 2">
+
+        <g id="Слой_1" data-name="Слой 1" transform="translate(4 6.5)">
+            <path class="cls-1"
+                  d="M2.64,15.28A2.07,2.07,0,0,1,.51,13C1.4,5.94,6.4.5,12.43.5S23.47,5.94,24.35,13a2.07,2.07,0,0,1-2.12,2.24Z"/>
+            <path class="cls-2"
+                  d="M5.16,16a1.58,1.58,0,0,1-1.58-1.74c.65-5.49,4.37-9.7,8.86-9.7s8.2,4.21,8.86,9.7A1.58,1.58,0,0,1,19.72,16Z"/>
+            <rect class="cls-3" x="9.68" y="12.12" width="5.77" height="3.91"/>
+        </g>
+    </g>
+</svg>

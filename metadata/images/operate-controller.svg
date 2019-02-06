@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+    <defs>
+        <style>
+            .cls-1,.cls-2{fill:none;stroke-linecap:round;stroke-linejoin:round;}.cls-1{stroke:#cc3d3e;}.cls-2,.cls-3{stroke:#f4e383;}.cls-2{stroke-width:1.2px;}.cls-3{fill:#f4e383;stroke-miterlimit:10;stroke-width:2px;}.cls-4{fill:#cc3d3e;}
+        </style>
+    </defs>
+    <title>OPERATE_CONTROLLER</title>
+    <g id="Layer_2" data-name="Layer 2">
+        <g id="Слой_1" data-name="Слой 1"  transform="translate(3.555 2.5)">
+            <path class="cls-1"
+                  d="M22.39,15.75a11.15,11.15,0,0,1-13.26,8A11.25,11.25,0,0,1,.76,10.47,11.14,11.14,0,0,1,14.48,2.14"/>
+            <line class="cls-2" x1="11.44" y1="7.47" x2="11.44" y2="18.33"/>
+            <line class="cls-2" x1="16.87" y1="12.9" x2="6.01" y2="12.9"/>
+            <line class="cls-2" x1="15.28" y1="9.06" x2="7.6" y2="16.74"/>
+            <line class="cls-2" x1="15.28" y1="16.74" x2="7.6" y2="9.06"/>
+            <circle class="cls-3" cx="11.44" cy="12.9" r="2.36"/>
+            <circle class="cls-4" cx="14.9" cy="2.46" r="2.46"/>
+        </g>
+    </g>
+</svg>

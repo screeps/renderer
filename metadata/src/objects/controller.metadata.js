@@ -196,6 +196,63 @@ export default {
 
         {
             type: 'sprite',
+            layer: 'effects',
+            props: ['isPowerEnabled'],
+            payload: {
+                texture: 'glow',
+                alpha: 0.1,
+                tint: 0xff0000,
+                width: 1,
+                height: 1,
+                blendMode: 1,
+            },
+            when: ({ state: { isPowerEnabled } }) => !!isPowerEnabled,
+            actions: [
+                {
+                    action: 'Repeat',
+                    params: [{
+                        action: 'Sequence',
+                        params: [
+                            [
+                                {
+                                    action: 'Spawn',
+                                    params: [[
+                                        {
+                                            action: 'ScaleTo',
+                                            params: [20, 20, 1.0],
+                                        },
+                                        {
+                                            action: 'AlphaTo',
+                                            params: [0, 1.0],
+                                        },
+                                    ]],
+                                },
+                                {
+                                    action: 'Spawn',
+                                    params: [[
+                                        {
+                                            action: 'ScaleTo',
+                                            params: [0, 0, 0],
+                                        },
+                                        {
+                                            action: 'AlphaTo',
+                                            params: [0.1, 0],
+                                        },
+                                    ]],
+                                },
+                                {
+                                    action: 'DelayTime',
+                                    params: [7],
+                                },
+                            ],
+                        ],
+                    }],
+                },
+            ],
+        },
+
+        {
+            type: 'sprite',
             once: true,
             payload: {
                 tint: 0x000000,
@@ -403,52 +460,6 @@ export default {
                 height: 500,
                 alpha: 1,
             },
-        },
-        {
-            type: 'sprite',
-            layer: 'effects',
-            id: 'flare',
-            props: ['isPowerEnabled'],
-            payload: {
-                texture: 'flare3',
-                width: 400,
-                height: 400,
-                alpha: 0,
-                blendMode: 1,
-                tint: 0xFF0000,
-            },
-            when: ({ state: { isPowerEnabled } }) => !!isPowerEnabled,
-            actions: [
-                {
-                    action: 'Repeat',
-                    params: [{
-                            action: 'Sequence',
-                            params: [
-                                [
-                                    {
-                                        action: 'AlphaTo',
-                                        params: [0.4, 0.2],
-                                    },
-                                    {
-                                        action: 'AlphaTo',
-                                        params: [0, 1],
-                                    },
-                                    {
-                                        action: 'DelayTime',
-                                        params: [2],
-                                    },
-                                ],
-                            ],
-                        }],
-                },
-                {
-                    action: 'Repeat',
-                    params: [{
-                        action: 'RotateBy',
-                        params: [2 * Math.PI, 1],
-                    }],
-                }
-            ],
         },
     ],
     zIndex: 4,

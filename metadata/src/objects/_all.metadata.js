@@ -48,6 +48,11 @@ export default {
             id: 'viewBox',
             func: ({ world: { options: { VIEW_BOX } } }) => VIEW_BOX,
         },
+        {
+            id: 'hasEffect',
+            func: ({ state: { effects }, stateExtra: { gameTime} }) =>
+                effects && Object.values(effects).some(effect => effect.endTime > gameTime)
+        }
     ],
     processors: [
         {
@@ -72,7 +77,7 @@ export default {
             type: 'sprite',
             layer: 'effects',
             id: 'flare',
-            props: ['effects'],
+            props: ['hasEffect'],
             payload: {
                 texture: 'flare3',
                 width: 300,
@@ -81,8 +86,7 @@ export default {
                 blendMode: 1,
                 tint: 0xFF0000,
             },
-            when: ({ state: { effects }, stateExtra: { gameTime} }) =>
-                effects && Object.values(effects).some(effect => effect.endTime > gameTime),
+            when: ({ calcs: { hasEffect } }) => hasEffect,
             actions: [
                 {
                     action: 'Repeat',
