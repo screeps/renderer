@@ -2,8 +2,6 @@
  * Created by vedi on 19/04/2017.
  */
 
-import constants from '@screeps/common/lib/constants';
-
 import { resourceTotal } from '../calculation-templates';
 
 const WEIGHT = 110;
@@ -15,23 +13,20 @@ export default {
         resourceTotal(),
         {
             id: 'energyBackgroundHeight',
-            func: ({ calcs: { resourcesTotal } }) => {
-                const { STORAGE_CAPACITY } = constants;
-                return (resourcesTotal * TOTAL_HEIGHT) / STORAGE_CAPACITY;
+            func: ({ calcs: { resourcesTotal }, state: { energyCapacity } }) => {
+                return (resourcesTotal * TOTAL_HEIGHT) / Math.max(energyCapacity, resourcesTotal);
             },
         },
         {
             id: 'energyHeight',
-            func: ({ state: { energy } }) => {
-                const { STORAGE_CAPACITY } = constants;
-                return (energy * TOTAL_HEIGHT) / STORAGE_CAPACITY;
+            func: ({ calcs: { resourcesTotal }, state: { energy, energyCapacity } }) => {
+                return (energy * TOTAL_HEIGHT) / Math.max(energyCapacity, resourcesTotal);
             },
         },
         {
             id: 'powerHeight',
-            func: ({ state: { energy, power = 0 } }) => {
-                const { STORAGE_CAPACITY } = constants;
-                return ((power + energy) * TOTAL_HEIGHT) / STORAGE_CAPACITY;
+            func: ({ calcs: { resourcesTotal }, state: { energy, power = 0, energyCapacity } }) => {
+                return ((power + energy) * TOTAL_HEIGHT) / Math.max(energyCapacity, resourcesTotal);
             },
         },
     ],

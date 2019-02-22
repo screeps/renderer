@@ -264,6 +264,7 @@ export default [
         operatorDriver
             .setActionLog({
                 power: { id: constants.PWR_CORRUPT_SOURCE, ...sourceDriver.getState('x', 'y') },
+                spawned: true
             })
             .say({
                 message: 'CORRUPT_SOURCE',

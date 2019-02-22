@@ -199,8 +199,8 @@ export default {
             layer: 'effects',
             props: ['isPowerEnabled'],
             payload: {
-                texture: 'glow',
-                alpha: 0.1,
+                texture: 'flare1',
+                alpha: 0.4,
                 tint: 0xff0000,
                 width: 1,
                 height: 1,
@@ -236,17 +236,17 @@ export default {
                                         },
                                         {
                                             action: 'AlphaTo',
-                                            params: [0.1, 0],
+                                            params: [0.4, 0],
                                         },
                                     ]],
                                 },
                                 {
                                     action: 'DelayTime',
-                                    params: [7],
+                                    params: [5],
                                 },
                             ],
                         ],
-                    }],
+                    }]
                 },
             ],
         },

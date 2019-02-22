@@ -37,6 +37,10 @@ export default {
             func: ({ state: { level, className } }) => `${className}-lvl${Math.min(4, Math.ceil(level / 6))}`,
         },
         {
+            id: 'texture-light',
+            func: ({ state: { className } }) => `${className}-lvl4`,
+        },
+        {
             id: 'badgePivotY',
             props: ['className'],
             func: ({ state: { className } }) => BADGE_GEOMETRY[className].pivotY,
@@ -133,6 +137,40 @@ export default {
                 alpha: 1.0,
                 tint: 0xFF5555,
             },
+        },
+        {
+            type: 'sprite',
+            layer: 'effects',
+			once: true,
+			when: ({ state: { actionLog: { spawned } = {} } }) => !!spawned,
+            payload: {
+				texture: 'flare2',				
+				width: 400,
+				height: 400,
+				alpha: 1,
+                blendMode: 1,
+                tint: 0xff1111,
+            },
+            actions: [
+                {
+                    action: 'Sequence',
+                    params: [[
+                        {
+                            action: 'Spawn',
+                            params: [[
+                                {
+                                    action: 'AlphaTo',
+									params: [0.0, { $processorParam: 'tickDuration', koef: 0.5 }],                                       
+                                },
+								{
+                                    action: 'RotateBy',
+									params: [Math.PI / 8, { $processorParam: 'tickDuration', koef: 0.5 }],                                       
+                                },
+                            ]],
+                        },
+                    ]],
+                },
+            ],
         },
     ],
     actions: [
