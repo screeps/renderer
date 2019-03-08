@@ -50,6 +50,21 @@ export default {
             props: ['className'],
             func: ({ state: { className } }) => BADGE_GEOMETRY[className].size,
         },
+        {
+            id: 'safeMode',
+            func: ({
+                       stateExtra,
+                       state: { user },
+                       stateExtra: { controller, gameTime, objects },
+                   }) => {
+                if (controller === undefined) {
+                    controller = objects.find(i => i.type === 'controller') || null;
+                    stateExtra.controller = controller;
+                }
+                return controller && controller.safeMode > gameTime && controller.user !== user ?
+                    0.5 : 1.0;
+            },
+        },
     ],
     processors: [
         {
@@ -202,6 +217,15 @@ export default {
                     { $calc: 'rotation' },
                     { $processorParam: 'tickDuration', koef: 0.2 },
                 ],
+            }],
+        },
+        {
+            id: 'safeModeAlpha',
+            props: ['safeMode'],
+            targetId: 'mainContainer',
+            actions: [{
+                action: 'AlphaTo',
+                params: [{ $calc: 'safeMode' }, 0],
             }],
         },
     ],
