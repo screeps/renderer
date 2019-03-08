@@ -38,8 +38,8 @@ export const getRenderPath = (objectsArray, filter, prevMd5, diagonalConnect = f
 
     const arrayMd5 = md5(JSON.stringify(array, (key, value) => {
         if (key === '' ||
-            Array.isArray(value) ||
-            typeof value === 'object' ||
+            (Array.isArray(value) && key !== 'effects') ||
+            (typeof value === 'object' && key !== 'effects') ||
             key === 'x' ||
             key === 'y' ||
             key === 'type') {
