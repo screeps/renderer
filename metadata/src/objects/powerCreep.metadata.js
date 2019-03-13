@@ -16,8 +16,8 @@ const BADGE_GEOMETRY = {
         size: 45,
     },
     operator: {
-        pivotY: 20,
-        size: 75,
+        pivotY: 15,
+        size: 63,
     },
 };
 
