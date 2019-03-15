@@ -312,17 +312,6 @@ export default (params) => {
     if (power) {
         pushRangedShotActionWithBlur(actionsToApply, stage, world, rootContainer, power,
             tickDuration, worldOptions, COLORS.power, 12, 5, 0.3);
-        if (scope.mainContainer) {
-            const { x: targetX, y: targetY } = convertGameXYToWorld(power, worldOptions);
-            if (rootContainer.x !== targetX || rootContainer.y !== targetY) {
-                actionsToApply.push({
-                    action: new RotateTo(
-                        calculateAngle(rootContainer.x, rootContainer.y, targetX, targetY),
-                        Math.max(tickDuration / 5, 0.4)),
-                    target: scope.mainContainer,
-                });
-            }
-        }
     }
     if (build) {
         pushRangedShotActionWithBlur(actionsToApply, stage, world, rootContainer, build,
