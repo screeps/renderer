@@ -3,6 +3,7 @@
  */
 
 import { calculateAngle } from '../../../helpers/mathHelper';
+import {displayName} from "../action-templates";
 
 const CELL_SIZE = 100;
 
@@ -23,6 +24,11 @@ const BADGE_GEOMETRY = {
 
 export default {
     calculations: [
+        {
+            id: 'displayName',
+            func: ({ calcs: { isOwner }, state: { name, user }, stateExtra: { users } }) =>
+                (isOwner ? name : users[user].username),
+        },
         {
             id: 'rotation',
             props: ['x', 'y'],
@@ -115,6 +121,7 @@ export default {
             },
             props: '*',
         },
+        displayName('creeps'),
         {
             type: 'say',
             layer: 'effects',
