@@ -70,14 +70,14 @@ export default {
                     layer.addChild(sprite);
                 }
 
-                const beginFill = new Graphics();
-                beginFill.beginFill(!(app.renderer instanceof PIXI.WebGLRenderer) ? 0x202020 :
+                const background = new Graphics();
+                background.beginFill(!(app.renderer instanceof PIXI.WebGLRenderer) ? 0x202020 :
                     lighting == 'disabled' ? 0x202020 :
                         lighting == 'normal' ? 0x555555 :
                             0x353535);
-                beginFill.drawRect(-HALF_CELL_SIZE,-HALF_CELL_SIZE, VIEW_BOX, VIEW_BOX);
-                beginFill.endFill();
-                layer.addChild(beginFill);
+                background.drawRect(-HALF_CELL_SIZE,-HALF_CELL_SIZE, VIEW_BOX, VIEW_BOX);
+                background.endFill();
+                layer.addChild(background);
 
                 const ground = new TilingSprite(
                     resourceManager.getCachedResource('ground').texture, VIEW_BOX, VIEW_BOX);
