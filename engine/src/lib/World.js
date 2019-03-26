@@ -4,7 +4,7 @@
 
 import 'pixi-layers';
 import 'pixi-filters';
-import { Container, WebGLRenderer, display } from 'pixi.js';
+import { Container, WebGLRenderer, display, Graphics } from 'pixi.js';
 
 import ResourceManager from './ResourceManager';
 import PROCESSORS from './processors';
@@ -17,7 +17,8 @@ export default class World {
     constructor(options) {
         this.gameObjects = {};
         this.options = options;
-        const { app, actionManager, logger, metadata = {}, resourceMap, CELL_SIZE } = this.options;
+        const { app, actionManager, logger, metadata = {}, resourceMap,
+            CELL_SIZE, VIEW_BOX } = this.options;
         this.metadata = metadata;
 
         const { objects: metadataObjects = {} } = this.metadata;
@@ -65,6 +66,11 @@ export default class World {
             this.unmaskedRendererInfo = debugInfo &&
                 gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL);
         }
+
+        const mask = new Graphics();
+        mask.drawRect(-CELL_SIZE / 2, -CELL_SIZE / 2, VIEW_BOX, VIEW_BOX);
+        app.stage.addChild(mask);
+        app.stage.mask = mask;
     }
 
     async init() {
