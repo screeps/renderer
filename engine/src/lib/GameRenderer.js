@@ -188,17 +188,15 @@ export default class GameRenderer {
     }
 
     pan(x, y) {
-        this.app.stage.position.x += x * Math.max(1, window.devicePixelRatio || 1);
-        this.app.stage.position.y += y * Math.max(1, window.devicePixelRatio || 1);
+        this.app.stage.position.x += x;
+        this.app.stage.position.y += y;
     }
 
     zoomTo(value, x, y) {
         const oldZoomLevel = this.zoomLevel;
         this.zoomLevel = value;
-        const panX = (x - (this.app.stage.position.x / Math.max(1, window.devicePixelRatio || 1))) *
-            (1 - (this.zoomLevel / oldZoomLevel));
-        const panY = (y - (this.app.stage.position.y / Math.max(1, window.devicePixelRatio || 1))) *
-            (1 - (this.zoomLevel / oldZoomLevel));
+        const panX = (x - this.app.stage.position.x) * (1 - (this.zoomLevel / oldZoomLevel));
+        const panY = (y - this.app.stage.position.y) * (1 - (this.zoomLevel / oldZoomLevel));
         this.pan(panX, panY);
     }
 
