@@ -41,6 +41,7 @@ module.exports = {
     globals: {
         PIXI: true,
         RENDERER_METADATA: true,
+        window: true
     },
     parserOptions: {
         sourceType: 'module',

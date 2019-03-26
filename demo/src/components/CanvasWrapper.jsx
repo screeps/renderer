@@ -60,21 +60,23 @@ export default class CanvasWrapper extends Component {
         } = this;
         return (
             <div>
-                <span>
-                    FPS:{fps},
-                    GameObjectCounter:{gameObjectCounter},
-                    RendererCounter:{rendererCounter}
-                    RendererCounter:{JSON.stringify(renderer)}
-                </span>
-                <br />
-                {/*<button onClick={this.onZoomIn}>Zoom In</button>*/}
-                {/*<button onClick={this.onZoomOut}>Zoom Out</button>*/}
                 <Canvas
                     zoomLevel={zoomLevel}
                     samples={samples}
                     terrain={terrain}
                     onMetricsUpdate={this.onMetricsUpdate}
                 />
+                <div style={{position: 'relative', 'z-index': 1, background: 'rgba(0,0,0,0.3)', color: 'white', padding: '10px'}}>
+                    <span>
+                        FPS:{fps},
+                        GameObjectCounter:{gameObjectCounter},
+                        RendererCounter:{rendererCounter}
+                        RendererCounter:{JSON.stringify(renderer)}
+                    </span>
+                    <br />
+                    {/*<button onClick={this.onZoomIn}>Zoom In</button>*/}
+                    {/*<button onClick={this.onZoomOut}>Zoom Out</button>*/}
+                </div>
             </div>
         );
     }

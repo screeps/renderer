@@ -137,10 +137,11 @@ export default {
         glTex.enableLinearScaling();
     },
 
-    setSvgResizeHandler(app, sprite, resource) {
+    setSvgResizeHandler(world, sprite, resource) {
         if (resource.scaledSvgTextures) {
             const handler = () => {
-                let texture = resource.scaledSvgTextures[app.renderer.width];
+                const stageSize = world.app.stage.scale.x * world.options.VIEW_BOX;
+                let texture = resource.scaledSvgTextures[stageSize];
                 if (!texture) {
                     const keys = Object.keys(resource.scaledSvgTextures);
                     texture = resource.scaledSvgTextures[keys[keys.length - 1]];
@@ -157,8 +158,8 @@ export default {
                     }
                 });
             };
-            app.renderer.on('_resized', handler);
-            sprite.on('removed', () => app.renderer.off('_resized', handler));
+            world.app.renderer.on('_resized', handler);
+            sprite.on('removed', () => world.app.renderer.off('_resized', handler));
             handler();
         }
     },

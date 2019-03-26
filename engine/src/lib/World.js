@@ -17,7 +17,7 @@ export default class World {
     constructor(options) {
         this.gameObjects = {};
         this.options = options;
-        const { app, actionManager, logger, metadata = {}, resourceMap } = this.options;
+        const { app, actionManager, logger, metadata = {}, resourceMap, CELL_SIZE } = this.options;
         this.metadata = metadata;
 
         const { objects: metadataObjects = {} } = this.metadata;
@@ -47,11 +47,13 @@ export default class World {
 
         // renderer stuff
         app.stage = new Stage();
+        app.stage.pivot.x = -CELL_SIZE / 2;
+        app.stage.pivot.y = -CELL_SIZE / 2;
         this.app = app;
         this.stage = app.stage;
         this.stage.actionManager = actionManager;
         this.resourceMap = resourceMap;
-        this.resourceManager = new ResourceManager({ logger, app });
+        this.resourceManager = new ResourceManager({ logger, world: this });
         this.stage.resourceManager = this.resourceManager;
         this.layers = {};
         this.defaultLayerId = null;
@@ -138,6 +140,13 @@ export default class World {
         });
     }
 
+    removeAllObjects() {
+        Object.values(this.gameObjects).forEach((gameObject) => {
+            gameObject.remove(0);
+            delete this.gameObjects[gameObject.id];
+        });
+    }
+
     runStatePreprocessor(preprocessors = [], preprocessorParams) {
         preprocessors.forEach(preprocessor => preprocessor(preprocessorParams));
     }
@@ -172,6 +181,7 @@ export default class World {
             rendererCounter,
             // eslint-disable-next-line no-undef
             devicePixelRatio: window.devicePixelRatio,
+            stageSize: this.app.stage.scale.x * this.options.VIEW_BOX,
             renderer: rendererMetrics,
         };
     }

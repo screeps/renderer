@@ -3,24 +3,22 @@ import actionHelper from './utils/actionHelper';
 
 const { TextureCache } = utils;
 
-const VIEW_BOX = 5000;
 const MIN_SVG_RENDER_SIZE = 100;
-const MAX_SVG_RENDER_SIZE = 2000;
+const MAX_SVG_RENDER_SIZE = 3000;
 const STEP_SVG_RENDER_SIZE = 100;
 
 const svgCache = {};
 
 export default class ResourceManager {
     constructor(options) {
-        const { logger, app } = options;
+        const { logger, world } = options;
         this.logger = logger;
-        this.app = app;
+        this.world = world;
         this.delivering = false;
         this.loadedResources = {};
         this.queue = [];
-        // eslint-disable-next-line no-undef
-        this.maxSvgSize = window.screen.availWidth || MAX_SVG_RENDER_SIZE;
-        this.maxSvgSize = Math.round(this.maxSvgSize / STEP_SVG_RENDER_SIZE) * STEP_SVG_RENDER_SIZE;
+        this.maxSvgSize = Math.round(MAX_SVG_RENDER_SIZE / STEP_SVG_RENDER_SIZE) *
+            STEP_SVG_RENDER_SIZE;
     }
 
     load(resourceMap = {}, rescaleResources = []) {
@@ -67,7 +65,7 @@ export default class ResourceManager {
                             let texture = TextureCache[resource.name + size];
                             if (!texture) {
                                 const baseTexture = new BaseTexture();
-                                baseTexture.sourceScale = size / VIEW_BOX;
+                                baseTexture.sourceScale = size / this.world.options.VIEW_BOX;
                                 baseTexture.imageUrl = resource.url;
                                 baseTexture.source = resource.data;
                                 baseTexture._loadSvgSourceUsingString(svgCache[resource.name]);

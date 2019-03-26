@@ -30,7 +30,7 @@ export default (params) => {
         logger,
         rootContainer,
         scope,
-        world: { app },
+        world,
         objectMetadata: { texture: objectTexture },
         payload: {
             parentId,
@@ -69,7 +69,7 @@ export default (params) => {
             Sprite,
             [resource.texture]
         );
-        actionHelper.setSvgResizeHandler(app, obj, resource);
+        actionHelper.setSvgResizeHandler(world, obj, resource);
         return obj;
     } else {
         // wrapping to container
@@ -96,7 +96,7 @@ export default (params) => {
                     Sprite,
                     [loadedResource.texture]
                 );
-                actionHelper.setSvgResizeHandler(app, obj, loadedResource);
+                actionHelper.setSvgResizeHandler(world, obj, loadedResource);
                 obj.zIndex = -1000;
                 result.addChild(obj);
             });

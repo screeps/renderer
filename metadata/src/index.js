@@ -35,6 +35,7 @@ import tower from './objects/tower.metadata';
 
 const { VoidFilter } = PIXI.filters;
 const { TilingSprite } = PIXI.extras;
+const { Graphics } = PIXI;
 
 export default {
     preprocessors: [
@@ -69,14 +70,14 @@ export default {
                     layer.addChild(sprite);
                 }
 
-                if (lighting !== 'normal' || !(app.renderer instanceof PIXI.WebGLRenderer)) {
-                    const background = new PIXI.Graphics();
-                    background.beginFill(lighting === 'disabled' ||
-                        !(app.renderer instanceof PIXI.WebGLRenderer) ? 0x202020 : 0x353535, 1.0);
-                    background.drawRect(-HALF_CELL_SIZE, -HALF_CELL_SIZE, VIEW_BOX, VIEW_BOX);
-                    background.endFill();
-                    layer.addChild(background);
-                }
+                const beginFill = new Graphics();
+                beginFill.beginFill(!(app.renderer instanceof PIXI.WebGLRenderer) ? 0x202020 :
+                    lighting == 'disabled' ? 0x202020 :
+                        lighting == 'normal' ? 0x555555 :
+                            0x353535);
+                beginFill.drawRect(-HALF_CELL_SIZE,-HALF_CELL_SIZE, VIEW_BOX, VIEW_BOX);
+                beginFill.endFill();
+                layer.addChild(beginFill);
 
                 const ground = new TilingSprite(
                     resourceManager.getCachedResource('ground').texture, VIEW_BOX, VIEW_BOX);

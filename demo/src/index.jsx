@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import terrain from './samples/terrain1.json';
-import samples from './samples/sample_walls';
+import samples from './samples/room1';
 
 function start(_terrain, _samples) {
     ReactDOM.render(

@@ -20,6 +20,15 @@ export default class Canvas extends Component {
         onMetricsUpdate: null,
     };
 
+    constructor(props) {
+        super(props);
+
+        this.onMouseDown = this.onMouseDown.bind(this);
+        this.onMouseMove = this.onMouseMove.bind(this);
+        this.onMouseUp = this.onMouseUp.bind(this);
+        this.onWheel = this.onWheel.bind(this);
+    }
+
     /**
      * In this case, componentDidMount is used to grab the canvas container ref, and
      * and hook up the PixiJS renderer
@@ -31,10 +40,9 @@ export default class Canvas extends Component {
         GameRenderer.compileMetadata(worldConfigs.metadata);
         console.log(`compiled in ${Date.now() - startTime.getTime()}`);
         this.gameApp = new GameRenderer({
-            autoFocus: false,
             size: {
-                width: 700,
-                height: 700,
+                width: this.refs.gameCanvas.clientWidth,
+                height: this.refs.gameCanvas.clientHeight,
             },
             resourceMap,
             worldConfigs,
@@ -42,8 +50,7 @@ export default class Canvas extends Component {
             rescaleResources,
             countMetrics: true,
             useDefaultLogger: true,
-            backgroundColor: 0x555555,
-            fitToWorld: { width: 50, height: 50 },
+            backgroundColor: 0x050505,
         });
 
         this.metricsUpdate();
@@ -53,6 +60,7 @@ export default class Canvas extends Component {
         await this.gameApp.setTerrain(terrain);
 
         this.gameApp.resize();
+        this.gameApp.zoomLevel = 0.2;
         this.baseZoomLevel = this.gameApp.zoomLevel;
 
         let i = 0;
@@ -104,7 +112,7 @@ export default class Canvas extends Component {
      * Update the stage "zoom" level by setting the scale
      */
     updateZoomLevel = (props) => {
-        this.gameApp.zoomLevel = this.baseZoomLevel * props.zoomLevel;
+        // this.gameApp.zoomLevel = this.baseZoomLevel * props.zoomLevel;
     };
 
 
@@ -114,7 +122,34 @@ export default class Canvas extends Component {
     render() {
         return (
             // eslint-disable-next-line react/no-string-refs
-            <div className="game-canvas-container" ref="gameCanvas" />
+            <div className="game-canvas-container" ref="gameCanvas" style={{position: 'fixed', left: 0, top: 0, width: '100%', height: '100%'}}
+                 onMouseDown={this.onMouseDown}
+                 onMouseMove={this.onMouseMove}
+                 onMouseUp={this.onMouseUp}
+                 onWheel={this.onWheel}/>
         );
+    };
+
+    onMouseDown(e) {
+        this.pan = {x: e.pageX, y: e.pageY};
+    }
+
+    onMouseMove(e) {
+        if(this.pan) {
+            this.gameApp.pan(e.pageX - this.pan.x, e.pageY - this.pan.y);
+            this.pan = {x: e.pageX, y: e.pageY};
+        }
+    }
+
+    onMouseUp(e) {
+        this.pan = null;
+    }
+
+    onWheel(e) {
+        if (e.deltaY < 0) {
+            this.gameApp.zoomTo(this.gameApp.zoomLevel + 0.05, e.pageX, e.pageY);
+        } else {
+            this.gameApp.zoomTo(Math.max(this.gameApp.zoomLevel - 0.05, 0.1), e.pageX, e.pageY);
+        }
     }
 }

@@ -3,7 +3,6 @@
  */
 import _ from 'lodash';
 import * as PIXI from 'pixi.js';
-import { convertGameXYToWorld } from '../../../helpers/mathHelper';
 import actionHelper from './utils/actionHelper';
 
 import { ActionManager } from './actions';
@@ -79,7 +78,6 @@ export default class GameRenderer {
      */
     async init(container) {
         const {
-            autoFocus = true,
             autoStart = true,
             backgroundColor,
             size: {
@@ -130,8 +128,6 @@ export default class GameRenderer {
         if (autoStart) {
             this.start();
         }
-
-        this.shouldSetCamera = autoFocus;
     }
 
     release() {
@@ -166,14 +162,6 @@ export default class GameRenderer {
 
     applyState(state, tickDuration) {
         const result = this.world.applyState(state, tickDuration);
-        if (this.shouldSetCamera) {
-            const { worldConfigs } = this.options;
-            const worldPosition = this.world.getWorldPosition();
-            if (worldPosition) {
-                this.cameraPosition = convertGameXYToWorld(worldPosition, worldConfigs);
-                this.shouldSetCamera = false;
-            }
-        }
         return result;
     }
 
@@ -188,6 +176,7 @@ export default class GameRenderer {
      */
     set zoomLevel(value) {
         const { app: { stage, renderer } = {} } = this;
+        value = Math.round(value / (100 / 5000)) * (100 / 5000);
         if (stage) {
             const oldScale = stage.scale.x;
             stage.scale.x = value;
@@ -198,19 +187,19 @@ export default class GameRenderer {
         }
     }
 
-    /**
-     * Sets camera position of the stage.
-     * @param {Object} position
-     * @param {Number} position.x
-     * @param {Number} position.y
-     */
-    set cameraPosition(position) {
-        const { x, y } = position;
-        const { app: { stage, renderer } } = this;
-        stage.pivot.x = x;
-        stage.pivot.y = y;
-        stage.position.x = renderer.width / 2;
-        stage.position.y = renderer.height / 2;
+    pan(x, y) {
+        this.app.stage.position.x += x * (window.devicePixelRatio || 1);
+        this.app.stage.position.y += y * (window.devicePixelRatio || 1);
+    }
+
+    zoomTo(value, x, y) {
+        const oldZoomLevel = this.zoomLevel;
+        this.zoomLevel = value;
+        const panX = (x - (this.app.stage.position.x / (window.devicePixelRatio || 1))) *
+            (1 - (this.zoomLevel / oldZoomLevel));
+        const panY = (y - (this.app.stage.position.y / (window.devicePixelRatio || 1))) *
+            (1 - (this.zoomLevel / oldZoomLevel));
+        this.pan(panX, panY);
     }
 
     /**
@@ -226,7 +215,6 @@ export default class GameRenderer {
      */
     resize(newSize) {
         const {
-            options: { fitToWorld, worldConfigs: { CELL_SIZE } },
             app: { renderer } = {},
         } = this;
 
@@ -236,16 +224,6 @@ export default class GameRenderer {
 
         if (newSize) {
             renderer.resize(newSize.width, newSize.height);
-        }
-
-        if (fitToWorld) {
-            const scaleX = renderer.width / (CELL_SIZE * fitToWorld.width);
-            const scaleY = renderer.height / (CELL_SIZE * fitToWorld.height);
-            this.zoomLevel = Math.min(scaleX, scaleY);
-            this.cameraPosition = {
-                x: ((fitToWorld.width / 2) - 0.5) * CELL_SIZE,
-                y: ((fitToWorld.height / 2) - 0.5) * CELL_SIZE,
-            };
         }
     }
 
@@ -266,6 +244,10 @@ export default class GameRenderer {
         if (onGameLoop) {
             onGameLoop();
         }
+    }
+
+    erase() {
+        this.world.removeAllObjects();
     }
 
     static isWebGLSupported() {
