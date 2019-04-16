@@ -12,8 +12,8 @@ import { AlphaTo, DelayTime, ScaleTo, Sequence, Spawn } from '../actions';
 const INFLUENCE_TEXTURE = {
     [constants.PWR_DISRUPT_SOURCE]: 'disrupt-source',
     [constants.PWR_DISRUPT_SPAWN]: 'disrupt-spawn',
+    [constants.PWR_DISRUPT_TERMINAL]: 'disrupt-terminal',
     [constants.PWR_DISRUPT_TOWER]: 'disrupt-tower',
-    [constants.PWR_DRAIN_EXTENSION]: 'drain-extension',
     [constants.PWR_REGEN_MINERAL]: 'regen-mineral',
     [constants.PWR_REGEN_SOURCE]: 'regen-source',
     [constants.PWR_GENERATE_OPS]: 'generate-ops',

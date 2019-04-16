@@ -23,6 +23,7 @@ const resourceMap = {
     disable: 'disable.svg',
     'disrupt-spawn': 'disrupt-spawn.svg',
     'disrupt-tower': 'disrupt-tower.svg',
+    'disrupt-terminal': 'disrupt-terminal.svg',
     'drain-extension': 'drain-extension.svg',
     encourage: 'encourage.svg',
     exhaust: 'exhaust.svg',
