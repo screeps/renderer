@@ -25,6 +25,9 @@ const energyRectangle = {
     height: 10,
 };
 
+const isCooldown = ({ state: { cooldownTime }, stateExtra: { gameTime } }) =>
+    cooldownTime && cooldownTime > gameTime;
+
 export default {
     calculations: [
         {
@@ -64,7 +67,7 @@ export default {
         },
         {
             type: 'runAction',
-            when: ({ state: { cooldown } }) => cooldown > 0,
+            when: isCooldown,
             payload: {
                 id: 'lab-highlight',
             },
