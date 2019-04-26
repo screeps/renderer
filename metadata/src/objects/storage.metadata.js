@@ -3,6 +3,7 @@
  */
 
 import { resourceTotal } from '../calculation-templates';
+import constants from '@screeps/common/lib/constants';
 
 const WEIGHT = 110;
 const TOTAL_HEIGHT = 140;
@@ -14,19 +15,19 @@ export default {
         {
             id: 'energyBackgroundHeight',
             func: ({ calcs: { resourcesTotal }, state: { storeCapacity } }) => {
-                return (resourcesTotal * TOTAL_HEIGHT) / Math.max(storeCapacity, resourcesTotal);
+                return (resourcesTotal * TOTAL_HEIGHT) / Math.max(storeCapacity||constants.STORAGE_CAPACITY, resourcesTotal);
             },
         },
         {
             id: 'energyHeight',
             func: ({ calcs: { resourcesTotal }, state: { store, storeCapacity } }) => {
-                return (store['energy'] * TOTAL_HEIGHT) / Math.max(storeCapacity, resourcesTotal);
+                return (store['energy'] * TOTAL_HEIGHT) / Math.max(storeCapacity||constants.STORAGE_CAPACITY, resourcesTotal);
             },
         },
         {
             id: 'powerHeight',
             func: ({ calcs: { resourcesTotal }, state: { store, storeCapacity } }) => {
-                return (((store['power']||0) + (store['energy']||0)) * TOTAL_HEIGHT) / Math.max(storeCapacity, resourcesTotal);
+                return (((store['power']||0) + (store['energy']||0)) * TOTAL_HEIGHT) / Math.max((storeCapacity||constants.STORAGE_CAPACITY), resourcesTotal);
             },
         },
     ],
