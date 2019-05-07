@@ -307,6 +307,20 @@
         "_id": "054572fe3186132bc8e7f4b6",
         "_isDisabled": false,
         "cooldown": 9
+      },
+      {
+        "type": "factory",
+        "x": 26,
+        "y": 29,
+        "level": 2,
+        "room": "sim",
+        "user": "54bff72ab32a10f73a57d017",
+        "energy": 150000,
+        "energyCapacity": 300000,
+        "hits": 3000,
+        "hitsMax": 3000,
+        "_id": "9758750f6303635cf2993b09",
+        "_isDisabled": false
       }
     ],
     "users": {
