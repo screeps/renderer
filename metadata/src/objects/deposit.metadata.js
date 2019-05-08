@@ -80,6 +80,7 @@ export default {
                 width: 160,
                 height: 160,
                 alpha: { $calc: 'harvested' },
+                tint: { $calc: 'color' }
             },
         },
         {
@@ -89,6 +90,7 @@ export default {
                 texture: { $calc: 'deposit' },
                 width: 160,
                 height: 160,
+                tint: { $calc: 'color' }
             },
         },
         {
@@ -96,9 +98,10 @@ export default {
             once: true,
             layer: 'lighting',
             payload: {
-                texture: 'glow',
-                width: 200,
-                height: 200,
+                parentId: 'container',
+                texture: { $calc: 'deposit' },
+                width: 160,
+                height: 160,
                 alpha: 1,
             },
         },

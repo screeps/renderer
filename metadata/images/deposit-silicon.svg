@@ -2,16 +2,15 @@
     <defs>
         <style>
         .cls-1 {
-            fill: #4ca7e5;
+            fill: #ffffff;
         }
 
         .cls-1, .cls-3 {
-            opacity: 0.6;
         }
 
         .cls-2, .cls-3 {
             fill: none;
-            stroke: #4ca7e5;
+            stroke: #ffffff;
             stroke-miterlimit: 10;
             stroke-width: 8px;
         }
