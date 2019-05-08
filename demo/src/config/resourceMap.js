@@ -140,6 +140,15 @@ const rescaleResources = [
     'tombstone-border',
     'tombstone-resource',
     'tower-base',
+    'factory',
+    'factory-lvl0',
+    'factory-lvl1',
+    'factory-lvl2',
+    'factory-lvl3',
+    'factory-lvl4',
+    'factory-lvl5',
+    'factory-border',
+    'factory-highlight',
 ];
 
 export { resourceMap, rescaleResources };
