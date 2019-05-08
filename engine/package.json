@@ -20,7 +20,7 @@
     "prepublish": "npm run build"
   },
   "devDependencies": {
-    "@screeps/common": "*",
+    "@screeps/common": "^2.11.1",
     "babel-core": "^6.26.3",
     "babel-eslint": "^7.2.1",
     "babel-loader": "^7.1.5",
