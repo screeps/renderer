@@ -7,7 +7,7 @@ import { PWR_OPERATE_FACTORY } from '@screeps/common/lib/constants';
 import { blinking } from '../action-templates';
 import { resourceTotal } from '../calculation-templates';
 
-const SPRITE_SIZE = 256;
+const SPRITE_SIZE = 200;
 const CONTAINER_SIZE = 50.0;
 
 const COLOR_CONTAINER = 0x555555;
