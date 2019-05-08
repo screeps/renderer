@@ -307,6 +307,90 @@
         "_id": "054572fe3186132bc8e7f4b6",
         "_isDisabled": false,
         "cooldown": 9
+      },
+      {
+        "type": "deposit",
+        "x": 22,
+        "y": 31,
+        "room": "sim",
+        "depositType": "biomass",
+        "ticksToRegeneration": null,
+        "_id": "7816ecc6a783bb5b1b04e6a6",
+        "_isDisabled": false
+      },
+      {
+        "type": "deposit",
+        "x": 24,
+        "y": 31,
+        "room": "sim",
+        "depositType": "metal",
+        "ticksToRegeneration": null,
+        "_id": "7816ecc6a783bb5b1b04e6b6",
+        "_isDisabled": false
+      },
+      {
+        "type": "deposit",
+        "x": 26,
+        "y": 31,
+        "room": "sim",
+        "depositType": "mist",
+        "ticksToRegeneration": null,
+        "_id": "7816ecc6a783bb5b1b04e6c6",
+        "_isDisabled": false
+      },
+      {
+        "type": "deposit",
+        "x": 28,
+        "y": 31,
+        "room": "sim",
+        "depositType": "silicon",
+        "ticksToRegeneration": null,
+        "_id": "7816ecc6a783bb5b1b04e6d6",
+        "_isDisabled": false
+      },
+      {
+        "type": "deposit",
+        "x": 22,
+        "y": 33,
+        "room": "sim",
+        "harvested": 25000,
+        "depositType": "biomass",
+        "ticksToRegeneration": null,
+        "_id": "7816ecc6a783bb5b1b04e7a6",
+        "_isDisabled": false
+      },
+      {
+        "type": "deposit",
+        "x": 24,
+        "y": 33,
+        "room": "sim",
+        "harvested": 50000,
+        "depositType": "metal",
+        "ticksToRegeneration": null,
+        "_id": "7816ecc6a783bb5b1b04e7b6",
+        "_isDisabled": false
+      },
+      {
+        "type": "deposit",
+        "x": 26,
+        "y": 33,
+        "room": "sim",
+        "harvested": 100000,
+        "depositType": "mist",
+        "ticksToRegeneration": null,
+        "_id": "7816ecc6a783bb5b1b04e7c6",
+        "_isDisabled": false
+      },
+      {
+        "type": "deposit",
+        "x": 28,
+        "y": 33,
+        "room": "sim",
+        "harvested": 150000,
+        "depositType": "silicon",
+        "ticksToRegeneration": null,
+        "_id": "7816ecc6a783bb5b1b04e7d6",
+        "_isDisabled": false
       }
     ],
     "users": {
