@@ -1,5 +1,27 @@
 import { flickering } from '../action-templates';
 
+const scaleAction = {
+    action: 'Repeat',
+    params: [{
+        action: 'Sequence',
+        params: [
+            [{
+                action: 'Ease',
+                params: [{
+                    action: 'ScaleTo',
+                    params: [0.9, 0.9, 1],
+                }],
+            }, {
+                action: 'Ease',
+                params: [{
+                    action: 'ScaleTo',
+                    params: [1.1, 1.1, 1],
+                }],
+            }],
+        ],
+    }],
+};
+
 const COLORS = {
     biomass: 0x84b012,
     metal: 0x956f5c,
@@ -7,6 +29,8 @@ const COLORS = {
     silicon: 0x4ca7e5,
 };
 
+const isCooldown = ({ state: { cooldownTime }, stateExtra: { gameTime } }) =>
+    cooldownTime && cooldownTime >= gameTime;
 
 export default {
     calculations: [
@@ -28,16 +52,30 @@ export default {
         {
             id: 'harvested',
             props: ['harvested'],
-            func: ({ state: { depositType, harvested = 0 } }) => {
-                console.log(depositType, '=>', Math.max(0.2, 1 - (harvested / 150000)));
-                return Math.max(0.2, 1 - (harvested / 150000));
-            },
+            func: ({ state: { harvested = 0 } }) => Math.max(0.2, 1 - (harvested / 150000)),
         },
     ],
     processors: [
         {
+            type: 'container',
+            once: 'true',
+            payload: {
+                id: 'container',
+            },
+        },
+        {
+            type: 'runAction',
+            once: true,
+            when: isCooldown,
+            payload: {
+                id: 'container',
+            },
+            actions: [scaleAction],
+        },
+        {
             type: 'sprite',
             payload: {
+                parentId: 'container',
                 texture: { $calc: 'deposit-fill' },
                 width: 160,
                 height: 160,
@@ -47,6 +85,7 @@ export default {
         {
             type: 'sprite',
             payload: {
+                parentId: 'container',
                 texture: { $calc: 'deposit' },
                 width: 160,
                 height: 160,

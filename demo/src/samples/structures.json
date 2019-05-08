@@ -388,6 +388,7 @@
         "room": "sim",
         "harvested": 150000,
         "depositType": "silicon",
+        "cooldownTime": 140,
         "ticksToRegeneration": null,
         "_id": "7816ecc6a783bb5b1b04e7d6",
         "_isDisabled": false
