@@ -184,6 +184,29 @@ export default {
                 tint: COLOR_ENERGY,
             },
         },
+        {
+            type: 'sprite',
+            once: true,
+            layer: 'lighting',
+            shouldRun: ({ calcs: { resourcesTotal } }) => resourcesTotal > 0,
+            payload: {
+                texture: 'glow',
+                width: 200,
+                height: 200,
+                alpha: 1,
+            },
+        },
+        {
+            type: 'sprite',
+            layer: 'lighting',
+            once: true,
+            payload: {
+                texture: 'glow',
+                width: 800,
+                height: 800,
+                alpha: 0.5,
+            },
+        },
     ],
     zIndex: 5,
 };
