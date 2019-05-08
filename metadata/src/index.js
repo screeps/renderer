@@ -8,6 +8,7 @@ import constructionSite from './objects/constructionSite.metadata';
 import container from './objects/container.metadata';
 import controller from './objects/controller.metadata';
 import creep from './objects/creep.metadata';
+import deposit from './objects/deposit.metadata';
 import energy from './objects/energy.metadata';
 import extension from './objects/extension.metadata';
 import extractor from './objects/extractor.metadata';
@@ -156,6 +157,7 @@ export default {
         container,
         controller,
         creep,
+        deposit,
         energy,
         extension,
         extractor,
