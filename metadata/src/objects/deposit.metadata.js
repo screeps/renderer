@@ -9,13 +9,13 @@ const scaleAction = {
                 action: 'Ease',
                 params: [{
                     action: 'ScaleTo',
-                    params: [0.9, 0.9, 1],
+                    params: [0.7, 0.7, 1],
                 }],
             }, {
                 action: 'Ease',
                 params: [{
                     action: 'ScaleTo',
-                    params: [1.1, 1.1, 1],
+                    params: [1.0, 1.0, 0.3],
                 }],
             }],
         ],
@@ -52,7 +52,9 @@ export default {
         {
             id: 'harvested',
             props: ['harvested'],
-            func: ({ state: { harvested = 0 } }) => Math.max(0.2, 1 - (harvested / 150000)),
+            func: ({ state: { depositType, harvested = 0 } }) => {
+                return Math.max(0, 0.6 - (harvested / 100000));
+            },
         },
     ],
     processors: [
@@ -113,7 +115,7 @@ export default {
                 texture: 'glow',
                 width: 700,
                 height: 700,
-                alpha: 0.7,
+                alpha: 1,
                 tint: { $calc: 'color' },
             },
             actions: [flickering(0.7, 0.4, 1.0, 0.4)],
