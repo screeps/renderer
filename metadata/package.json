@@ -20,7 +20,7 @@
     "prepublish": "npm run build"
   },
   "devDependencies": {
-    "@screeps/common": "*",
+    "@screeps/common": "^2.11.1",
     "eslint": "^4.9.0",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-loader": "^2.1.0",
