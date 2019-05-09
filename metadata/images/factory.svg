@@ -1,10 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 39.2 39.2" width="200" height="200" version="1.1">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 41.2 41.2" width="200" height="200" version="1.1">
     <defs>
         <style>
             .cls-3{stroke-linejoin:round;stroke:#140a0a;stroke-width:1.17px;}
         </style>
     </defs>
-    <g fill="#232323">
+    <g fill="#232323" transform="translate(1,1)">
         <circle cx="19.6" cy="19.6" r="14.58" stroke="#140a0a" stroke-width="1.17" stroke-linejoin="round"/>
         <g fill-opacity="1">
             <path class="cls-3" fill="#232323" fill-opacity="1" d="M37.91 26.38l-8.85 2.82-11.84-3.77 11.84-3.77 8.89 2.83-.04 1.89z"/>
