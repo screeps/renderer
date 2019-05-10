@@ -208,5 +208,5 @@ export default {
             },
         },
     ],
-    zIndex: 5,
+    zIndex: 7,
 };
