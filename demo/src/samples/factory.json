@@ -101,8 +101,11 @@
         "_isDisabled": false,
         "H": 250,
         "effects": {
-            "power": 19,
-            "endTime": 15
+            "0" : {
+                "power" : 19, 
+                "level" : 1, 
+                "endTime" : 15
+            }
         }
     }],
     "gameTime": 5
@@ -125,8 +128,11 @@
         "_id": "aa5f8a1bcd606a79457b44bb",
         "_isDisabled": false,
         "effects": {
-            "power": 19,
-            "endTime": 15
+            "0" : {
+                "power" : 19, 
+                "level" : 1, 
+                "endTime" : 15
+            }
         }
     }],
     "gameTime": 6
@@ -149,8 +155,11 @@
         "_id": "aa5f8a1bcd606a79457b44bb",
         "_isDisabled": false,
         "effects": {
-            "power": 19,
-            "endTime": 15
+            "0" : {
+                "power" : 19, 
+                "level" : 1, 
+                "endTime" : 15
+            }
         },
         "cooldownTime": 9
     }],
@@ -174,8 +183,11 @@
         "_id": "aa5f8a1bcd606a79457b44bb",
         "_isDisabled": false,
         "effects": {
-            "power": 19,
-            "endTime": 15
+            "0" : {
+                "power" : 19, 
+                "level" : 1, 
+                "endTime" : 15
+            }
         },
         "cooldownTime": 9
     }],
@@ -199,8 +211,11 @@
         "_id": "aa5f8a1bcd606a79457b44bb",
         "_isDisabled": false,
         "effects": {
-            "power": 19,
-            "endTime": 15
+            "0" : {
+                "power" : 19, 
+                "level" : 1, 
+                "endTime" : 15
+            }
         },
         "cooldownTime": 9
     }],
@@ -224,8 +239,11 @@
         "_id": "aa5f8a1bcd606a79457b44bb",
         "_isDisabled": false,
         "effects": {
-            "power": 19,
-            "endTime": 15
+            "0" : {
+                "power" : 19, 
+                "level" : 1, 
+                "endTime" : 15
+            }
         },
         "cooldownTime": 9
     }],
@@ -249,8 +267,11 @@
         "_id": "aa5f8a1bcd606a79457b44bb",
         "_isDisabled": false,
         "effects": {
-            "power": 19,
-            "endTime": 10
+            "0" : {
+                "power" : 19, 
+                "level" : 1, 
+                "endTime" : 10
+            }
         },
         "cooldownTime": 9
     }],
@@ -274,8 +295,11 @@
         "_id": "aa5f8a1bcd606a79457b44bb",
         "_isDisabled": false,
         "effects": {
-            "power": 19,
-            "endTime": 15
+            "0" : {
+                "power" : 19, 
+                "level" : 1, 
+                "endTime" : 10
+            }
         },
         "cooldownTime": 9
     }],
