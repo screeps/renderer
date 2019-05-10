@@ -19,9 +19,9 @@ const isCooldown = ({ state: { cooldownTime }, stateExtra: { gameTime } }) =>
     cooldownTime && cooldownTime >= gameTime;
 const isNotCooldown = (...params) => !isCooldown(...params);
 const isLevel = ({ state: { level } }) => level > 0;
-const isPowerOperate = ({ state: { level, effects }, stateExtra: { gameTime } }) =>
-    level && effects && !Object.values(effects).some(({ power, endTime }) =>
-        power === PWR_OPERATE_FACTORY && endTime > gameTime);
+const isPowerOperate = ({ state: { effects }, stateExtra: { gameTime } }) =>
+    effects && Object.values(effects).some(({ power, endTime }) =>
+        power === PWR_OPERATE_FACTORY && endTime >= gameTime);
 const isLevelBlinking = (...params) => isLevel(...params) && !isPowerOperate(...params);
 const isNotLevelBlinking = (...params) => !isLevelBlinking(...params);
 
