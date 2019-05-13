@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 41.2 41.2" width="200" height="200" version="1.1">
+    <defs>
+        <style>
+            .cls-3{stroke-linejoin:round;stroke:#140a0a;stroke-width:1.17px;}
+        </style>
+    </defs>
+    <g fill="#232323" transform="translate(1,1)">
+        <circle cx="19.6" cy="19.6" r="14.58" stroke="#140a0a" stroke-width="1.17" stroke-linejoin="round"/>
+        <g fill-opacity="1">
+            <path class="cls-3" fill="#232323" fill-opacity="1" d="M37.91 26.38l-8.85 2.82-11.84-3.77 11.84-3.77 8.89 2.83-.04 1.89z"/>
+            <path class="cls-3" fill="#232323" fill-opacity="1" d="M1.29 24.47l8.85-2.82 11.84 3.77-11.84 3.76-8.89-2.82.04-1.89z"/>
+            <path class="cls-3" fill="#232323" fill-opacity="1" d="M37.91 14.74l-8.85 2.81-11.84-3.77 11.84-3.76 8.89 2.83-.04 1.89z"/>
+            <path class="cls-3" fill="#232323" fill-opacity="1" d="M1.29 12.82L10.14 10l11.84 3.77-11.84 3.77-8.89-2.83.04-1.89z"/>
+            <path class="cls-3" fill="#232323" fill-opacity="1" d="M12.82 37.91L10 29.06l3.77-11.84 3.77 11.84-2.83 8.89-1.89-.04z"/>
+            <path class="cls-3" fill="#232323" fill-opacity="1" d="M14.74 1.29l2.81 8.85-3.77 11.84-3.76-11.84 2.83-8.89 1.89.04z"/>
+            <path class="cls-3" fill="#232323" fill-opacity="1" d="M24.47 37.91l-2.82-8.85 3.77-11.84 3.76 11.84-2.82 8.89-1.89-.04z"/>
+            <path class="cls-3" fill="#232323" fill-opacity="1" d="M26.38 1.29l2.82 8.85-3.77 11.84-3.77-11.84 2.83-8.89 1.89.04z"/>
+        </g>
+    </g>
+</svg>

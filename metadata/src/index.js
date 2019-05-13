@@ -11,6 +11,7 @@ import creep from './objects/creep.metadata';
 import energy from './objects/energy.metadata';
 import extension from './objects/extension.metadata';
 import extractor from './objects/extractor.metadata';
+import factory from './objects/factory.metadata';
 import flag from './objects/flag.metadata';
 import keeperLair from './objects/keeperLair.metadata';
 import lab from './objects/lab.metadata';
@@ -159,6 +160,7 @@ export default {
         energy,
         extension,
         extractor,
+        factory,
         flag,
         keeperLair,
         lab,
