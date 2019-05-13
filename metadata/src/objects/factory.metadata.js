@@ -17,11 +17,13 @@ const COLOR_RESOURCE = 0xFFFFFF;
 
 const isCooldown = ({ state: { cooldownTime }, stateExtra: { gameTime } }) =>
     cooldownTime && cooldownTime >= gameTime;
+const isNotCooldown = (...params) => !isCooldown(...params);
 const isLevel = ({ state: { level } }) => level > 0;
 const isPowerOperate = ({ state: { effects }, stateExtra: { gameTime } }) =>
     effects && Object.values(effects).some(({ power, endTime }) =>
         power === PWR_OPERATE_FACTORY && endTime >= gameTime);
 const isLevelBlinking = (...params) => isLevel(...params) && !isPowerOperate(...params);
+const isNotLevelBlinking = (...params) => !isLevelBlinking(...params);
 
 export default {
     texture: 'rectangle',
@@ -72,10 +74,12 @@ export default {
         {
             id: 'factory-highlight',
             type: 'sprite',
+            once: true,
             payload: {
                 texture: 'factory-highlight',
                 width: SPRITE_SIZE,
                 height: SPRITE_SIZE,
+                alpha: 0.4
             },
         },
         {
@@ -84,11 +88,30 @@ export default {
             payload: {
                 id: 'factory-highlight',
             },
+            actions: [{
+                action: 'Sequence',
+                params: [[
+                    {
+                        action: 'AlphaTo',
+                        params: [1, { $processorParam: 'tickDuration', koef: 0.2 }],
+                    },
+                    {
+                        action: 'AlphaTo',
+                        params: [0, { $processorParam: 'tickDuration', koef: 0.8 }],
+                    },
+                ]],
+            }]
+        },{
+            type: 'runAction',
+            when: isNotCooldown,
+            payload: {
+                id: 'factory-highlight',
+            },
             actions: [
-                blinking(0, 1, {
-                    $processorParam: 'tickDuration', koef: 0.2 }, {
-                    $processorParam: 'tickDuration', koef: 0.8 }
-                ),
+                {
+                    action: 'AlphaTo',
+                    params: [0.4, 0],
+                },
             ],
         },
         {
@@ -104,6 +127,7 @@ export default {
             id: 'level',
             type: 'sprite',
             when: isLevel,
+            once: true,
             payload: {
                 texture: { $calc: 'factory-lvl' },
                 width: SPRITE_SIZE,
@@ -113,14 +137,25 @@ export default {
         {
             type: 'runAction',
             when: isLevelBlinking,
+            once: true,
             payload: {
                 id: 'level',
             },
             actions: [
-                blinking(0, 1, {
-                    $processorParam: 'tickDuration', koef: 0.2 }, {
-                    $processorParam: 'tickDuration', koef: 0.8 }
-                ),
+                blinking(0, 1, 0.2, 0.8),
+            ],
+        },
+        {
+            type: 'runAction',
+            when: isNotLevelBlinking,
+            payload: {
+                id: 'level',
+            },
+            actions: [
+                {
+                    action: 'AlphaTo',
+                    params: [1, 0],
+                },
             ],
         },
         {
