@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 139.4 141.67" width='128' height='128'>
+    <defs>
+        <style>
+        .cls-1 {
+            fill: #ffffff;
+        }
+
+        .cls-2, .cls-3 {
+            fill: none;
+            stroke: #ffffff;
+            stroke-miterlimit: 10;
+        }
+
+        .cls-2 {
+            stroke-width: 7.83px;
+        }
+
+        .cls-3 {
+            stroke-width: 3.91px;
+        }
+        </style>
+    </defs>
+    <title>mist</title>
+    <g>
+        <path class="cls-1" d="M68.45,4.63,4.11,116.07a1.44,1.44,0,0,0,1.25,2.17H134a1.45,1.45,0,0,0,1.25-2.17L71,4.63A1.45,1.45,0,0,0,68.45,4.63Z"/>
+    </g>
+</svg>

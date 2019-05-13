@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 119.43 132" width='128' height='128'>
+    <defs>
+        <style>
+        .cls-1 {
+            fill: #ffffff;
+        }
+
+        .cls-2, .cls-3 {
+            fill: none;
+            stroke: #ffffff;
+            stroke-miterlimit: 10;
+        }
+
+        .cls-2 {
+            stroke-width: 4px;
+        }
+
+        .cls-3 {
+            stroke-width: 8px;
+        }
+        </style>
+    </defs>
+    <title>biomass</title>
+    <g>
+        <path class="cls-1" d="M115.43,78.27c0,10.73-22.16,60.39-55.72,44.2C39.31,90.32,5.51,103,4,78.27c0-67.62,20.84-22.63,49.2-49.1C101.93-16.3,115.43,48.66,115.43,78.27Z"/>
+    </g>
+</svg>
