@@ -6,9 +6,9 @@ export default {
     calculations: [
         {
             id: 'energyScale',
-            props: ['energy', 'energyCapacity'],
-            func: ({ state: { energy, energyCapacity } }) =>
-                Math.min(1, energy / energyCapacity),
+            props: ['store', 'storeCapacityResource'],
+            func: ({ state: { store, storeCapacityResource } }) =>
+                storeCapacityResource ? Math.min(1, (store.energy||0) / storeCapacityResource.energy) : 0,
         },
     ],
     processors: [
@@ -74,7 +74,7 @@ export default {
             type: 'sprite',
             once: true,
             layer: 'lighting',
-            shouldRun: (({ state: { energy } }) => energy > 0),
+            shouldRun: (({ state: { store } }) => store.energy > 0),
             payload: {
                 texture: 'glow',
                 width: 100,
@@ -87,7 +87,7 @@ export default {
             once: true,
             type: 'sprite',
             layer: 'lighting',
-            shouldRun: (({ state: { energy } }) => energy > 0),
+            shouldRun: (({ state: { store } }) => store.energy > 0),
             payload: {
                 texture: 'glow',
                 width: 400,

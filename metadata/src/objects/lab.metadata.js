@@ -1,6 +1,7 @@
 /**
  * Created by vedi on 31/08/2017.
  */
+import resourceTotal from '../calculation-templates/resourceTotal';
 
 const mineralPath = {
     texture: 'lab-mineral',
@@ -30,19 +31,29 @@ const isCooldown = ({ state: { cooldownTime }, stateExtra: { gameTime } }) =>
 
 export default {
     calculations: [
+        resourceTotal(),
         {
             id: 'mineralPathScale',
-            props: ['mineralAmount', 'mineralCapacity'],
-            func: ({ state: { mineralAmount, mineralCapacity } }) => {
+            props: ['store', 'storeCapacity', 'storeCapacityResource'],
+            func: ({ state: { store, storeCapacity, storeCapacityResource }, calcs: { resourcesTotal } }) => {
                 const { scale: { x: scale } } = mineralPath;
-                return (scale * mineralAmount) / mineralCapacity;
+                const mineralType = _(store).keys().filter(k => k != 'energy' && store[k]).first();
+                if(!mineralType) {
+                    return 0;
+                }
+                const mineralCapacity = storeCapacityResource[mineralType] || storeCapacity - _.sum(storeCapacityResource);
+                if(!mineralCapacity) {
+                    return 0;
+                }
+                return (scale * (store[mineralType]||0)) / mineralCapacity;
             },
         },
         {
             id: 'energyWidth',
-            props: ['energy', 'energyCapacity'],
-            func: ({ state: { energy, energyCapacity } }) =>
-                (energyRectangle.width * energy) / energyCapacity,
+            props: ['store', 'storeCapacityResource'],
+            func: ({ state: { store, storeCapacityResource } }) =>
+                storeCapacityResource && storeCapacityResource.energy ?
+                    (energyRectangle.width * (store.energy||0)) / storeCapacityResource.energy : 0,
         },
     ],
     processors: [
@@ -130,7 +141,7 @@ export default {
             type: 'sprite',
             layer: 'lighting',
             once: true,
-            shouldRun: (({ state: { mineralAmount } }) => mineralAmount > 0),
+            shouldRun: (({ state: { store }, calcs: { resourcesTotal } }) => (resourcesTotal-(store.energy||0)) > 0),
             payload: {
                 texture: 'glow',
                 width: 150,
@@ -143,8 +154,8 @@ export default {
             type: 'sprite',
             once: true,
             layer: 'lighting',
-            props: ['mineralAmount'],
-            shouldRun: (({ state: { mineralAmount } }) => mineralAmount > 0),
+            props: ['store'],
+            shouldRun: (({ state: { store }, calcs: { resourcesTotal } }) => (resourcesTotal-(store.energy||0)) > 0),
             payload: {
                 texture: 'glow',
                 width: 500,

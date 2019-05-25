@@ -12,11 +12,11 @@ export default {
     calculations: [
         {
             id: 'size',
-            props: ['energyCapacity'],
-            func: ({ state: { energyCapacity } }) => {
-                if (energyCapacity >= 200) {
+            props: ['storeCapacityResource'],
+            func: ({ state: { storeCapacityResource } }) => {
+                if (storeCapacityResource && storeCapacityResource.energy >= 200) {
                     return METADATA.large;
-                } else if (energyCapacity >= 100) {
+                } else if (storeCapacityResource && storeCapacityResource.energy >= 100) {
                     return METADATA.medium;
                 } else {
                     return METADATA.small;
@@ -25,16 +25,16 @@ export default {
         },
         {
             id: 'resourceScale',
-            props: ['energy', 'energyCapacity'],
-            func: ({ state: { energy, energyCapacity } }) =>
-                Math.min(1, energy / energyCapacity),
+            props: ['store', 'storeCapacityResource'],
+            func: ({ state: { store, storeCapacityResource } }) =>
+                storeCapacityResource ? Math.min(1, (store.energy||0) / storeCapacityResource.energy) : 0,
         },
     ],
     processors: [
         {
             type: 'sprite',
             once: true,
-            when: ({ state: { energyCapacity } }) => energyCapacity < 100,
+            when: ({ state: { storeCapacityResource } }) => !storeCapacityResource || storeCapacityResource.energy < 100,
             payload: {
                 texture: 'extension-border50',
                 tint: { $calc: 'playerColor' },
@@ -45,7 +45,7 @@ export default {
         {
             type: 'sprite',
             once: true,
-            when: ({ state: { energyCapacity } }) => energyCapacity === 100,
+            when: ({ state: { storeCapacityResource } }) => storeCapacityResource && storeCapacityResource.energy === 100,
             payload: {
                 texture: 'extension-border100',
                 tint: { $calc: 'playerColor' },
@@ -56,7 +56,7 @@ export default {
         {
             type: 'sprite',
             once: true,
-            when: ({ state: { energyCapacity } }) => energyCapacity === 200,
+            when: ({ state: { storeCapacityResource } }) => storeCapacityResource && storeCapacityResource.energy === 200,
             payload: {
                 texture: 'extension-border200',
                 tint: { $calc: 'playerColor' },
@@ -67,7 +67,7 @@ export default {
 
         {
             type: 'sprite',
-            props: ['energyCapacity'],
+            props: ['storeCapacityResource'],
             payload: {
                 texture: 'extension',
                 width: { $calc: 'size' },
@@ -76,7 +76,7 @@ export default {
         },
         {
             id: 'resourceCircle',
-            props: ['energyCapacity'],
+            props: ['storeCapacityResource'],
             type: 'circle',
             payload: {
                 radius: { $calc: 'size', koef: 0.32 },
@@ -108,7 +108,7 @@ export default {
             type: 'sprite',
             once: true,
             layer: 'lighting',
-            shouldRun: (({ state: { energy } }) => energy > 0),
+            shouldRun: (({ state: { store } }) => store && store.energy > 0),
             payload: {
                 texture: 'glow',
                 width: 100,
@@ -120,8 +120,8 @@ export default {
             type: 'sprite',
             once: true,
             layer: 'lighting',
-            shouldRun: (({ state: { energy, energyCapacity } }) => energy > 0 &&
-                energyCapacity === 50),
+            shouldRun: (({ state: { store, storeCapacityResource } }) => (store.energy||0) > 0 &&
+                storeCapacityResource && storeCapacityResource.energy === 50),
             payload: {
                 texture: 'glow',
                 width: 200,
@@ -133,8 +133,8 @@ export default {
             type: 'sprite',
             once: true,
             layer: 'lighting',
-            shouldRun: (({ state: { energy, energyCapacity } }) => energy > 0 &&
-                energyCapacity === 100),
+            shouldRun: (({ state: { store, storeCapacityResource } }) => (store.energy||0) > 0 &&
+                storeCapacityResource && storeCapacityResource.energy === 100),
             payload: {
                 texture: 'glow',
                 width: 220,
@@ -146,8 +146,8 @@ export default {
             type: 'sprite',
             once: true,
             layer: 'lighting',
-            shouldRun: (({ state: { energy, energyCapacity } }) => energy > 0 &&
-                energyCapacity === 200),
+            shouldRun: (({ state: { store, storeCapacityResource } }) => (store.energy||0) > 0 &&
+                storeCapacityResource && storeCapacityResource.energy === 200),
             payload: {
                 texture: 'glow',
                 width: 250,

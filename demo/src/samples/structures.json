@@ -6,14 +6,16 @@
         "x": 22,
         "y": 21,
         "room": "sim",
-        "energy": 1000,
-        "energyCapacity": 2000,
         "hits": 250000,
         "hitsMax": 250000,
         "nextDecayTime": 108,
         "_id": "aa5f8a1bcd606a79457b44b6",
         "_isDisabled": false,
-        "H": 500
+        "storeCapacity": 2000,
+        "store": {
+          "energy": 1000,
+          "H": 500
+        }
       },
       {
         "type": "extension",
@@ -21,13 +23,17 @@
         "y": 21,
         "room": "sim",
         "user": "54bff72ab32a10f73a57d017",
-        "energy": 100,
-        "energyCapacity": 200,
         "hits": 1000,
         "hitsMax": 1000,
         "_id": "1cec33b1b1caf747d5bc366e",
         "_isDisabled": false,
-        "off": false
+        "off": false,
+        "store": {
+          "energy": 100
+        },
+        "storeCapacityResource": {
+          "energy": 200
+        }
       },
       {
         "type": "keeperLair",
@@ -46,11 +52,6 @@
         "y": 21,
         "room": "sim",
         "user": "54bff72ab32a10f73a57d017",
-        "mineralAmount": 1500,
-        "mineralType": "L",
-        "mineralCapacity": 3000,
-        "energy": 1000,
-        "energyCapacity": 2000,
         "hits": 500,
         "hitsMax": 500,
         "cooldown": 0,
@@ -58,6 +59,14 @@
         "_isDisabled": false,
         "actionLog": {
           "runReaction": null
+        },
+        "store": {
+          "energy": 1000,
+          "L": 1500
+        },
+        "storeCapacityResource": {
+          "energy": 2000,
+          "L": 3000
         }
       },
       {
@@ -66,8 +75,6 @@
         "y": 21,
         "room": "sim",
         "user": "54bff72ab32a10f73a57d017",
-        "energy": 400,
-        "energyCapacity": 800,
         "hits": 1000,
         "hitsMax": 1000,
         "cooldown": 0,
@@ -75,6 +82,12 @@
         "_isDisabled": false,
         "actionLog": {
           "transferEnergy": null
+        },
+        "store": {
+          "energy": 400
+        },
+        "storeCapacityResource": {
+          "energy": 800
         }
       },
       {
@@ -85,13 +98,17 @@
         "user": "54bff72ab32a10f73a57d017",
         "hits": 1000,
         "hitsMax": 1000,
-        "energy": 150000,
-        "energyCapacity": 300000,
-        "G": 2500,
-        "GCapacity": 5000,
         "cooldownTime": 18,
         "_id": "b23f8d8124cfe2d226e80bac",
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 150000,
+          "G": 2500
+        },
+        "storeCapacityResource": {
+          "energy": 300000,
+          "G": 5000
+        }
       },
       {
         "type": "observer",
@@ -123,14 +140,18 @@
         "y": 23,
         "room": "sim",
         "user": "54bff72ab32a10f73a57d017",
-        "power": 50,
-        "powerCapacity": 100,
-        "energy": 2500,
-        "energyCapacity": 5000,
         "hits": 5000,
         "hitsMax": 5000,
         "_id": "469077c140233bd3ef656b5f",
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 2500,
+          "power": 50
+        },
+        "storeCapacityResource": {
+          "energy": 5000,
+          "power": 100
+        }
       },
       {
         "type": "source",
@@ -151,15 +172,19 @@
         "room": "sim",
         "name": "Spawn1",
         "user": "54bff72ab32a10f73a57d017",
-        "energy": 153,
-        "energyCapacity": 300,
         "hits": 5000,
         "hitsMax": 5000,
         "spawning": null,
         "_id": "0dbfb5659fe6bac6a7ae0640",
         "_isDisabled": false,
         "off": false,
-        "effects": {}
+        "effects": {},
+        "store": {
+          "energy": 153
+        },
+        "storeCapacityResource": {
+          "energy": 300
+        }
       },
       {
         "type": "storage",
@@ -167,13 +192,15 @@
         "y": 25,
         "room": "sim",
         "user": "54bff72ab32a10f73a57d017",
-        "energy": 500000,
-        "energyCapacity": 1000000,
-        "L": 300000,
         "hits": 10000,
         "hitsMax": 10000,
         "_id": "9371251d6b6ec30f40cffc5a",
-        "_isDisabled": false
+        "_isDisabled": false,
+        "storeCapacity": 1000000,
+        "store": {
+          "energy": 500000,
+          "L": 300000
+        }
       },
       {
         "type": "terminal",
@@ -181,12 +208,14 @@
         "y": 25,
         "room": "sim",
         "user": "54bff72ab32a10f73a57d017",
-        "energy": 150000,
-        "energyCapacity": 300000,
         "hits": 3000,
         "hitsMax": 3000,
         "_id": "9758750f6303635cf2993b08",
-        "_isDisabled": false
+        "_isDisabled": false,
+        "storeCapacity": 300000,
+        "store": {
+          "energy": 150000
+        }
       },
       {
         "type": "tower",
@@ -194,8 +223,6 @@
         "y": 25,
         "room": "sim",
         "user": "54bff72ab32a10f73a57d017",
-        "energy": 500,
-        "energyCapacity": 1000,
         "hits": 3000,
         "hitsMax": 3000,
         "_id": "22fa78bda5872a29a798bc69",
@@ -204,6 +231,12 @@
           "attack": null,
           "heal": null,
           "repair": null
+        },
+        "store": {
+          "energy": 500
+        },
+        "storeCapacityResource": {
+          "energy": 1000
         }
       },
       {
@@ -315,12 +348,14 @@
         "level": 2,
         "room": "sim",
         "user": "54bff72ab32a10f73a57d017",
-        "energy": 150000,
-        "energyCapacity": 300000,
         "hits": 3000,
         "hitsMax": 3000,
         "_id": "9758750f6303635cf2993b09",
-        "_isDisabled": false
+        "_isDisabled": false,
+        "storeCapacity": 300000,
+        "store": {
+          "energy": 150000
+        }
       },
       {
         "type": "deposit",

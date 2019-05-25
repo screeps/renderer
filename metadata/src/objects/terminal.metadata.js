@@ -15,31 +15,31 @@ export default {
         resourceTotal(),
         {
             id: 'restResourceSize',
-            props: ['energy', 'energyCapacity', 'power', 'resourcesTotal'],
+            props: ['store', 'storeCapacity', 'resourcesTotal'],
             func: ({
-                state: { energy = 0, energyCapacity, power = 0 },
+                state: { store = {}, storeCapacity },
                 calcs: { resourcesTotal },
             }) => {
-                if (resourcesTotal <= energy + power) {
+                if (resourcesTotal <= (store['energy']||0) + (store['power']||0)) {
                     return 0;
                 }
-                const result = (ENERGY_RECT_FULL_SIZE * resourcesTotal) / energyCapacity;
+                const result = (ENERGY_RECT_FULL_SIZE * resourcesTotal) / storeCapacity;
                 return Math.min(result, ENERGY_RECT_FULL_SIZE);
             },
         },
         {
             id: 'powerResourceSize',
-            props: ['energy', 'energyCapacity', 'power'],
-            func: ({ state: { energy = 0, energyCapacity, power = 0 } }) => {
-                const result = (ENERGY_RECT_FULL_SIZE * (energy + power)) / energyCapacity;
+            props: ['store', 'storeCapacity'],
+            func: ({ state: { store = {}, storeCapacity } }) => {
+                const result = (ENERGY_RECT_FULL_SIZE * ((store['energy']||0) + (store['power']||0))) / storeCapacity;
                 return Math.min(result, ENERGY_RECT_FULL_SIZE);
             },
         },
         {
             id: 'energyResourceHeight',
-            props: ['energy', 'energyCapacity'],
-            func: ({ state: { energy = 0, energyCapacity } }) => {
-                const result = (ENERGY_RECT_FULL_SIZE * energy) / energyCapacity;
+            props: ['store', 'storeCapacity'],
+            func: ({ state: { store = {}, storeCapacity } }) => {
+                const result = (ENERGY_RECT_FULL_SIZE * (store['energy']||0)) / storeCapacity;
                 return Math.min(result, ENERGY_RECT_FULL_SIZE);
             },
         },

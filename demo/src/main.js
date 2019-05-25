@@ -86,7 +86,7 @@ function createWindow() {
     });
     mainWindow.setMenu(menu);
     mainWindow.loadURL(indexUrl);
-    // mainWindow.webContents.openDevTools();
+    mainWindow.webContents.openDevTools();
     mainWindow.on('closed', () => {
         mainWindow = null;
     });

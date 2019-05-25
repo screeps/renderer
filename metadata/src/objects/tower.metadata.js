@@ -34,15 +34,16 @@ export default {
         },
         {
             id: 'energyBarHeight',
-            props: ['energy', 'energyCapacity'],
-            func: ({ state: { energy, energyCapacity } }) => {
-                const result = (ENERGY_BAR_FULL_HEIGHT * energy) / energyCapacity;
+            props: ['store', 'storeCapacityResource'],
+            func: ({ state: { store, storeCapacityResource } }) => {
+                const result = storeCapacityResource && storeCapacityResource.energy ?
+                    (ENERGY_BAR_FULL_HEIGHT * store.energy) / storeCapacityResource.energy : 0;
                 return Math.min(result, ENERGY_BAR_FULL_HEIGHT);
             },
         },
         {
             id: 'energyBarBorderRadius',
-            props: ['energy', 'energyCapacity'],
+            props: ['store', 'storeCapacity'],
             func: ({ calcs: { energyBarHeight } }) => Math.min(12, energyBarHeight / 2),
         },
     ],
@@ -141,7 +142,7 @@ export default {
             type: 'sprite',
             once: true,
             layer: 'lighting',
-            shouldRun: (({ state: { energy } }) => energy > 0),
+            shouldRun: (({ state: { store } }) => store.energy > 0),
             payload: {
                 texture: 'glow',
                 width: 100,

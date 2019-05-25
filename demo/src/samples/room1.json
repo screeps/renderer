@@ -2508,12 +2508,14 @@
         "y": 29,
         "room": "E3N15",
         "notifyWhenAttacked": true,
-        "energy": 2000,
-        "energyCapacity": 2000,
         "hits": 250000,
         "hitsMax": 250000,
         "nextDecayTime": 18642097,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "storeCapacity": 2000,
+        "store": {
+          "energy": 2000
+        }
       },
       {
         "_id": "57bf54f3c0b9921b41e622fa",
@@ -2534,12 +2536,14 @@
         "y": 29,
         "room": "E3N15",
         "notifyWhenAttacked": true,
-        "energy": 2000,
-        "energyCapacity": 2000,
         "hits": 250000,
         "hitsMax": 250000,
         "nextDecayTime": 18642147,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "storeCapacity": 2000,
+        "store": {
+          "energy": 2000
+        }
       },
       {
         "_id": "57c2cfc7f0b28c247fd63a69",
@@ -3050,13 +3054,17 @@
         "room": "E3N15",
         "notifyWhenAttacked": true,
         "user": "561e4d4645f3f7244a7622e8",
-        "energy": 0,
-        "energyCapacity": 50,
         "hits": 1000,
         "hitsMax": 1000,
         "off": false,
         "_updated": 13053897,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 0
+        },
+        "storeCapacityResource": {
+          "energy": 50
+        }
       },
       {
         "_id": "56e50919fa1fb3be0e88ce83",
@@ -3066,13 +3074,17 @@
         "room": "E3N15",
         "notifyWhenAttacked": true,
         "user": "561e4d4645f3f7244a7622e8",
-        "energy": 200,
-        "energyCapacity": 200,
         "hits": 1000,
         "hitsMax": 1000,
         "off": false,
         "_updated": 13053897,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 200
+        },
+        "storeCapacityResource": {
+          "energy": 200
+        }
       },
       {
         "_id": "56e50fd6bae6572a73d6e283",
@@ -3082,13 +3094,17 @@
         "room": "E3N15",
         "notifyWhenAttacked": true,
         "user": "561e4d4645f3f7244a7622e8",
-        "energy": 0,
-        "energyCapacity": 200,
         "hits": 1000,
         "hitsMax": 1000,
         "off": false,
         "_updated": 13053802,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 0
+        },
+        "storeCapacityResource": {
+          "energy": 200
+        }
       },
       {
         "_id": "56e5172955a92ac224c04a9f",
@@ -3098,13 +3114,17 @@
         "room": "E3N15",
         "notifyWhenAttacked": true,
         "user": "561e4d4645f3f7244a7622e8",
-        "energy": 200,
-        "energyCapacity": 200,
         "hits": 1000,
         "hitsMax": 1000,
         "off": false,
         "_updated": 13053764,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 200
+        },
+        "storeCapacityResource": {
+          "energy": 200
+        }
       },
       {
         "_id": "56e35f30e0fd94d75934f54d",
@@ -3114,54 +3134,56 @@
         "room": "E3N15",
         "notifyWhenAttacked": true,
         "user": "561e4d4645f3f7244a7622e8",
-        "energy": 152770,
-        "energyCapacity": 1000000,
         "hits": 10000,
         "hitsMax": 10000,
-        "K": 0,
-        "H": 0,
-        "L": 0,
-        "O": 8811,
-        "Z": 800,
-        "U": 37800,
-        "X": 0,
-        "UH": 6375,
-        "XKHO2": 0,
-        "OH": 4800,
-        "KHO2": 5995,
-        "KO": 7810,
-        "UH2O": 3535,
-        "XUH2O": 8980,
-        "XLH2O": 4115,
-        "LH2O": 0,
-        "LH": 6615,
-        "XLHO2": 0,
-        "LHO2": 0,
-        "LO": 12215,
-        "XZH2O": 13880,
-        "ZH2O": 13800,
-        "XZHO2": 0,
-        "ZHO2": 10550,
-        "ZO": 12120,
-        "XGHO2": 0,
-        "GHO2": 0,
-        "ZK": 10300,
-        "UL": 8165,
-        "GO": 11790,
-        "XGH2O": 9685,
-        "GH": 6645,
-        "GH2O": 0,
-        "G": 16960,
-        "UO": 10655,
-        "XKH2O": 4320,
-        "XUHO2": 9095,
-        "ZH": 17745,
-        "KH": 6050,
-        "UHO2": 6095,
-        "KH2O": 6645,
-        "power": 0,
         "_updated": 13053926,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "storeCapacity": 1000000,
+        "store": {
+          "energy": 152770,
+          "power": 0,
+          "H": 0,
+          "O": 8811,
+          "U": 37800,
+          "K": 0,
+          "L": 0,
+          "Z": 800,
+          "X": 0,
+          "G": 16960,
+          "OH": 4800,
+          "ZK": 10300,
+          "UL": 8165,
+          "UH": 6375,
+          "UO": 10655,
+          "KH": 6050,
+          "KO": 7810,
+          "LH": 6615,
+          "LO": 12215,
+          "ZH": 17745,
+          "ZO": 12120,
+          "GH": 6645,
+          "GO": 11790,
+          "UH2O": 3535,
+          "UHO2": 6095,
+          "KH2O": 6645,
+          "KHO2": 5995,
+          "LH2O": 0,
+          "LHO2": 0,
+          "ZH2O": 13800,
+          "ZHO2": 10550,
+          "GH2O": 0,
+          "GHO2": 0,
+          "XUH2O": 8980,
+          "XUHO2": 9095,
+          "XKH2O": 4320,
+          "XKHO2": 0,
+          "XLH2O": 4115,
+          "XLHO2": 0,
+          "XZH2O": 13880,
+          "XZHO2": 0,
+          "XGH2O": 9685,
+          "XGHO2": 0
+        }
       },
       {
         "_id": "56e380fe220afc2042344347",
@@ -3171,13 +3193,17 @@
         "room": "E3N15",
         "notifyWhenAttacked": true,
         "user": "561e4d4645f3f7244a7622e8",
-        "energy": 0,
-        "energyCapacity": 200,
         "hits": 1000,
         "hitsMax": 1000,
         "off": false,
         "_updated": 13053914,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 0
+        },
+        "storeCapacityResource": {
+          "energy": 200
+        }
       },
       {
         "_id": "56e38dc350706cea247241ff",
@@ -3187,13 +3213,17 @@
         "room": "E3N15",
         "notifyWhenAttacked": true,
         "user": "561e4d4645f3f7244a7622e8",
-        "energy": 0,
-        "energyCapacity": 200,
         "hits": 1000,
         "hitsMax": 1000,
         "off": false,
         "_updated": 13053903,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 0
+        },
+        "storeCapacityResource": {
+          "energy": 200
+        }
       },
       {
         "_id": "56e38fa10e0ccd414295d4b8",
@@ -3203,13 +3233,17 @@
         "room": "E3N15",
         "notifyWhenAttacked": true,
         "user": "561e4d4645f3f7244a7622e8",
-        "energy": 0,
-        "energyCapacity": 200,
         "hits": 1000,
         "hitsMax": 1000,
         "off": false,
         "_updated": 13053897,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 0
+        },
+        "storeCapacityResource": {
+          "energy": 200
+        }
       },
       {
         "_id": "56e3a4a85c1932d06990a5a9",
@@ -3219,13 +3253,17 @@
         "room": "E3N15",
         "notifyWhenAttacked": true,
         "user": "561e4d4645f3f7244a7622e8",
-        "energy": 0,
-        "energyCapacity": 200,
         "hits": 1000,
         "hitsMax": 1000,
         "off": false,
         "_updated": 13053897,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 0
+        },
+        "storeCapacityResource": {
+          "energy": 200
+        }
       },
       {
         "_id": "56e3b37444087adb24bec830",
@@ -3235,13 +3273,17 @@
         "room": "E3N15",
         "notifyWhenAttacked": true,
         "user": "561e4d4645f3f7244a7622e8",
-        "energy": 0,
-        "energyCapacity": 200,
         "hits": 1000,
         "hitsMax": 1000,
         "off": false,
         "_updated": 13053897,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 0
+        },
+        "storeCapacityResource": {
+          "energy": 200
+        }
       },
       {
         "_id": "56e3aa5a836b08c724e8dac7",
@@ -3251,13 +3293,17 @@
         "room": "E3N15",
         "notifyWhenAttacked": true,
         "user": "561e4d4645f3f7244a7622e8",
-        "energy": 0,
-        "energyCapacity": 200,
         "hits": 1000,
         "hitsMax": 1000,
         "off": false,
         "_updated": 13053751,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 0
+        },
+        "storeCapacityResource": {
+          "energy": 200
+        }
       },
       {
         "_id": "56e807928f0526cd3cd5ef2f",
@@ -3269,17 +3315,20 @@
         "user": "561e4d4645f3f7244a7622e8",
         "hits": 500,
         "hitsMax": 500,
-        "mineralAmount": 145,
         "cooldown": 5,
-        "mineralType": "ZK",
-        "mineralCapacity": 3000,
-        "energy": 2000,
-        "energyCapacity": 2000,
         "actionLog": {
           "runReaction": null
         },
         "_updated": 13053927,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 2000,
+          "ZK": 145
+        },
+        "storeCapacityResource": {
+          "energy": 2000,
+          "ZK": 3000
+        }
       },
       {
         "_id": "56e7c4fc0c7e2c6f0ea1089f",
@@ -3291,17 +3340,20 @@
         "user": "561e4d4645f3f7244a7622e8",
         "hits": 500,
         "hitsMax": 500,
-        "mineralAmount": 145,
         "cooldown": 6,
-        "mineralType": "ZK",
-        "mineralCapacity": 3000,
-        "energy": 2000,
-        "energyCapacity": 2000,
         "actionLog": {
           "runReaction": null
         },
         "_updated": 13053927,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 2000,
+          "ZK": 145
+        },
+        "storeCapacityResource": {
+          "energy": 2000,
+          "ZK": 3000
+        }
       },
       {
         "_id": "56e7f3aa0ab812837a985f3c",
@@ -3313,17 +3365,20 @@
         "user": "561e4d4645f3f7244a7622e8",
         "hits": 500,
         "hitsMax": 500,
-        "mineralAmount": 3000,
         "cooldown": 0,
-        "mineralType": "Z",
-        "mineralCapacity": 3000,
-        "energy": 2000,
-        "energyCapacity": 2000,
         "actionLog": {
           "runReaction": null
         },
         "_updated": 13053927,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 2000,
+          "Z": 3000
+        },
+        "storeCapacityResource": {
+          "energy": 2000,
+          "Z": 3000
+        }
       },
       {
         "_id": "56e7272ae6edfe121d941dae",
@@ -3333,56 +3388,58 @@
         "room": "E3N15",
         "notifyWhenAttacked": true,
         "user": "561e4d4645f3f7244a7622e8",
-        "energy": 50000,
-        "energyCapacity": 3000000,
         "cooldownTime": 18641780,
         "hits": 3000,
         "hitsMax": 3000,
-        "Z": 9000,
-        "O": 9000,
-        "H": 9000,
-        "K": 3501,
-        "L": 9000,
         "send": null,
-        "U": 9000,
-        "UH": 6000,
-        "UO": 6000,
-        "X": 67,
-        "LH": 6000,
-        "KO": 6000,
-        "ZK": 6000,
-        "ZH": 6000,
-        "KH": 6000,
-        "LO": 6000,
-        "ZO": 6000,
-        "UL": 6000,
-        "G": 6000,
-        "GH": 6000,
-        "GO": 6000,
-        "OH": 6000,
-        "UH2O": 3000,
-        "UHO2": 3000,
-        "KH2O": 3000,
-        "KHO2": 3000,
-        "LH2O": 1370,
-        "LHO2": 1150,
-        "ZH2O": 3000,
-        "ZHO2": 3000,
-        "GH2O": 1440,
-        "GHO2": 0,
-        "XGH2O": 6000,
-        "XKH2O": 6000,
-        "XUHO2": 6000,
-        "XUH2O": 6000,
-        "XKHO2": 3198,
-        "XLH2O": 6000,
-        "XLHO2": 2621,
-        "XZH2O": 6000,
-        "XZHO2": 220,
-        "XGHO2": 1717,
-        "power": 191,
         "_updated": 13053713,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "storeCapacity": 3000000,
+        "store": {
+          "energy": 50000,
+          "power": 191,
+          "H": 9000,
+          "O": 9000,
+          "U": 9000,
+          "K": 3501,
+          "L": 9000,
+          "Z": 9000,
+          "X": 67,
+          "G": 6000,
+          "OH": 6000,
+          "ZK": 6000,
+          "UL": 6000,
+          "UH": 6000,
+          "UO": 6000,
+          "KH": 6000,
+          "KO": 6000,
+          "LH": 6000,
+          "LO": 6000,
+          "ZH": 6000,
+          "ZO": 6000,
+          "GH": 6000,
+          "GO": 6000,
+          "UH2O": 3000,
+          "UHO2": 3000,
+          "KH2O": 3000,
+          "KHO2": 3000,
+          "LH2O": 1370,
+          "LHO2": 1150,
+          "ZH2O": 3000,
+          "ZHO2": 3000,
+          "GH2O": 1440,
+          "GHO2": 0,
+          "XUH2O": 6000,
+          "XUHO2": 6000,
+          "XKH2O": 6000,
+          "XKHO2": 3198,
+          "XLH2O": 6000,
+          "XLHO2": 2621,
+          "XZH2O": 6000,
+          "XZHO2": 220,
+          "XGH2O": 6000,
+          "XGHO2": 1717
+        }
       },
       {
         "_id": "56e735bd8c5bbb361d821f7e",
@@ -3392,8 +3449,6 @@
         "room": "E3N15",
         "notifyWhenAttacked": true,
         "user": "561e4d4645f3f7244a7622e8",
-        "energy": 0,
-        "energyCapacity": 800,
         "cooldown": 0,
         "hits": 1000,
         "hitsMax": 1000,
@@ -3401,7 +3456,13 @@
           "transferEnergy": null
         },
         "_updated": 13053927,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 0
+        },
+        "storeCapacityResource": {
+          "energy": 800
+        }
       },
       {
         "_id": "56e7389cba4914c33cb6a716",
@@ -3425,13 +3486,17 @@
         "room": "E3N15",
         "notifyWhenAttacked": true,
         "user": "561e4d4645f3f7244a7622e8",
-        "energy": 200,
-        "energyCapacity": 200,
         "hits": 1000,
         "hitsMax": 1000,
         "off": false,
         "_updated": 13053752,
-        "_isDisabled": true
+        "_isDisabled": true,
+        "store": {
+          "energy": 200
+        },
+        "storeCapacityResource": {
+          "energy": 200
+        }
       },
       {
         "_id": "56f3b8dffa1d20db40e48268",
@@ -3443,17 +3508,21 @@
         "user": "561e4d4645f3f7244a7622e8",
         "hits": 500,
         "hitsMax": 500,
-        "mineralAmount": 1855,
         "cooldown": 0,
-        "mineralType": "K",
-        "mineralCapacity": 3000,
-        "energy": 2000,
-        "energyCapacity": 2000,
         "actionLog": {
           "runReaction": null
         },
         "_updated": 13053927,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 2000,
+          "K": 1855
+        },
+        "storeCapacity": 5000,
+        "storeCapacityResource": {
+          "energy": 2000,
+          "K": 3000
+        }
       },
       {
         "_id": "57017832d620238228e78565",
@@ -3479,17 +3548,20 @@
         "user": "561e4d4645f3f7244a7622e8",
         "hits": 500,
         "hitsMax": 500,
-        "mineralAmount": 145,
         "cooldown": 7,
-        "mineralType": "ZK",
-        "mineralCapacity": 3000,
-        "energy": 2000,
-        "energyCapacity": 2000,
         "actionLog": {
           "runReaction": null
         },
         "_updated": 13053927,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 2000,
+          "ZK": 145
+        },
+        "storeCapacityResource": {
+          "energy": 2000,
+          "ZK": 3000
+        }
       },
       {
         "_id": "5701b98b818ae91b212f0a56",
@@ -3501,17 +3573,20 @@
         "user": "561e4d4645f3f7244a7622e8",
         "hits": 500,
         "hitsMax": 500,
-        "mineralAmount": 500,
         "cooldown": 8,
-        "mineralType": "ZK",
-        "mineralCapacity": 3000,
-        "energy": 2000,
-        "energyCapacity": 2000,
         "actionLog": {
           "runReaction": null
         },
         "_updated": 13053927,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 2000,
+          "ZK": 500
+        },
+        "storeCapacityResource": {
+          "energy": 2000,
+          "ZK": 3000
+        }
       },
       {
         "_id": "56e5519fd12d46fb2bb81961",
@@ -3521,8 +3596,6 @@
         "room": "E3N15",
         "notifyWhenAttacked": true,
         "user": "561e4d4645f3f7244a7622e8",
-        "energy": 0,
-        "energyCapacity": 800,
         "cooldown": 5,
         "hits": 1000,
         "hitsMax": 1000,
@@ -3530,7 +3603,13 @@
           "transferEnergy": null
         },
         "_updated": 13053925,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 0
+        },
+        "storeCapacityResource": {
+          "energy": 800
+        }
       },
       {
         "_id": "56fa58d4791df1eb23bba871",
@@ -3540,13 +3619,17 @@
         "room": "E3N15",
         "notifyWhenAttacked": true,
         "user": "561e4d4645f3f7244a7622e8",
-        "energy": 200,
-        "energyCapacity": 200,
         "hits": 1000,
         "hitsMax": 1000,
         "off": false,
         "_updated": 13053866,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 200
+        },
+        "storeCapacityResource": {
+          "energy": 200
+        }
       },
       {
         "_id": "56f38f0db529d7dd02c61566",
@@ -3557,8 +3640,6 @@
         "notifyWhenAttacked": true,
         "name": "Spawn42",
         "user": "561e4d4645f3f7244a7622e8",
-        "energy": 300,
-        "energyCapacity": 300,
         "hits": 5000,
         "hitsMax": 5000,
         "off": false,
@@ -3568,7 +3649,13 @@
           "remainingTime": 94
         },
         "_updated": 13053927,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 300
+        },
+        "storeCapacityResource": {
+          "energy": 300
+        }
       },
       {
         "_id": "56e81628c98362cc6360b37b",
@@ -3578,13 +3665,17 @@
         "room": "E3N15",
         "notifyWhenAttacked": true,
         "user": "561e4d4645f3f7244a7622e8",
-        "energy": 200,
-        "energyCapacity": 200,
         "hits": 1000,
         "hitsMax": 1000,
         "off": false,
         "_updated": 13053816,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 200
+        },
+        "storeCapacityResource": {
+          "energy": 200
+        }
       },
       {
         "_id": "56e819fa18d816bf5ef4ad75",
@@ -3594,13 +3685,17 @@
         "room": "E3N15",
         "notifyWhenAttacked": true,
         "user": "561e4d4645f3f7244a7622e8",
-        "energy": 200,
-        "energyCapacity": 200,
         "hits": 1000,
         "hitsMax": 1000,
         "off": false,
         "_updated": 13053862,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 200
+        },
+        "storeCapacityResource": {
+          "energy": 200
+        }
       },
       {
         "_id": "56f3cb6345f102fd7e33902b",
@@ -3612,12 +3707,7 @@
         "user": "561e4d4645f3f7244a7622e8",
         "hits": 500,
         "hitsMax": 500,
-        "mineralAmount": 145,
         "cooldown": 9,
-        "mineralType": "ZK",
-        "mineralCapacity": 3000,
-        "energy": 2000,
-        "energyCapacity": 2000,
         "actionLog": {
           "runReaction": {
             "x1": 21,
@@ -3627,7 +3717,15 @@
           }
         },
         "_updated": 13053927,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 2000,
+          "ZK": 145
+        },
+        "storeCapacityResource": {
+          "energy": 2000,
+          "ZK": 3000
+        }
       },
       {
         "_id": "56f3cec886778c167f0721f0",
@@ -3637,8 +3735,6 @@
         "room": "E3N15",
         "notifyWhenAttacked": true,
         "user": "561e4d4645f3f7244a7622e8",
-        "energy": 180,
-        "energyCapacity": 800,
         "cooldown": 0,
         "hits": 1000,
         "hitsMax": 1000,
@@ -3646,7 +3742,13 @@
           "transferEnergy": null
         },
         "_updated": 13053917,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 180
+        },
+        "storeCapacityResource": {
+          "energy": 800
+        }
       },
       {
         "_id": "570166c552e76dc0368a1b94",
@@ -3658,17 +3760,20 @@
         "user": "561e4d4645f3f7244a7622e8",
         "hits": 500,
         "hitsMax": 500,
-        "mineralAmount": 140,
         "cooldown": 0,
-        "mineralType": "ZK",
-        "mineralCapacity": 3000,
-        "energy": 2000,
-        "energyCapacity": 2000,
         "actionLog": {
           "runReaction": null
         },
         "_updated": 13053927,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 2000,
+          "ZK": 140
+        },
+        "storeCapacityResource": {
+          "energy": 2000,
+          "ZK": 3000
+        }
       },
       {
         "_id": "5701ff28e30034e807751d18",
@@ -3692,13 +3797,17 @@
         "room": "E3N15",
         "notifyWhenAttacked": true,
         "user": "561e4d4645f3f7244a7622e8",
-        "energy": 176,
-        "energyCapacity": 200,
         "hits": 1000,
         "hitsMax": 1000,
         "off": false,
         "_updated": 13053763,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 176
+        },
+        "storeCapacityResource": {
+          "energy": 200
+        }
       },
       {
         "_id": "56e5270950706cea247390a5",
@@ -3708,13 +3817,17 @@
         "room": "E3N15",
         "notifyWhenAttacked": true,
         "user": "561e4d4645f3f7244a7622e8",
-        "energy": 50,
-        "energyCapacity": 50,
         "hits": 1000,
         "hitsMax": 1000,
         "off": false,
         "_updated": 13053765,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 50
+        },
+        "storeCapacityResource": {
+          "energy": 50
+        }
       },
       {
         "_id": "56e52f7a5e7d94f4241ff080",
@@ -3724,13 +3837,17 @@
         "room": "E3N15",
         "notifyWhenAttacked": true,
         "user": "561e4d4645f3f7244a7622e8",
-        "energy": 23,
-        "energyCapacity": 200,
         "hits": 1000,
         "hitsMax": 1000,
         "off": false,
         "_updated": 13053804,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 23
+        },
+        "storeCapacityResource": {
+          "energy": 200
+        }
       },
       {
         "_id": "56f3a7ce3434c32e6438f613",
@@ -3742,17 +3859,20 @@
         "user": "561e4d4645f3f7244a7622e8",
         "hits": 500,
         "hitsMax": 500,
-        "mineralAmount": 140,
         "cooldown": 1,
-        "mineralType": "ZK",
-        "mineralCapacity": 3000,
-        "energy": 2000,
-        "energyCapacity": 2000,
         "actionLog": {
           "runReaction": null
         },
         "_updated": 13053927,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 2000,
+          "ZK": 140
+        },
+        "storeCapacityResource": {
+          "energy": 2000,
+          "ZK": 3000
+        }
       },
       {
         "_id": "570174e056f3ac572a003cee",
@@ -3762,14 +3882,18 @@
         "room": "E3N15",
         "notifyWhenAttacked": true,
         "user": "561e4d4645f3f7244a7622e8",
-        "power": 65,
-        "powerCapacity": 100,
-        "energy": 4714,
-        "energyCapacity": 5000,
         "hits": 5000,
         "hitsMax": 5000,
         "_updated": 13053927,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 4714,
+          "power": 65
+        },
+        "storeCapacityResource": {
+          "energy": 5000,
+          "power": 100
+        }
       },
       {
         "_id": "570189e88415c4443c31893d",
@@ -3781,17 +3905,20 @@
         "user": "561e4d4645f3f7244a7622e8",
         "hits": 500,
         "hitsMax": 500,
-        "mineralAmount": 140,
         "cooldown": 2,
-        "mineralType": "ZK",
-        "mineralCapacity": 3000,
-        "energy": 2000,
-        "energyCapacity": 2000,
         "actionLog": {
           "runReaction": null
         },
         "_updated": 13053927,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 2000,
+          "ZK": 140
+        },
+        "storeCapacityResource": {
+          "energy": 2000,
+          "ZK": 3000
+        }
       },
       {
         "_id": "5747bd743d354c460671bf5f",
@@ -3843,15 +3970,19 @@
         "room": "E3N15",
         "notifyWhenAttacked": true,
         "user": "561e4d4645f3f7244a7622e8",
-        "energy": 300000,
-        "energyCapacity": 300000,
-        "G": 5000,
-        "GCapacity": 5000,
         "hits": 1000,
         "hitsMax": 1000,
         "cooldownTime": 14421446,
         "_updated": 13051271,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 300000,
+          "G": 5000
+        },
+        "storeCapacityResource": {
+          "energy": 300000,
+          "G": 5000
+        }
       },
       {
         "_id": "57bf42e9dcf0da2865664d13",
@@ -3862,8 +3993,6 @@
         "notifyWhenAttacked": true,
         "name": "Spawn39",
         "user": "561e4d4645f3f7244a7622e8",
-        "energy": 0,
-        "energyCapacity": 300,
         "hits": 5000,
         "hitsMax": 5000,
         "off": false,
@@ -3872,7 +4001,13 @@
           "needTime": 54,
           "remainingTime": 45
         },
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 0
+        },
+        "storeCapacityResource": {
+          "energy": 300
+        }
       },
       {
         "_id": "57bf43a39cb6551c6e81d4f0",
@@ -3882,15 +4017,19 @@
         "room": "E3N15",
         "notifyWhenAttacked": true,
         "user": "561e4d4645f3f7244a7622e8",
-        "energy": 776,
-        "energyCapacity": 800,
         "cooldown": 0,
         "hits": 1000,
         "hitsMax": 1000,
         "actionLog": {
           "transferEnergy": null
         },
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 776
+        },
+        "storeCapacityResource": {
+          "energy": 800
+        }
       },
       {
         "_id": "57bf43dc7878440065557358",
@@ -3900,12 +4039,16 @@
         "room": "E3N15",
         "notifyWhenAttacked": true,
         "user": "561e4d4645f3f7244a7622e8",
-        "energy": 200,
-        "energyCapacity": 200,
         "hits": 1000,
         "hitsMax": 1000,
         "off": false,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 200
+        },
+        "storeCapacityResource": {
+          "energy": 200
+        }
       },
       {
         "_id": "57bf4406919e973f7a64b572",
@@ -3915,12 +4058,16 @@
         "room": "E3N15",
         "notifyWhenAttacked": true,
         "user": "561e4d4645f3f7244a7622e8",
-        "energy": 200,
-        "energyCapacity": 200,
         "hits": 1000,
         "hitsMax": 1000,
         "off": false,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 200
+        },
+        "storeCapacityResource": {
+          "energy": 200
+        }
       },
       {
         "_id": "57bf442f8494111b7a245f9a",
@@ -3930,12 +4077,16 @@
         "room": "E3N15",
         "notifyWhenAttacked": true,
         "user": "561e4d4645f3f7244a7622e8",
-        "energy": 200,
-        "energyCapacity": 200,
         "hits": 1000,
         "hitsMax": 1000,
         "off": false,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 200
+        },
+        "storeCapacityResource": {
+          "energy": 200
+        }
       },
       {
         "_id": "57bf44c65453b8ca2ce51928",
@@ -3945,8 +4096,6 @@
         "room": "E3N15",
         "notifyWhenAttacked": true,
         "user": "561e4d4645f3f7244a7622e8",
-        "energy": 100,
-        "energyCapacity": 1000,
         "hits": 3000,
         "hitsMax": 3000,
         "actionLog": {
@@ -3957,7 +4106,13 @@
             "y": 37
           }
         },
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 100
+        },
+        "storeCapacityResource": {
+          "energy": 1000
+        }
       },
       {
         "_id": "57bf45d6ec88c9d448bb515a",
@@ -3968,8 +4123,6 @@
         "notifyWhenAttacked": true,
         "name": "Spawn27",
         "user": "561e4d4645f3f7244a7622e8",
-        "energy": 0,
-        "energyCapacity": 300,
         "hits": 5000,
         "hitsMax": 5000,
         "off": false,
@@ -3978,7 +4131,13 @@
           "needTime": 54,
           "remainingTime": 18
         },
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 0
+        },
+        "storeCapacityResource": {
+          "energy": 300
+        }
       },
       {
         "_id": "57bf463b6bef669d2c2cdd6b",
@@ -3988,12 +4147,16 @@
         "room": "E3N15",
         "notifyWhenAttacked": true,
         "user": "561e4d4645f3f7244a7622e8",
-        "energy": 200,
-        "energyCapacity": 200,
         "hits": 1000,
         "hitsMax": 1000,
         "off": false,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 200
+        },
+        "storeCapacityResource": {
+          "energy": 200
+        }
       },
       {
         "_id": "57bf468fa71fb40a284b9d73",
@@ -4003,8 +4166,6 @@
         "room": "E3N15",
         "notifyWhenAttacked": true,
         "user": "561e4d4645f3f7244a7622e8",
-        "energy": 860,
-        "energyCapacity": 1000,
         "hits": 3000,
         "hitsMax": 3000,
         "actionLog": {
@@ -4015,7 +4176,13 @@
           "heal": null,
           "repair": null
         },
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 860
+        },
+        "storeCapacityResource": {
+          "energy": 1000
+        }
       },
       {
         "_id": "57bf46e050ba39ec27228035",
@@ -4025,8 +4192,6 @@
         "room": "E3N15",
         "notifyWhenAttacked": true,
         "user": "561e4d4645f3f7244a7622e8",
-        "energy": 840,
-        "energyCapacity": 1000,
         "hits": 3000,
         "hitsMax": 3000,
         "actionLog": {
@@ -4037,7 +4202,13 @@
             "y": 16
           }
         },
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 840
+        },
+        "storeCapacityResource": {
+          "energy": 1000
+        }
       },
       {
         "_id": "57bf4760b45034274105ea81",
@@ -4047,8 +4218,6 @@
         "room": "E3N15",
         "notifyWhenAttacked": true,
         "user": "561e4d4645f3f7244a7622e8",
-        "energy": 1000,
-        "energyCapacity": 1000,
         "hits": 3000,
         "hitsMax": 3000,
         "actionLog": {
@@ -4059,7 +4228,13 @@
             "y": 16
           }
         },
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 1000
+        },
+        "storeCapacityResource": {
+          "energy": 1000
+        }
       },
       {
         "_id": "57bf478d50ba39ec272280c5",
@@ -4069,12 +4244,16 @@
         "room": "E3N15",
         "notifyWhenAttacked": true,
         "user": "561e4d4645f3f7244a7622e8",
-        "energy": 200,
-        "energyCapacity": 200,
         "hits": 1000,
         "hitsMax": 1000,
         "off": false,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 200
+        },
+        "storeCapacityResource": {
+          "energy": 200
+        }
       },
       {
         "_id": "57bf47b07c32d20a65e23164",
@@ -4084,12 +4263,16 @@
         "room": "E3N15",
         "notifyWhenAttacked": true,
         "user": "561e4d4645f3f7244a7622e8",
-        "energy": 200,
-        "energyCapacity": 200,
         "hits": 1000,
         "hitsMax": 1000,
         "off": false,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 200
+        },
+        "storeCapacityResource": {
+          "energy": 200
+        }
       },
       {
         "_id": "57bf47ce25e0a9027aa54af0",
@@ -4099,12 +4282,16 @@
         "room": "E3N15",
         "notifyWhenAttacked": true,
         "user": "561e4d4645f3f7244a7622e8",
-        "energy": 200,
-        "energyCapacity": 200,
         "hits": 1000,
         "hitsMax": 1000,
         "off": false,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 200
+        },
+        "storeCapacityResource": {
+          "energy": 200
+        }
       },
       {
         "_id": "57bf47f895f62cec5d19dd18",
@@ -4114,12 +4301,16 @@
         "room": "E3N15",
         "notifyWhenAttacked": true,
         "user": "561e4d4645f3f7244a7622e8",
-        "energy": 200,
-        "energyCapacity": 200,
         "hits": 1000,
         "hitsMax": 1000,
         "off": false,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 200
+        },
+        "storeCapacityResource": {
+          "energy": 200
+        }
       },
       {
         "_id": "57bf48406c641ef22c1d3e96",
@@ -4129,12 +4320,16 @@
         "room": "E3N15",
         "notifyWhenAttacked": true,
         "user": "561e4d4645f3f7244a7622e8",
-        "energy": 200,
-        "energyCapacity": 200,
         "hits": 1000,
         "hitsMax": 1000,
         "off": false,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 200
+        },
+        "storeCapacityResource": {
+          "energy": 200
+        }
       },
       {
         "_id": "57bf489e866f5c1852f7d649",
@@ -4144,12 +4339,16 @@
         "room": "E3N15",
         "notifyWhenAttacked": true,
         "user": "561e4d4645f3f7244a7622e8",
-        "energy": 200,
-        "energyCapacity": 200,
         "hits": 1000,
         "hitsMax": 1000,
         "off": false,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 200
+        },
+        "storeCapacityResource": {
+          "energy": 200
+        }
       },
       {
         "_id": "57bf49396bf80fd52ca13a64",
@@ -4159,12 +4358,16 @@
         "room": "E3N15",
         "notifyWhenAttacked": true,
         "user": "561e4d4645f3f7244a7622e8",
-        "energy": 200,
-        "energyCapacity": 200,
         "hits": 1000,
         "hitsMax": 1000,
         "off": false,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 200
+        },
+        "storeCapacityResource": {
+          "energy": 200
+        }
       },
       {
         "_id": "57bf49d17c32d20a65e232f0",
@@ -4174,15 +4377,19 @@
         "room": "E3N15",
         "notifyWhenAttacked": true,
         "user": "561e4d4645f3f7244a7622e8",
-        "energy": 0,
-        "energyCapacity": 800,
         "cooldown": 9,
         "hits": 1000,
         "hitsMax": 1000,
         "actionLog": {
           "transferEnergy": null
         },
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 0
+        },
+        "storeCapacityResource": {
+          "energy": 800
+        }
       },
       {
         "_id": "57bf4a0711b023360e98df05",
@@ -4192,12 +4399,16 @@
         "room": "E3N15",
         "notifyWhenAttacked": true,
         "user": "561e4d4645f3f7244a7622e8",
-        "energy": 22,
-        "energyCapacity": 200,
         "hits": 1000,
         "hitsMax": 1000,
         "off": false,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 22
+        },
+        "storeCapacityResource": {
+          "energy": 200
+        }
       },
       {
         "_id": "57bf4a417fb2748e2c3aa3f4",
@@ -4207,12 +4418,16 @@
         "room": "E3N15",
         "notifyWhenAttacked": true,
         "user": "561e4d4645f3f7244a7622e8",
-        "energy": 200,
-        "energyCapacity": 200,
         "hits": 1000,
         "hitsMax": 1000,
         "off": false,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 200
+        },
+        "storeCapacityResource": {
+          "energy": 200
+        }
       },
       {
         "_id": "57bf4a8c081273e00d3b257a",
@@ -4222,12 +4437,16 @@
         "room": "E3N15",
         "notifyWhenAttacked": true,
         "user": "561e4d4645f3f7244a7622e8",
-        "energy": 200,
-        "energyCapacity": 200,
         "hits": 1000,
         "hitsMax": 1000,
         "off": false,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 200
+        },
+        "storeCapacityResource": {
+          "energy": 200
+        }
       },
       {
         "_id": "57bf4ab687e31c852c6fdc21",
@@ -4237,12 +4456,16 @@
         "room": "E3N15",
         "notifyWhenAttacked": true,
         "user": "561e4d4645f3f7244a7622e8",
-        "energy": 200,
-        "energyCapacity": 200,
         "hits": 1000,
         "hitsMax": 1000,
         "off": false,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 200
+        },
+        "storeCapacityResource": {
+          "energy": 200
+        }
       },
       {
         "_id": "57bf4b10671e68e627c6d543",
@@ -4252,12 +4475,16 @@
         "room": "E3N15",
         "notifyWhenAttacked": true,
         "user": "561e4d4645f3f7244a7622e8",
-        "energy": 200,
-        "energyCapacity": 200,
         "hits": 1000,
         "hitsMax": 1000,
         "off": false,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 200
+        },
+        "storeCapacityResource": {
+          "energy": 200
+        }
       },
       {
         "_id": "57bf4b777fb2748e2c3aa4d7",
@@ -4267,12 +4494,16 @@
         "room": "E3N15",
         "notifyWhenAttacked": true,
         "user": "561e4d4645f3f7244a7622e8",
-        "energy": 200,
-        "energyCapacity": 200,
         "hits": 1000,
         "hitsMax": 1000,
         "off": false,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 200
+        },
+        "storeCapacityResource": {
+          "energy": 200
+        }
       },
       {
         "_id": "57bf4bb09cb6551c6e81da89",
@@ -4282,12 +4513,16 @@
         "room": "E3N15",
         "notifyWhenAttacked": true,
         "user": "561e4d4645f3f7244a7622e8",
-        "energy": 200,
-        "energyCapacity": 200,
         "hits": 1000,
         "hitsMax": 1000,
         "off": false,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 200
+        },
+        "storeCapacityResource": {
+          "energy": 200
+        }
       },
       {
         "_id": "57bf4c3bffe6bed4340b79cc",
@@ -4297,12 +4532,16 @@
         "room": "E3N15",
         "notifyWhenAttacked": true,
         "user": "561e4d4645f3f7244a7622e8",
-        "energy": 200,
-        "energyCapacity": 200,
         "hits": 1000,
         "hitsMax": 1000,
         "off": false,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 200
+        },
+        "storeCapacityResource": {
+          "energy": 200
+        }
       },
       {
         "_id": "57bf4c75c20d430745f307d1",
@@ -4312,12 +4551,16 @@
         "room": "E3N15",
         "notifyWhenAttacked": true,
         "user": "561e4d4645f3f7244a7622e8",
-        "energy": 200,
-        "energyCapacity": 200,
         "hits": 1000,
         "hitsMax": 1000,
         "off": false,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 200
+        },
+        "storeCapacityResource": {
+          "energy": 200
+        }
       },
       {
         "_id": "57bf4c7845d1430e5243c34d",
@@ -4327,12 +4570,16 @@
         "room": "E3N15",
         "notifyWhenAttacked": true,
         "user": "561e4d4645f3f7244a7622e8",
-        "energy": 200,
-        "energyCapacity": 200,
         "hits": 1000,
         "hitsMax": 1000,
         "off": false,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 200
+        },
+        "storeCapacityResource": {
+          "energy": 200
+        }
       },
       {
         "_id": "57bf4c8148f9a9fe278f199d",
@@ -4342,12 +4589,16 @@
         "room": "E3N15",
         "notifyWhenAttacked": true,
         "user": "561e4d4645f3f7244a7622e8",
-        "energy": 200,
-        "energyCapacity": 200,
         "hits": 1000,
         "hitsMax": 1000,
         "off": false,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 200
+        },
+        "storeCapacityResource": {
+          "energy": 200
+        }
       },
       {
         "_id": "57bf4d51d6c19cde518e1426",
@@ -4357,12 +4608,16 @@
         "room": "E3N15",
         "notifyWhenAttacked": true,
         "user": "561e4d4645f3f7244a7622e8",
-        "energy": 200,
-        "energyCapacity": 200,
         "hits": 1000,
         "hitsMax": 1000,
         "off": false,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 200
+        },
+        "storeCapacityResource": {
+          "energy": 200
+        }
       },
       {
         "_id": "57bf4de5325bdf7541333e30",
@@ -4372,12 +4627,16 @@
         "room": "E3N15",
         "notifyWhenAttacked": true,
         "user": "561e4d4645f3f7244a7622e8",
-        "energy": 200,
-        "energyCapacity": 200,
         "hits": 1000,
         "hitsMax": 1000,
         "off": false,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 200
+        },
+        "storeCapacityResource": {
+          "energy": 200
+        }
       },
       {
         "_id": "57bf4e2e4367e9c86db603f3",
@@ -4387,8 +4646,6 @@
         "room": "E3N15",
         "notifyWhenAttacked": true,
         "user": "561e4d4645f3f7244a7622e8",
-        "energy": 960,
-        "energyCapacity": 1000,
         "hits": 3000,
         "hitsMax": 3000,
         "actionLog": {
@@ -4399,7 +4656,13 @@
             "y": 16
           }
         },
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 960
+        },
+        "storeCapacityResource": {
+          "energy": 1000
+        }
       },
       {
         "_id": "57bf4ea7919e973f7a64bcb7",
@@ -4409,8 +4672,6 @@
         "room": "E3N15",
         "notifyWhenAttacked": true,
         "user": "561e4d4645f3f7244a7622e8",
-        "energy": 804,
-        "energyCapacity": 1000,
         "hits": 3000,
         "hitsMax": 3000,
         "actionLog": {
@@ -4421,7 +4682,13 @@
             "y": 16
           }
         },
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 804
+        },
+        "storeCapacityResource": {
+          "energy": 1000
+        }
       },
       {
         "_id": "57bf4f130781fe14652dbd68",
@@ -4431,12 +4698,16 @@
         "room": "E3N15",
         "notifyWhenAttacked": true,
         "user": "561e4d4645f3f7244a7622e8",
-        "energy": 200,
-        "energyCapacity": 200,
         "hits": 1000,
         "hitsMax": 1000,
         "off": false,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 200
+        },
+        "storeCapacityResource": {
+          "energy": 200
+        }
       },
       {
         "_id": "57bf4f3dffa575a034dd1403",
@@ -4446,12 +4717,16 @@
         "room": "E3N15",
         "notifyWhenAttacked": true,
         "user": "561e4d4645f3f7244a7622e8",
-        "energy": 200,
-        "energyCapacity": 200,
         "hits": 1000,
         "hitsMax": 1000,
         "off": false,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 200
+        },
+        "storeCapacityResource": {
+          "energy": 200
+        }
       },
       {
         "_id": "57bf4f6350ba39ec27228692",
@@ -4461,12 +4736,16 @@
         "room": "E3N15",
         "notifyWhenAttacked": true,
         "user": "561e4d4645f3f7244a7622e8",
-        "energy": 200,
-        "energyCapacity": 200,
         "hits": 1000,
         "hitsMax": 1000,
         "off": false,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 200
+        },
+        "storeCapacityResource": {
+          "energy": 200
+        }
       },
       {
         "_id": "57bf4fd148503ed5486ba6b2",
@@ -4476,12 +4755,16 @@
         "room": "E3N15",
         "notifyWhenAttacked": true,
         "user": "561e4d4645f3f7244a7622e8",
-        "energy": 200,
-        "energyCapacity": 200,
         "hits": 1000,
         "hitsMax": 1000,
         "off": false,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 200
+        },
+        "storeCapacityResource": {
+          "energy": 200
+        }
       },
       {
         "_id": "57bf50a4020dc015654f5abf",
@@ -4491,12 +4774,16 @@
         "room": "E3N15",
         "notifyWhenAttacked": true,
         "user": "561e4d4645f3f7244a7622e8",
-        "energy": 200,
-        "energyCapacity": 200,
         "hits": 1000,
         "hitsMax": 1000,
         "off": false,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 200
+        },
+        "storeCapacityResource": {
+          "energy": 200
+        }
       },
       {
         "_id": "57bf50c84dfce5fd79154889",
@@ -4506,12 +4793,16 @@
         "room": "E3N15",
         "notifyWhenAttacked": true,
         "user": "561e4d4645f3f7244a7622e8",
-        "energy": 200,
-        "energyCapacity": 200,
         "hits": 1000,
         "hitsMax": 1000,
         "off": false,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 200
+        },
+        "storeCapacityResource": {
+          "energy": 200
+        }
       },
       {
         "_id": "57bf51065a72e3ea5db2edff",
@@ -4521,12 +4812,16 @@
         "room": "E3N15",
         "notifyWhenAttacked": true,
         "user": "561e4d4645f3f7244a7622e8",
-        "energy": 200,
-        "energyCapacity": 200,
         "hits": 1000,
         "hitsMax": 1000,
         "off": false,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 200
+        },
+        "storeCapacityResource": {
+          "energy": 200
+        }
       },
       {
         "_id": "57bf513ffb4505b244e87ebc",
@@ -4536,12 +4831,16 @@
         "room": "E3N15",
         "notifyWhenAttacked": true,
         "user": "561e4d4645f3f7244a7622e8",
-        "energy": 200,
-        "energyCapacity": 200,
         "hits": 1000,
         "hitsMax": 1000,
         "off": false,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 200
+        },
+        "storeCapacityResource": {
+          "energy": 200
+        }
       },
       {
         "_id": "57bf51c44a4975d42cbae06c",
@@ -4551,12 +4850,16 @@
         "room": "E3N15",
         "notifyWhenAttacked": true,
         "user": "561e4d4645f3f7244a7622e8",
-        "energy": 200,
-        "energyCapacity": 200,
         "hits": 1000,
         "hitsMax": 1000,
         "off": false,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 200
+        },
+        "storeCapacityResource": {
+          "energy": 200
+        }
       },
       {
         "_id": "57bf51e78654f7670e73757c",
@@ -4566,12 +4869,16 @@
         "room": "E3N15",
         "notifyWhenAttacked": true,
         "user": "561e4d4645f3f7244a7622e8",
-        "energy": 200,
-        "energyCapacity": 200,
         "hits": 1000,
         "hitsMax": 1000,
         "off": false,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 200
+        },
+        "storeCapacityResource": {
+          "energy": 200
+        }
       },
       {
         "_id": "57bf522b02ce119b5df3a70c",
@@ -4581,12 +4888,16 @@
         "room": "E3N15",
         "notifyWhenAttacked": true,
         "user": "561e4d4645f3f7244a7622e8",
-        "energy": 200,
-        "energyCapacity": 200,
         "hits": 1000,
         "hitsMax": 1000,
         "off": false,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 200
+        },
+        "storeCapacityResource": {
+          "energy": 200
+        }
       },
       {
         "_id": "57bf526095f62cec5d19e466",
@@ -4596,12 +4907,16 @@
         "room": "E3N15",
         "notifyWhenAttacked": true,
         "user": "561e4d4645f3f7244a7622e8",
-        "energy": 200,
-        "energyCapacity": 200,
         "hits": 1000,
         "hitsMax": 1000,
         "off": false,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 200
+        },
+        "storeCapacityResource": {
+          "energy": 200
+        }
       },
       {
         "_id": "57bf528f6bef669d2c2ce681",
@@ -4611,12 +4926,16 @@
         "room": "E3N15",
         "notifyWhenAttacked": true,
         "user": "561e4d4645f3f7244a7622e8",
-        "energy": 200,
-        "energyCapacity": 200,
         "hits": 1000,
         "hitsMax": 1000,
         "off": false,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 200
+        },
+        "storeCapacityResource": {
+          "energy": 200
+        }
       },
       {
         "_id": "57bf532411b023360e98e502",
@@ -4626,12 +4945,16 @@
         "room": "E3N15",
         "notifyWhenAttacked": true,
         "user": "561e4d4645f3f7244a7622e8",
-        "energy": 200,
-        "energyCapacity": 200,
         "hits": 1000,
         "hitsMax": 1000,
         "off": false,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 200
+        },
+        "storeCapacityResource": {
+          "energy": 200
+        }
       },
       {
         "_id": "57bf5341509092085e198243",
@@ -4641,12 +4964,16 @@
         "room": "E3N15",
         "notifyWhenAttacked": true,
         "user": "561e4d4645f3f7244a7622e8",
-        "energy": 200,
-        "energyCapacity": 200,
         "hits": 1000,
         "hitsMax": 1000,
         "off": false,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 200
+        },
+        "storeCapacityResource": {
+          "energy": 200
+        }
       },
       {
         "_id": "57bf5384866f5c1852f7de9f",
@@ -4656,12 +4983,16 @@
         "room": "E3N15",
         "notifyWhenAttacked": true,
         "user": "561e4d4645f3f7244a7622e8",
-        "energy": 200,
-        "energyCapacity": 200,
         "hits": 1000,
         "hitsMax": 1000,
         "off": false,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 200
+        },
+        "storeCapacityResource": {
+          "energy": 200
+        }
       },
       {
         "_id": "57bf53ae4a4975d42cbae1e5",
@@ -4671,12 +5002,16 @@
         "room": "E3N15",
         "notifyWhenAttacked": true,
         "user": "561e4d4645f3f7244a7622e8",
-        "energy": 200,
-        "energyCapacity": 200,
         "hits": 1000,
         "hitsMax": 1000,
         "off": false,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 200
+        },
+        "storeCapacityResource": {
+          "energy": 200
+        }
       },
       {
         "_id": "57bf54480781fe14652dc13e",
@@ -4686,12 +5021,16 @@
         "room": "E3N15",
         "notifyWhenAttacked": true,
         "user": "561e4d4645f3f7244a7622e8",
-        "energy": 200,
-        "energyCapacity": 200,
         "hits": 1000,
         "hitsMax": 1000,
         "off": false,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 200
+        },
+        "storeCapacityResource": {
+          "energy": 200
+        }
       },
       {
         "_id": "57bf547245d1430e5243c9bb",
@@ -4701,12 +5040,16 @@
         "room": "E3N15",
         "notifyWhenAttacked": true,
         "user": "561e4d4645f3f7244a7622e8",
-        "energy": 200,
-        "energyCapacity": 200,
         "hits": 1000,
         "hitsMax": 1000,
         "off": false,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 200
+        },
+        "storeCapacityResource": {
+          "energy": 200
+        }
       },
       {
         "_id": "58d11e368cbd9ad27a0a9f91",
@@ -4716,15 +5059,19 @@
         "room": "E3N15",
         "notifyWhenAttacked": true,
         "user": "561e4d4645f3f7244a7622e8",
-        "energy": 26,
-        "energyCapacity": 800,
         "cooldown": 0,
         "hits": 1000,
         "hitsMax": 1000,
         "actionLog": {
           "transferEnergy": null
         },
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 26
+        },
+        "storeCapacityResource": {
+          "energy": 800
+        }
       },
       {
         "_id": "58f0a0612c1cb1546313fdbe",
@@ -4781,9 +5128,6 @@
             "hits": 100
           }
         },
-        "energy": 200,
-        "power": 100,
-        "energyCapacity": 400,
         "type": "creep",
         "room": "E3N15",
         "user": "561e4d4645f3f7244a7622e8",
@@ -4801,19 +5145,23 @@
           "rangedMassAttack": null,
           "heal": null,
           "harvest": null,
-          "heal": null,
           "repair": null,
           "build": null,
           "say": null,
           "upgradeController": null,
           "reserveController": null
         },
-        "ZK": 100,
-        "XGH2O": 0,
-        "XKHO2": 0,
-        "XLHO2": 0,
-        "XGHO2": 0,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "storeCapacity": 400,
+        "store": {
+          "energy": 200,
+          "power": 100,
+          "ZK": 100,
+          "XKHO2": 0,
+          "XLHO2": 0,
+          "XGH2O": 0,
+          "XGHO2": 0
+        }
       },
       {
         "_id": "58f0a0c966eef0ca1348b772",
@@ -4886,8 +5234,6 @@
             "hits": 100
           }
         },
-        "energy": 108,
-        "energyCapacity": 200,
         "type": "creep",
         "room": "E3N15",
         "user": "561e4d4645f3f7244a7622e8",
@@ -4908,14 +5254,17 @@
             "x": 44,
             "y": 6
           },
-          "heal": null,
           "repair": null,
           "build": null,
           "say": null,
           "upgradeController": null,
           "reserveController": null
         },
-        "_isDisabled": false
+        "_isDisabled": false,
+        "storeCapacity": 200,
+        "store": {
+          "energy": 108
+        }
       },
       {
         "_id": "58f0a1aabda1d2fe5d17a23f",
@@ -4988,8 +5337,6 @@
             "hits": 100
           }
         },
-        "energy": 180,
-        "energyCapacity": 200,
         "type": "creep",
         "room": "E3N15",
         "user": "561e4d4645f3f7244a7622e8",
@@ -5010,14 +5357,17 @@
             "x": 6,
             "y": 10
           },
-          "heal": null,
           "repair": null,
           "build": null,
           "say": null,
           "upgradeController": null,
           "reserveController": null
         },
-        "_isDisabled": false
+        "_isDisabled": false,
+        "storeCapacity": 200,
+        "store": {
+          "energy": 180
+        }
       },
       {
         "_id": "58f0a296c1ff44ee44818baa",
@@ -5157,8 +5507,6 @@
             "hits": 100
           }
         },
-        "energy": 80,
-        "energyCapacity": 200,
         "type": "creep",
         "room": "E3N15",
         "user": "561e4d4645f3f7244a7622e8",
@@ -5176,7 +5524,6 @@
           "rangedMassAttack": null,
           "heal": null,
           "harvest": null,
-          "heal": null,
           "repair": null,
           "build": null,
           "say": {
@@ -5190,7 +5537,11 @@
           },
           "reserveController": null
         },
-        "_isDisabled": false
+        "_isDisabled": false,
+        "storeCapacity": 200,
+        "store": {
+          "energy": 80
+        }
       },
       {
         "_id": "58f0a70cee1e37194d1f9205",
@@ -5295,8 +5646,6 @@
             "hits": 100
           }
         },
-        "energy": 576,
-        "energyCapacity": 800,
         "type": "creep",
         "room": "E3N15",
         "user": "561e4d4645f3f7244a7622e8",
@@ -5314,14 +5663,17 @@
           "rangedMassAttack": null,
           "heal": null,
           "harvest": null,
-          "heal": null,
           "repair": null,
           "build": null,
           "say": null,
           "upgradeController": null,
           "reserveController": null
         },
-        "_isDisabled": false
+        "_isDisabled": false,
+        "storeCapacity": 800,
+        "store": {
+          "energy": 576
+        }
       },
       {
         "_id": "58f0acace85eb9e413be7078",
@@ -5530,8 +5882,6 @@
             "hits": 100
           }
         },
-        "energy": 0,
-        "energyCapacity": 250,
         "type": "creep",
         "room": "E3N15",
         "user": "561e4d4645f3f7244a7622e8",
@@ -5549,15 +5899,18 @@
           "rangedMassAttack": null,
           "heal": null,
           "harvest": null,
-          "heal": null,
           "repair": null,
           "build": null,
           "say": null,
           "upgradeController": null,
           "reserveController": null
         },
-        "K": 0,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "storeCapacity": 250,
+        "store": {
+          "energy": 0,
+          "K": 0
+        }
       },
       {
         "_id": "58f0af20e142e6d4091d8851",
@@ -5646,8 +5999,6 @@
             "hits": 100
           }
         },
-        "energy": 0,
-        "energyCapacity": 500,
         "type": "creep",
         "room": "E3N15",
         "user": "561e4d4645f3f7244a7622e8",
@@ -5665,17 +6016,20 @@
           "rangedMassAttack": null,
           "heal": null,
           "harvest": null,
-          "heal": null,
           "repair": null,
           "build": null,
           "say": null,
           "upgradeController": null,
           "reserveController": null
         },
-        "ZK": 0,
-        "Z": 0,
-        "K": 0,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "storeCapacity": 500,
+        "store": {
+          "energy": 0,
+          "K": 0,
+          "Z": 0,
+          "ZK": 0
+        }
       },
       {
         "_id": "58f0af37e69c271eb7536921",
@@ -5884,8 +6238,6 @@
             "hits": 100
           }
         },
-        "energy": 0,
-        "energyCapacity": 1250,
         "type": "creep",
         "room": "E3N15",
         "user": "561e4d4645f3f7244a7622e8",
@@ -5903,15 +6255,18 @@
           "rangedMassAttack": null,
           "heal": null,
           "harvest": null,
-          "heal": null,
           "repair": null,
           "build": null,
           "say": null,
           "upgradeController": null,
           "reserveController": null
         },
-        "K": 0,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "storeCapacity": 1250,
+        "store": {
+          "energy": 0,
+          "K": 0
+        }
       },
       {
         "_id": "58f0af5e479b68a059f5fd38",
@@ -6120,8 +6475,6 @@
             "hits": 100
           }
         },
-        "energy": 0,
-        "energyCapacity": 1250,
         "type": "creep",
         "room": "E3N15",
         "user": "561e4d4645f3f7244a7622e8",
@@ -6139,15 +6492,18 @@
           "rangedMassAttack": null,
           "heal": null,
           "harvest": null,
-          "heal": null,
           "repair": null,
           "build": null,
           "say": null,
           "upgradeController": null,
           "reserveController": null
         },
-        "K": 1180,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "storeCapacity": 1250,
+        "store": {
+          "energy": 0,
+          "K": 1180
+        }
       },
       {
         "_id": "58f0b6995c60234f3ae40e21",
@@ -6192,8 +6548,6 @@
             "hits": 100
           }
         },
-        "energy": 0,
-        "energyCapacity": 300,
         "type": "creep",
         "room": "E3N15",
         "user": "561e4d4645f3f7244a7622e8",
@@ -6211,14 +6565,17 @@
           "rangedMassAttack": null,
           "heal": null,
           "harvest": null,
-          "heal": null,
           "repair": null,
           "build": null,
           "say": null,
           "upgradeController": null,
           "reserveController": null
         },
-        "_isDisabled": false
+        "_isDisabled": false,
+        "storeCapacity": 300,
+        "store": {
+          "energy": 0
+        }
       },
       {
         "_id": "58f0b718e42b12502c66ef2d",
@@ -6311,8 +6668,6 @@
             "hits": 100
           }
         },
-        "energy": 0,
-        "energyCapacity": 800,
         "type": "creep",
         "room": "E3N15",
         "user": "561e4d4645f3f7244a7622e8",
@@ -6330,14 +6685,17 @@
           "rangedMassAttack": null,
           "heal": null,
           "harvest": null,
-          "heal": null,
           "repair": null,
           "build": null,
           "say": null,
           "upgradeController": null,
           "reserveController": null
         },
-        "_isDisabled": false
+        "_isDisabled": false,
+        "storeCapacity": 800,
+        "store": {
+          "energy": 0
+        }
       },
       {
         "_id": "58f0b8c4339eb6261ecbe630",
@@ -6402,8 +6760,6 @@
             "hits": 100
           }
         },
-        "energy": 0,
-        "energyCapacity": 100,
         "type": "creep",
         "room": "E3N15",
         "user": "561e4d4645f3f7244a7622e8",
@@ -6422,12 +6778,15 @@
           "rangedMassAttack": null,
           "heal": null,
           "harvest": null,
-          "heal": null,
           "repair": null,
           "build": null,
           "say": null,
           "upgradeController": null,
           "reserveController": null
+        },
+        "storeCapacity": 100,
+        "store": {
+          "energy": 0
         }
       },
       {
@@ -6509,8 +6868,6 @@
             "hits": 100
           }
         },
-        "energy": 0,
-        "energyCapacity": 100,
         "type": "creep",
         "room": "E3N15",
         "user": "561e4d4645f3f7244a7622e8",
@@ -6527,17 +6884,20 @@
           "attack": null,
           "rangedAttack": null,
           "rangedMassAttack": null,
-          "heal": null,
-          "harvest": null,
           "heal": {
             "x": 23,
             "y": 21
           },
+          "harvest": null,
           "repair": null,
           "build": null,
           "say": null,
           "upgradeController": null,
           "reserveController": null
+        },
+        "storeCapacity": 100,
+        "store": {
+          "energy": 0
         }
       },
       {
@@ -6790,8 +7150,6 @@
             "hits": 100
           }
         },
-        "energy": 0,
-        "energyCapacity": 1600,
         "type": "creep",
         "room": "E3N15",
         "user": "561e4d4645f3f7244a7622e8",
@@ -6809,7 +7167,6 @@
           "rangedMassAttack": null,
           "heal": null,
           "harvest": null,
-          "heal": null,
           "repair": null,
           "build": {
             "x": 45,
@@ -6820,7 +7177,11 @@
           "reserveController": null
         },
         "interRoom": null,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "storeCapacity": 1600,
+        "store": {
+          "energy": 0
+        }
       },
       {
         "_id": "58f0aa5a3b670ea14b70a333",
@@ -6981,8 +7342,6 @@
             "hits": 100
           }
         },
-        "energy": 0,
-        "energyCapacity": 1200,
         "type": "creep",
         "room": "E3N15",
         "user": "561e4d4645f3f7244a7622e8",
@@ -7000,7 +7359,6 @@
           "rangedMassAttack": null,
           "heal": null,
           "harvest": null,
-          "heal": null,
           "repair": null,
           "build": null,
           "say": null,
@@ -7008,7 +7366,11 @@
           "reserveController": null
         },
         "interRoom": null,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "storeCapacity": 1200,
+        "store": {
+          "energy": 0
+        }
       },
       {
         "_id": "58f0b18ebc3986472947c087",
@@ -7217,8 +7579,6 @@
             "hits": 100
           }
         },
-        "energy": 0,
-        "energyCapacity": 1600,
         "type": "creep",
         "room": "E3N15",
         "user": "561e4d4645f3f7244a7622e8",
@@ -7236,7 +7596,6 @@
           "rangedMassAttack": null,
           "heal": null,
           "harvest": null,
-          "heal": null,
           "repair": null,
           "build": null,
           "say": null,
@@ -7244,7 +7603,11 @@
           "reserveController": null
         },
         "interRoom": null,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "storeCapacity": 1600,
+        "store": {
+          "energy": 0
+        }
       },
       {
         "_id": "58f0b9839ff6c2b40a550d5c",
@@ -7325,8 +7688,6 @@
             "hits": 100
           }
         },
-        "energy": 0,
-        "energyCapacity": 100,
         "type": "creep",
         "room": "E3N15",
         "user": "561e4d4645f3f7244a7622e8",
@@ -7335,7 +7696,11 @@
         "spawning": true,
         "fatigue": 0,
         "notifyWhenAttacked": true,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "storeCapacity": 100,
+        "store": {
+          "energy": 0
+        }
       },
       {
         "_id": "58f0aa903867e46e4102b37e",
@@ -7496,8 +7861,6 @@
             "hits": 100
           }
         },
-        "energy": 1174,
-        "energyCapacity": 1200,
         "type": "creep",
         "room": "E3N15",
         "user": "561e4d4645f3f7244a7622e8",
@@ -7515,7 +7878,6 @@
           "rangedMassAttack": null,
           "heal": null,
           "harvest": null,
-          "heal": null,
           "repair": null,
           "build": null,
           "say": null,
@@ -7523,7 +7885,11 @@
           "reserveController": null
         },
         "interRoom": null,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "storeCapacity": 1200,
+        "store": {
+          "energy": 1174
+        }
       },
       {
         "_id": "58f0b9dc9ddd2c50af9d4125",
@@ -7684,8 +8050,6 @@
             "hits": 100
           }
         ],
-        "energy": 0,
-        "energyCapacity": 1200,
         "type": "creep",
         "room": "E3N15",
         "user": "561e4d4645f3f7244a7622e8",
@@ -7694,7 +8058,11 @@
         "spawning": true,
         "fatigue": 0,
         "notifyWhenAttacked": true,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "storeCapacity": 1200,
+        "store": {
+          "energy": 0
+        }
       },
       {
         "_id": "58f0a4ea18ab440f4da47f5a",
@@ -7819,9 +8187,6 @@
             "hits": 100
           }
         },
-        "energy": 0,
-        "K": 700,
-        "energyCapacity": 900,
         "type": "creep",
         "room": "E3N15",
         "user": "561e4d4645f3f7244a7622e8",
@@ -7839,7 +8204,6 @@
           "rangedMassAttack": null,
           "heal": null,
           "harvest": null,
-          "heal": null,
           "repair": null,
           "build": null,
           "say": null,
@@ -7847,7 +8211,12 @@
           "reserveController": null
         },
         "interRoom": null,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "storeCapacity": 900,
+        "store": {
+          "energy": 0,
+          "K": 700
+        }
       },
       {
         "_id": "58f0ba0e5e0fcf059e628e44",
@@ -7928,8 +8297,6 @@
             "hits": 100
           }
         ],
-        "energy": 0,
-        "energyCapacity": 100,
         "type": "creep",
         "room": "E3N15",
         "user": "561e4d4645f3f7244a7622e8",
@@ -7938,7 +8305,11 @@
         "spawning": true,
         "fatigue": 0,
         "notifyWhenAttacked": true,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "storeCapacity": 100,
+        "store": {
+          "energy": 0
+        }
       },
       {
         "_id": "58f0a859e6e30d1f097abe40",
@@ -8099,8 +8470,6 @@
             "hits": 100
           }
         },
-        "energy": 1190,
-        "energyCapacity": 1200,
         "type": "creep",
         "room": "E3N15",
         "user": "561e4d4645f3f7244a7622e8",
@@ -8118,7 +8487,6 @@
           "rangedMassAttack": null,
           "heal": null,
           "harvest": null,
-          "heal": null,
           "repair": null,
           "build": null,
           "say": null,
@@ -8126,78 +8494,89 @@
           "reserveController": null
         },
         "interRoom": null,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "storeCapacity": 1200,
+        "store": {
+          "energy": 1190
+        }
       },
       {
-        "_id" : "5a71934f7037f829c0ba0e08",
-        "type" : "tombstone",
-        "room" : "W7N7",
+        "_id": "5a71934f7037f829c0ba0e08",
+        "type": "tombstone",
+        "room": "W7N7",
         "x": 39,
         "y": 19,
-        "user" : "59c24aad3195d67684579c83",
-        "deathTime" : 18641774,
-        "decayTime" : 18641779,
-        "creepId" : "5a71934f7037f829c0ba0e11",
-        "creepName" : "a",
-        "creepTicksToLive" : 854,
-        "creepBody" : [
+        "user": "59c24aad3195d67684579c83",
+        "deathTime": 18641774,
+        "decayTime": 18641779,
+        "creepId": "5a71934f7037f829c0ba0e11",
+        "creepName": "a",
+        "creepTicksToLive": 854,
+        "creepBody": [
           "move"
         ],
-        "creepSaying" : null,
-        "energy" : 5
+        "creepSaying": null,
+        "store": {
+          "energy": 5
+        }
       },
       {
-        "_id" : "5a71934f7037f829c0ba0e09",
-        "type" : "tombstone",
-        "room" : "W7N7",
+        "_id": "5a71934f7037f829c0ba0e09",
+        "type": "tombstone",
+        "room": "W7N7",
         "x": 39,
         "y": 18,
-        "user" : "561e4d4645f3f7244a7622e8",
-        "deathTime" : 18641769,
-        "decayTime" : 18641774,
-        "creepId" : "5a71934f7037f829c0ba0e11",
-        "creepName" : "a",
-        "creepTicksToLive" : 854,
-        "creepBody" : [
+        "user": "561e4d4645f3f7244a7622e8",
+        "deathTime": 18641769,
+        "decayTime": 18641774,
+        "creepId": "5a71934f7037f829c0ba0e11",
+        "creepName": "a",
+        "creepTicksToLive": 854,
+        "creepBody": [
           "move"
         ],
-        "creepSaying" : null,
-        "energy" : 5
+        "creepSaying": null,
+        "store": {
+          "energy": 5
+        }
       },
       {
-        "_id" : "5a71934f7037f829c0ba0e10",
-        "type" : "tombstone",
-        "room" : "W7N7",
+        "_id": "5a71934f7037f829c0ba0e10",
+        "type": "tombstone",
+        "room": "W7N7",
         "x": 39,
         "y": 17,
-        "user" : "561e4d4645f3f7244a7622e8",
-        "deathTime" : 18641773,
-        "decayTime" : 18641778,
-        "creepId" : "5a71934f7037f829c0ba0e11",
-        "creepName" : "a",
-        "creepTicksToLive" : 854,
-        "creepBody" : [
+        "user": "561e4d4645f3f7244a7622e8",
+        "deathTime": 18641773,
+        "decayTime": 18641778,
+        "creepId": "5a71934f7037f829c0ba0e11",
+        "creepName": "a",
+        "creepTicksToLive": 854,
+        "creepBody": [
           "move"
         ],
-        "creepSaying" : null,
-        "H" : 5
+        "creepSaying": null,
+        "store": {
+          "H": 5
+        }
       },
       {
-        "_id" : "5a71934f7037f829c0ba0e11",
-        "type" : "tombstone",
-        "room" : "W7N7",
+        "_id": "5a71934f7037f829c0ba0e11",
+        "type": "tombstone",
+        "room": "W7N7",
         "x": 40,
         "y": 18,
-        "user" : "561e4d4645f3f7244a7622e8",
-        "deathTime" : 18641771,
-        "decayTime" : 18641776,
-        "creepId" : "5a71934f7037f829c0ba0e11",
-        "creepName" : "a",
-        "creepTicksToLive" : 854,
-        "creepBody" : [
+        "user": "561e4d4645f3f7244a7622e8",
+        "deathTime": 18641771,
+        "decayTime": 18641776,
+        "creepId": "5a71934f7037f829c0ba0e11",
+        "creepName": "a",
+        "creepTicksToLive": 854,
+        "creepBody": [
           "move"
         ],
-        "creepSaying" : null
+        "creepSaying": null,
+        "store": {}
       }
     ],
     "users": {

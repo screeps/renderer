@@ -32,18 +32,18 @@ export default {
         resourceTotal(),
         {
             id: 'resourcesTotalRadius',
-            func: ({ state: { energyCapacity }, calcs: { resourcesTotal } }) =>
-                Math.min(1, resourcesTotal / energyCapacity) * ENERGY_RADIUS,
+            func: ({ state: { storeCapacity }, calcs: { resourcesTotal } }) =>
+                Math.min(1, resourcesTotal / storeCapacity) * ENERGY_RADIUS,
         },
         {
             id: 'energyRadius',
-            func: ({ state: { energy, energyCapacity } }) =>
-                Math.min(1, energy / energyCapacity) * ENERGY_RADIUS,
+            func: ({ state: { store, storeCapacity } }) =>
+                Math.min(1, (store['energy']||0) / storeCapacity) * ENERGY_RADIUS,
         },
         {
             id: 'powerRadius',
-            func: ({ state: { energy, power = 0, energyCapacity } }) =>
-                Math.min(1, (energy + power) / energyCapacity) * ENERGY_RADIUS,
+            func: ({ state: { store, storeCapacity } }) =>
+                Math.min(1, ((store['energy']||0) + (store['power']||0)) / storeCapacity) * ENERGY_RADIUS,
         },
         {
             id: 'safeMode',
@@ -109,9 +109,9 @@ export default {
         },
         {
             type: 'circle',
-            props: ['energy', 'power', 'resourcesTotal'],
-            when: ({ state: { power = 0, energy }, calcs: { resourcesTotal } }) =>
-                resourcesTotal > 0 && energy + power < resourcesTotal,
+            props: ['store', 'resourcesTotal'],
+            when: ({ state: { store = {} }, calcs: { resourcesTotal } }) =>
+                resourcesTotal > 0 && store['energy']||0 + store['power']||0 < resourcesTotal,
             payload: {
                 parentId: 'mainContainer',
                 radius: { $calc: 'resourcesTotalRadius' },
@@ -120,8 +120,8 @@ export default {
         },
         {
             type: 'circle',
-            props: ['energy', 'power'],
-            when: ({ state: { power = 0 } }) => power > 0,
+            props: ['store'],
+            when: ({ state: { store = {} } }) => store['power'] > 0,
             payload: {
                 parentId: 'mainContainer',
                 radius: { $calc: 'powerRadius' },
@@ -130,8 +130,8 @@ export default {
         },
         {
             type: 'circle',
-            props: ['energy'],
-            when: ({ state: { energy } }) => energy > 0,
+            props: ['store'],
+            when: ({ state: { store } }) => store['energy'] > 0,
             payload: {
                 parentId: 'mainContainer',
                 radius: { $calc: 'energyRadius' },

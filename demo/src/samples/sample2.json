@@ -93,9 +93,6 @@
         "y": 25,
         "user": "54bff72ab32a10f73a57d017",
         "room": "sim",
-        "energy": 0,
-        "power": 0,
-        "energyCapacity": 0,
         "hits": 1300,
         "hitsMax": 1300,
         "spawning": false,
@@ -113,12 +110,16 @@
           "rangedMassAttack": null,
           "heal": null,
           "harvest": null,
-          "heal": null,
           "repair": null,
           "build": null,
           "say": null,
           "upgradeController": null,
           "reserveController": null
+        },
+        "storeCapacity": 0,
+        "store": {
+          "energy": 0,
+          "power": 0
         }
       },
       {
@@ -219,15 +220,17 @@
         "y": 25,
         "user": "1",
         "room": "sim",
-        "energy": 0,
-        "power": 0,
-        "energyCapacity": 0,
         "hits": 2200,
         "hitsMax": 2200,
         "spawning": false,
         "fatigue": 0,
         "ageTime": 1570,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "storeCapacity": 0,
+        "store": {
+          "energy": 0,
+          "power": 0
+        }
       }
     ],
     "users": {
@@ -365,9 +368,6 @@
         "y": 25,
         "user": "54bff72ab32a10f73a57d017",
         "room": "sim",
-        "energy": 0,
-        "power": 0,
-        "energyCapacity": 0,
         "hits": 1300,
         "hitsMax": 1300,
         "spawning": false,
@@ -385,12 +385,16 @@
           "rangedMassAttack": null,
           "heal": null,
           "harvest": null,
-          "heal": null,
           "repair": null,
           "build": null,
           "say": null,
           "upgradeController": null,
           "reserveController": null
+        },
+        "storeCapacity": 0,
+        "store": {
+          "energy": 0,
+          "power": 0
         }
       },
       {
@@ -491,15 +495,17 @@
         "y": 25,
         "user": "1",
         "room": "sim",
-        "energy": 0,
-        "power": 0,
-        "energyCapacity": 0,
         "hits": 2200,
         "hitsMax": 2200,
         "spawning": false,
         "fatigue": 0,
         "ageTime": 1570,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "storeCapacity": 0,
+        "store": {
+          "energy": 0,
+          "power": 0
+        }
       }
     ],
     "users": {
@@ -637,9 +643,6 @@
         "y": 25,
         "user": "54bff72ab32a10f73a57d017",
         "room": "sim",
-        "energy": 0,
-        "power": 0,
-        "energyCapacity": 0,
         "hits": 1300,
         "hitsMax": 1300,
         "spawning": false,
@@ -657,12 +660,16 @@
           "rangedMassAttack": null,
           "heal": null,
           "harvest": null,
-          "heal": null,
           "repair": null,
           "build": null,
           "say": null,
           "upgradeController": null,
           "reserveController": null
+        },
+        "storeCapacity": 0,
+        "store": {
+          "energy": 0,
+          "power": 0
         }
       },
       {
@@ -763,9 +770,6 @@
         "y": 25,
         "user": "1",
         "room": "sim",
-        "energy": 0,
-        "power": 0,
-        "energyCapacity": 0,
         "hits": 1870,
         "hitsMax": 2200,
         "spawning": false,
@@ -786,12 +790,16 @@
           "rangedMassAttack": null,
           "heal": null,
           "harvest": null,
-          "heal": null,
           "repair": null,
           "build": null,
           "say": null,
           "upgradeController": null,
           "reserveController": null
+        },
+        "storeCapacity": 0,
+        "store": {
+          "energy": 0,
+          "power": 0
         }
       }
     ],
@@ -930,9 +938,6 @@
         "y": 25,
         "user": "54bff72ab32a10f73a57d017",
         "room": "sim",
-        "energy": 0,
-        "power": 0,
-        "energyCapacity": 0,
         "hits": 1300,
         "hitsMax": 1300,
         "spawning": false,
@@ -950,12 +955,16 @@
           "rangedMassAttack": null,
           "heal": null,
           "harvest": null,
-          "heal": null,
           "repair": null,
           "build": null,
           "say": null,
           "upgradeController": null,
           "reserveController": null
+        },
+        "storeCapacity": 0,
+        "store": {
+          "energy": 0,
+          "power": 0
         }
       },
       {
@@ -1056,9 +1065,6 @@
         "y": 25,
         "user": "1",
         "room": "sim",
-        "energy": 0,
-        "power": 0,
-        "energyCapacity": 0,
         "hits": 1540,
         "hitsMax": 2200,
         "spawning": false,
@@ -1079,12 +1085,16 @@
           "rangedMassAttack": null,
           "heal": null,
           "harvest": null,
-          "heal": null,
           "repair": null,
           "build": null,
           "say": null,
           "upgradeController": null,
           "reserveController": null
+        },
+        "storeCapacity": 0,
+        "store": {
+          "energy": 0,
+          "power": 0
         }
       }
     ],
@@ -1223,9 +1233,6 @@
         "y": 25,
         "user": "54bff72ab32a10f73a57d017",
         "room": "sim",
-        "energy": 0,
-        "power": 0,
-        "energyCapacity": 0,
         "hits": 1300,
         "hitsMax": 1300,
         "spawning": false,
@@ -1243,12 +1250,16 @@
           "rangedMassAttack": null,
           "heal": null,
           "harvest": null,
-          "heal": null,
           "repair": null,
           "build": null,
           "say": null,
           "upgradeController": null,
           "reserveController": null
+        },
+        "storeCapacity": 0,
+        "store": {
+          "energy": 0,
+          "power": 0
         }
       },
       {
@@ -1349,9 +1360,6 @@
         "y": 25,
         "user": "1",
         "room": "sim",
-        "energy": 0,
-        "power": 0,
-        "energyCapacity": 0,
         "hits": 1210,
         "hitsMax": 2200,
         "spawning": false,
@@ -1372,12 +1380,16 @@
           "rangedMassAttack": null,
           "heal": null,
           "harvest": null,
-          "heal": null,
           "repair": null,
           "build": null,
           "say": null,
           "upgradeController": null,
           "reserveController": null
+        },
+        "storeCapacity": 0,
+        "store": {
+          "energy": 0,
+          "power": 0
         }
       }
     ],
@@ -1496,9 +1508,6 @@
         "y": 25,
         "user": "54bff72ab32a10f73a57d017",
         "room": "sim",
-        "energy": 0,
-        "power": 0,
-        "energyCapacity": 0,
         "hits": 1300,
         "hitsMax": 1300,
         "spawning": false,
@@ -1516,12 +1525,16 @@
           "rangedMassAttack": null,
           "heal": null,
           "harvest": null,
-          "heal": null,
           "repair": null,
           "build": null,
           "say": null,
           "upgradeController": null,
           "reserveController": null
+        },
+        "storeCapacity": 0,
+        "store": {
+          "energy": 0,
+          "power": 0
         }
       },
       {
@@ -1622,9 +1635,6 @@
         "y": 25,
         "user": "1",
         "room": "sim",
-        "energy": 0,
-        "power": 0,
-        "energyCapacity": 0,
         "hits": 880,
         "hitsMax": 2200,
         "spawning": false,
@@ -1645,12 +1655,16 @@
           "rangedMassAttack": null,
           "heal": null,
           "harvest": null,
-          "heal": null,
           "repair": null,
           "build": null,
           "say": null,
           "upgradeController": null,
           "reserveController": null
+        },
+        "storeCapacity": 0,
+        "store": {
+          "energy": 0,
+          "power": 0
         }
       }
     ],
@@ -1769,9 +1783,6 @@
         "y": 25,
         "user": "54bff72ab32a10f73a57d017",
         "room": "sim",
-        "energy": 0,
-        "power": 0,
-        "energyCapacity": 0,
         "hits": 1300,
         "hitsMax": 1300,
         "spawning": false,
@@ -1789,12 +1800,16 @@
           "rangedMassAttack": null,
           "heal": null,
           "harvest": null,
-          "heal": null,
           "repair": null,
           "build": null,
           "say": null,
           "upgradeController": null,
           "reserveController": null
+        },
+        "storeCapacity": 0,
+        "store": {
+          "energy": 0,
+          "power": 0
         }
       },
       {
@@ -1895,9 +1910,6 @@
         "y": 25,
         "user": "1",
         "room": "sim",
-        "energy": 0,
-        "power": 0,
-        "energyCapacity": 0,
         "hits": 550,
         "hitsMax": 2200,
         "spawning": false,
@@ -1918,12 +1930,16 @@
           "rangedMassAttack": null,
           "heal": null,
           "harvest": null,
-          "heal": null,
           "repair": null,
           "build": null,
           "say": null,
           "upgradeController": null,
           "reserveController": null
+        },
+        "storeCapacity": 0,
+        "store": {
+          "energy": 0,
+          "power": 0
         }
       }
     ],
@@ -2042,9 +2058,6 @@
         "y": 25,
         "user": "54bff72ab32a10f73a57d017",
         "room": "sim",
-        "energy": 0,
-        "power": 0,
-        "energyCapacity": 0,
         "hits": 1300,
         "hitsMax": 1300,
         "spawning": false,
@@ -2062,12 +2075,16 @@
           "rangedMassAttack": null,
           "heal": null,
           "harvest": null,
-          "heal": null,
           "repair": null,
           "build": null,
           "say": null,
           "upgradeController": null,
           "reserveController": null
+        },
+        "storeCapacity": 0,
+        "store": {
+          "energy": 0,
+          "power": 0
         }
       },
       {
@@ -2168,9 +2185,6 @@
         "y": 25,
         "user": "1",
         "room": "sim",
-        "energy": 0,
-        "power": 0,
-        "energyCapacity": 0,
         "hits": 220,
         "hitsMax": 2200,
         "spawning": false,
@@ -2191,12 +2205,16 @@
           "rangedMassAttack": null,
           "heal": null,
           "harvest": null,
-          "heal": null,
           "repair": null,
           "build": null,
           "say": null,
           "upgradeController": null,
           "reserveController": null
+        },
+        "storeCapacity": 0,
+        "store": {
+          "energy": 0,
+          "power": 0
         }
       }
     ],
@@ -2315,9 +2333,6 @@
         "y": 25,
         "user": "54bff72ab32a10f73a57d017",
         "room": "sim",
-        "energy": 0,
-        "power": 0,
-        "energyCapacity": 0,
         "hits": 1300,
         "hitsMax": 1300,
         "spawning": false,
@@ -2335,12 +2350,16 @@
           "rangedMassAttack": null,
           "heal": null,
           "harvest": null,
-          "heal": null,
           "repair": null,
           "build": null,
           "say": null,
           "upgradeController": null,
           "reserveController": null
+        },
+        "storeCapacity": 0,
+        "store": {
+          "energy": 0,
+          "power": 0
         }
       },
       {
@@ -2468,9 +2487,6 @@
         "y": 25,
         "user": "54bff72ab32a10f73a57d017",
         "room": "sim",
-        "energy": 0,
-        "power": 0,
-        "energyCapacity": 0,
         "hits": 1300,
         "hitsMax": 1300,
         "spawning": false,
@@ -2485,12 +2501,16 @@
           "rangedMassAttack": null,
           "heal": null,
           "harvest": null,
-          "heal": null,
           "repair": null,
           "build": null,
           "say": null,
           "upgradeController": null,
           "reserveController": null
+        },
+        "storeCapacity": 0,
+        "store": {
+          "energy": 0,
+          "power": 0
         }
       },
       {
@@ -2619,9 +2639,6 @@
         "y": 25,
         "user": "54bff72ab32a10f73a57d017",
         "room": "sim",
-        "energy": 0,
-        "power": 0,
-        "energyCapacity": 0,
         "hits": 1300,
         "hitsMax": 1300,
         "spawning": false,
@@ -2636,12 +2653,16 @@
           "rangedMassAttack": null,
           "heal": null,
           "harvest": null,
-          "heal": null,
           "repair": null,
           "build": null,
           "say": null,
           "upgradeController": null,
           "reserveController": null
+        },
+        "storeCapacity": 0,
+        "store": {
+          "energy": 0,
+          "power": 0
         }
       },
       {

@@ -22,11 +22,11 @@ export default {
     calculations: [
         {
             id: 'energyTrianglePoints',
-            props: ['energy', 'energyCapacity'],
-            func: ({ state: { energy, energyCapacity } }) => {
+            props: ['store', 'storeCapacityResource'],
+            func: ({ state: { store, storeCapacityResource } }) => {
                 const { x, y } = resourceTriangle;
                 let { width, height } = resourceTriangle;
-                const koef = energy / energyCapacity;
+                const koef = (store.energy||0) / storeCapacityResource.energy;
                 width *= koef;
                 height *= koef;
                 return [
@@ -38,8 +38,9 @@ export default {
         },
         {
             id: 'gWidth',
-            func: ({ state: { G: g, GCapacity: gCapacity } }) =>
-                (gRectangle.width * g) / gCapacity,
+            func: ({ state: { store, storeCapacityResource } }) =>
+                storeCapacityResource && storeCapacityResource['G'] ?
+                    (gRectangle.width * (store['G']||0)) / storeCapacityResource['G'] : 0,
         },
     ],
     processors: [

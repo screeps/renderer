@@ -39,9 +39,10 @@ export default {
         },
         {
             id: 'resourceScale',
-            props: ['energy', 'energyCapacity'],
-            func: ({ state: { energy, energyCapacity } }) =>
-                energy / energyCapacity,
+            props: ['store', 'storeCapacityResource'],
+            func: ({ state: { store, storeCapacityResource } }) =>
+                storeCapacityResource && storeCapacityResource.energy ?
+                    (store.energy||0) / storeCapacityResource.energy : 0,
         },
         {
             id: 'displayName',
@@ -173,8 +174,8 @@ export default {
         {
             type: 'sprite',
             layer: 'lighting',
-            props: ['energy'],
-            shouldRun: (({ state: { energy } }) => energy > 0),
+            props: ['store'],
+            shouldRun: (({ state: { store } }) => store.energy > 0),
             payload: {
                 texture: 'glow',
                 width: 100,

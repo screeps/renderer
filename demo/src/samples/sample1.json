@@ -15,9 +15,6 @@
         "y": 24,
         "user": "54bff72ab32a10f73a57d017",
         "room": "sim",
-        "energy": 0,
-        "power": 0,
-        "energyCapacity": 0,
         "hits": 100,
         "hitsMax": 100,
         "spawning": false,
@@ -34,9 +31,16 @@
           "harvest": null,
           "repair": null,
           "build": null,
-          "say": { "message": "1" },
+          "say": {
+            "message": "1"
+          },
           "upgradeController": null,
           "reserveController": null
+        },
+        "storeCapacity": 0,
+        "store": {
+          "energy": 0,
+          "power": 0
         }
       }
     ],
@@ -97,9 +101,6 @@
         "y": 29,
         "user": "54bff72ab32a10f73a57d017",
         "room": "sim",
-        "energy": 0,
-        "power": 0,
-        "energyCapacity": 0,
         "hits": 100,
         "hitsMax": 100,
         "spawning": false,
@@ -116,9 +117,17 @@
           "harvest": null,
           "repair": null,
           "build": null,
-          "say": { "message": "2", "isPublic": true },
+          "say": {
+            "message": "2",
+            "isPublic": true
+          },
           "upgradeController": null,
           "reserveController": null
+        },
+        "storeCapacity": 0,
+        "store": {
+          "energy": 0,
+          "power": 0
         }
       }
     ],
@@ -179,9 +188,6 @@
         "y": 24,
         "user": "54bff72ab32a10f73a57d017",
         "room": "sim",
-        "energy": 0,
-        "power": 0,
-        "energyCapacity": 0,
         "hits": 100,
         "hitsMax": 100,
         "spawning": false,
@@ -201,6 +207,11 @@
           "say": null,
           "upgradeController": null,
           "reserveController": null
+        },
+        "storeCapacity": 0,
+        "store": {
+          "energy": 0,
+          "power": 0
         }
       }
     ],
@@ -261,9 +272,6 @@
         "y": 23,
         "user": "54bff72ab32a10f73a57d017",
         "room": "sim",
-        "energy": 0,
-        "power": 0,
-        "energyCapacity": 0,
         "hits": 100,
         "hitsMax": 100,
         "spawning": false,
@@ -280,9 +288,16 @@
           "harvest": null,
           "repair": null,
           "build": null,
-          "say": { "message": "test test!" },
+          "say": {
+            "message": "test test!"
+          },
           "upgradeController": null,
           "reserveController": null
+        },
+        "storeCapacity": 0,
+        "store": {
+          "energy": 0,
+          "power": 0
         }
       }
     ],
@@ -343,9 +358,6 @@
         "y": 25,
         "user": "54bff72ab32a10f73a57d017",
         "room": "sim",
-        "energy": 0,
-        "power": 0,
-        "energyCapacity": 0,
         "hits": 100,
         "hitsMax": 100,
         "spawning": false,
@@ -362,9 +374,16 @@
           "harvest": null,
           "repair": null,
           "build": null,
-          "say": { "message": "test test!" },
+          "say": {
+            "message": "test test!"
+          },
           "upgradeController": null,
           "reserveController": null
+        },
+        "storeCapacity": 0,
+        "store": {
+          "energy": 0,
+          "power": 0
         }
       }
     ],
@@ -425,9 +444,6 @@
         "y": 26,
         "user": "54bff72ab32a10f73a57d017",
         "room": "sim",
-        "energy": 0,
-        "power": 0,
-        "energyCapacity": 0,
         "hits": 100,
         "hitsMax": 100,
         "spawning": false,
@@ -447,6 +463,11 @@
           "say": null,
           "upgradeController": null,
           "reserveController": null
+        },
+        "storeCapacity": 0,
+        "store": {
+          "energy": 0,
+          "power": 0
         }
       }
     ],
@@ -507,9 +528,6 @@
         "y": 25,
         "user": "54bff72ab32a10f73a57d017",
         "room": "sim",
-        "energy": 0,
-        "power": 0,
-        "energyCapacity": 0,
         "hits": 100,
         "hitsMax": 100,
         "spawning": false,
@@ -526,9 +544,16 @@
           "harvest": null,
           "repair": null,
           "build": null,
-          "say": { "message": "⚡" },
+          "say": {
+            "message": "⚡"
+          },
           "upgradeController": null,
           "reserveController": null
+        },
+        "storeCapacity": 0,
+        "store": {
+          "energy": 0,
+          "power": 0
         }
       }
     ],
@@ -589,9 +614,6 @@
         "y": 24,
         "user": "54bff72ab32a10f73a57d017",
         "room": "sim",
-        "energy": 0,
-        "power": 0,
-        "energyCapacity": 0,
         "hits": 100,
         "hitsMax": 100,
         "spawning": false,
@@ -606,12 +628,16 @@
           "rangedMassAttack": null,
           "heal": null,
           "harvest": null,
-          "heal": null,
           "repair": null,
           "build": null,
           "say": null,
           "upgradeController": null,
           "reserveController": null
+        },
+        "storeCapacity": 0,
+        "store": {
+          "energy": 0,
+          "power": 0
         }
       },
       {

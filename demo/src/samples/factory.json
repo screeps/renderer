@@ -1,307 +1,372 @@
-[{
-    "objects": [{
+[
+  {
+    "objects": [
+      {
         "type": "factory",
         "x": 20,
         "y": 20,
         "level": 0,
         "room": "sim",
         "user": "54bff72ab32a10f73a57d017",
-        "energyCapacity": 2000,
         "hits": 250000,
         "hitsMax": 250000,
         "nextDecayTime": 108,
         "_id": "aa5f8a1bcd606a79457b44bb",
-        "_isDisabled": false
-    }],
+        "_isDisabled": false,
+        "storeCapacity": 2000,
+        "store": {}
+      }
+    ],
     "gameTime": 0
-}, {
-    "objects": [{
+  },
+  {
+    "objects": [
+      {
         "type": "factory",
         "x": 20,
         "y": 20,
         "level": 1,
         "room": "sim",
         "user": "54bff72ab32a10f73a57d017",
-        "energy": 500,
-        "energyCapacity": 2000,
         "hits": 250000,
         "hitsMax": 250000,
         "nextDecayTime": 108,
         "_id": "aa5f8a1bcd606a79457b44bb",
-        "_isDisabled": false
-    }],
+        "_isDisabled": false,
+        "storeCapacity": 2000,
+        "store": {
+          "energy": 500
+        }
+      }
+    ],
     "gameTime": 1
-}, {
-    "objects": [{
+  },
+  {
+    "objects": [
+      {
         "type": "factory",
         "x": 20,
         "y": 20,
         "level": 2,
         "room": "sim",
         "user": "54bff72ab32a10f73a57d017",
-        "energy": 500,
-        "energyCapacity": 2000,
         "hits": 250000,
         "hitsMax": 250000,
         "nextDecayTime": 108,
         "_id": "aa5f8a1bcd606a79457b44bb",
-        "_isDisabled": false
-    }],
+        "_isDisabled": false,
+        "storeCapacity": 2000,
+        "store": {
+          "energy": 500
+        }
+      }
+    ],
     "gameTime": 2
-}, {
-    "objects": [{
+  },
+  {
+    "objects": [
+      {
         "type": "factory",
         "x": 20,
         "y": 20,
         "level": 2,
         "room": "sim",
         "user": "54bff72ab32a10f73a57d017",
-        "energy": 500,
-        "energyCapacity": 2000,
         "hits": 250000,
         "hitsMax": 250000,
         "nextDecayTime": 108,
         "_id": "aa5f8a1bcd606a79457b44bb",
-        "_isDisabled": false
-    }],
+        "_isDisabled": false,
+        "storeCapacity": 2000,
+        "store": {
+          "energy": 500
+        }
+      }
+    ],
     "gameTime": 3
-}, {
-    "objects": [{
+  },
+  {
+    "objects": [
+      {
         "type": "factory",
         "x": 20,
         "y": 20,
         "level": 2,
         "room": "sim",
         "user": "54bff72ab32a10f73a57d017",
-        "energy": 750,
-        "power": 250,
-        "energyCapacity": 2000,
         "hits": 250000,
         "hitsMax": 250000,
         "nextDecayTime": 108,
         "_id": "aa5f8a1bcd606a79457b44bb",
-        "_isDisabled": false
-    }],
+        "_isDisabled": false,
+        "storeCapacity": 2000,
+        "store": {
+          "energy": 750,
+          "power": 250
+        }
+      }
+    ],
     "gameTime": 4
-}, {
-    "objects": [{
+  },
+  {
+    "objects": [
+      {
         "type": "factory",
         "x": 20,
         "y": 20,
         "level": 3,
         "room": "sim",
         "user": "54bff72ab32a10f73a57d017",
-        "energy": 1000,
-        "power": 500,
-        "energyCapacity": 2000,
         "hits": 250000,
         "hitsMax": 250000,
         "nextDecayTime": 108,
         "_id": "aa5f8a1bcd606a79457b44bb",
         "_isDisabled": false,
-        "H": 250,
         "effects": {
-            "0" : {
-                "power" : 19, 
-                "level" : 1, 
-                "endTime" : 15
-            }
+          "0": {
+            "power": 19,
+            "level": 1,
+            "endTime": 15
+          }
+        },
+        "storeCapacity": 2000,
+        "store": {
+          "energy": 1000,
+          "power": 500,
+          "H": 250
         }
-    }],
+      }
+    ],
     "gameTime": 5
-}, {
-    "objects": [{
+  },
+  {
+    "objects": [
+      {
         "type": "factory",
         "x": 20,
         "y": 20,
         "level": 4,
         "room": "sim",
         "user": "54bff72ab32a10f73a57d017",
-        "energyCapacity": 2000,
-        "energy": 1000,
-        "power": 500,
-        "H": 250,
-        "O": 250,
         "hits": 250000,
         "hitsMax": 250000,
         "nextDecayTime": 108,
         "_id": "aa5f8a1bcd606a79457b44bb",
         "_isDisabled": false,
         "effects": {
-            "0" : {
-                "power" : 19, 
-                "level" : 1, 
-                "endTime" : 15
-            }
+          "0": {
+            "power": 19,
+            "level": 1,
+            "endTime": 15
+          }
+        },
+        "storeCapacity": 2000,
+        "store": {
+          "energy": 1000,
+          "power": 500,
+          "H": 250,
+          "O": 250
         }
-    }],
+      }
+    ],
     "gameTime": 6
-}, {
-    "objects": [{
+  },
+  {
+    "objects": [
+      {
         "type": "factory",
         "x": 20,
         "y": 20,
         "level": 5,
         "room": "sim",
         "user": "54bff72ab32a10f73a57d017",
-        "energyCapacity": 2000,
-        "energy": 1000,
-        "power": 500,
-        "H": 250,
-        "O": 250,
         "hits": 250000,
         "hitsMax": 250000,
         "nextDecayTime": 108,
         "_id": "aa5f8a1bcd606a79457b44bb",
         "_isDisabled": false,
         "effects": {
-            "0" : {
-                "power" : 19, 
-                "level" : 1, 
-                "endTime" : 15
-            }
+          "0": {
+            "power": 19,
+            "level": 1,
+            "endTime": 15
+          }
         },
-        "cooldownTime": 9
-    }],
+        "cooldownTime": 9,
+        "storeCapacity": 2000,
+        "store": {
+          "energy": 1000,
+          "power": 500,
+          "H": 250,
+          "O": 250
+        }
+      }
+    ],
     "gameTime": 7
-}, {
-    "objects": [{
+  },
+  {
+    "objects": [
+      {
         "type": "factory",
         "x": 20,
         "y": 20,
         "level": 5,
         "room": "sim",
         "user": "54bff72ab32a10f73a57d017",
-        "energyCapacity": 2000,
-        "energy": 1000,
-        "power": 500,
-        "H": 250,
-        "O": 250,
         "hits": 250000,
         "hitsMax": 250000,
         "nextDecayTime": 108,
         "_id": "aa5f8a1bcd606a79457b44bb",
         "_isDisabled": false,
         "effects": {
-            "0" : {
-                "power" : 19, 
-                "level" : 1, 
-                "endTime" : 15
-            }
+          "0": {
+            "power": 19,
+            "level": 1,
+            "endTime": 15
+          }
         },
-        "cooldownTime": 9
-    }],
+        "cooldownTime": 9,
+        "storeCapacity": 2000,
+        "store": {
+          "energy": 1000,
+          "power": 500,
+          "H": 250,
+          "O": 250
+        }
+      }
+    ],
     "gameTime": 8
-}, {
-    "objects": [{
+  },
+  {
+    "objects": [
+      {
         "type": "factory",
         "x": 20,
         "y": 20,
         "level": 5,
         "room": "sim",
         "user": "54bff72ab32a10f73a57d017",
-        "energyCapacity": 2000,
-        "energy": 1000,
-        "power": 500,
-        "H": 250,
-        "O": 250,
         "hits": 250000,
         "hitsMax": 250000,
         "nextDecayTime": 108,
         "_id": "aa5f8a1bcd606a79457b44bb",
         "_isDisabled": false,
         "effects": {
-            "0" : {
-                "power" : 19, 
-                "level" : 1, 
-                "endTime" : 15
-            }
+          "0": {
+            "power": 19,
+            "level": 1,
+            "endTime": 15
+          }
         },
-        "cooldownTime": 9
-    }],
+        "cooldownTime": 9,
+        "storeCapacity": 2000,
+        "store": {
+          "energy": 1000,
+          "power": 500,
+          "H": 250,
+          "O": 250
+        }
+      }
+    ],
     "gameTime": 9
-}, {
-    "objects": [{
+  },
+  {
+    "objects": [
+      {
         "type": "factory",
         "x": 20,
         "y": 20,
         "level": 5,
         "room": "sim",
         "user": "54bff72ab32a10f73a57d017",
-        "energyCapacity": 2000,
-        "energy": 1000,
-        "power": 500,
-        "H": 250,
-        "O": 250,
         "hits": 250000,
         "hitsMax": 250000,
         "nextDecayTime": 108,
         "_id": "aa5f8a1bcd606a79457b44bb",
         "_isDisabled": false,
         "effects": {
-            "0" : {
-                "power" : 19, 
-                "level" : 1, 
-                "endTime" : 15
-            }
+          "0": {
+            "power": 19,
+            "level": 1,
+            "endTime": 15
+          }
         },
-        "cooldownTime": 9
-    }],
+        "cooldownTime": 9,
+        "storeCapacity": 2000,
+        "store": {
+          "energy": 1000,
+          "power": 500,
+          "H": 250,
+          "O": 250
+        }
+      }
+    ],
     "gameTime": 10
-}, {
-    "objects": [{
+  },
+  {
+    "objects": [
+      {
         "type": "factory",
         "x": 20,
         "y": 20,
         "level": 5,
         "room": "sim",
         "user": "54bff72ab32a10f73a57d017",
-        "energyCapacity": 2000,
-        "energy": 1000,
-        "power": 500,
-        "H": 250,
-        "O": 250,
         "hits": 250000,
         "hitsMax": 250000,
         "nextDecayTime": 108,
         "_id": "aa5f8a1bcd606a79457b44bb",
         "_isDisabled": false,
         "effects": {
-            "0" : {
-                "power" : 19, 
-                "level" : 1, 
-                "endTime" : 10
-            }
+          "0": {
+            "power": 19,
+            "level": 1,
+            "endTime": 10
+          }
         },
-        "cooldownTime": 9
-    }],
+        "cooldownTime": 9,
+        "storeCapacity": 2000,
+        "store": {
+          "energy": 1000,
+          "power": 500,
+          "H": 250,
+          "O": 250
+        }
+      }
+    ],
     "gameTime": 11
-}, {
-    "objects": [{
+  },
+  {
+    "objects": [
+      {
         "type": "factory",
         "x": 20,
         "y": 20,
         "level": 5,
         "room": "sim",
         "user": "54bff72ab32a10f73a57d017",
-        "energyCapacity": 2000,
-        "energy": 1000,
-        "power": 500,
-        "H": 250,
-        "O": 250,
         "hits": 250000,
         "hitsMax": 250000,
         "nextDecayTime": 108,
         "_id": "aa5f8a1bcd606a79457b44bb",
         "_isDisabled": false,
         "effects": {
-            "0" : {
-                "power" : 19, 
-                "level" : 1, 
-                "endTime" : 10
-            }
+          "0": {
+            "power": 19,
+            "level": 1,
+            "endTime": 10
+          }
         },
-        "cooldownTime": 9
-    }],
+        "cooldownTime": 9,
+        "storeCapacity": 2000,
+        "store": {
+          "energy": 1000,
+          "power": 500,
+          "H": 250,
+          "O": 250
+        }
+      }
+    ],
     "gameTime": 12
-}]
+  }
+]

@@ -10,8 +10,6 @@
         "notifyWhenAttacked": true,
         "name": "Spawn42",
         "user": "561e4d4645f3f7244a7622e8",
-        "energy": 0,
-        "energyCapacity": 300,
         "hits": 5000,
         "hitsMax": 5000,
         "off": false,
@@ -21,7 +19,13 @@
           "remainingTime": 94
         },
         "_updated": 13053927,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 0
+        },
+        "storeCapacityResource": {
+          "energy": 300
+        }
       }
     ],
     "users": {
@@ -76,8 +80,6 @@
         "notifyWhenAttacked": true,
         "name": "Spawn42",
         "user": "561e4d4645f3f7244a7622e8",
-        "energy": 300,
-        "energyCapacity": 300,
         "hits": 5000,
         "hitsMax": 5000,
         "off": false,
@@ -87,7 +89,13 @@
           "remainingTime": 94
         },
         "_updated": 13053927,
-        "_isDisabled": false
+        "_isDisabled": false,
+        "store": {
+          "energy": 300
+        },
+        "storeCapacityResource": {
+          "energy": 300
+        }
       }
     ],
     "users": {
@@ -132,9 +140,7 @@
     "visual": ""
   },
   {
-    "objects": [
-
-    ],
+    "objects": [],
     "users": {
       "0": {
         "username": "Player 1"
@@ -177,9 +183,7 @@
     "visual": ""
   },
   {
-    "objects": [
-
-    ],
+    "objects": [],
     "users": {
       "0": {
         "username": "Player 1"
@@ -222,9 +226,7 @@
     "visual": ""
   },
   {
-    "objects": [
-
-    ],
+    "objects": [],
     "users": {
       "0": {
         "username": "Player 1"

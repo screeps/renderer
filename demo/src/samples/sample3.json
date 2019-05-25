@@ -169,9 +169,6 @@
         "x": 21,
         "y": 24,
         "user": "54bff72ab32a10f73a57d017",
-        "energy": 350,
-        "power": 0,
-        "energyCapacity": 350,
         "hits": 3200,
         "hitsMax": 3200,
         "spawning": false,
@@ -185,6 +182,11 @@
             "x": 24,
             "y": 25
           }
+        },
+        "storeCapacity": 350,
+        "store": {
+          "energy": 350,
+          "power": 0
         }
       }
     ],
@@ -400,9 +402,6 @@
         "x": 22,
         "y": 23,
         "user": "54bff72ab32a10f73a57d017",
-        "energy": 350,
-        "power": 0,
-        "energyCapacity": 350,
         "hits": 3200,
         "hitsMax": 3200,
         "spawning": false,
@@ -416,6 +415,11 @@
             "x": 24,
             "y": 25
           }
+        },
+        "storeCapacity": 350,
+        "store": {
+          "energy": 350,
+          "power": 0
         }
       }
     ],
@@ -630,9 +634,6 @@
         "x": 23,
         "y": 24,
         "user": "54bff72ab32a10f73a57d017",
-        "energy": 290,
-        "power": 0,
-        "energyCapacity": 350,
         "hits": 3200,
         "hitsMax": 3200,
         "spawning": false,
@@ -649,7 +650,6 @@
           "rangedMassAttack": null,
           "heal": null,
           "harvest": null,
-          "heal": null,
           "repair": null,
           "build": {
             "x": 24,
@@ -658,6 +658,11 @@
           "say": null,
           "upgradeController": null,
           "reserveController": null
+        },
+        "storeCapacity": 350,
+        "store": {
+          "energy": 290,
+          "power": 0
         }
       }
     ],
@@ -872,9 +877,6 @@
         "x": 21,
         "y": 24,
         "user": "54bff72ab32a10f73a57d017",
-        "energy": 230,
-        "power": 0,
-        "energyCapacity": 350,
         "hits": 3200,
         "hitsMax": 3200,
         "spawning": false,
@@ -891,7 +893,6 @@
           "rangedMassAttack": null,
           "heal": null,
           "harvest": null,
-          "heal": null,
           "repair": null,
           "build": {
             "x": 24,
@@ -900,6 +901,11 @@
           "say": null,
           "upgradeController": null,
           "reserveController": null
+        },
+        "storeCapacity": 350,
+        "store": {
+          "energy": 230,
+          "power": 0
         }
       }
     ],
@@ -1114,9 +1120,6 @@
         "x": 21,
         "y": 24,
         "user": "54bff72ab32a10f73a57d017",
-        "energy": 170,
-        "power": 0,
-        "energyCapacity": 350,
         "hits": 3200,
         "hitsMax": 3200,
         "spawning": false,
@@ -1133,7 +1136,6 @@
           "rangedMassAttack": null,
           "heal": null,
           "harvest": null,
-          "heal": null,
           "repair": null,
           "build": {
             "x": 24,
@@ -1142,6 +1144,11 @@
           "say": null,
           "upgradeController": null,
           "reserveController": null
+        },
+        "storeCapacity": 350,
+        "store": {
+          "energy": 170,
+          "power": 0
         }
       }
     ],
@@ -1348,9 +1355,6 @@
         "x": 21,
         "y": 24,
         "user": "54bff72ab32a10f73a57d017",
-        "energy": 110,
-        "power": 0,
-        "energyCapacity": 350,
         "hits": 3200,
         "hitsMax": 3200,
         "spawning": false,
@@ -1367,7 +1371,6 @@
           "rangedMassAttack": null,
           "heal": null,
           "harvest": null,
-          "heal": null,
           "repair": null,
           "build": {
             "x": 24,
@@ -1376,6 +1379,11 @@
           "say": null,
           "upgradeController": null,
           "reserveController": null
+        },
+        "storeCapacity": 350,
+        "store": {
+          "energy": 110,
+          "power": 0
         }
       }
     ],
@@ -1570,9 +1578,6 @@
         "x": 21,
         "y": 24,
         "user": "54bff72ab32a10f73a57d017",
-        "energy": 50,
-        "power": 0,
-        "energyCapacity": 350,
         "hits": 3200,
         "hitsMax": 3200,
         "spawning": false,
@@ -1589,7 +1594,6 @@
           "rangedMassAttack": null,
           "heal": null,
           "harvest": null,
-          "heal": null,
           "repair": null,
           "build": {
             "x": 24,
@@ -1598,6 +1602,11 @@
           "say": null,
           "upgradeController": null,
           "reserveController": null
+        },
+        "storeCapacity": 350,
+        "store": {
+          "energy": 50,
+          "power": 0
         }
       },
       {
@@ -1607,11 +1616,15 @@
         "room": "sim",
         "notifyWhenAttacked": true,
         "user": "54bff72ab32a10f73a57d017",
-        "energy": 0,
-        "energyCapacity": 0,
         "hits": 1000,
         "hitsMax": 1000,
-        "_id": "9216f6c23d51b6b08219863d"
+        "_id": "9216f6c23d51b6b08219863d",
+        "store": {
+          "energy": 0
+        },
+        "storeCapacityResource": {
+          "energy": 0
+        }
       }
     ],
     "users": {
@@ -1805,9 +1818,6 @@
         "x": 22,
         "y": 24,
         "user": "54bff72ab32a10f73a57d017",
-        "energy": 50,
-        "power": 0,
-        "energyCapacity": 350,
         "hits": 3200,
         "hitsMax": 3200,
         "spawning": false,
@@ -1824,12 +1834,16 @@
           "rangedMassAttack": null,
           "heal": null,
           "harvest": null,
-          "heal": null,
           "repair": null,
           "build": null,
           "say": null,
           "upgradeController": null,
           "reserveController": null
+        },
+        "storeCapacity": 350,
+        "store": {
+          "energy": 50,
+          "power": 0
         }
       },
       {
@@ -1839,13 +1853,17 @@
         "room": "sim",
         "notifyWhenAttacked": true,
         "user": "54bff72ab32a10f73a57d017",
-        "energy": 0,
-        "energyCapacity": 50,
         "hits": 1000,
         "hitsMax": 1000,
         "_id": "9216f6c23d51b6b08219863d",
         "_isDisabled": false,
-        "off": false
+        "off": false,
+        "store": {
+          "energy": 0
+        },
+        "storeCapacityResource": {
+          "energy": 50
+        }
       }
     ],
     "users": {
@@ -2039,9 +2057,6 @@
         "x": 23,
         "y": 24,
         "user": "54bff72ab32a10f73a57d017",
-        "energy": 50,
-        "power": 0,
-        "energyCapacity": 350,
         "hits": 3200,
         "hitsMax": 3200,
         "spawning": false,
@@ -2058,12 +2073,16 @@
           "rangedMassAttack": null,
           "heal": null,
           "harvest": null,
-          "heal": null,
           "repair": null,
           "build": null,
           "say": null,
           "upgradeController": null,
           "reserveController": null
+        },
+        "storeCapacity": 350,
+        "store": {
+          "energy": 50,
+          "power": 0
         }
       },
       {
@@ -2073,13 +2092,17 @@
         "room": "sim",
         "notifyWhenAttacked": true,
         "user": "54bff72ab32a10f73a57d017",
-        "energy": 0,
-        "energyCapacity": 50,
         "hits": 1000,
         "hitsMax": 1000,
         "_id": "9216f6c23d51b6b08219863d",
         "_isDisabled": false,
-        "off": false
+        "off": false,
+        "store": {
+          "energy": 0
+        },
+        "storeCapacityResource": {
+          "energy": 50
+        }
       }
     ],
     "users": {
@@ -2273,9 +2296,6 @@
         "x": 23,
         "y": 24,
         "user": "54bff72ab32a10f73a57d017",
-        "energy": 0,
-        "power": 0,
-        "energyCapacity": 350,
         "hits": 3200,
         "hitsMax": 3200,
         "spawning": false,
@@ -2292,12 +2312,16 @@
           "rangedMassAttack": null,
           "heal": null,
           "harvest": null,
-          "heal": null,
           "repair": null,
           "build": null,
           "say": null,
           "upgradeController": null,
           "reserveController": null
+        },
+        "storeCapacity": 350,
+        "store": {
+          "energy": 0,
+          "power": 0
         }
       },
       {
@@ -2307,13 +2331,17 @@
         "room": "sim",
         "notifyWhenAttacked": true,
         "user": "54bff72ab32a10f73a57d017",
-        "energy": 50,
-        "energyCapacity": 50,
         "hits": 1000,
         "hitsMax": 1000,
         "_id": "9216f6c23d51b6b08219863d",
         "_isDisabled": false,
-        "off": false
+        "off": false,
+        "store": {
+          "energy": 50
+        },
+        "storeCapacityResource": {
+          "energy": 50
+        }
       }
     ],
     "users": {
@@ -2507,9 +2535,6 @@
         "x": 23,
         "y": 24,
         "user": "54bff72ab32a10f73a57d017",
-        "energy": 0,
-        "power": 0,
-        "energyCapacity": 350,
         "hits": 3200,
         "hitsMax": 3200,
         "spawning": false,
@@ -2526,12 +2551,16 @@
           "rangedMassAttack": null,
           "heal": null,
           "harvest": null,
-          "heal": null,
           "repair": null,
           "build": null,
           "say": null,
           "upgradeController": null,
           "reserveController": null
+        },
+        "storeCapacity": 350,
+        "store": {
+          "energy": 0,
+          "power": 0
         }
       },
       {
@@ -2541,13 +2570,17 @@
         "room": "sim",
         "notifyWhenAttacked": true,
         "user": "54bff72ab32a10f73a57d017",
-        "energy": 0,
-        "energyCapacity": 50,
         "hits": 1000,
         "hitsMax": 1000,
         "_id": "9216f6c23d51b6b08219863d",
         "_isDisabled": false,
-        "off": false
+        "off": false,
+        "store": {
+          "energy": 0
+        },
+        "storeCapacityResource": {
+          "energy": 50
+        }
       }
     ],
     "users": {

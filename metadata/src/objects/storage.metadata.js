@@ -13,20 +13,20 @@ export default {
         resourceTotal(),
         {
             id: 'energyBackgroundHeight',
-            func: ({ calcs: { resourcesTotal }, state: { energyCapacity } }) => {
-                return (resourcesTotal * TOTAL_HEIGHT) / Math.max(energyCapacity, resourcesTotal);
+            func: ({ calcs: { resourcesTotal }, state: { storeCapacity } }) => {
+                return (resourcesTotal * TOTAL_HEIGHT) / Math.max(storeCapacity, resourcesTotal);
             },
         },
         {
             id: 'energyHeight',
-            func: ({ calcs: { resourcesTotal }, state: { energy, energyCapacity } }) => {
-                return (energy * TOTAL_HEIGHT) / Math.max(energyCapacity, resourcesTotal);
+            func: ({ calcs: { resourcesTotal }, state: { store, storeCapacity } }) => {
+                return (store['energy'] * TOTAL_HEIGHT) / Math.max(storeCapacity, resourcesTotal);
             },
         },
         {
             id: 'powerHeight',
-            func: ({ calcs: { resourcesTotal }, state: { energy, power = 0, energyCapacity } }) => {
-                return ((power + energy) * TOTAL_HEIGHT) / Math.max(energyCapacity, resourcesTotal);
+            func: ({ calcs: { resourcesTotal }, state: { store, storeCapacity } }) => {
+                return (((store['power']||0) + (store['energy']||0)) * TOTAL_HEIGHT) / Math.max(storeCapacity, resourcesTotal);
             },
         },
     ],
@@ -54,9 +54,9 @@ export default {
         {
             id: 'otherResourcesBar',
             type: 'sprite',
-            props: ['energy', 'power', 'energyBackgroundHeight', 'resourcesTotal'],
-            shouldRun: ({ state: { power, energy }, calcs: { resourcesTotal } }) =>
-                energy + (power || 0) < resourcesTotal,
+            props: ['store', 'energyBackgroundHeight', 'resourcesTotal'],
+            shouldRun: ({ state: { store }, calcs: { resourcesTotal } }) =>
+                store['energy'] + (store['power'] || 0) < resourcesTotal,
             payload: {
                 texture: 'rectangle',
                 pivot: {
@@ -71,8 +71,8 @@ export default {
         {
             id: 'powerBar',
             type: 'sprite',
-            props: ['energy', 'power', 'resourcesTotal'],
-            shouldRun: ({ state: { power } }) => power > 0,
+            props: ['store', 'resourcesTotal'],
+            shouldRun: ({ state: { store } }) => store['power'] > 0,
             payload: {
                 texture: 'rectangle',
                 pivot: {
@@ -87,8 +87,8 @@ export default {
         {
             type: 'sprite',
             id: 'energyBar',
-            props: ['energy', 'power', 'resourcesTotal'],
-            shouldRun: ({ state: { energy } }) => energy > 0,
+            props: ['store', 'resourcesTotal'],
+            shouldRun: ({ state: { store } }) => store['energy'] > 0,
             payload: {
                 texture: 'rectangle',
                 pivot: {

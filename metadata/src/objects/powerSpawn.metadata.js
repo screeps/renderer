@@ -35,10 +35,16 @@ export default {
     calculations: [
         {
             id: 'powerAngle',
-            props: ['power', 'powerCapacity'],
-            func: ({ state: { power, powerCapacity } }) =>
+            props: ['store', 'storeCapacityResource'],
+            func: ({ state: { store, storeCapacityResource } }) =>
                 arc.startAngle +
-                (powerCapacity ? (((2 * Math.PI) * power) / powerCapacity) : 0),
+                (storeCapacityResource && storeCapacityResource.power ? (((2 * Math.PI) * (store.power||0)) / storeCapacityResource.power) : 0),
+        },
+        {
+            id: 'resourceScale',
+            props: ['store', 'storeCapacity'],
+            func: ({ state: { store, storeCapacityResource } }) =>
+                storeCapacityResource && storeCapacityResource.energy ? Math.min(1, (store.energy||0) / storeCapacityResource.energy) : 0,
         },
     ],
     processors: [
@@ -139,11 +145,34 @@ export default {
             },
         },
         {
-            type: 'resourceCircle',
-            props: ['energy', 'energyCapacity'],
+            type: 'runAction',
+            props: ['resourceScale'],
+            payload: {
+                id: 'resourceCircle',
+            },
+            actions: [
+                {
+                    action: 'ScaleTo',
+                    params: [
+                        { $calc: 'resourceScale' },
+                        { $calc: 'resourceScale' },
+                        { $processorParam: 'tickDuration' },
+                    ],
+                },
+            ],
+        },
+        {
+            id: 'resourceCircle',
+            once: true,
+            type: 'circle',
             payload: {
                 parentId: 'static',
                 radius: ellipse4.radius,
+                color: 0xffe56d,
+                scale: {
+                    x: { $calc: 'resourceScale' },
+                    y: { $calc: 'resourceScale' },
+                },
             },
         },
         {
@@ -173,7 +202,7 @@ export default {
         },
         {
             type: 'runAction',
-            props: ['power'],
+            props: ['store'],
             payload: {
                 id: 'glow',
             },
@@ -216,6 +245,23 @@ export default {
                     },
                 ]],
             }],
+        },
+    ],
+    actions: [
+        {
+            id: 'resourceScale',
+            targetId: 'resourceCircle',
+            props: ['resourceScale'],
+            actions: [
+                {
+                    action: 'ScaleTo',
+                    params: [
+                        { $calc: 'resourceScale' },
+                        { $calc: 'resourceScale' },
+                        { $processorParam: 'tickDuration' },
+                    ],
+                },
+            ],
         },
     ],
     zIndex: 12,

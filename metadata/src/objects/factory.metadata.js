@@ -31,19 +31,19 @@ export default {
         resourceTotal(),
         {
             id: 'energyBackgroundHeight',
-            func: ({ state: { energyCapacity }, calcs: { resourcesTotal } }) =>
-                (resourcesTotal * CONTAINER_SIZE) / (energyCapacity || resourcesTotal),
+            func: ({ state: { storeCapacity }, calcs: { resourcesTotal } }) =>
+                (resourcesTotal * CONTAINER_SIZE) / (storeCapacity || resourcesTotal),
         },
         {
             id: 'energyHeight',
-            func: ({ state: { energy = 0, energyCapacity }, calcs: { resourcesTotal } }) =>
-                (energy * CONTAINER_SIZE) / (energyCapacity || resourcesTotal),
+            func: ({ state: { store = {}, storeCapacity }, calcs: { resourcesTotal } }) =>
+                ((store['energy']||0) * CONTAINER_SIZE) / (storeCapacity || resourcesTotal),
         },
         {
             id: 'powerHeight',
-            func: ({ state: { energy = 0, energyCapacity, power = 0 },
+            func: ({ state: { store = {}, storeCapacity },
                 calcs: { resourcesTotal } }) =>
-                ((power + energy) * CONTAINER_SIZE) / (energyCapacity || resourcesTotal),
+                ((store['power']||0 + store['energy']||0) * CONTAINER_SIZE) / (storeCapacity || resourcesTotal),
         },
         {
             id: 'factory-lvl',
@@ -171,9 +171,9 @@ export default {
         {
             type: 'sprite',
             id: 'otherResourcesBar',
-            props: ['energy', 'power', 'energyBackgroundHeight', 'resourcesTotal'],
-            shouldRun: ({ state: { power = 0, energy = 0 }, calcs: { resourcesTotal } }) =>
-                energy + power < resourcesTotal,
+            props: ['store', 'energyBackgroundHeight', 'resourcesTotal'],
+            shouldRun: ({ state: { store = {} }, calcs: { resourcesTotal } }) =>
+                store['energy']||0 + store['power']||0 < resourcesTotal,
             payload: {
                 pivot: {
                     y: { $calc: 'energyBackgroundHeight' },
@@ -187,8 +187,8 @@ export default {
         {
             id: 'powerBar',
             type: 'sprite',
-            props: ['energy', 'power', 'resourcesTotal'],
-            shouldRun: ({ state: { power = 0 } }) => power > 0,
+            props: ['store', 'resourcesTotal'],
+            shouldRun: ({ state: { store = {} } }) => store['power'] > 0,
             payload: {
                 pivot: {
                     y: { $calc: 'powerHeight' },
@@ -202,8 +202,8 @@ export default {
         {
             id: 'energyBar',
             type: 'sprite',
-            props: ['energy', 'power', 'resourcesTotal'],
-            shouldRun: ({ state: { energy = 0 } }) => energy > 0,
+            props: ['store', 'resourcesTotal'],
+            shouldRun: ({ state: { store = {} } }) => store['energy'] > 0,
             payload: {
                 pivot: {
                     y: { $calc: 'energyHeight' },

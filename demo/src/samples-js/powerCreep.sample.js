@@ -85,8 +85,8 @@ const COMMON_EXTENSION_DATA = {
     room: 'sim',
     x: 28,
     y: 19,
-    energy: 20,
-    energyCapacity: 100,
+    store: {energy: 20},
+    storeCapacityResource: {energy: 100},
 };
 
 const COMMON_LAB_DATA = {
@@ -96,10 +96,8 @@ const COMMON_LAB_DATA = {
     room: 'sim',
     x: 30,
     y: 22,
-    energy: 30,
-    energyCapacity: 100,
-    mineralAmount: 40,
-    mineralCapacity: 100,
+    store: {energy: 20, X: 40},
+    storeCapacityResource: {energy: 100, X: 100}
 };
 
 const COMMON_MINERAL_DATA = {
@@ -139,8 +137,8 @@ const COMMON_SPAWN_DATA = {
     room: 'sim',
     x: 24,
     y: 17,
-    energy: 70,
-    energyCapacity: 100,
+    store: {energy: 70},
+    storeCapacityResource: {energy: 100},
 };
 
 const COMMON_STORAGE_DATA = {
@@ -150,8 +148,10 @@ const COMMON_STORAGE_DATA = {
     room: 'sim',
     x: 30,
     y: 26,
-    energy: 50,
-    power: 80,
+    store: {
+        energy: 50,
+        power: 80
+    }
 };
 
 const COMMON_TERMINAL_DATA = {
@@ -170,8 +170,8 @@ const COMMON_TOWER_DATA = {
     room: 'sim',
     x: 26,
     y: 18,
-    energy: 80,
-    energyCapacity: 100,
+    store: {energy: 80},
+    storeCapacityResource: {energy: 100},
 };
 
 const COMMON_USERS = {
