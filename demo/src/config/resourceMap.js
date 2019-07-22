@@ -121,6 +121,7 @@ const resourceMap = {
     tough: 'tough.svg',
     'tower-base': 'tower-base.svg',
     'tower-rotatable': 'tower-rotatable.svg',
+    'tower-rotatable-npc': 'tower-rotatable-npc.svg',
 };
 
 const rescaleResources = [
