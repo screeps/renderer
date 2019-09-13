@@ -118,6 +118,7 @@ export default {
                 setupExits('exit-right', false, true, true, false);
             },
         },
+        { id: 'wallGraffiti' },
         { id: 'objects', isDefault: true },
         {
             id: 'lighting',

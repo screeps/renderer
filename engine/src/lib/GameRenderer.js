@@ -7,6 +7,7 @@ import actionHelper from './utils/actionHelper';
 
 import { ActionManager } from './actions';
 import World from './World';
+import * as decorations from './decorations';
 
 const { Application, utils } = PIXI;
 
@@ -246,6 +247,10 @@ export default class GameRenderer {
 
     erase() {
         this.world.removeAllObjects();
+    }
+
+    setDecorations(decorationItems) {
+        decorations.set(decorationItems, { world: this.world });
     }
 
     static isWebGLSupported() {

@@ -69,6 +69,14 @@ export default (params) => {
     }
     if (!stage.terrainObjects) {
         stage.terrainObjects = {};
+        stage.terrainObjects.wallMask = new Sprite(Texture.EMPTY);
+        Object.assign(stage.terrainObjects.wallMask, {
+            x: -50,
+            y: -50,
+            width: 5000,
+            height: 5000,
+        });
+        stage.addChild(stage.terrainObjects.wallMask);
     }
     const { terrainObjects } = stage;
 
@@ -262,6 +270,10 @@ export default (params) => {
             });
 
             const mask = buildSvg(wallPath, { size, VIEW_BOX }, { fill: '#fff' });
+            if (terrainObjects.wallMask.texture !== Texture.EMPTY) {
+                terrainObjects.wallMask.texture.destroy(true);
+            }
+            terrainObjects.wallMask.texture = mask.texture;
             actionHelper.onTextureLoaded(mask.texture, () => {
                 if (lighting !== 'disabled') {
                     const bump = new TilingSprite(stage.resources.noise1.texture, VIEW_BOX,
@@ -275,7 +287,7 @@ export default (params) => {
                     app.renderer.render(bump, wallObjects[0], false);
                     bump.destroy();
                 }
-                mask.destroy(true);
+                mask.destroy();
                 actionHelper.enableTextureMipmap(app.renderer, wallObjects[0].baseTexture);
                 [wallObjects[1].texture] = wallObjects;
                 wallObjects[1].visible = true;

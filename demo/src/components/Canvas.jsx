@@ -78,6 +78,37 @@ export default class Canvas extends Component {
             setTimeout(sampleFn, 1000 * TICK_DURATION);
         };
         setTimeout(sampleFn, 0);
+
+        this.gameApp.setDecorations([{
+            x: 36.5,
+            y: 18,
+            width: 10,
+            height: 10,
+            flip: true,
+            rotation: 10 * Math.PI / 180,
+            color1: '#aaaaff',
+            color2: '#aa55aa',
+            color3: '#ff9999',
+            hasRing: true,
+            decoration: {
+                type: 'wallGraffiti',
+                graphics: [
+                    {
+                        url: 'decorations/test1.svg',
+                        color: 'color1'
+                    },
+                    {
+                        url: 'decorations/test2.svg',
+                        color: 'color2',
+                        visible: 'hasRing',
+                    },
+                    {
+                        url: 'decorations/test3.svg',
+                        color: 'color3',
+                    }
+                ]
+            }
+        }]);
     }
 
     /**
