@@ -75,6 +75,7 @@ export default (params) => {
             y: -50,
             width: 5000,
             height: 5000,
+            renderable: false,
         });
         stage.addChild(stage.terrainObjects.wallMask);
     }
