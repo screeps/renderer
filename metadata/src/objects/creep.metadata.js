@@ -110,8 +110,8 @@ export default {
         {
             type: 'circle',
             props: ['store', 'resourcesTotal'],
-            when: ({ state: { store = {} }, calcs: { resourcesTotal } }) =>
-                resourcesTotal > 0 && store['energy']||0 + store['power']||0 < resourcesTotal,
+            when: ({ state: { store = {}, user }, calcs: { resourcesTotal } }) =>
+                user !== '3' && user !== '2' && resourcesTotal > 0 && (store['energy']||0 + store['power']||0 < resourcesTotal),
             payload: {
                 parentId: 'mainContainer',
                 radius: { $calc: 'resourcesTotalRadius' },
@@ -121,7 +121,7 @@ export default {
         {
             type: 'circle',
             props: ['store'],
-            when: ({ state: { store = {} } }) => store['power'] > 0,
+            when: ({ state: { store = {}, user } }) => user !== '3' && user !== '2' && store['power'] > 0,
             payload: {
                 parentId: 'mainContainer',
                 radius: { $calc: 'powerRadius' },
@@ -131,7 +131,7 @@ export default {
         {
             type: 'circle',
             props: ['store'],
-            when: ({ state: { store } }) => store['energy'] > 0,
+            when: ({ state: { store = {}, user } }) => user !== '3' && user !== '2' && store['energy'] > 0,
             payload: {
                 parentId: 'mainContainer',
                 radius: { $calc: 'energyRadius' },
