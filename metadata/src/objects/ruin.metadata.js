@@ -14,17 +14,17 @@ export default {
         },
         {
             id: 'decayAlpha',
-            func: ({ state: { decayTime, deathTime }, stateExtra: { gameTime } }) =>
-                1 - ((gameTime - deathTime) / (decayTime - deathTime)),
+            func: ({ state: { decayTime, destroyTime }, stateExtra: { gameTime } }) =>
+                1 - ((gameTime - destroyTime) / (decayTime - destroyTime)),
         },
     ],
     processors: [
         {
             type: 'sprite',
-            id: 'tombstone-border',
+            id: 'ruin',
             once: true,
             payload: {
-                texture: 'tombstone-border',
+                texture: 'ruin',
                 width: 100,
                 height: 100,
                 blendMode: 1,
@@ -55,7 +55,7 @@ export default {
     ],
     actions: [
         {
-            targetId: 'tombstone-border',
+            targetId: 'ruin',
             actions: [
                 {
                     action: 'AlphaTo',

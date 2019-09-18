@@ -122,6 +122,8 @@ const resourceMap = {
     'tower-base': 'tower-base.svg',
     'tower-rotatable': 'tower-rotatable.svg',
     'tower-rotatable-npc': 'tower-rotatable-npc.svg',
+    'invaderCore': 'invaderCore.svg',
+    'ruin': 'ruin.svg'
 };
 
 const rescaleResources = [
@@ -158,6 +160,8 @@ const rescaleResources = [
     'factory-lvl5',
     'factory-border',
     'factory-highlight',
+    'invaderCore',
+    'ruin'
 ];
 
 export { resourceMap, rescaleResources };
