@@ -50,9 +50,9 @@ export default {
         },
         {
             id: 'hasEffect',
-            func: ({ state: { effects }, stateExtra: { gameTime} }) =>
-                effects && Object.values(effects).some(effect => effect.endTime > gameTime)
-        }
+            func: ({ state: { effects }, stateExtra: { gameTime } }) =>
+                effects && Object.values(effects).some(effect => effect.power && effect.endTime > gameTime),
+        },
     ],
     processors: [
         {
