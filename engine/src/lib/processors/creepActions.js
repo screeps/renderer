@@ -326,7 +326,7 @@ export default (params) => {
     }
     if (upgradeController) {
         pushRangedShotActionWithBlur(actionsToApply, stage, world, rootContainer,
-            upgradeController, tickDuration, worldOptions, COLORS.default, 12, 5);
+            upgradeController, tickDuration, worldOptions, COLORS.default, state.type === 'invaderCore' ? 18 : 12, 5);
 
         actionsToApply.push(createCoverSpriteAction(scope, COLORS.default,
             tickDuration * 0.9, convertGameXYToWorld(upgradeController, worldOptions),
