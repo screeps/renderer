@@ -18,7 +18,8 @@ const COLORS = {
     heal: 0x65fd62,
     power: 0xCC3D3E,
     rangedAttack: 0x5d80b2,
-    reserveController: 0xFFFFFF,
+    reserveController: 0xb99cfb,
+    attackController: 0xb99cfb,
     runReaction: 0xffffff,
     transferEnergy: 0xffe56d,
 };
