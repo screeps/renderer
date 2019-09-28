@@ -127,7 +127,9 @@
         "x": 26,
         "y": 23,
         "room": "sim",
-        "power": 2371,
+        "store": {
+          "power": 2371
+        },
         "hits": 2000000,
         "hitsMax": 2000000,
         "decayTime": 5008,
