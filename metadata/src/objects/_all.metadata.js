@@ -3,6 +3,7 @@
  */
 
 import { blinking } from '../action-templates';
+import constants from '@screeps/common/lib/constants';
 
 const CELL_SIZE = 100;
 
@@ -51,7 +52,7 @@ export default {
         {
             id: 'hasEffect',
             func: ({ state: { effects }, stateExtra: { gameTime } }) =>
-                effects && Object.values(effects).some(effect => effect.power && effect.endTime > gameTime),
+                effects && Object.values(effects).some(effect => !!constants.POWER_INFO[effect.power] && effect.endTime > gameTime),
         },
     ],
     processors: [
