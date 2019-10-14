@@ -203,6 +203,9 @@ export default (params) => {
                 blendMode: BLEND_MODES.ADD,
                 parentLayer: effectsLayer,
             });
+        } else if (rampartsObject.sprite) {
+            rampartsObject.sprite.destroy(rampartsObject.sprite._generatedSvgTexture);
+            rampartsObject.sprite = null;
         }
         rampartsObject.came = true;
         rampartsObjects[_id] = rampartsObject;
