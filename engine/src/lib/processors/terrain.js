@@ -203,7 +203,7 @@ export default (params) => {
                 blendMode: BLEND_MODES.ADD,
                 parentLayer: effectsLayer,
             });
-        } else if (rampartsObject.sprite) {
+        } else if (rampartsPath === false && rampartsObject.sprite) {
             rampartsObject.sprite.destroy(rampartsObject.sprite._generatedSvgTexture);
             rampartsObject.sprite = null;
         }

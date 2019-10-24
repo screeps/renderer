@@ -12,7 +12,7 @@ export const getRenderPath = (objectsArray, filter, prevMd5, diagonalConnect = f
     let path = '';
 
     if (objectsArray.length === 0) {
-        return '';
+        return { md5: '', result: false };
     }
 
     for (let x = 0; x < ROOM_SIZE; x += 1) {
@@ -37,7 +37,7 @@ export const getRenderPath = (objectsArray, filter, prevMd5, diagonalConnect = f
     });
 
     if (!hasAny) {
-        return { md5: '', result: null };
+        return { md5: '', result: false };
     }
 
     const arrayMd5 = md5(JSON.stringify(array, (key, value) => {
