@@ -2,7 +2,7 @@
  * Created by vedi on 19/03/2017.
  */
 
-import { Graphics, Sprite, filters, BLEND_MODES, Container } from 'pixi.js';
+import { Graphics, Sprite, filters, BLEND_MODES, Container, WebGLRenderer } from 'pixi.js';
 import { calculateAngle, convertGameXYToWorld } from '../../../../helpers/mathHelper';
 
 import { AlphaTo, CallFunc, MoveBy, RotateTo, Sequence, DelayTime } from '../actions';
@@ -12,16 +12,16 @@ const { BlurFilter } = filters;
 const TWEEN_DURATION = 0.6;
 
 const COLORS = {
-    default: 0xffe56d,
-    attack: 0xFF5555,
-    attackAndHeal: 0xFFFF55,
-    heal: 0x65fd62,
+    default: 0xffe533,
+    attack: 0xFF3333,
+    attackAndHeal: 0xFFFF33,
+    heal: 0x2ce328,
     power: 0xCC3D3E,
-    rangedAttack: 0x5d80b2,
+    rangedAttack: 0x3c75c7,
     reserveController: 0xb99cfb,
     attackController: 0xb99cfb,
     runReaction: 0xffffff,
-    transferEnergy: 0xffe56d,
+    transferEnergy: 0xffe533,
 };
 
 function createCoverSprite(resources, rootContainer, scope, world) {
@@ -188,7 +188,9 @@ function createRangedShotAction(
         rangedAttackObject.filters = [new BlurFilter(blur)];
         rangedAttackObject.alpha = 0.7;
     }
-    rangedAttackObject.blendMode = BLEND_MODES.ADD;
+    if (world.app.renderer instanceof WebGLRenderer) {
+        rangedAttackObject.blendMode = BLEND_MODES.ADD;
+    }
     rangedAttackObject.parentLayer = world.layers.effects;
     stage.addChild(rangedAttackObject);
     const action = new CallFunc(getDrawShotFunc(duration, lineWidth, color, fx, fy, tx, ty),
