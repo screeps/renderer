@@ -188,6 +188,7 @@ function createRangedShotAction(
         rangedAttackObject.filters = [new BlurFilter(blur)];
         rangedAttackObject.alpha = 0.7;
     }
+    rangedAttackObject.blendMode = BLEND_MODES.ADD;
     rangedAttackObject.parentLayer = world.layers.effects;
     stage.addChild(rangedAttackObject);
     const action = new CallFunc(getDrawShotFunc(duration, lineWidth, color, fx, fy, tx, ty),
