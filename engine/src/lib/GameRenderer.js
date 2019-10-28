@@ -15,6 +15,9 @@ const THRESHOLD = 500;
 
 export default class GameRenderer {
     static compileMetadata(metadata) {
+        if (metadata.isCompiled) {
+            return;
+        }
         Object.values(metadata.objects).forEach((objectMetadata) => {
             if (objectMetadata.calculations) {
                 objectMetadata.calculations.forEach((calculation) => {
@@ -46,6 +49,7 @@ export default class GameRenderer {
                 });
             }
         });
+        metadata.isCompiled = true;
     }
 
     /**
@@ -70,6 +74,7 @@ export default class GameRenderer {
         if (options.countMetrics) {
             this.metrics = { fps: 0.0 };
         }
+        this.__ts = Date.now();
     }
 
     /**
