@@ -3,6 +3,7 @@
  */
 
 import { resourceTotal } from '../calculation-templates';
+import constants from '@screeps/common/lib/constants';
 
 const ENERGY_RECT_FULL_SIZE = 76.0;
 
@@ -23,7 +24,7 @@ export default {
                 if (resourcesTotal <= (store['energy']||0) + (store['power']||0)) {
                     return 0;
                 }
-                const result = (ENERGY_RECT_FULL_SIZE * resourcesTotal) / storeCapacity;
+                const result = (ENERGY_RECT_FULL_SIZE * resourcesTotal) / (storeCapacity||constants.TERMINAL_CAPACITY);
                 return Math.min(result, ENERGY_RECT_FULL_SIZE);
             },
         },
@@ -31,7 +32,7 @@ export default {
             id: 'powerResourceSize',
             props: ['store', 'storeCapacity'],
             func: ({ state: { store = {}, storeCapacity } }) => {
-                const result = (ENERGY_RECT_FULL_SIZE * ((store['energy']||0) + (store['power']||0))) / storeCapacity;
+                const result = (ENERGY_RECT_FULL_SIZE * ((store['energy']||0) + (store['power']||0))) / (storeCapacity||constants.TERMINAL_CAPACITY);
                 return Math.min(result, ENERGY_RECT_FULL_SIZE);
             },
         },
@@ -39,7 +40,7 @@ export default {
             id: 'energyResourceHeight',
             props: ['store', 'storeCapacity'],
             func: ({ state: { store = {}, storeCapacity } }) => {
-                const result = (ENERGY_RECT_FULL_SIZE * (store['energy']||0)) / storeCapacity;
+                const result = (ENERGY_RECT_FULL_SIZE * (store['energy']||0)) / (storeCapacity||constants.TERMINAL_CAPACITY);
                 return Math.min(result, ENERGY_RECT_FULL_SIZE);
             },
         },

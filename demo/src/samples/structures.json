@@ -127,7 +127,9 @@
         "x": 26,
         "y": 23,
         "room": "sim",
-        "power": 2371,
+        "store": {
+          "power": 2371
+        },
         "hits": 2000000,
         "hitsMax": 2000000,
         "decayTime": 5008,
@@ -441,6 +443,114 @@
         "ticksToRegeneration": null,
         "_id": "7816ecc6a783bb5b1b04e7d6",
         "_isDisabled": false
+      },
+      {
+        "type": "tombstone",
+        "x": 37,
+        "y": 31,
+        "room": "sim",
+        "user": "54bff72ab32a10f73a57d017",
+        "_id": "tombstone1",
+        "store": {
+          "energy": 100
+        },
+        "deathTime": 12,
+        "decayTime": 35
+      },
+      {
+        "type": "tombstone",
+        "x": 37,
+        "y": 32,
+        "room": "sim",
+        "user": "54bff72ab32a10f73a57d017",
+        "_id": "tombstone2",
+        "store": {
+          "energy": 0
+        },
+        "deathTime": 10,
+        "decayTime": 16
+      },
+      {
+        "type": "tombstone",
+        "x": 37,
+        "y": 33,
+        "room": "sim",
+        "user": "54bff72ab32a10f73a57d017",
+        "_id": "tombstone3",
+        "store": {
+          "energy": 0
+        },
+        "deathTime": 10,
+        "decayTime": 14
+      },
+      {
+        "type": "tower",
+        "x": 35,
+        "y": 25,
+        "room": "sim",
+        "user": "2",
+        "hits": 3000,
+        "hitsMax": 3000,
+        "_id": "22fa78bda5872a29a798bc70",
+        "_isDisabled": false,
+        "actionLog": {
+          "attack": null,
+          "heal": null,
+          "repair": null
+        },
+        "store": {
+          "energy": 500
+        },
+        "storeCapacityResource": {
+          "energy": 1000
+        }
+      },
+      {
+        "type": "invaderCore",
+        "x": 35,
+        "y": 23,
+        "level": 1,
+        "room": "sim",
+        "user": "2",
+        "hits": 3000,
+        "hitsMax": 3000,
+        "_id": "22fa78bda5872a29a798bc71"
+      },
+      {
+        "type": "ruin",
+        "x": 39,
+        "y": 31,
+        "structureType": "invaderCore",
+        "room": "sim",
+        "_id": "ruin1",
+        "user": "54bff72ab32a10f73a57d017",
+        "store": {
+          "energy": 100
+        },
+        "destroyTime": 12,
+        "decayTime": 35
+      },
+      {
+        "type": "ruin",
+        "x": 39,
+        "y": 32,
+        "structureType": "invaderCore",
+        "room": "sim",
+        "_id": "ruin2",
+        "user": "54bff72ab32a10f73a57d017",
+        "destroyTime": 10,
+        "decayTime": 16
+      },
+      {
+        "type": "ruin",
+        "x": 39,
+        "y": 33,
+        "structureType": "invaderCore",
+        "room": "sim",
+        "_id": "ruin3",
+        "user": "54bff72ab32a10f73a57d017",
+        "destroyTime": 10,
+        "decayTime": 14
       }
     ],
     "users": {

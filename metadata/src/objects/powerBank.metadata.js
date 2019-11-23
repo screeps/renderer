@@ -14,10 +14,10 @@ export default {
     calculations: [
         {
             id: 'radius',
-            props: ['power'],
-            func: ({ state: { power } }) => {
+            props: ['store'],
+            func: ({ state: { store } }) => {
                 const { POWER_BANK_CAPACITY_MAX } = constants;
-                return Math.sqrt(((power / POWER_BANK_CAPACITY_MAX) * 3000) / Math.PI);
+                return Math.sqrt(((store.power / POWER_BANK_CAPACITY_MAX) * 3000) / Math.PI);
             },
         },
     ],

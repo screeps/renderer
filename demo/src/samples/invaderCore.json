@@ -1,0 +1,133 @@
+[
+  {
+    "objects": [
+      {
+        "type": "invaderCore",
+        "x": 22,
+        "y": 29,
+        "_id": "f22c392ae391f8e9038027a5",
+        "room": "sim",
+        "decayTime": 150000,
+        "spawning": {
+          "name": "invader1",
+          "needTime": 4,
+          "remainingTime": 4
+        },
+        "actionLog": {
+          "build": null,
+          "reserveController": null,
+          "transferEnergy": null
+        }
+      }
+    ],
+    "users": {},
+    "info": {},
+    "gameTime": 119,
+    "flags": [],
+    "visual": ""
+  },
+  {
+    "objects": [
+      {
+        "type": "invaderCore",
+        "x": 22,
+        "y": 29,
+        "_id": "f22c392ae391f8e9038027a5",
+        "room": "sim",
+        "decayTime": 100000,
+        "spawning": {
+          "name": "invader1",
+          "needTime": 4,
+          "remainingTime": 3
+        },
+        "actionLog": {
+          "build": {"x": 30, "y": 30},
+          "reserveController": null,
+          "transferEnergy": null
+        }
+      }
+    ],
+    "users": {},
+    "info": {},
+    "gameTime": 120,
+    "flags": [],
+    "visual": ""
+  },
+  {
+    "objects": [
+      {
+        "type": "invaderCore",
+        "x": 22,
+        "y": 29,
+        "_id": "f22c392ae391f8e9038027a5",
+        "room": "sim",
+        "decayTime": 50000,
+        "spawning": {
+          "name": "invader1",
+          "needTime": 4,
+          "remainingTime": 2
+        },
+        "actionLog": {
+          "build": null,
+          "reserveController": {"x": 5, "y": 5},
+          "transferEnergy": null
+        }
+      }
+    ],
+    "users": {},
+    "info": {},
+    "gameTime": 121,
+    "flags": [],
+    "visual": ""
+  },
+  {
+    "objects": [
+      {
+        "type": "invaderCore",
+        "x": 22,
+        "y": 29,
+        "_id": "f22c392ae391f8e9038027a5",
+        "room": "sim",
+        "decayTime": 1,
+        "spawning": {
+          "name": "invader1",
+          "needTime": 4,
+          "remainingTime": 1
+        },
+        "actionLog": {
+          "build": null,
+          "reserveController": null,
+          "transferEnergy": {"x": 25, "y": 10}
+        }
+      }
+    ],
+    "users": {},
+    "info": {},
+    "gameTime": 122,
+    "flags": [],
+    "visual": ""
+  },
+  {
+    "objects": [
+      {
+        "type": "invaderCore",
+        "x": 22,
+        "y": 29,
+        "_id": "f22c392ae391f8e9038027a5",
+        "room": "sim",
+        "decayTime": -10,
+        "spawning": null,
+        "actionLog": {
+          "build": null,
+          "reserveController": null,
+          "transferEnergy": null
+        }
+      }
+    ],
+    "users": {},
+    "info": {},
+    "gameTime": 122,
+    "flags": [],
+    "visual": ""
+  }
+]

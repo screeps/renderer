@@ -16,17 +16,15 @@ export default (params) => {
     const {
         rootContainer,
         scope,
-        state: {
-            progress: newProgress,
-        } = {},
-        prevState: {
-            progress,
-        } = {},
         payload,
         ...otherParams
     } = params;
 
-    if (progress !== newProgress) {
+    const progress = actionHelper.parseExpression(payload.progress, params);
+
+    if (progress !== scope.oldProgress) {
+        scope.oldProgress = progress;
+
         const graphics = draw({ rootContainer, scope, ...otherParams });
         const progressTotal = actionHelper.parseExpression(payload.progressTotal, params);
         const color = actionHelper.parseExpression(payload.color, params);
@@ -37,8 +35,8 @@ export default (params) => {
         graphics.lineStyle(lineWidth, color, 1);
         graphics.drawCircle(0, 0, radius + (lineWidth / 2));
 
-        if (newProgress > 0 && progressTotal > 0) {
-            const angle = 2 * Math.PI * (Math.min(newProgress, progressTotal) / progressTotal);
+        if (progress > 0 && progressTotal > 0) {
+            const angle = 2 * Math.PI * (Math.min(progress, progressTotal) / progressTotal);
             graphics.beginFill(color);
             graphics.moveTo(0, 0);
             graphics.lineStyle(1, color, 1);

@@ -383,6 +383,7 @@ export default {
                 color: 0xFFFFFF,
                 radius: 37,
                 lineWidth: 0,
+                progress: { $state: 'progress' },
                 progressTotal: { $calc: 'progressTotal' },
             },
             when: ({ state: { progress } }) => progress > 0,

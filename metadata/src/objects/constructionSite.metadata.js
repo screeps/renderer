@@ -16,6 +16,7 @@ export default {
                 color: { $calc: 'playerColor' },
                 radius: 20,
                 lineWidth: 10,
+                progress: { $state: 'progress' },
                 progressTotal: { $state: 'progressTotal' },
             },
             actions: [blinking(0.8, 0.3, 1, 1)],
