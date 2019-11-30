@@ -204,6 +204,34 @@ export default {
                 },
             ],
         },
+        {
+            type: 'runAction',
+            shouldRun: (({ state }) => state.actionLog && state.actionLog.reverseReaction),
+            payload: {
+                id: 'reactionLight',
+            },
+            actions: [
+                {
+                    action: 'Sequence',
+                    params: [
+                        [
+                            {
+                                action: 'AlphaTo',
+                                params: [1.0, { $processorParam: 'tickDuration', koef: 0.15 }],
+                            },
+                            {
+                                action: 'AlphaTo',
+                                params: [0.0, { $processorParam: 'tickDuration', koef: 0.55 }],
+                            },
+                            {
+                                action: 'DelayTime',
+                                params: [{ $processorParam: 'tickDuration', koef: 0.3 }],
+                            },
+                        ],
+                    ],
+                }
+            ]
+        },
     ],
     zIndex: 15,
 };

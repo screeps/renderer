@@ -237,6 +237,7 @@ export default (params) => {
         repair = null,
         reserveController = null,
         runReaction = null,
+        reverseReaction = null,
         transferEnergy = null,
         upgradeController = null,
     } = {} } = state;
@@ -351,6 +352,15 @@ export default (params) => {
         pushRangedShotActionWithBlur(actionsToApply, stage, world,
             convertGameXYToWorld({ x: x2, y: y2 }, worldOptions),
             state, tickDuration, worldOptions, COLORS.runReaction, 12, 2);
+    }
+    if (reverseReaction) {
+        const { x1, y1, x2, y2 } = reverseReaction;
+        pushRangedShotActionWithBlur(actionsToApply, stage, world, rootContainer,
+            { x: x1, y: y1 },
+            tickDuration, worldOptions, COLORS.runReaction, 12, 2);
+        pushRangedShotActionWithBlur(actionsToApply, stage, world, rootContainer,
+            { x: x2, y: y2 },
+            tickDuration, worldOptions, COLORS.runReaction, 12, 2);
     }
 
     applyActions(actionsToApply, stage.actionManager);
