@@ -11,7 +11,7 @@
         "spawning": {
           "name": "invader1",
           "needTime": 4,
-          "remainingTime": 4
+          "spawnTime": 123
         },
         "actionLog": {
           "build": null,
@@ -38,7 +38,7 @@
         "spawning": {
           "name": "invader1",
           "needTime": 4,
-          "remainingTime": 3
+          "spawnTime": 123
         },
         "actionLog": {
           "build": {"x": 30, "y": 30},
@@ -65,7 +65,7 @@
         "spawning": {
           "name": "invader1",
           "needTime": 4,
-          "remainingTime": 2
+          "spawnTime": 123
         },
         "actionLog": {
           "build": null,
@@ -92,7 +92,7 @@
         "spawning": {
           "name": "invader1",
           "needTime": 4,
-          "remainingTime": 1
+          "spawnTime": 123
         },
         "actionLog": {
           "build": null,

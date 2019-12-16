@@ -15,8 +15,8 @@
         "off": false,
         "spawning": {
           "name": "C_31235",
-          "needTime": 114,
-          "remainingTime": 94
+          "needTime": 6,
+          "spawnTime": 35
         },
         "_updated": 13053927,
         "_isDisabled": false,
@@ -85,8 +85,8 @@
         "off": false,
         "spawning": {
           "name": "C_31235",
-          "needTime": 114,
-          "remainingTime": 94
+          "needTime": 6,
+          "spawnTime": 35
         },
         "_updated": 13053927,
         "_isDisabled": false,
@@ -140,7 +140,34 @@
     "visual": ""
   },
   {
-    "objects": [],
+    "objects": [
+      {
+        "_id": "56f38f0db529d7dd02c61566",
+        "type": "spawn",
+        "x": 23,
+        "y": 16,
+        "room": "E3N15",
+        "notifyWhenAttacked": true,
+        "name": "Spawn42",
+        "user": "561e4d4645f3f7244a7622e8",
+        "hits": 5000,
+        "hitsMax": 5000,
+        "off": false,
+        "spawning": {
+          "name": "C_31235",
+          "needTime": 6,
+          "spawnTime": 35
+        },
+        "_updated": 13053927,
+        "_isDisabled": false,
+        "store": {
+          "energy": 300
+        },
+        "storeCapacityResource": {
+          "energy": 300
+        }
+      }
+    ],
     "users": {
       "0": {
         "username": "Player 1"
