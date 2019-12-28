@@ -1,4 +1,4 @@
-import { Container, Sprite } from 'pixi.js';
+import { Container, Sprite, TilingSprite } from 'pixi.js';
 
 // eslint-disable-next-line import/prefer-default-export
 export function set(decorations, params) {
@@ -24,14 +24,25 @@ export function set(decorations, params) {
                 if (graphic.visible && !decorationItem[graphic.visible]) {
                     return;
                 }
-                const sprite = Sprite.fromImage(graphic.url);
+                let sprite;
+                if (decorationItem.decoration.tiling) {
+                    sprite = TilingSprite.fromImage(graphic.url, decorationItem.width * CELL_SIZE,
+                        decorationItem.height * CELL_SIZE);
+                    sprite.texture.baseTexture.mipmap = false;
+                    sprite.tileScale.x = decorationItem.tileScale;
+                    sprite.tileScale.y = decorationItem.tileScale;
+                } else {
+                    sprite = Sprite.fromImage(graphic.url);
+                }
                 Object.assign(sprite, {
                     anchor: {
                         x: 0.5,
                         y: 0.5,
                     },
-                    x: (decorationItem.x + (-0.5) + (decorationItem.width / 2)) * CELL_SIZE,
-                    y: (decorationItem.y + (-0.5) + (decorationItem.height / 2)) * CELL_SIZE,
+                    x: Math.floor((decorationItem.x + (-0.5) + (decorationItem.width / 2))
+                        * CELL_SIZE),
+                    y: Math.floor((decorationItem.y + (-0.5) + (decorationItem.height / 2))
+                        * CELL_SIZE),
                     width: decorationItem.width * CELL_SIZE,
                     height: decorationItem.height * CELL_SIZE,
                     parentLayer: world.layers.wallGraffiti,

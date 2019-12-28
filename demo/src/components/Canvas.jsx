@@ -108,6 +108,25 @@ export default class Canvas extends Component {
                     }
                 ]
             }
+        }, {
+            x: 0,
+            y: 35,
+            width: 10,
+            height: 30,
+            tileScale: 1.5,
+            flip: true,
+            color1: '#999999',
+            hasRing: true,
+            decoration: {
+                type: 'wallGraffiti',
+                tiling: true,
+                graphics: [
+                    {
+                        url: 'decorations/test_tile.png',
+                        color: 'color1'
+                    }
+                ]
+            }
         }]);
     }
 
