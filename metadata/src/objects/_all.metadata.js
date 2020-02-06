@@ -29,7 +29,7 @@ export default {
                 } else if (isOwner) {
                     return 0x8fbb93;
                 } else {
-                    return 0xFF7777;
+                    return 0x77AAFF;
                 }
             },
         },

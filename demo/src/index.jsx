@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import terrain from './samples/terrain1.json';
-import samples from './samples/structures';
+import samples from './samples/room_replay.json';
 import _ from 'lodash';
 
 function arraysToObject(obj) {

@@ -4,7 +4,7 @@
 
 import {
     BLEND_MODES, extras, filters, Point, RenderTexture, Sprite, Texture,
-    WebGLRenderer,
+    WebGLRenderer, Graphics,
 } from 'pixi.js';
 
 import pathHelper from '../pathHelper';
@@ -28,7 +28,8 @@ function buildSvg(path, { size: { width, height }, VIEW_BOX }, pathOptions) {
         `${key}="${encodeURIComponent(value)}"`)
         .join(' ');
     const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" ${
-        svgOptionsStr}><path ${pathOptionsStr} d="${path}" /></svg>`;
+        svgOptionsStr} data-timestamp="${Date.now()}"><path ${pathOptionsStr} d="${path}" /></svg>`;
+
     const sprite = Sprite.fromImage(`data:image/svg+xml;charset=utf8,${svg}`);
     sprite._generatedSvgTexture = true;
     return sprite;
@@ -46,12 +47,13 @@ export default (params) => {
         world: {
             app,
             stage,
+            decorations,
             layers: { terrain: terrainLayer, lighting: lightingLayer, effects: effectsLayer },
             options: { size: rendererSize },
         },
         state: { gameData: { player, swampTexture = 'animated' }, objects, users = {}, setTerrain },
         world: {
-            options: { CELL_SIZE, RENDER_SIZE: size = rendererSize, VIEW_BOX, lighting = 'normal' },
+            options: { CELL_SIZE, RENDER_SIZE: size = rendererSize, VIEW_BOX, HALF_CELL_SIZE = CELL_SIZE / 2, lighting = 'normal' },
         },
     } = params;
 
@@ -80,6 +82,8 @@ export default (params) => {
         stage.addChild(stage.terrainObjects.wallMask);
     }
     const { terrainObjects } = stage;
+    const decorationWallLandscape = decorations.find(i => i.decoration.type === 'wallLandscape');
+    const decorationFloorLandscape = decorations.find(i => i.decoration.type === 'floorLandscape');
 
     let { previousSwamps } = terrainObjects;
     if (!previousSwamps) {
@@ -89,6 +93,10 @@ export default (params) => {
     if (setTerrain) {
         previousSwamps = objects.filter(({ type }) => type === 'swamp');
         terrainObjects.previousSwamps = previousSwamps;
+    }
+
+    if (decorationFloorLandscape !== terrainObjects.decorationFloorLandscape) {
+        terrainObjects.previousSwampsMd5 = null;
     }
     const { result: swampPath, md5: swampMd5 } = pathHelper(
         setTerrain ? [previousSwamps] : [objects, previousSwamps],
@@ -112,14 +120,22 @@ export default (params) => {
             } else {
                 tint = 0xFFFFFF;
             }
+            let fill = swampTexture !== 'disabled' ? '#4a501e' : '#465c03';
+            if (decorationFloorLandscape) {
+                fill = decorationFloorLandscape.colorSwamp;
+            }
+            let stroke = swampTexture !== 'disabled' ? '#4a501e' : '#3b4019';
+            if (decorationFloorLandscape) {
+                stroke = decorationFloorLandscape.colorSwampStroke;
+            }
             swampObjects[0] = setupObject(
                 buildSvg(
                     swampPath,
                     { size, VIEW_BOX },
                     {
-                        fill: swampTexture !== 'disabled' ? '#4a501e' : '#465c03',
-                        stroke: swampTexture !== 'disabled' ? '#4a501e' : '#3b4019',
-                        'stroke-width': 50,
+                        fill,
+                        stroke,
+                        'stroke-width': decorationFloorLandscape ? decorationFloorLandscape.swampStrokeWidth : 50,
                         'paint-order': 'stroke',
                     }
                 ),
@@ -166,7 +182,12 @@ export default (params) => {
                 buildSvg(
                     swampPath,
                     { size, VIEW_BOX },
-                    { fill: '#292b18', stroke: '#252715', 'stroke-width': 50, 'paint-order': 'stroke' }
+                    {
+                        fill: decorationFloorLandscape ? decorationFloorLandscape.colorSwamp : '#292b18',
+                        stroke: decorationFloorLandscape ? decorationFloorLandscape.colorSwampStroke : '#252715',
+                        'stroke-width': decorationFloorLandscape ? decorationFloorLandscape.swampStrokeWidth : 50,
+                        'paint-order': 'stroke',
+                    }
                 )
             );
         }
@@ -239,6 +260,10 @@ export default (params) => {
         terrainObjects.previousWalls = previousWalls;
     }
     const objArrays = setTerrain ? [previousWalls] : [objects, previousWalls];
+
+    if (decorationWallLandscape !== terrainObjects.decorationWallLandscape) {
+        terrainObjects.previousWallsMd5 = null;
+    }
     const { md5, result: wallPath } = pathHelper(objArrays,
         ({ type }) => type === 'wall' || type === 'constructedWall',
         terrainObjects.previousWallsMd5);
@@ -258,13 +283,18 @@ export default (params) => {
                 visible: false,
             });
 
+            let backgroundFill = lighting === 'disabled' ? '#181818' : '#111';
+            if (decorationWallLandscape) {
+                backgroundFill = decorationWallLandscape.colorBackground;
+            }
+
             const base = buildSvg(
                 wallPath,
                 { size, VIEW_BOX },
                 {
-                    fill: lighting === 'disabled' ? '#181818' : '#111',
-                    stroke: '#000',
-                    'stroke-width': 10,
+                    fill: backgroundFill,
+                    stroke: decorationWallLandscape ? decorationWallLandscape.colorStroke : '#000',
+                    'stroke-width': decorationWallLandscape ? decorationWallLandscape.strokeWidth : 10,
                     'paint-order': 'stroke',
                 });
 
@@ -324,7 +354,13 @@ export default (params) => {
             });
 
             wallObjects[4] = setupObject(buildSvg(wallPath, { size, VIEW_BOX },
-                { fill: '#808080' }), { parentLayer: lightingLayer, visible: false });
+                {
+                    fill: '#808080',
+                    stroke: decorationWallLandscape ? decorationWallLandscape.colorStrokeLighting : '#000000',
+                    'stroke-width': decorationWallLandscape ? decorationWallLandscape.strokeWidth : 10,
+                    'paint-order': 'stroke',
+                }),
+            { parentLayer: lightingLayer, visible: false });
 
             actionHelper.onTextureLoaded(wallObjects[4].texture, () => {
                 wallObjects[4].visible = true;
@@ -346,4 +382,94 @@ export default (params) => {
             });
         }
     }
+
+    // Floor
+
+    if (!terrainObjects.previousFloor ||
+        decorationFloorLandscape !== terrainObjects.decorationFloorLandscape) {
+        const floorToDestroy = terrainObjects.previousFloor;
+        terrainObjects.previousFloor = {};
+
+        const background = new Graphics();
+        let fill = 0x555555;
+        if (lighting === 'disabled' || !(app.renderer instanceof PIXI.WebGLRenderer)) {
+            fill = 0x202020;
+        }
+        if (lighting === 'low') {
+            fill = 0x353535;
+        }
+        if (decorationFloorLandscape) {
+            fill = parseInt(decorationFloorLandscape.colorFloorBackground.substring(1), 16);
+        }
+        background.beginFill(fill);
+        background.drawRect(-HALF_CELL_SIZE, -HALF_CELL_SIZE, VIEW_BOX, VIEW_BOX);
+        background.endFill();
+        terrainLayer.addChild(background);
+        terrainObjects.previousFloor.background = background;
+
+        let ground;
+        if (decorationFloorLandscape) {
+            if (decorationFloorLandscape.decoration.tileScale) {
+                ground = TilingSprite.fromImage(
+                    decorationFloorLandscape.decoration.floorForegroundUrl,
+                    50 * CELL_SIZE, 50 * CELL_SIZE);
+                ground.texture.baseTexture.mipmap = false;
+                ground.tileScale.x = decorationFloorLandscape.decoration.tileScale;
+                ground.tileScale.y = decorationFloorLandscape.decoration.tileScale;
+            } else {
+                ground = Sprite.fromImage(decorationFloorLandscape.decoration.floorForegroundUrl);
+            }
+            Object.assign(ground, {
+                x: 0,
+                y: 0,
+                width: 50 * CELL_SIZE,
+                height: 50 * CELL_SIZE,
+                alpha: decorationFloorLandscape.alphaFloorForeground,
+                tint: parseInt(decorationFloorLandscape.colorFloorForeground.substr(1), 16),
+            });
+        } else {
+            console.log('!');
+            ground = new TilingSprite(stage.resources.ground.texture, VIEW_BOX, VIEW_BOX);
+            ground.x = -HALF_CELL_SIZE;
+            ground.y = -HALF_CELL_SIZE;
+            ground.tileScale.x = 3;
+            ground.tileScale.y = 3;
+            if (lighting === 'normal') {
+                ground.alpha = 0.3;
+            } else if (lighting === 'low') {
+                ground.alpha = 0.1;
+            } else {
+                ground.alpha = 0.2;
+            }
+
+            const ground2 = new TilingSprite(stage.resources['ground-mask'].texture, VIEW_BOX, VIEW_BOX);
+            ground2.x = -HALF_CELL_SIZE;
+            ground2.y = -HALF_CELL_SIZE;
+            ground2.tileScale.x = 7;
+            ground2.tileScale.y = 7;
+            ground2.blendMode = BLEND_MODES.MULTIPLY;
+            if (lighting === 'normal') {
+                ground2.alpha = 0.15;
+            } else if (lighting === 'low') {
+                ground2.alpha = 0.05;
+            } else {
+                ground2.alpha = 0.1;
+            }
+            terrainObjects.previousFloor.ground2 = ground2;
+            terrainLayer.addChild(ground2);
+        }
+        terrainLayer.addChild(ground);
+        terrainObjects.previousFloor.ground = ground;
+
+        if (floorToDestroy) {
+            floorToDestroy.background.destroy();
+            floorToDestroy.ground.destroy();
+            if (floorToDestroy.ground2) {
+                floorToDestroy.ground2.destroy();
+            }
+        }
+    }
+
+    terrainObjects.decorationFloorLandscape = decorationFloorLandscape;
+    terrainObjects.decorationWallLandscape = decorationWallLandscape;
 };

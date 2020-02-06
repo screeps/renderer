@@ -48,6 +48,7 @@ export function set(decorations, params) {
                     parentLayer: world.layers.wallGraffiti,
                     tint: parseInt(decorationItem[graphic.color].substr(1), 16),
                     mask: world.stage.terrainObjects.wallMask,
+                    zIndex: 2,
                 });
                 if (decorationItem.flip) {
                     sprite.scale.x *= -1;
@@ -57,6 +58,22 @@ export function set(decorations, params) {
                 }
                 world.decorationsContainer.addChild(sprite);
             });
+        }
+
+        if (decorationItem.decoration.type === 'wallLandscape') {
+            const sprite = Sprite.fromImage(decorationItem.decoration.foregroundUrl);
+            Object.assign(sprite, {
+                x: 0,
+                y: 0,
+                width: 50 * CELL_SIZE,
+                height: 50 * CELL_SIZE,
+                parentLayer: world.layers.wallGraffiti,
+                alpha: decorationItem.alphaForeground,
+                tint: parseInt(decorationItem.colorForeground.substr(1), 16),
+                mask: world.stage.terrainObjects.wallMask,
+                zIndex: 1,
+            });
+            world.decorationsContainer.addChild(sprite);
         }
     });
 }

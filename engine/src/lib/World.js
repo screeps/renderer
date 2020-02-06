@@ -16,6 +16,7 @@ const { Layer, Stage } = display;
 export default class World {
     constructor(options) {
         this.gameObjects = {};
+        this.decorations = [];
         this.options = options;
         const { app, actionManager, logger, metadata = {}, resourceMap,
             CELL_SIZE, VIEW_BOX } = this.options;

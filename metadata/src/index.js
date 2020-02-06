@@ -39,7 +39,7 @@ import ruin from './objects/ruin.metadata';
 
 const { VoidFilter } = PIXI.filters;
 const { TilingSprite } = PIXI.extras;
-const { Graphics } = PIXI;
+const { Graphics, BLEND_MODES } = PIXI;
 
 export default {
     preprocessors: [
@@ -50,7 +50,7 @@ export default {
         {
             id: 'terrain',
             afterCreate: async (layer, { app, resourceManager,
-                world: { options: { VIEW_BOX, CELL_SIZE, HALF_CELL_SIZE = CELL_SIZE / 2,
+                world: { options: { VIEW_BOX, CELL_SIZE,
                     lighting = 'normal' } } }) => {
                 function setupExits(textureName, tileX, tileY, flipX, flipY) {
                     const { texture } = resourceManager.getCachedResource(textureName);
@@ -71,48 +71,10 @@ export default {
                             sprite.tint = 0xc0c0c0;
                         }
                     }
+                    sprite.blendMode = BLEND_MODES.ADD;
+                    sprite.alpha = 0.5;
                     layer.addChild(sprite);
                 }
-
-                const background = new Graphics();
-                background.beginFill(!(app.renderer instanceof PIXI.WebGLRenderer) ? 0x202020 :
-                    lighting == 'disabled' ? 0x202020 :
-                        lighting == 'normal' ? 0x555555 :
-                            0x353535);
-                background.drawRect(-HALF_CELL_SIZE,-HALF_CELL_SIZE, VIEW_BOX, VIEW_BOX);
-                background.endFill();
-                layer.addChild(background);
-
-                const ground = new TilingSprite(
-                    resourceManager.getCachedResource('ground').texture, VIEW_BOX, VIEW_BOX);
-                ground.x = -HALF_CELL_SIZE;
-                ground.y = -HALF_CELL_SIZE;
-                ground.tileScale.x = 3;
-                ground.tileScale.y = 3;
-                if (lighting === 'normal') {
-                    ground.alpha = 0.3;
-                } else if (lighting === 'low') {
-                    ground.alpha = 0.1;
-                } else {
-                    ground.alpha = 0.2;
-                }
-                layer.addChild(ground);
-
-                const ground2 = new TilingSprite(
-                    resourceManager.getCachedResource('ground-mask').texture, VIEW_BOX, VIEW_BOX);
-                ground2.x = -HALF_CELL_SIZE;
-                ground2.y = -HALF_CELL_SIZE;
-                ground2.tileScale.x = 7;
-                ground2.tileScale.y = 7;
-                ground2.blendMode = PIXI.BLEND_MODES.MULTIPLY;
-                if (lighting === 'normal') {
-                    ground2.alpha = 0.15;
-                } else if (lighting === 'low') {
-                    ground2.alpha = 0.05;
-                } else {
-                    ground2.alpha = 0.1;
-                }
-                layer.addChild(ground2);
 
                 setupExits('exit-left', false, true, false, false);
                 setupExits('exit-bottom', true, false, false, true);

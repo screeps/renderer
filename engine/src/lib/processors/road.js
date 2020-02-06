@@ -38,6 +38,7 @@ export default (params) => {
             app,
             layers: { terrain: terrainLayer },
             options: { CELL_SIZE, lighting = 'normal' },
+            decorations,
         },
         state: { x, y } = {},
         stateExtra: { objects },
@@ -67,8 +68,11 @@ export default (params) => {
     newNodes.pm = Boolean(roads[x + 1][y - 1]);
     newNodes.mz = Boolean(roads[x - 1][y]);
 
+    const decorationFloorLandscape = decorations.find(i => i.decoration.type === 'floorLandscape');
+
     const shouldRedraw = !savedObject ||
-        Object.entries(newNodes).some(([key, value]) => value !== knownNodes[key]);
+        Object.entries(newNodes).some(([key, value]) => value !== knownNodes[key]) ||
+        savedObject.decorationFloorLandscape !== decorationFloorLandscape;
 
     if (shouldRedraw) {
         const m = 0;
@@ -91,13 +95,17 @@ export default (params) => {
             }
         }
 
+        const color = decorationFloorLandscape ?
+            parseInt(decorationFloorLandscape.colorRoads.substring(1), 16) :
+            ROAD_COLOR;
+
         graphics.clear();
-        graphics.beginFill(ROAD_COLOR);
+        graphics.beginFill(color);
         graphics.drawCircle(m, m, r);
         graphics.endFill();
 
         if (newNodes.mm) {
-            graphics.beginFill(ROAD_COLOR);
+            graphics.beginFill(color);
             graphics.moveTo(m + rb, m - rb);
             graphics.lineTo(m - rb, m + rb);
             graphics.lineTo(m - rb - lb, (m + rb) - lb);
@@ -107,7 +115,7 @@ export default (params) => {
         }
 
         if (newNodes.zm) {
-            graphics.beginFill(ROAD_COLOR);
+            graphics.beginFill(color);
             graphics.moveTo(m + r, m);
             graphics.lineTo(m - r, m);
             graphics.lineTo(m - r, m - l);
@@ -117,7 +125,7 @@ export default (params) => {
         }
 
         if (newNodes.pm) {
-            graphics.beginFill(ROAD_COLOR);
+            graphics.beginFill(color);
             graphics.moveTo(m - rb, m - rb);
             graphics.lineTo(m + rb, m + rb);
             graphics.lineTo(m + rb + lb, (m + rb) - lb);
@@ -127,7 +135,7 @@ export default (params) => {
         }
 
         if (newNodes.mz) {
-            graphics.beginFill(ROAD_COLOR);
+            graphics.beginFill(color);
             graphics.moveTo(m, m + r);
             graphics.lineTo(m, m - r);
             graphics.lineTo(m - l, m - r);
@@ -139,6 +147,7 @@ export default (params) => {
             savedObject.destroy(true);
         }
         graphics.knownNodes = newNodes;
+        graphics.decorationFloorLandscape = decorationFloorLandscape;
         scope[id] = graphics;
         rootContainer.addChild(graphics);
         return graphics;
