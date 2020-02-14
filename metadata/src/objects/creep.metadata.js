@@ -70,6 +70,14 @@ export default {
             },
         },
         {
+            type: 'creepDecoration',
+            once: true,
+            when: (({ world: { decorations = [] } }) => decorations.length > 0),
+            payload: {
+                parentId: 'mainContainer',
+            },
+        },
+        {
             type: 'circle',
             once: true,
             payload: {

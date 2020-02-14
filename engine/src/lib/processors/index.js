@@ -21,6 +21,7 @@ import sprite from './sprite';
 import terrain from './terrain';
 import text from './text';
 import userBadge from './userBadge';
+import creepDecoration from './creepDecoration';
 
 export default {
     circle,
@@ -42,4 +43,5 @@ export default {
     terrain,
     text,
     userBadge,
+    creepDecoration,
 };

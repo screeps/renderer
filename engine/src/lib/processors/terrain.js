@@ -428,7 +428,6 @@ export default (params) => {
                 tint: parseInt(decorationFloorLandscape.colorFloorForeground.substr(1), 16),
             });
         } else {
-            console.log('!');
             ground = new TilingSprite(stage.resources.ground.texture, VIEW_BOX, VIEW_BOX);
             ground.x = -HALF_CELL_SIZE;
             ground.y = -HALF_CELL_SIZE;

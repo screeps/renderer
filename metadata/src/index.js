@@ -73,6 +73,7 @@ export default {
                     }
                     sprite.blendMode = BLEND_MODES.ADD;
                     sprite.alpha = 0.5;
+                    sprite.zIndex = 1;
                     layer.addChild(sprite);
                 }
 

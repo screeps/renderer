@@ -73,7 +73,41 @@ export default [
         decoration: {
             type: 'floorLandscape',
             floorForegroundUrl: 'decorations/landscape2.png',
-            tileScale: 3
+            tileScale: 3,
+        }
+    },
+    {
+        user: '58901b93730b9dab5857f7a6',
+        nameRegex: 'ContainerMiner',
+        color: '#00ff00',
+        decoration: {
+            type: 'creep',
+            blendMode: 1,
+            position: 'below',
+            url: 'decorations/creep_effect2.svg',
+            width: 150,
+            height: 150,
+            syncRotate: false,
+            animate: [
+                {alpha: 0.0, scale: 0.5, rotate: 0.0, duration: 0},
+                {alpha: 0.7, scale: 0.9, rotate: 2.0, duration: 1.0},
+                {alpha: 0.0, scale: 1.2, rotate: 4.0, duration: 2.0},
+                {alpha: 0.0, scale: 0.5, rotate: 0.0, duration: 2.0},
+            ]
+        }
+    },
+    {
+        user: '58901b93730b9dab5857f7a6',
+        nameRegex: 'EnergyHauler',
+        decoration: {
+            type: 'creep',
+            blendMode: 1,
+            position: 'above',
+            width: 230,
+            height: 230,
+            alpha: 0.5,
+            url: 'decorations/creep_effect1.svg',
+            syncRotate: true,
         }
     }
 ];

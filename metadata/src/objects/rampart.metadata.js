@@ -4,7 +4,7 @@ export default {
             id: 'rampartColor',
             once: true,
             func: ({ state: { user }, stateExtra: { gameData: { player } } }) =>
-                (user === player ? 0x44FF44 : 0x4444FF),
+                (user === player ? 0x44FF44 : 0xFF4444),
         },
     ],
     processors: [
