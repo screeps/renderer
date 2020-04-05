@@ -1,0 +1,133 @@
+[
+  {
+    "gameTime": 1,
+    "objects": [
+      {
+        "id": "lab1",
+        "type": "lab",
+        "room": "E2S7",
+        "cooldown": 0,
+        "x": 25,
+        "y": 25,
+        "store": {
+          "OH": 100
+        },
+        "storeCapacity": null,
+        "storeCapacityResource": {
+          "energy": 2000,
+          "OH": 3000
+        },
+        "actionLog": {
+          "runReaction": null,
+          "reverseReaction": {
+            "x1": 25,
+            "y1": 23,
+            "x2": 25,
+            "y2": 27
+          }
+        }
+      },
+      {
+        "id": "lab2",
+        "type": "lab",
+        "room": "E2S7",
+        "cooldown": 0,
+        "x": 25,
+        "y": 23,
+        "store": {},
+        "storeCapacity": 5000,
+        "storeCapacityResource": {
+          "energy": 2000
+        },
+        "actionLog": {
+          "runReaction": null,
+          "reverseReaction": null
+        }
+      },
+      {
+        "id": "lab3",
+        "type": "lab",
+        "room": "E2S7",
+        "cooldown": 0,
+        "x": 25,
+        "y": 27,
+        "store": {},
+        "storeCapacity": 5000,
+        "storeCapacityResource": {
+          "energy": 2000
+        },
+        "actionLog": {
+          "runReaction": null,
+          "reverseReaction": null
+        }
+      }
+    ]
+  },
+  {
+    "gameTime": 2,
+    "objects": [
+      {
+        "id": "lab1",
+        "type": "lab",
+        "room": "E2S7",
+        "cooldown": 0,
+        "x": 25,
+        "y": 25,
+        "store": {},
+        "storeCapacity": 5000,
+        "storeCapacityResource": {
+          "energy": 2000
+        },
+        "actionLog": {
+          "runReaction": {
+            "x1": 25,
+            "y1": 23,
+            "x2": 25,
+            "y2": 27
+          },
+          "reverseReaction": null
+        }
+      },
+      {
+        "id": "lab2",
+        "type": "lab",
+        "room": "E2S7",
+        "cooldown": 0,
+        "x": 25,
+        "y": 23,
+        "store": {
+          "O": 100
+        },
+        "storeCapacity": null,
+        "storeCapacityResource": {
+          "energy": 2000,
+          "O":3000
+        },
+        "actionLog": {
+          "runReaction": null,
+          "reverseReaction": null
+        }
+      },
+      {
+        "id": "lab3",
+        "type": "lab",
+        "room": "E2S7",
+        "cooldown": 0,
+        "x": 25,
+        "y": 27,
+        "store": {
+          "H": 100
+        },
+        "storeCapacity": null,
+        "storeCapacityResource": {
+          "energy": 2000,
+          "H":3000
+        },
+        "actionLog": {
+          "runReaction": null,
+          "reverseReaction": null
+        }
+      }
+    ]
+  }
+]

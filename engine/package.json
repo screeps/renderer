@@ -1,6 +1,6 @@
 {
   "name": "@screeps/renderer",
-  "version": "1.3.3",
+  "version": "1.4.0",
   "description": "This library contains the renderer engine used in Screeps game.",
   "main": "dist/renderer.js",
   "types": "./main.d.ts",
@@ -20,7 +20,7 @@
     "prepublish": "npm run build"
   },
   "devDependencies": {
-    "@screeps/common": "^2.11.1",
+    "@screeps/common": "^2.13.0",
     "babel-core": "^6.26.3",
     "babel-eslint": "^7.2.1",
     "babel-loader": "^7.1.5",

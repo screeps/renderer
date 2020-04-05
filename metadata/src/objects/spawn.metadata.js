@@ -30,9 +30,9 @@ export default {
     calculations: [
         {
             id: 'spawningAngle',
-            props: ['spawning'],
-            func: ({ state: { spawning } }) => {
-                const { remainingTime = 0.01, needTime = 0 } = spawning || {};
+            func: ({ state: { name, spawning }, stateExtra: { gameTime } }) => {
+                const { spawnTime = gameTime+0.01, needTime = 0 } = spawning || {};
+                const remainingTime = spawnTime - gameTime;
                 return arc.startAngle +
                     (needTime ? (((2 * Math.PI) * (needTime - remainingTime)) / needTime) : 0);
             },

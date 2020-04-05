@@ -3646,7 +3646,7 @@
         "spawning": {
           "name": "C_31235",
           "needTime": 114,
-          "remainingTime": 94
+          "spawnTime": 18641868
         },
         "_updated": 13053927,
         "_isDisabled": false,
@@ -3999,7 +3999,7 @@
         "spawning": {
           "name": "C_31329",
           "needTime": 54,
-          "remainingTime": 45
+          "spawnTime": 18641819
         },
         "_isDisabled": false,
         "store": {
@@ -4129,7 +4129,7 @@
         "spawning": {
           "name": "C_31311",
           "needTime": 54,
-          "remainingTime": 18
+          "spawnTime": 18641792
         },
         "_isDisabled": false,
         "store": {

@@ -58,7 +58,8 @@
         "_id": "270a09d6e975fdc76560e5ce",
         "_isDisabled": false,
         "actionLog": {
-          "runReaction": null
+          "runReaction": null,
+          "reverseReaction": null
         },
         "store": {
           "energy": 1000,
