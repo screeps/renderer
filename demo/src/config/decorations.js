@@ -12,6 +12,7 @@ export default [
         hasRing: false,
         decoration: {
             type: 'wallGraffiti',
+            lighting: true,
             graphics: [
                 {
                     url: 'decorations/test1.svg',
@@ -49,7 +50,7 @@ export default [
                 }
             ]
         }
-    }, */
+    },*/
     {
         colorForeground: '#3333ff',
         alphaForeground: 1.0,

@@ -24,39 +24,52 @@ export function set(decorations, params) {
                 if (graphic.visible && !decorationItem[graphic.visible]) {
                     return;
                 }
-                let sprite;
-                if (decorationItem.decoration.tiling) {
-                    sprite = TilingSprite.fromImage(graphic.url, decorationItem.width * CELL_SIZE,
-                        decorationItem.height * CELL_SIZE);
-                    sprite.texture.baseTexture.mipmap = false;
-                    sprite.tileScale.x = decorationItem.tileScale;
-                    sprite.tileScale.y = decorationItem.tileScale;
-                } else {
-                    sprite = Sprite.fromImage(graphic.url);
+
+                function _createSprite() {
+                    let sprite;
+                    if (decorationItem.decoration.tiling) {
+                        sprite = TilingSprite.fromImage(graphic.url,
+                            decorationItem.width * CELL_SIZE,
+                            decorationItem.height * CELL_SIZE);
+                        sprite.texture.baseTexture.mipmap = false;
+                        sprite.tileScale.x = decorationItem.tileScale;
+                        sprite.tileScale.y = decorationItem.tileScale;
+                    } else {
+                        sprite = Sprite.fromImage(graphic.url);
+                    }
+                    Object.assign(sprite, {
+                        anchor: {
+                            x: 0.5,
+                            y: 0.5,
+                        },
+                        x: Math.floor((decorationItem.x + (-0.5) + (decorationItem.width / 2))
+                            * CELL_SIZE),
+                        y: Math.floor((decorationItem.y + (-0.5) + (decorationItem.height / 2))
+                            * CELL_SIZE),
+                        width: decorationItem.width * CELL_SIZE,
+                        height: decorationItem.height * CELL_SIZE,
+                        mask: world.stage.terrainObjects.wallMask,
+                        zIndex: 2,
+                    });
+                    if (decorationItem.flip) {
+                        sprite.scale.x *= -1;
+                    }
+                    if (decorationItem.rotation) {
+                        sprite.rotation = decorationItem.rotation;
+                    }
+                    return sprite;
                 }
-                Object.assign(sprite, {
-                    anchor: {
-                        x: 0.5,
-                        y: 0.5,
-                    },
-                    x: Math.floor((decorationItem.x + (-0.5) + (decorationItem.width / 2))
-                        * CELL_SIZE),
-                    y: Math.floor((decorationItem.y + (-0.5) + (decorationItem.height / 2))
-                        * CELL_SIZE),
-                    width: decorationItem.width * CELL_SIZE,
-                    height: decorationItem.height * CELL_SIZE,
-                    parentLayer: world.layers.wallGraffiti,
-                    tint: parseInt(decorationItem[graphic.color].substr(1), 16),
-                    mask: world.stage.terrainObjects.wallMask,
-                    zIndex: 2,
-                });
-                if (decorationItem.flip) {
-                    sprite.scale.x *= -1;
+
+                const mainSprite = _createSprite();
+                mainSprite.parentLayer = world.layers.wallGraffiti;
+                mainSprite.tint = parseInt(decorationItem[graphic.color].substr(1), 16);
+                world.decorationsContainer.addChild(mainSprite);
+
+                if (decorationItem.decoration.lighting) {
+                    const lightingSprite = _createSprite();
+                    lightingSprite.parentLayer = world.layers.lighting;
+                    world.decorationsContainer.addChild(lightingSprite);
                 }
-                if (decorationItem.rotation) {
-                    sprite.rotation = decorationItem.rotation;
-                }
-                world.decorationsContainer.addChild(sprite);
             });
         }
 
