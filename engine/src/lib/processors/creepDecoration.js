@@ -40,10 +40,12 @@ export default (params) => {
             width: i.decoration.width,
             height: i.decoration.height,
             anchor: { x: 0.5, y: 0.5 },
-            alpha: i.decoration.alpha || 1,
             parentLayer: i.decoration.position === 'below' ? layers.objects : layers.effects,
             zIndex: 1,
         });
+        if (i.alpha) {
+            sprite.alpha = i.alpha;
+        }
         if (i.color) {
             sprite.tint = parseInt(i.color.substring(1), 16);
         }
@@ -59,6 +61,9 @@ export default (params) => {
                 parentLayer: layers.lighting,
             });
             container.addChild(lighting);
+        }
+        if (i.decoration.alpha) {
+            container.alpha = i.decoration.alpha;
         }
         if (i.decoration.animate) {
             const action = new Repeat(new Sequence(i.decoration.animate.map(step => new Spawn([

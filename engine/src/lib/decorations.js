@@ -1,10 +1,14 @@
 import { Container, Sprite, TilingSprite } from 'pixi.js';
+import { AlphaTo, Repeat, Sequence, Spawn } from './actions';
 
 // eslint-disable-next-line import/prefer-default-export
 export function set(decorations, params) {
     const {
         world,
-        world: { options: { CELL_SIZE } },
+        world: {
+            options: { CELL_SIZE },
+            stage: { actionManager },
+        },
     } = params;
 
     world.decorations = decorations;
@@ -57,18 +61,31 @@ export function set(decorations, params) {
                     if (decorationItem.rotation) {
                         sprite.rotation = decorationItem.rotation;
                     }
+                    if (decorationItem.decoration.animate) {
+                        const action = new Repeat(new Sequence(
+                            decorationItem.decoration.animate.map(step => new Spawn([
+                                new AlphaTo(step.alpha, step.duration),
+                            ]))));
+                        actionManager.runAction(sprite, action);
+                    }
                     return sprite;
+                }
+
+                const container = new Container();
+                world.decorationsContainer.addChild(container);
+                if (decorationItem.alpha) {
+                    container.alpha = decorationItem.alpha;
                 }
 
                 const mainSprite = _createSprite();
                 mainSprite.parentLayer = world.layers.wallGraffiti;
                 mainSprite.tint = parseInt(decorationItem[graphic.color].substr(1), 16);
-                world.decorationsContainer.addChild(mainSprite);
+                container.addChild(mainSprite);
 
                 if (decorationItem.decoration.lighting) {
                     const lightingSprite = _createSprite();
                     lightingSprite.parentLayer = world.layers.lighting;
-                    world.decorationsContainer.addChild(lightingSprite);
+                    container.addChild(lightingSprite);
                 }
             });
         }

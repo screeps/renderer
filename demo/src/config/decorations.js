@@ -10,6 +10,7 @@ export default [
         color2: '#aa55aa',
         color3: '#ff9999',
         hasRing: false,
+        alpha: 0.9,
         decoration: {
             type: 'wallGraffiti',
             lighting: true,
@@ -28,6 +29,14 @@ export default [
                     color: 'color3',
                     visible: 'hasRing',
                 }
+            ],
+            animate: [
+                {alpha: 0.4, duration: 0},
+                {alpha: 0.6, duration: 2.0},
+                {alpha: 0.7, duration: 0.2},
+                {alpha: 0.5, duration: 0.2},
+                {alpha: 1.0, duration: 0.1},
+                {alpha: 0.4, duration: 0.5},
             ]
         }
     },
@@ -100,13 +109,14 @@ export default [
     {
         user: '58901b93730b9dab5857f7a6',
         nameRegex: 'EnergyHauler',
+        alpha: 0.5,
         decoration: {
             type: 'creep',
             blendMode: 1,
             position: 'above',
             width: 230,
             height: 230,
-            alpha: 0.5,
+            alpha: 0.8,
             url: 'decorations/creep_effect1.svg',
             syncRotate: true,
         }
