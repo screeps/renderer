@@ -78,6 +78,8 @@ const resourceMap = {
     'lab-mineral': 'lab-mineral.svg',
     link: 'link.svg',
     'link-energy': 'link-energy.svg',
+    'link-mineral': 'link-mineral.svg',
+    'link-power': 'link-power.svg',
     'link-border': 'link-border.svg',
     'mass-repair': 'mass-repair.svg',
     noise1: 'noise1.png',

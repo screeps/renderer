@@ -1,0 +1,79 @@
+[
+  {
+    "gameTime": 1,
+    "objects": [
+      {
+        "id": "link1",
+        "type": "link",
+        "room": "E2S7",
+        "cooldown": 0,
+        "x": 25,
+        "y": 25,
+        "store": {
+          "energy": 200,
+          "power": 200
+        },
+        "storeCapacity": 800,
+        "actionLog": {
+          "transferResource": {
+            "x": 25,
+            "y": 23,
+            "resourceType": "OH"
+          }
+        }
+      },
+      {
+        "id": "link2",
+        "type": "link",
+        "room": "E2S7",
+        "cooldown": 0,
+        "x": 25,
+        "y": 23,
+        "store": {
+          "OH": 400
+        },
+        "storeCapacity": 800,
+        "actionLog": {
+        }
+      }
+    ]
+  },
+  {
+    "gameTime": 2,
+    "objects": [
+      {
+        "id": "link1",
+        "type": "link",
+        "room": "E2S7",
+        "cooldown": 0,
+        "x": 25,
+        "y": 25,
+        "store": {
+          "energy": 200,
+          "OH": 400,
+          "power": 200
+        },
+        "storeCapacity": 800,
+        "actionLog": {
+        }
+      },
+      {
+        "id": "link2",
+        "type": "link",
+        "room": "E2S7",
+        "cooldown": 0,
+        "x": 25,
+        "y": 23,
+        "store": {},
+        "storeCapacity": 800,
+        "actionLog": {
+          "transferResource": {
+            "x": 25,
+            "y": 25,
+            "resourceType": "OH"
+          }
+        }
+      }
+    ]
+  }
+]

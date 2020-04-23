@@ -2,6 +2,7 @@
  * Created by vedi on 19/03/2017.
  */
 
+import constants from '@screeps/common/lib/constants';
 import { Graphics, Sprite, filters, BLEND_MODES, Container, WebGLRenderer } from 'pixi.js';
 import { calculateAngle, convertGameXYToWorld } from '../../../../helpers/mathHelper';
 
@@ -23,6 +24,17 @@ const COLORS = {
     runReaction: 0xffffff,
     transferEnergy: 0xffe533,
 };
+
+function resourceColor(resourceType) {
+    switch (resourceType) {
+        case constants.RESOURCE_ENERGY:
+            return 0xffe533;
+        case constants.RESOURCE_POWER:
+            return 0xcc3d3e;
+        default:
+            return 0xffffff;
+    }
+}
 
 function createCoverSprite(resources, rootContainer, scope, world) {
     const container = new Container();
@@ -239,6 +251,7 @@ export default (params) => {
         runReaction = null,
         reverseReaction = null,
         transferEnergy = null,
+        transferResource = null,
         upgradeController = null,
     } = {} } = state;
     const parent = parentId ? scope[parentId] : rootContainer;
@@ -313,6 +326,10 @@ export default (params) => {
     if (transferEnergy) {
         pushRangedShotActionWithBlur(actionsToApply, stage, world, rootContainer, transferEnergy,
             tickDuration, worldOptions, COLORS.transferEnergy, 18, 5);
+    }
+    if (transferResource) {
+        pushRangedShotActionWithBlur(actionsToApply, stage, world, rootContainer, transferResource,
+            tickDuration, worldOptions, resourceColor(transferResource.resourceType), 18, 5);
     }
     if (rangedHeal) {
         pushRangedShotActionWithBlur(actionsToApply, stage, world, rootContainer, rangedHeal,
