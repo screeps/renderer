@@ -36,6 +36,7 @@ import tombstone from './objects/tombstone.metadata';
 import tower from './objects/tower.metadata';
 import invaderCore from './objects/invaderCore.metadata';
 import ruin from './objects/ruin.metadata';
+import warpContainer from './objects/warpContainer.metadata';
 
 const { VoidFilter } = PIXI.filters;
 const { TilingSprite } = PIXI.extras;
@@ -150,6 +151,7 @@ export default {
         tower,
         rampart,
         invaderCore,
-        ruin
+        ruin,
+        warpContainer
     },
 };

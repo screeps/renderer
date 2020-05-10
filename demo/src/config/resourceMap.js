@@ -101,6 +101,7 @@ const resourceMap = {
     punch: 'punch.svg',
     rampart: 'rampart.svg',
     rectangle: 'rectangle.svg',
+    'rectangle-r': 'rectangle-r.svg',
     reflect: 'reflect.svg',
     reinforce: 'reinforce.svg',
     'remote-transfer': 'remote-transfer.svg',
@@ -123,7 +124,9 @@ const resourceMap = {
     'tower-rotatable': 'tower-rotatable.svg',
     'tower-rotatable-npc': 'tower-rotatable-npc.svg',
     'invaderCore': 'invaderCore.svg',
-    'ruin': 'ruin.svg'
+    'ruin': 'ruin.svg',
+    'warp-container': 'warp-container.svg',
+    'warp-container-border': 'warp-container-border.svg'
 };
 
 const rescaleResources = [
@@ -161,7 +164,8 @@ const rescaleResources = [
     'factory-border',
     'factory-highlight',
     'invaderCore',
-    'ruin'
+    'ruin',
+    'warp-container'
 ];
 
 export { resourceMap, rescaleResources };

@@ -552,6 +552,23 @@
         "user": "54bff72ab32a10f73a57d017",
         "destroyTime": 10,
         "decayTime": 14
+      },
+      {
+        "type": "warpContainer",
+        "x": 41,
+        "y": 11,
+        "room": "sim",
+        "hits": 250000,
+        "hitsMax": 250000,
+        "nextDecayTime": 108,
+        "_id": "aa5f8a1bcd603a79457b44b6",
+        "_isDisabled": false,
+        "storeCapacity": 2000,
+        "store": {
+          "energy": 1000,
+          "H": 500
+        },
+        "cooldownTime": 10
       }
     ],
     "users": {
