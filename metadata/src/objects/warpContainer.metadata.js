@@ -144,7 +144,7 @@ export default {
                     [
                         {
                             action: 'DelayTime',
-                            params: [4],
+                            params: [2],
                         },
                         {
                             action: 'Repeat',
