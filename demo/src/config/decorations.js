@@ -11,6 +11,7 @@ export default [
         color3: '#ff9999',
         hasRing: false,
         alpha: 0.9,
+        animation: 'slow',
         decoration: {
             type: 'wallGraffiti',
             lighting: true,
@@ -29,14 +30,6 @@ export default [
                     color: 'color3',
                     visible: 'hasRing',
                 }
-            ],
-            animate: [
-                {alpha: 0.4, duration: 0},
-                {alpha: 0.6, duration: 2.0},
-                {alpha: 0.7, duration: 0.2},
-                {alpha: 0.5, duration: 0.2},
-                {alpha: 1.0, duration: 0.1},
-                {alpha: 0.4, duration: 0.5},
             ]
         }
     },

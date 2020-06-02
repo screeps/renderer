@@ -1,6 +1,43 @@
 import { Container, Sprite, TilingSprite } from 'pixi.js';
 import { AlphaTo, Repeat, Sequence, Spawn } from './actions';
 
+const ANIMATIONS = {
+    slow: [
+        [0.3, 5.0],
+        [1.0, 5.0],
+    ],
+    fast: [
+        [0.3, 1.0],
+        [1.0, 1.0],
+    ],
+    blink: [
+        [0.8, 2.0],
+        [1.0, 0.1],
+        [0.6, 4.0],
+        [1.0, 0.1],
+        [0.7, 1.0],
+        [1.0, 0.1],
+    ],
+    neon: [
+        [1.0, 5.0],
+        [0.95, 0.07],
+        [1.0, 0.07],
+        [1.0, 0.07],
+        [0.9, 0.07],
+        [1.0, 0.07],
+        [0.7, 0.07],
+        [1.0, 0.07],
+        [1.0, 0.1],
+        [0.9, 0.07],
+        [1.0, 0.07],
+    ],
+    flash: [
+        [1.0, 0.1],
+        [0.0, 1.5],
+        [0.0, 2],
+    ],
+};
+
 // eslint-disable-next-line import/prefer-default-export
 export function set(decorations, params) {
     const {
@@ -61,10 +98,10 @@ export function set(decorations, params) {
                     if (decorationItem.rotation) {
                         sprite.rotation = decorationItem.rotation;
                     }
-                    if (decorationItem.decoration.animate) {
+                    if (decorationItem.animation) {
                         const action = new Repeat(new Sequence(
-                            decorationItem.decoration.animate.map(step => new Spawn([
-                                new AlphaTo(step.alpha, step.duration),
+                            ANIMATIONS[decorationItem.animation].map(step => new Spawn([
+                                new AlphaTo(step[0], step[1]),
                             ]))));
                         actionManager.runAction(sprite, action);
                     }
