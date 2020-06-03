@@ -1,5 +1,6 @@
 import { Sprite, Container } from 'pixi.js';
-import { AlphaTo, Spawn, Repeat, Sequence, RotateBy, ScaleTo } from '../actions';
+import { AlphaTo, Spawn, Repeat, Sequence } from '../actions';
+import { ANIMATIONS } from '../decorations';
 
 export default (params) => {
     const {
@@ -23,24 +24,24 @@ export default (params) => {
     }
 
     decorations.forEach((i) => {
+        if (i.decoration.type !== 'creep' || state.user !== `${i.user}` || !(new RegExp(i.nameRegex).test(state.name))) {
+            return;
+        }
+
         const container = new Container();
-        if (i.decoration.syncRotate) {
+        if (i.syncRotate) {
             parent.addChild(container);
         } else {
             rootContainer.addChildAt(container, 0);
         }
 
-        if (i.decoration.type !== 'creep' || state.user !== `${i.user}` || !(new RegExp(i.nameRegex).test(state.name))) {
-            return;
-        }
-
         const sprite = Sprite.fromImage(i.decoration.url);
         Object.assign(sprite, {
-            blendMode: i.decoration.blendMode,
-            width: i.decoration.width,
-            height: i.decoration.height,
+            // blendMode: i.lighting ? 1 : 0,
+            width: i.width,
+            height: i.height,
             anchor: { x: 0.5, y: 0.5 },
-            parentLayer: i.decoration.position === 'below' ? layers.objects : layers.effects,
+            parentLayer: i.position === 'below' ? layers.objects : layers.effects,
             zIndex: 1,
         });
         if (i.alpha) {
@@ -51,26 +52,24 @@ export default (params) => {
         }
         container.addChild(sprite);
 
-        if (i.decoration.blendMode === 1) {
+        if (i.lighting) {
             const lighting = Sprite.fromImage(i.decoration.url);
             Object.assign(lighting, {
-                blendMode: i.decoration.blendMode,
-                width: i.decoration.width,
-                height: i.decoration.height,
+                width: i.width,
+                height: i.height,
                 anchor: { x: 0.5, y: 0.5 },
                 parentLayer: layers.lighting,
             });
             container.addChild(lighting);
         }
-        if (i.decoration.alpha) {
-            container.alpha = i.decoration.alpha;
+        if (i.alpha) {
+            container.alpha = i.alpha;
         }
-        if (i.decoration.animate) {
-            const action = new Repeat(new Sequence(i.decoration.animate.map(step => new Spawn([
-                new RotateBy(step.rotate, step.duration),
-                new AlphaTo(step.alpha, step.duration),
-                new ScaleTo(step.scale, step.scale, step.duration),
-            ]))));
+        if (i.animation) {
+            const action = new Repeat(new Sequence(
+                ANIMATIONS[i.animation].map(step => new Spawn([
+                    new AlphaTo(step[0], step[1]),
+                ]))));
             actionManager.runAction(container, action);
         }
     });

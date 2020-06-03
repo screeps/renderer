@@ -1,7 +1,7 @@
 import { Container, Sprite, TilingSprite } from 'pixi.js';
 import { AlphaTo, Repeat, Sequence, Spawn } from './actions';
 
-const ANIMATIONS = {
+export const ANIMATIONS = {
     slow: [
         [0.3, 5.0],
         [1.0, 5.0],
