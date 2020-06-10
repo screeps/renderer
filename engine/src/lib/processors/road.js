@@ -3,6 +3,7 @@
  */
 
 import { Graphics, WebGLRenderer } from 'pixi.js';
+import { colorBrightness } from '../utils/hsl';
 
 const ROAD_COLOR = 0xaaaaaa;
 const SIN_45 = Math.sin(Math.PI / 4);
@@ -96,7 +97,8 @@ export default (params) => {
         }
 
         const color = decorationFloorLandscape ?
-            parseInt(decorationFloorLandscape.colorRoads.substring(1), 16) :
+            colorBrightness(parseInt(decorationFloorLandscape.roadsColor.substring(1), 16),
+                decorationFloorLandscape.roadsBrightness || 1) :
             ROAD_COLOR;
 
         graphics.clear();

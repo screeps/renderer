@@ -54,11 +54,13 @@ export default [
         }
     },*/
     {
-        colorForeground: '#3333ff',
-        alphaForeground: 1.0,
-        colorBackground: '#000033',
-        colorStroke: '#3333ff',
-        colorStrokeLighting: '#404040',
+        foregroundColor: '#3333ff',
+        foregroundAlpha: 1.0,
+        backgroundColor: '#0000ff',
+        backgroundBrightness: 0.4,
+        strokeColor: '#3333ff',
+        strokeBrightness: 0.5,
+        strokeLighting: 0.4,
         strokeWidth: 30,
         decoration: {
             type: 'wallLandscape',
@@ -66,13 +68,15 @@ export default [
         }
     },
     {
-        colorFloorBackground: '#7777dd',
-        colorFloorForeground: '#9999ff',
-        alphaFloorForeground: 0.2,
-        colorSwamp: '#0000ff',
-        colorSwampStroke: '#0000cc',
-        colorRoads: '#ccccff',
+        floorBackgroundColor: '#7777dd',
+        floorBackgroundBrightness: 0.7,
+        floorForegroundColor: '#9999ff',
+        floorForegroundAlpha: 0.2,
+        swampColor: '#0000ff',
+        swampStrokeColor: '#0000cc',
         swampStrokeWidth: 50,
+        roadsColor: '#ccccff',
+        roadsBrightness: 0.8,
         decoration: {
             type: 'floorLandscape',
             floorForegroundUrl: 'decorations/landscape2.png',

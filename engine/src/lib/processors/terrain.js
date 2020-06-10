@@ -9,6 +9,7 @@ import {
 
 import pathHelper from '../pathHelper';
 import actionHelper from '../utils/actionHelper';
+import { colorBrightness, hslToRgbStr } from '../utils/hsl';
 
 const { TilingSprite } = extras;
 const { BlurFilter } = filters;
@@ -122,11 +123,11 @@ export default (params) => {
             }
             let fill = swampTexture !== 'disabled' ? '#4a501e' : '#465c03';
             if (decorationFloorLandscape) {
-                fill = decorationFloorLandscape.colorSwamp;
+                fill = decorationFloorLandscape.swampColor;
             }
             let stroke = swampTexture !== 'disabled' ? '#4a501e' : '#3b4019';
             if (decorationFloorLandscape) {
-                stroke = decorationFloorLandscape.colorSwampStroke;
+                stroke = decorationFloorLandscape.swampStrokeColor;
             }
             swampObjects[0] = setupObject(
                 buildSvg(
@@ -183,8 +184,8 @@ export default (params) => {
                     swampPath,
                     { size, VIEW_BOX },
                     {
-                        fill: decorationFloorLandscape ? decorationFloorLandscape.colorSwamp : '#292b18',
-                        stroke: decorationFloorLandscape ? decorationFloorLandscape.colorSwampStroke : '#252715',
+                        fill: decorationFloorLandscape ? decorationFloorLandscape.swampColor : '#292b18',
+                        stroke: decorationFloorLandscape ? decorationFloorLandscape.swampStrokeColor : '#252715',
                         'stroke-width': decorationFloorLandscape ? decorationFloorLandscape.swampStrokeWidth : 50,
                         'paint-order': 'stroke',
                     }
@@ -285,7 +286,8 @@ export default (params) => {
 
             let backgroundFill = lighting === 'disabled' ? '#181818' : '#111';
             if (decorationWallLandscape) {
-                backgroundFill = decorationWallLandscape.colorBackground;
+                backgroundFill = colorBrightness(decorationWallLandscape.backgroundColor,
+                    decorationWallLandscape.backgroundBrightness || 1);
             }
 
             const base = buildSvg(
@@ -293,7 +295,7 @@ export default (params) => {
                 { size, VIEW_BOX },
                 {
                     fill: backgroundFill,
-                    stroke: decorationWallLandscape ? decorationWallLandscape.colorStroke : '#000',
+                    stroke: decorationWallLandscape ? decorationWallLandscape.strokeColor : '#000',
                     'stroke-width': decorationWallLandscape ? decorationWallLandscape.strokeWidth : 10,
                     'paint-order': 'stroke',
                 });
@@ -356,7 +358,7 @@ export default (params) => {
             wallObjects[4] = setupObject(buildSvg(wallPath, { size, VIEW_BOX },
                 {
                     fill: '#808080',
-                    stroke: decorationWallLandscape ? decorationWallLandscape.colorStrokeLighting : '#000000',
+                    stroke: decorationWallLandscape ? hslToRgbStr(0, 0, decorationWallLandscape.strokeLighting) : '#000000',
                     'stroke-width': decorationWallLandscape ? decorationWallLandscape.strokeWidth : 10,
                     'paint-order': 'stroke',
                 }),
@@ -399,7 +401,8 @@ export default (params) => {
             fill = 0x353535;
         }
         if (decorationFloorLandscape) {
-            fill = parseInt(decorationFloorLandscape.colorFloorBackground.substring(1), 16);
+            fill = parseInt(decorationFloorLandscape.floorBackgroundColor.substring(1), 16);
+            fill = colorBrightness(fill, decorationFloorLandscape.floorBackgroundBrightness || 1);
         }
         background.beginFill(fill);
         background.drawRect(-HALF_CELL_SIZE, -HALF_CELL_SIZE, VIEW_BOX, VIEW_BOX);
@@ -424,8 +427,8 @@ export default (params) => {
                 y: 0,
                 width: 50 * CELL_SIZE,
                 height: 50 * CELL_SIZE,
-                alpha: decorationFloorLandscape.alphaFloorForeground,
-                tint: parseInt(decorationFloorLandscape.colorFloorForeground.substr(1), 16),
+                alpha: decorationFloorLandscape.floorForegroundAlpha,
+                tint: parseInt(decorationFloorLandscape.floorForegroundColor.substr(1), 16),
             });
         } else {
             ground = new TilingSprite(stage.resources.ground.texture, VIEW_BOX, VIEW_BOX);

@@ -135,8 +135,8 @@ export function set(decorations, params) {
                 width: 50 * CELL_SIZE,
                 height: 50 * CELL_SIZE,
                 parentLayer: world.layers.wallGraffiti,
-                alpha: decorationItem.alphaForeground,
-                tint: parseInt(decorationItem.colorForeground.substr(1), 16),
+                alpha: decorationItem.foregroundAlpha,
+                tint: parseInt(decorationItem.foregroundColor.substr(1), 16),
                 mask: world.stage.terrainObjects.wallMask,
                 zIndex: 1,
             });
