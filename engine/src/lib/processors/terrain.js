@@ -285,9 +285,13 @@ export default (params) => {
             });
 
             let backgroundFill = lighting === 'disabled' ? '#181818' : '#111';
+            let stroke = '#000';
             if (decorationWallLandscape) {
                 backgroundFill = colorBrightness(decorationWallLandscape.backgroundColor,
                     decorationWallLandscape.backgroundBrightness || 1);
+
+                stroke = colorBrightness(decorationWallLandscape.strokeColor,
+                    decorationWallLandscape.strokeBrightness || 1);
             }
 
             const base = buildSvg(
@@ -295,7 +299,7 @@ export default (params) => {
                 { size, VIEW_BOX },
                 {
                     fill: backgroundFill,
-                    stroke: decorationWallLandscape ? decorationWallLandscape.strokeColor : '#000',
+                    stroke,
                     'stroke-width': decorationWallLandscape ? decorationWallLandscape.strokeWidth : 10,
                     'paint-order': 'stroke',
                 });
