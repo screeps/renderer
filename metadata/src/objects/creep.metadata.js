@@ -72,7 +72,9 @@ export default {
         {
             type: 'creepDecoration',
             once: true,
-            when: (({ world: { decorations = [] } }) => decorations.length > 0),
+            props: ['spawning'],
+            when: (({ world: { decorations = [] }, state: { spawning } }) =>
+                decorations.length > 0 && !spawning),
             payload: {
                 parentId: 'mainContainer',
             },

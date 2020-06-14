@@ -98,7 +98,7 @@ export default (params) => {
 
         const color = decorationFloorLandscape ?
             colorBrightness(parseInt(decorationFloorLandscape.roadsColor.substring(1), 16),
-                decorationFloorLandscape.roadsBrightness || 1) :
+                decorationFloorLandscape.roadsBrightness) :
             ROAD_COLOR;
 
         graphics.clear();

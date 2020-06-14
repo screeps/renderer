@@ -1,5 +1,6 @@
 import { Container, Sprite, TilingSprite } from 'pixi.js';
 import { AlphaTo, Repeat, Sequence, Spawn } from './actions';
+import { colorBrightness } from './utils/hsl';
 
 export const ANIMATIONS = {
     slow: [
@@ -136,7 +137,9 @@ export function set(decorations, params) {
                 height: 50 * CELL_SIZE,
                 parentLayer: world.layers.wallGraffiti,
                 alpha: decorationItem.foregroundAlpha,
-                tint: parseInt(decorationItem.foregroundColor.substr(1), 16),
+                tint: colorBrightness(
+                    parseInt(decorationItem.foregroundColor.substr(1), 16),
+                    decorationItem.foregroundBrightness),
                 mask: world.stage.terrainObjects.wallMask,
                 zIndex: 1,
             });

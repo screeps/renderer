@@ -288,10 +288,10 @@ export default (params) => {
             let stroke = '#000';
             if (decorationWallLandscape) {
                 backgroundFill = colorBrightness(decorationWallLandscape.backgroundColor,
-                    decorationWallLandscape.backgroundBrightness || 1);
+                    decorationWallLandscape.backgroundBrightness);
 
                 stroke = colorBrightness(decorationWallLandscape.strokeColor,
-                    decorationWallLandscape.strokeBrightness || 1);
+                    decorationWallLandscape.strokeBrightness);
             }
 
             const base = buildSvg(
@@ -406,7 +406,7 @@ export default (params) => {
         }
         if (decorationFloorLandscape) {
             fill = parseInt(decorationFloorLandscape.floorBackgroundColor.substring(1), 16);
-            fill = colorBrightness(fill, decorationFloorLandscape.floorBackgroundBrightness || 1);
+            fill = colorBrightness(fill, decorationFloorLandscape.floorBackgroundBrightness);
         }
         background.beginFill(fill);
         background.drawRect(-HALF_CELL_SIZE, -HALF_CELL_SIZE, VIEW_BOX, VIEW_BOX);
@@ -432,7 +432,9 @@ export default (params) => {
                 width: 50 * CELL_SIZE,
                 height: 50 * CELL_SIZE,
                 alpha: decorationFloorLandscape.floorForegroundAlpha,
-                tint: parseInt(decorationFloorLandscape.floorForegroundColor.substr(1), 16),
+                tint: colorBrightness(
+                    parseInt(decorationFloorLandscape.floorForegroundColor.substr(1), 16),
+                    decorationFloorLandscape.floorForegroundBrightness),
             });
         } else {
             ground = new TilingSprite(stage.resources.ground.texture, VIEW_BOX, VIEW_BOX);

@@ -1,6 +1,7 @@
 import { Sprite, Container } from 'pixi.js';
 import { AlphaTo, Spawn, Repeat, Sequence } from '../actions';
 import { ANIMATIONS } from '../decorations';
+import { colorBrightness } from '../utils/hsl';
 
 export default (params) => {
     const {
@@ -24,7 +25,8 @@ export default (params) => {
     }
 
     decorations.forEach((i) => {
-        if (i.decoration.type !== 'creep' || state.user !== `${i.user}` || !(new RegExp(i.nameRegex).test(state.name))) {
+        if (i.decoration.type !== 'creep' || state.user !== `${i.user}` || !(new RegExp(i.nameRegex).test(state.name)) ||
+            state.spawning) {
             return;
         }
 
@@ -48,7 +50,7 @@ export default (params) => {
             sprite.alpha = i.alpha;
         }
         if (i.color) {
-            sprite.tint = parseInt(i.color.substring(1), 16);
+            sprite.tint = colorBrightness(parseInt(i.color.substring(1), 16), i.brightness);
         }
         container.addChild(sprite);
 

@@ -56,6 +56,7 @@ export default [
     {
         foregroundColor: '#3333ff',
         foregroundAlpha: 1.0,
+        foregroundBrightness: 1.0,
         backgroundColor: '#0000ff',
         backgroundBrightness: 0.4,
         strokeColor: '#3333ff',
@@ -72,6 +73,7 @@ export default [
         floorBackgroundBrightness: 0.7,
         floorForegroundColor: '#9999ff',
         floorForegroundAlpha: 0.2,
+        floorForegroundBrightness: 1.0,
         swampColor: '#0000ff',
         swampStrokeColor: '#0000cc',
         swampStrokeWidth: 50,
@@ -86,8 +88,8 @@ export default [
     {
         user: '58901b93730b9dab5857f7a6',
         nameRegex: 'EnergyHauler',
-
         color: '#A4FF99',
+        brightness: 0.3,
         lighting: true,
         animation: 'fast',
         position: 'below',
