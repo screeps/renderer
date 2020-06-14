@@ -25,8 +25,11 @@ export default (params) => {
     }
 
     decorations.forEach((i) => {
-        if (i.decoration.type !== 'creep' || state.user !== `${i.user}` || !(new RegExp(i.nameRegex).test(state.name)) ||
-            state.spawning) {
+        if (i.decoration.type !== 'creep' || state.user !== `${i.user}` || state.spawning) {
+            return;
+        }
+        if ((!i.exclude && !state.name.includes(i.nameFilter)) ||
+            (i.exclude && state.name.includes(i.nameFilter))) {
             return;
         }
 

@@ -88,7 +88,8 @@ export default [
     },
     {
         user: '58901b93730b9dab5857f7a6',
-        nameRegex: 'EnergyHauler',
+        nameFilter: 'EnergyHauler',
+        exclude: false,
         color: '#A4FF99',
         brightness: 0.3,
         lighting: true,
