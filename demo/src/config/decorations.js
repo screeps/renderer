@@ -9,6 +9,7 @@ export default [
         color1: '#8888ff',
         color2: '#aa55aa',
         color3: '#ff9999',
+        brightness: 1.0,
         hasRing: false,
         alpha: 0.9,
         animation: 'blink',

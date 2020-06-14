@@ -117,7 +117,9 @@ export function set(decorations, params) {
 
                 const mainSprite = _createSprite();
                 mainSprite.parentLayer = world.layers.wallGraffiti;
-                mainSprite.tint = parseInt(decorationItem[graphic.color].substr(1), 16);
+                mainSprite.tint = colorBrightness(
+                    parseInt(decorationItem[graphic.color].substr(1), 16),
+                    decorationItem.brightness);
                 container.addChild(mainSprite);
 
                 if (decorationItem.decoration.lighting) {
