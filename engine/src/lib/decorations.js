@@ -111,9 +111,7 @@ export function set(decorations, params) {
 
                 const container = new Container();
                 world.decorationsContainer.addChild(container);
-                if (decorationItem.alpha) {
-                    container.alpha = decorationItem.alpha;
-                }
+                container.alpha = decorationItem.alpha;
 
                 const mainSprite = _createSprite();
                 mainSprite.parentLayer = world.layers.wallGraffiti;
