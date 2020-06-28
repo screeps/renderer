@@ -13,6 +13,7 @@ export default {
             payload: {
                 width: 100,
                 height: 100,
+                blendMode: 1,
             },
         },
         {

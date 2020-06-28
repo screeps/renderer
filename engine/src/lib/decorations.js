@@ -1,4 +1,4 @@
-import { Container, Sprite, TilingSprite } from 'pixi.js';
+import { Container, Sprite, TilingSprite, WebGLRenderer } from 'pixi.js';
 import { AlphaTo, Repeat, Sequence, Spawn } from './actions';
 import { colorBrightness } from './utils/hsl';
 
@@ -48,6 +48,10 @@ export function set(decorations, params) {
             stage: { actionManager },
         },
     } = params;
+
+    if (!(world.app.renderer instanceof WebGLRenderer)) {
+        return;
+    }
 
     world.decorations = decorations;
     if (world.decorationsContainer) {
@@ -131,8 +135,8 @@ export function set(decorations, params) {
         if (decorationItem.decoration.type === 'wallLandscape') {
             const sprite = Sprite.fromImage(decorationItem.decoration.foregroundUrl);
             Object.assign(sprite, {
-                x: 0,
-                y: 0,
+                x: -0.5 * CELL_SIZE,
+                y: -0.5 * CELL_SIZE,
                 width: 50 * CELL_SIZE,
                 height: 50 * CELL_SIZE,
                 parentLayer: world.layers.wallGraffiti,

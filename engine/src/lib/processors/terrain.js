@@ -427,8 +427,8 @@ export default (params) => {
                 ground = Sprite.fromImage(decorationFloorLandscape.decoration.floorForegroundUrl);
             }
             Object.assign(ground, {
-                x: 0,
-                y: 0,
+                x: -0.5 * CELL_SIZE,
+                y: -0.5 * CELL_SIZE,
                 width: 50 * CELL_SIZE,
                 height: 50 * CELL_SIZE,
                 alpha: decorationFloorLandscape.floorForegroundAlpha,
