@@ -90,7 +90,10 @@ export default [
         user: '58901b93730b9dab5857f7a6',
         nameFilter: 'EnergyHauler',
         exclude: false,
-        color: '#A4FF99',
+        firstColor: '#A4FF99',
+        firstAlpha: 1.0,
+        secondColor: '#FFFFFF',
+        secondAlpha: 0.5,
         brightness: 0.3,
         lighting: true,
         animation: 'fast',
@@ -100,7 +103,18 @@ export default [
         syncRotate: true,
         decoration: {
             type: 'creep',
-            url: 'decorations/creep_effect1.svg',
+            graphics: [
+                {
+                    url: 'decorations/creep_effect1.svg',
+                    color: 'firstColor',
+                    alpha: 'firstAlpha'
+                },
+                {
+                    url: 'decorations/creep_effect2.svg',
+                    color: 'secondColor',
+                    alpha: 'secondAlpha'
+                }
+            ]
         }
     }
 ];

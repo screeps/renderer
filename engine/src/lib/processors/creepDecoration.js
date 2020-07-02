@@ -40,35 +40,37 @@ export default (params) => {
             rootContainer.addChildAt(container, 0);
         }
 
-        const sprite = Sprite.fromImage(i.decoration.url);
-        Object.assign(sprite, {
-            // blendMode: i.lighting ? 1 : 0,
-            width: i.width,
-            height: i.height,
-            anchor: { x: 0.5, y: 0.5 },
-            parentLayer: i.position === 'below' ? layers.objects : layers.effects,
-            zIndex: 1,
-        });
-        if (i.alpha) {
-            sprite.alpha = i.alpha;
-        }
-        if (i.color) {
-            sprite.tint = colorBrightness(parseInt(i.color.substring(1), 16), i.brightness);
-        }
-        container.addChild(sprite);
-
-        if (i.lighting) {
-            const lighting = Sprite.fromImage(i.decoration.url);
-            Object.assign(lighting, {
+        i.decoration.graphics.forEach((graphic) => {
+            const sprite = Sprite.fromImage(graphic.url);
+            Object.assign(sprite, {
+                // blendMode: i.lighting ? 1 : 0,
                 width: i.width,
                 height: i.height,
                 anchor: { x: 0.5, y: 0.5 },
-                parentLayer: layers.lighting,
+                parentLayer: i.position === 'below' ? layers.objects : layers.effects,
+                zIndex: 1,
             });
-            container.addChild(lighting);
-        }
-        if (i.alpha) {
-            container.alpha = i.alpha;
+            if (i[graphic.alpha]) {
+                sprite.alpha = i[graphic.alpha];
+            }
+            if (i[graphic.color]) {
+                sprite.tint = colorBrightness(parseInt(i[graphic.color].substring(1), 16),
+                    i.brightness);
+            }
+            container.addChild(sprite);
+        });
+
+        if (i.lighting) {
+            i.decoration.graphics.forEach((graphic) => {
+                const lighting = Sprite.fromImage(graphic.url);
+                Object.assign(lighting, {
+                    width: i.width,
+                    height: i.height,
+                    anchor: { x: 0.5, y: 0.5 },
+                    parentLayer: layers.lighting,
+                });
+                container.addChild(lighting);
+            });
         }
         if (i.animation) {
             const action = new Repeat(new Sequence(
