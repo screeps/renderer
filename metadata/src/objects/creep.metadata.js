@@ -70,13 +70,21 @@ export default {
             },
         },
         {
+            type: 'container',
+            once: 'true',
+            payload: {
+                id: 'decorationContainer',
+                parentId: 'mainContainer',
+            },
+        },
+        {
             type: 'creepDecoration',
             once: true,
             props: ['spawning'],
             when: (({ world: { decorations = [] }, state: { spawning } }) =>
                 decorations.length > 0 && !spawning),
             payload: {
-                parentId: 'mainContainer',
+                parentId: 'decorationContainer',
             },
         },
         {
