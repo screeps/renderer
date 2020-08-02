@@ -101,6 +101,7 @@ export default [
         width: 184,
         height: 184,
         syncRotate: true,
+        flip: false,
         decoration: {
             type: 'creep',
             graphics: [

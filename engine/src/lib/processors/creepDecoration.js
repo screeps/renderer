@@ -57,6 +57,9 @@ export default (params) => {
                 sprite.tint = colorBrightness(parseInt(i[graphic.color].substring(1), 16),
                     i.brightness);
             }
+            if (i.flip) {
+                sprite.scale.y *= -1;
+            }
             container.addChild(sprite);
         });
 
@@ -69,6 +72,9 @@ export default (params) => {
                     anchor: { x: 0.5, y: 0.5 },
                     parentLayer: layers.lighting,
                 });
+                if (i.flip) {
+                    lighting.scale.y *= -1;
+                }
                 container.addChild(lighting);
             });
         }
