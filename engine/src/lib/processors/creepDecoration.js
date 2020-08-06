@@ -50,7 +50,7 @@ export default (params) => {
                 parentLayer: i.position === 'below' ? layers.objects : layers.effects,
                 zIndex: 1,
             });
-            if (i[graphic.alpha]) {
+            if (i[graphic.alpha] !== undefined) {
                 sprite.alpha = i[graphic.alpha];
             }
             if (i[graphic.color]) {
@@ -72,6 +72,9 @@ export default (params) => {
                     anchor: { x: 0.5, y: 0.5 },
                     parentLayer: layers.lighting,
                 });
+                if (i[graphic.alpha] !== undefined) {
+                    lighting.alpha = i[graphic.alpha];
+                }
                 if (i.flip) {
                     lighting.scale.y *= -1;
                 }
