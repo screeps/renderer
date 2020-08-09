@@ -28,8 +28,9 @@ export default (params) => {
         if (i.decoration.type !== 'creep' || state.user !== `${i.user}` || state.spawning) {
             return;
         }
-        if ((!i.exclude && !state.name.includes(i.nameFilter)) ||
-            (i.exclude && state.name.includes(i.nameFilter))) {
+        const isNameFilter = i.nameFilter.split(/!SEP!/).some(str => state.name.includes(str));
+        if ((!i.exclude && !isNameFilter) ||
+            (i.exclude && isNameFilter)) {
             return;
         }
 

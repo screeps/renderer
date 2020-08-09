@@ -1,6 +1,6 @@
 {
   "name": "@screeps/renderer",
-  "version": "1.5.4",
+  "version": "1.5.5",
   "description": "This library contains the renderer engine used in Screeps game.",
   "main": "dist/renderer.js",
   "types": "./main.d.ts",

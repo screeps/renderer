@@ -88,7 +88,7 @@ export default [
     },
     {
         user: '58901b93730b9dab5857f7a6',
-        nameFilter: 'EnergyHauler',
+        nameFilter: 'EnergyHauler!SEP!ContainerMiner',
         exclude: false,
         firstColor: '#A4FF99',
         firstAlpha: 1.0,
