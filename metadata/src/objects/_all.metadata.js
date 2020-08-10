@@ -55,8 +55,8 @@ export default {
                 effects && Object.values(effects).some(effect => !!constants.POWER_INFO[effect.power] && effect.endTime > gameTime),
         },
         {
-            id: 'decorationsLength',
-            func: ({ world: { decorations = [] } }) => decorations.length,
+            id: 'decorations',
+            func: ({ world: { decorations = [] } }) => decorations,
         },
     ],
     processors: [
