@@ -13,9 +13,9 @@ export default [
         hasRing: false,
         alpha: 0.9,
         animation: 'blink',
+        lighting: true,
         decoration: {
             type: 'wallGraffiti',
-            lighting: true,
             graphics: [
                 {
                     url: 'decorations/test1.svg',
@@ -88,7 +88,7 @@ export default [
     },
     {
         user: '58901b93730b9dab5857f7a6',
-        nameFilter: 'EnergyHauler!SEP!ContainerMiner',
+        nameFilter: 'EnergyHauler',
         exclude: false,
         firstColor: '#A4FF99',
         firstAlpha: 1.0,

@@ -124,7 +124,7 @@ export function set(decorations, params) {
                     decorationItem.brightness);
                 container.addChild(mainSprite);
 
-                if (decorationItem.decoration.lighting) {
+                if (decorationItem.lighting) {
                     const lightingSprite = _createSprite();
                     lightingSprite.parentLayer = world.layers.lighting;
                     container.addChild(lightingSprite);
