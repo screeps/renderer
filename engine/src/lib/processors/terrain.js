@@ -9,7 +9,7 @@ import {
 
 import pathHelper from '../pathHelper';
 import actionHelper from '../utils/actionHelper';
-import { colorBrightness, hslToRgbStr } from '../utils/hsl';
+import { colorBrightness, hslToRgbStr, multiply } from '../utils/hsl';
 
 const { TilingSprite } = extras;
 const { BlurFilter } = filters;
@@ -59,14 +59,6 @@ export default (params) => {
     } = params;
 
     const sizeRatio = size.width / VIEW_BOX;
-
-    let brightnessLightingFactor = 1;
-    if (lighting === 'low') {
-        brightnessLightingFactor = 0.65;
-    }
-    if (lighting === 'disabled') {
-        brightnessLightingFactor = 0.5;
-    }
 
     function setupObject(object, params) {
         stage.addChild(object);
@@ -296,10 +288,15 @@ export default (params) => {
             let stroke = '#000';
             if (decorationWallLandscape) {
                 backgroundFill = colorBrightness(decorationWallLandscape.backgroundColor,
-                    decorationWallLandscape.backgroundBrightness * brightnessLightingFactor);
+                    decorationWallLandscape.backgroundBrightness);
 
                 stroke = colorBrightness(decorationWallLandscape.strokeColor,
-                    decorationWallLandscape.strokeBrightness * brightnessLightingFactor);
+                    decorationWallLandscape.strokeBrightness);
+
+                if (lighting === 'disabled') {
+                    backgroundFill = multiply(backgroundFill, 0.5);
+                    stroke = multiply(stroke, 0.3);
+                }
             }
 
             const base = buildSvg(
@@ -414,8 +411,13 @@ export default (params) => {
         }
         if (decorationFloorLandscape) {
             fill = parseInt(decorationFloorLandscape.floorBackgroundColor.substring(1), 16);
-            fill = colorBrightness(fill, decorationFloorLandscape.floorBackgroundBrightness *
-                brightnessLightingFactor);
+            fill = colorBrightness(fill, decorationFloorLandscape.floorBackgroundBrightness);
+            if (lighting === 'low') {
+                fill = multiply(fill, 0.65);
+            }
+            if (lighting === 'disabled') {
+                fill = multiply(fill, 0.5);
+            }
         }
         background.beginFill(fill);
         background.drawRect(-HALF_CELL_SIZE, -HALF_CELL_SIZE, VIEW_BOX, VIEW_BOX);
@@ -435,15 +437,22 @@ export default (params) => {
             } else {
                 ground = Sprite.fromImage(decorationFloorLandscape.decoration.floorForegroundUrl);
             }
+            let tint = colorBrightness(
+                parseInt(decorationFloorLandscape.floorForegroundColor.substr(1), 16),
+                decorationFloorLandscape.floorForegroundBrightness);
+            if (lighting === 'low') {
+                tint = multiply(tint, 0.65);
+            }
+            if (lighting === 'disabled') {
+                tint = multiply(tint, 0.5);
+            }
             Object.assign(ground, {
                 x: -0.5 * CELL_SIZE,
                 y: -0.5 * CELL_SIZE,
                 width: 50 * CELL_SIZE,
                 height: 50 * CELL_SIZE,
                 alpha: decorationFloorLandscape.floorForegroundAlpha,
-                tint: colorBrightness(
-                    parseInt(decorationFloorLandscape.floorForegroundColor.substr(1), 16),
-                    decorationFloorLandscape.floorForegroundBrightness * brightnessLightingFactor),
+                tint,
             });
         } else {
             ground = new TilingSprite(stage.resources.ground.texture, VIEW_BOX, VIEW_BOX);

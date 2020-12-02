@@ -1,6 +1,6 @@
 import { Container, Sprite, TilingSprite, WebGLRenderer } from 'pixi.js';
 import { AlphaTo, Repeat, Sequence, Spawn } from './actions';
-import { colorBrightness } from './utils/hsl';
+import { colorBrightness, multiply } from './utils/hsl';
 
 export const ANIMATIONS = {
     slow: [
@@ -48,14 +48,6 @@ export function set(decorations, params) {
             stage: { actionManager },
         },
     } = params;
-
-    let brightnessLightingFactor = 1;
-    if (lighting === 'low') {
-        brightnessLightingFactor = 1;
-    }
-    if (lighting === 'disabled') {
-        brightnessLightingFactor = 0.6;
-    }
 
     if (!(world.app.renderer instanceof WebGLRenderer)) {
         return;
@@ -141,6 +133,12 @@ export function set(decorations, params) {
         }
 
         if (decorationItem.decoration.type === 'wallLandscape') {
+            let tint = colorBrightness(
+                parseInt(decorationItem.foregroundColor.substr(1), 16),
+                decorationItem.foregroundBrightness);
+            if (lighting === 'disabled') {
+                tint = multiply(tint, 0.6);
+            }
             const sprite = Sprite.fromImage(decorationItem.decoration.foregroundUrl);
             Object.assign(sprite, {
                 x: -0.5 * CELL_SIZE,
@@ -149,9 +147,7 @@ export function set(decorations, params) {
                 height: 50 * CELL_SIZE,
                 parentLayer: world.layers.wallGraffiti,
                 alpha: decorationItem.foregroundAlpha,
-                tint: colorBrightness(
-                    parseInt(decorationItem.foregroundColor.substr(1), 16),
-                    decorationItem.foregroundBrightness * brightnessLightingFactor),
+                tint,
                 mask: world.stage.terrainObjects.wallMask,
                 zIndex: 1,
             });

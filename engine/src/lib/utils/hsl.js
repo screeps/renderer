@@ -104,3 +104,20 @@ export function colorBrightness(origColor, brightness) {
     // eslint-disable-next-line no-bitwise
     return b + (g << 8) + (r << 16);
 }
+
+export function multiply(origColor, factor) {
+    let color = origColor;
+    if (typeof origColor === 'string') {
+        color = parseInt(origColor.substr(1), 16);
+    }
+    // eslint-disable-next-line no-bitwise
+    let [r, g, b] = [color >> 16, (color >> 8) & 0xFF, color & 0xFF];
+    r = Math.round(r * factor);
+    g = Math.round(g * factor);
+    b = Math.round(b * factor);
+    if (typeof origColor === 'string') {
+        return `#${pad(r)}${pad(g)}${pad(b)}`;
+    }
+    // eslint-disable-next-line no-bitwise
+    return b + (g << 8) + (r << 16);
+}
