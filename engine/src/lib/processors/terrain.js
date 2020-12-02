@@ -60,6 +60,14 @@ export default (params) => {
 
     const sizeRatio = size.width / VIEW_BOX;
 
+    let brightnessLightingFactor = 1;
+    if (lighting === 'low') {
+        brightnessLightingFactor = 0.65;
+    }
+    if (lighting === 'disabled') {
+        brightnessLightingFactor = 0.5;
+    }
+
     function setupObject(object, params) {
         stage.addChild(object);
         object.parentLayer = terrainLayer;
@@ -288,10 +296,10 @@ export default (params) => {
             let stroke = '#000';
             if (decorationWallLandscape) {
                 backgroundFill = colorBrightness(decorationWallLandscape.backgroundColor,
-                    decorationWallLandscape.backgroundBrightness);
+                    decorationWallLandscape.backgroundBrightness * brightnessLightingFactor);
 
                 stroke = colorBrightness(decorationWallLandscape.strokeColor,
-                    decorationWallLandscape.strokeBrightness);
+                    decorationWallLandscape.strokeBrightness * brightnessLightingFactor);
             }
 
             const base = buildSvg(
@@ -406,7 +414,8 @@ export default (params) => {
         }
         if (decorationFloorLandscape) {
             fill = parseInt(decorationFloorLandscape.floorBackgroundColor.substring(1), 16);
-            fill = colorBrightness(fill, decorationFloorLandscape.floorBackgroundBrightness);
+            fill = colorBrightness(fill, decorationFloorLandscape.floorBackgroundBrightness *
+                brightnessLightingFactor);
         }
         background.beginFill(fill);
         background.drawRect(-HALF_CELL_SIZE, -HALF_CELL_SIZE, VIEW_BOX, VIEW_BOX);
@@ -434,7 +443,7 @@ export default (params) => {
                 alpha: decorationFloorLandscape.floorForegroundAlpha,
                 tint: colorBrightness(
                     parseInt(decorationFloorLandscape.floorForegroundColor.substr(1), 16),
-                    decorationFloorLandscape.floorForegroundBrightness),
+                    decorationFloorLandscape.floorForegroundBrightness * brightnessLightingFactor),
             });
         } else {
             ground = new TilingSprite(stage.resources.ground.texture, VIEW_BOX, VIEW_BOX);

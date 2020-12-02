@@ -44,10 +44,18 @@ export function set(decorations, params) {
     const {
         world,
         world: {
-            options: { CELL_SIZE },
+            options: { CELL_SIZE, lighting = 'normal' },
             stage: { actionManager },
         },
     } = params;
+
+    let brightnessLightingFactor = 1;
+    if (lighting === 'low') {
+        brightnessLightingFactor = 1;
+    }
+    if (lighting === 'disabled') {
+        brightnessLightingFactor = 0.6;
+    }
 
     if (!(world.app.renderer instanceof WebGLRenderer)) {
         return;
@@ -143,7 +151,7 @@ export function set(decorations, params) {
                 alpha: decorationItem.foregroundAlpha,
                 tint: colorBrightness(
                     parseInt(decorationItem.foregroundColor.substr(1), 16),
-                    decorationItem.foregroundBrightness),
+                    decorationItem.foregroundBrightness * brightnessLightingFactor),
                 mask: world.stage.terrainObjects.wallMask,
                 zIndex: 1,
             });
