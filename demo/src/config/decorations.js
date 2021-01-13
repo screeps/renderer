@@ -117,5 +117,42 @@ export default [
                 }
             ]
         }
+    },
+    {
+        decoration: {
+            type: 'metadata',
+            objectType: 'controller',
+            resources: {
+                'controller-decoration': 'decorations/controller.png'
+            },
+            metadata: {
+                processors: [
+                    {
+                        type: 'sprite',
+                        once: true,
+                        payload: {
+                            texture: 'controller-decoration',
+                            width: 200,
+                            height: 200,
+                        },
+                        actions: [
+                            {
+                                action: 'Repeat',
+                                params: [
+                                    {
+                                        action: 'RotateBy',
+                                        params: [
+                                            Math.PI,
+                                            10,
+                                        ],
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                ],
+                zIndex: 4,
+            }
+        }
     }
 ];

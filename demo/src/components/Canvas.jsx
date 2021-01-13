@@ -37,6 +37,15 @@ export default class Canvas extends Component {
     async componentDidMount() {
         const startTime = new Date();
         const { samples, terrain, onGameLoop } = this.props;
+
+        decorations.forEach(decorationItem => {
+            if (decorationItem.decoration.type === 'metadata') {
+                Object.assign(resourceMap, decorationItem.decoration.resources);
+                worldConfigs.metadata.objects[decorationItem.decoration.objectType] =
+                    decorationItem.decoration.metadata;
+            }
+        });
+
         console.log(`compileExpression at ${startTime}`);
         GameRenderer.compileMetadata(worldConfigs.metadata);
         console.log(`compiled in ${Date.now() - startTime.getTime()}`);
