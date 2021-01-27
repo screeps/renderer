@@ -132,7 +132,7 @@ export function set(decorations, params) {
             });
         }
 
-        if (decorationItem.decoration.type === 'wallLandscape') {
+        if (['landscape', 'wallLandscape'].includes(decorationItem.decoration.type)) {
             let tint = colorBrightness(
                 parseInt(decorationItem.foregroundColor.substr(1), 16),
                 decorationItem.foregroundBrightness);
