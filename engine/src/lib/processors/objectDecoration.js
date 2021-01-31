@@ -1,6 +1,7 @@
 import { Sprite, Container } from 'pixi.js';
 import { AlphaTo, Spawn, Repeat, Sequence } from '../actions';
 import { ANIMATIONS } from '../decorations';
+import { colorBrightness } from '../utils/hsl';
 
 export default (params) => {
     const {
@@ -42,19 +43,31 @@ export default (params) => {
                 parentLayer: layers.objects,
                 zIndex: 1,
             });
+            if (i[graphic.alpha] !== undefined) {
+                sprite.alpha = i[graphic.alpha];
+            }
+            if (i[graphic.color]) {
+                sprite.tint = colorBrightness(parseInt(i[graphic.color].substring(1), 16),
+                    i.brightness);
+            }
             container.addChild(sprite);
         });
 
-        // i.decoration.graphics.forEach((graphic) => {
-        //     const lighting = Sprite.fromImage(graphic.url);
-        //     Object.assign(lighting, {
-        //         width: i.width,
-        //         height: i.height,
-        //         anchor: { x: 0.5, y: 0.5 },
-        //         parentLayer: layers.lighting,
-        //     });
-        //     container.addChild(lighting);
-        // });
+        if (i.lighting) {
+            i.decoration.graphics.forEach((graphic) => {
+                const lighting = Sprite.fromImage(graphic.url);
+                Object.assign(lighting, {
+                    width: i.width,
+                    height: i.height,
+                    anchor: { x: 0.5, y: 0.5 },
+                    parentLayer: layers.lighting,
+                });
+                if (i[graphic.alpha] !== undefined) {
+                    lighting.alpha = i[graphic.alpha];
+                }
+                container.addChild(lighting);
+            });
+        }
         if (i.animation) {
             const action = new Repeat(new Sequence(
                 ANIMATIONS[i.animation].map(step => new Spawn([
