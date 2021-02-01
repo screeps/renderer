@@ -63,7 +63,6 @@ export default {
         {
             type: 'objectDecoration',
             props: ['decorations'],
-            once: 'true',
         },
         {
             type: 'draw',

@@ -8,10 +8,12 @@ export default (params) => {
         logger,
         stage: { actionManager },
         rootContainer,
+        id: objectId = 'object',
         scope,
         state,
         payload: {
             parentId,
+            id = objectId,
         } = {},
         world: {
             decorations = [],
@@ -24,6 +26,13 @@ export default (params) => {
         return;
     }
 
+    if (scope[id]) {
+        scope[id].forEach(i => i.destroy());
+        delete scope[id];
+    }
+
+    scope[id] = [];
+
     decorations.forEach((i) => {
         if (i.decoration.type !== 'creep' || state.user !== `${i.user}` || state.spawning) {
             return;
@@ -35,6 +44,7 @@ export default (params) => {
         }
 
         const container = new Container();
+        scope[id].push(container);
         if (i.syncRotate) {
             parent.addChild(container);
         } else {

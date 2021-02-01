@@ -8,10 +8,12 @@ export default (params) => {
         logger,
         stage: { actionManager },
         rootContainer,
+        id: objectId = 'object',
         scope,
         state,
         payload: {
             parentId,
+            id = objectId,
         } = {},
         world: {
             decorations = [],
@@ -24,6 +26,13 @@ export default (params) => {
         return;
     }
 
+    if (scope[id]) {
+        scope[id].forEach(i => i.destroy());
+        delete scope[id];
+    }
+
+    scope[id] = [];
+
     decorations.forEach((i) => {
         if (i.decoration.type !== 'object' || state.user !== `${i.user}` ||
             i.decoration.objectType !== state.type) {
@@ -31,6 +40,7 @@ export default (params) => {
         }
 
         const container = new Container();
+        scope[id].push(container);
         rootContainer.addChildAt(container, 0);
 
         i.decoration.graphics.forEach((graphic) => {
