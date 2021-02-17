@@ -6,7 +6,7 @@ This library is based on [PixiJS](http://www.pixijs.com) and contains the render
 
 # Demo app
 
-The [`demo`](hhttps://github.com/screeps/renderer/tree/master/demo) folder contains an Electron app which you can use to test the library with real game object samples. You can launch it the following way:
+The [`demo`](https://github.com/screeps/renderer/tree/master/demo) folder contains an Electron app which you can use to test the library with real game object samples. You can launch it the following way:
 
 ```javascript
 cd demo
