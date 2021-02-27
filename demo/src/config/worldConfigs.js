@@ -8,10 +8,11 @@ export default {
     ATTACK_PENETRATION: 10,
     CELL_SIZE: 100,
     RENDER_SIZE: {
-        width: 2048,
-        height: 2048,
+        width: 4096,
+        height: 4096,
     },
-    VIEW_BOX: 5000,
+    VIEW_BOX: 10000,
+    ROOM_SIZE: 100,
     BADGE_URL: 'https://screeps.com/api/user/badge-svg?username=%1',
     metadata: RENDERER_METADATA,
     gameData: {

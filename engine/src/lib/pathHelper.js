@@ -4,9 +4,9 @@
 
 import md5 from 'md5';
 
-const ROOM_SIZE = 50;
-
-export const getRenderPath = (objectsArray, filter, prevMd5, diagonalConnect = false) => {
+export const getRenderPath = (worldOptions, objectsArray, filter, prevMd5,
+    diagonalConnect = false) => {
+    const { ROOM_SIZE } = worldOptions;
     const array = {};
     const visited = {};
     let path = '';

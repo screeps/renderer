@@ -76,8 +76,8 @@ export default (params) => {
         Object.assign(stage.terrainObjects.wallMask, {
             x: -50,
             y: -50,
-            width: 5000,
-            height: 5000,
+            width: VIEW_BOX,
+            height: VIEW_BOX,
             renderable: false,
         });
         stage.addChild(stage.terrainObjects.wallMask);
@@ -99,7 +99,7 @@ export default (params) => {
     if (decorationFloorLandscape !== terrainObjects.decorationFloorLandscape) {
         terrainObjects.previousSwampsMd5 = null;
     }
-    const { result: swampPath, md5: swampMd5 } = pathHelper(
+    const { result: swampPath, md5: swampMd5 } = pathHelper(params.world.options,
         setTerrain ? [previousSwamps] : [objects, previousSwamps],
         ({ type }) => type === 'swamp',
         terrainObjects.previousSwampsMd5);
@@ -206,7 +206,7 @@ export default (params) => {
     }
     Object.keys(users).forEach((_id) => {
         const { [_id]: rampartsObject = { md5: '', sprite: null } } = rampartsObjects;
-        const { md5: rampartsMd5, result: rampartsPath } = pathHelper(
+        const { md5: rampartsMd5, result: rampartsPath } = pathHelper(params.world.options,
             [objects],
             ({ type, isPublic, user }) => type === 'rampart' && !isPublic && user === _id,
             rampartsObject.md5, true);
@@ -265,7 +265,7 @@ export default (params) => {
     if (decorationWallLandscape !== terrainObjects.decorationWallLandscape) {
         terrainObjects.previousWallsMd5 = null;
     }
-    const { md5, result: wallPath } = pathHelper(objArrays,
+    const { md5, result: wallPath } = pathHelper(params.world.options, objArrays,
         ({ type }) => type === 'wall' || type === 'constructedWall',
         terrainObjects.previousWallsMd5);
     terrainObjects.previousWallsMd5 = md5;
@@ -430,7 +430,7 @@ export default (params) => {
             if (decorationFloorLandscape.decoration.tileScale) {
                 ground = TilingSprite.fromImage(
                     decorationFloorLandscape.decoration.floorForegroundUrl,
-                    50 * CELL_SIZE, 50 * CELL_SIZE);
+                    VIEW_BOX, VIEW_BOX);
                 ground.texture.baseTexture.mipmap = false;
                 ground.tileScale.x = decorationFloorLandscape.decoration.tileScale;
                 ground.tileScale.y = decorationFloorLandscape.decoration.tileScale;
@@ -449,8 +449,8 @@ export default (params) => {
             Object.assign(ground, {
                 x: -0.5 * CELL_SIZE,
                 y: -0.5 * CELL_SIZE,
-                width: 50 * CELL_SIZE,
-                height: 50 * CELL_SIZE,
+                width: VIEW_BOX,
+                height: VIEW_BOX,
                 alpha: decorationFloorLandscape.floorForegroundAlpha,
                 tint,
             });

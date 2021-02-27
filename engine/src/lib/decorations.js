@@ -44,7 +44,7 @@ export function set(decorations, params) {
     const {
         world,
         world: {
-            options: { CELL_SIZE, lighting = 'normal' },
+            options: { CELL_SIZE, VIEW_BOX, lighting = 'normal' },
             stage: { actionManager },
         },
     } = params;
@@ -143,8 +143,8 @@ export function set(decorations, params) {
             Object.assign(sprite, {
                 x: -0.5 * CELL_SIZE,
                 y: -0.5 * CELL_SIZE,
-                width: 50 * CELL_SIZE,
-                height: 50 * CELL_SIZE,
+                width: VIEW_BOX,
+                height: VIEW_BOX,
                 parentLayer: world.layers.wallGraffiti,
                 alpha: decorationItem.foregroundAlpha,
                 tint,
