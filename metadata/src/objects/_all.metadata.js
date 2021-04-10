@@ -21,23 +21,16 @@ export default {
                 (user === undefined ? undefined : player == user),
         },
         {
-            id: 'playerColor',
-            props: ['user'],
-            func: ({ calcs: { isOwner } }) => {
-                if (isOwner === undefined) {
-                    return 0xBBBBBB;
-                } else if (isOwner) {
-                    return 0x8fbb93;
-                } else {
-                    return 0xFF7777;
-                }
-            },
-        },
-        {
             id: 'playerColorHex',
             props: ['user'],
-            func: ({ calcs: { isOwner } }) =>
-                (isOwner ? '#8fbb93' : '#FF7777'),
+            func: ({ stateExtra: { users }, state: { user } }) =>
+                users[user].color || '#ffffff',
+        },
+        {
+            id: 'playerColor',
+            props: ['user'],
+            func: ({ calcs: { playerColorHex } }) =>
+                parseInt(playerColorHex.substr(1), 16),
         },
         {
             id: 'playerColorIntense',

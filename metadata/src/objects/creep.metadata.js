@@ -115,11 +115,10 @@ export default {
         },
         {
             type: 'userBadge',
-            once: true,
             payload: {
                 parentId: 'mainContainer',
                 radius: 26,
-                color: 0x222222,
+                color: { $calc: 'playerColor' },
             },
             when: isNotNpc,
         },

@@ -4,6 +4,7 @@
 
 import circle from './circle';
 import sprite from './sprite';
+import actionHelper from '../utils/actionHelper';
 
 const CIRCLE_PAYLOAD = {
     radius: 37,
@@ -19,7 +20,7 @@ export default (params) => {
         payload: {
             parentId,
             radius = CIRCLE_PAYLOAD.radius,
-            color = CIRCLE_PAYLOAD.color,
+            color: payloadColor = CIRCLE_PAYLOAD.color,
             ...restPayload
         } = {},
         scope,
@@ -43,6 +44,7 @@ export default (params) => {
         const scope = { [parentId]: parent };
         return sprite({ payload: spritePayload, scope, ...otherParams });
     } else {
+        const color = actionHelper.parseExpression(payloadColor, params);
         return circle({ payload: { radius, color, parentId }, scope, ...otherParams });
     }
 };

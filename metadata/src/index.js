@@ -43,7 +43,7 @@ const { Graphics, BLEND_MODES } = PIXI;
 
 export default {
     preprocessors: [
-        'setBadgeUrls',
+        // 'setBadgeUrls',
         'terrain',
     ],
     layers: [
