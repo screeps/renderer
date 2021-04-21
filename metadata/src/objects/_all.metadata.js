@@ -23,8 +23,13 @@ export default {
         {
             id: 'playerColorHex',
             props: ['user'],
-            func: ({ stateExtra: { users }, state: { user } }) =>
-                users[user].color || '#ffffff',
+            func: ({ stateExtra: { users }, state: { user } }) => {
+                if (users[user] && users[user].color) {
+                    return users[user].color;
+                } else {
+                    return '#ffffff';
+                }
+            },
         },
         {
             id: 'playerColor',
