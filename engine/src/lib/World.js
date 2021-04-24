@@ -120,7 +120,7 @@ export default class World {
             } = objectState;
             let gameObject = gameObjects[id];
             if (!gameObject) {
-                const objectMetadata = metadataObjects[type.toLowerCase()];
+                const objectMetadata = metadataObjects[type];
                 if (objectMetadata) {
                     gameObject = new GameObject(id, objectMetadata, this);
                     gameObjects[id] = gameObject;

@@ -17,3 +17,4 @@ export { default as random } from './random';
 export { default as rel } from './rel';
 export { default as state } from './state';
 export { default as sub } from './sub';
+export { default as idx } from './idx';

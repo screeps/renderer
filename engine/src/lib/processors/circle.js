@@ -19,7 +19,7 @@ export default (params) => {
     const graphics = draw({ payload, ...otherParams });
     if (graphics) {
         if (strokeWidth) {
-            graphics.lineStyle(strokeWidth, strokeColor, 1);
+            graphics.lineStyle(strokeWidth, actionHelper.parseExpression(strokeColor, params), 1);
         }
         if (color || color === 0) {
             graphics.beginFill(color);
