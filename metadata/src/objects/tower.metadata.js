@@ -52,7 +52,7 @@ export default {
     processors: [
         {
             type: 'sprite',
-            once: 'true',
+            props: ['user'],
             payload: {
                 texture: 'tower-base',
                 tint: { $calc: 'playerColor' },
