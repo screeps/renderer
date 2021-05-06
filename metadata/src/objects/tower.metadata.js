@@ -62,7 +62,7 @@ export default {
         },
         {
             type: 'sprite',
-            once: 'true',
+            props: ['user'],
             when: isNotNpc,
             payload: {
                 id: 'towerRotatable',
@@ -80,7 +80,7 @@ export default {
         },
         {
             type: 'sprite',
-            once: 'true',
+            props: ['user'],
             when: isNpc,
             payload: {
                 id: 'towerRotatable',
