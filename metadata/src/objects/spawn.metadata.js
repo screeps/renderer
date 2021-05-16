@@ -75,7 +75,7 @@ export default {
             once: true,
             payload: {
                 parentId: 'black',
-                color: ellipse3.color,
+                color: { $calc: 'playerColor' },
                 radius: ellipse3.radius,
             },
         },

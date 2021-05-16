@@ -52,7 +52,7 @@ export default (params) => {
             layers: { terrain: terrainLayer, lighting: lightingLayer, effects: effectsLayer },
             options: { size: rendererSize },
         },
-        state: { gameData: { player, swampTexture = 'animated' }, objects, users = {}, setTerrain },
+        state: { gameData: { swampTexture = 'animated' }, objects, users = {}, setTerrain },
         world: {
             options: { CELL_SIZE, RENDER_SIZE: size = rendererSize, VIEW_BOX, HALF_CELL_SIZE = CELL_SIZE / 2, lighting = 'normal' },
         },
@@ -218,14 +218,9 @@ export default (params) => {
             rampartsObject.sprite = setupObject(buildSvg(
                 rampartsPath,
                 { size, VIEW_BOX },
-                player === _id ? {
-                    fill: '#105010',
-                    stroke: '#44ff44',
-                    'stroke-width': 25,
-                    'paint-order': 'stroke',
-                } : {
-                    fill: '#501010',
-                    stroke: '#ff4444',
+                {
+                    fill: multiply(users[_id].color, 0.3),
+                    stroke: users[_id].color,
                     'stroke-width': 25,
                     'paint-order': 'stroke',
                 }
