@@ -8,8 +8,8 @@ export default {
     ATTACK_PENETRATION: 10,
     CELL_SIZE: 100,
     RENDER_SIZE: {
-        width: 4096,
-        height: 4096,
+        width: 2048,
+        height: 2048,
     },
     VIEW_BOX: 10000,
     ROOM_SIZE: 100,
