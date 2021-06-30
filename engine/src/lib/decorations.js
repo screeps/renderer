@@ -20,7 +20,7 @@ export const ANIMATIONS = {
         [1.0, 0.1],
     ],
     neon: [
-        [1.0, 5.0],
+        [1.0, 1.0],
         [0.95, 0.07],
         [1.0, 0.07],
         [1.0, 0.07],
@@ -29,6 +29,13 @@ export const ANIMATIONS = {
         [0.7, 0.07],
         [1.0, 0.07],
         [1.0, 0.1],
+        [0.9, 0.07],
+        [1.0, 0.07],
+
+        [1.0, 1.0],
+        [0.95, 0.07],
+        [1.0, 0.07],
+        [1.0, 0.07],
         [0.9, 0.07],
         [1.0, 0.07],
     ],
@@ -119,9 +126,11 @@ export function set(decorations, params) {
 
                 const mainSprite = _createSprite();
                 mainSprite.parentLayer = world.layers.wallGraffiti;
-                mainSprite.tint = colorBrightness(
-                    parseInt(decorationItem[graphic.color].substr(1), 16),
-                    decorationItem.brightness);
+                if (graphic.color) {
+                    mainSprite.tint = colorBrightness(
+                        parseInt(decorationItem[graphic.color].substr(1), 16),
+                        decorationItem.brightness);
+                }
                 container.addChild(mainSprite);
 
                 if (decorationItem.lighting) {
@@ -132,7 +141,7 @@ export function set(decorations, params) {
             });
         }
 
-        if (decorationItem.decoration.type === 'wallLandscape') {
+        if (['landscape', 'wallLandscape'].includes(decorationItem.decoration.type)) {
             let tint = colorBrightness(
                 parseInt(decorationItem.foregroundColor.substr(1), 16),
                 decorationItem.foregroundBrightness);

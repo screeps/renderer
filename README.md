@@ -110,6 +110,7 @@ Any object key starting with `$` is considered an expression.
 * Conditions and boolean:
     * $if - returns `then` or `else` expression, depending on condition provided (see `IfExpression`). For example: `{ $if: { $gt: [1, 2] }, then: ‘it cannot be’, else: ‘it can be’ }`,
     * $and - logical AND (see `AndExpression`). For example: `{ $and: [{ $calc: ‘calc1’ }, { $calc: ‘calc2’ }]  }`,
+    * $eq - evaluates equal expression. For example: `{ $eq: [ { $state: ‘x’ }, 10] }`,
     * $gt - evaluates greater expression (see `GtExpression`). For example: `{ $gt: [ { $state: ‘x’ }, 10] }`,
     * $gte - evaluates greater or equal expression (see `GteExpression`),
     * $lt - evaluates less expression (see `LtExpression`),
@@ -124,6 +125,7 @@ Any object key starting with `$` is considered an expression.
     * $mul - returns math multiplication of args (see `MulExpression`). For example: `{ $mul: [2, 2]  }`,
     random.js
     * $sub - returns math subtraction of args (see `SubExpression`). For example: `{ $add: [3, 2, 1]  }`,
+    * $concat - returns string concatenation of args. For example: `{ $concat: ['Hello', ' ', 'World']  }`,
 
 ## Actions
 

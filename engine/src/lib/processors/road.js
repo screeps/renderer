@@ -69,7 +69,7 @@ export default (params) => {
     newNodes.pm = Boolean(roads[x + 1][y - 1]);
     newNodes.mz = Boolean(roads[x - 1][y]);
 
-    const decorationFloorLandscape = decorations.find(i => i.decoration.type === 'floorLandscape');
+    const decorationFloorLandscape = decorations.find(i => ['landscape', 'floorLandscape'].includes(i.decoration.type));
 
     const shouldRedraw = !savedObject ||
         Object.entries(newNodes).some(([key, value]) => value !== knownNodes[key]) ||

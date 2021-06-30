@@ -83,8 +83,8 @@ export default (params) => {
         stage.addChild(stage.terrainObjects.wallMask);
     }
     const { terrainObjects } = stage;
-    const decorationWallLandscape = decorations.find(i => i.decoration.type === 'wallLandscape');
-    const decorationFloorLandscape = decorations.find(i => i.decoration.type === 'floorLandscape');
+    const decorationWallLandscape = decorations.find(i => ['landscape', 'wallLandscape'].includes(i.decoration.type));
+    const decorationFloorLandscape = decorations.find(i => ['landscape', 'floorLandscape'].includes(i.decoration.type));
 
     let { previousSwamps } = terrainObjects;
     if (!previousSwamps) {

@@ -18,3 +18,4 @@ export { default as rel } from './rel';
 export { default as state } from './state';
 export { default as sub } from './sub';
 export { default as idx } from './idx';
+export { default as concat } from './concat';

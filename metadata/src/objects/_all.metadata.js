@@ -59,6 +59,10 @@ export default {
     ],
     processors: [
         {
+            type: 'objectDecoration',
+            props: ['decorations'],
+        },
+        {
             type: 'draw',
             once: true,
             when: ({ state: { _isDisabled } }) => !!_isDisabled,

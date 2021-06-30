@@ -34,22 +34,14 @@ export default (params) => {
     scope[id] = [];
 
     decorations.forEach((i) => {
-        if (i.decoration.type !== 'creep' || state.user !== `${i.user}` || state.spawning) {
-            return;
-        }
-        const isNameFilter = i.nameFilter.split(/!SEP!/).some(str => state.name.includes(str));
-        if ((!i.exclude && !isNameFilter) ||
-            (i.exclude && isNameFilter)) {
+        if (i.decoration.type !== 'object' || state.user !== `${i.user}` ||
+            i.decoration.objectType !== state.type) {
             return;
         }
 
         const container = new Container();
         scope[id].push(container);
-        if (i.syncRotate) {
-            parent.addChild(container);
-        } else {
-            rootContainer.addChildAt(container, 0);
-        }
+        rootContainer.addChildAt(container, 0);
 
         i.decoration.graphics.forEach((graphic) => {
             const sprite = Sprite.fromImage(graphic.url);
@@ -58,7 +50,7 @@ export default (params) => {
                 width: i.width,
                 height: i.height,
                 anchor: { x: 0.5, y: 0.5 },
-                parentLayer: i.position === 'below' ? layers.objects : layers.effects,
+                parentLayer: layers.objects,
                 zIndex: 1,
             });
             if (i[graphic.alpha] !== undefined) {
@@ -67,9 +59,6 @@ export default (params) => {
             if (i[graphic.color]) {
                 sprite.tint = colorBrightness(parseInt(i[graphic.color].substring(1), 16),
                     i.brightness);
-            }
-            if (i.flip) {
-                sprite.scale.y *= -1;
             }
             container.addChild(sprite);
         });
@@ -85,9 +74,6 @@ export default (params) => {
                 });
                 if (i[graphic.alpha] !== undefined) {
                     lighting.alpha = i[graphic.alpha];
-                }
-                if (i.flip) {
-                    lighting.scale.y *= -1;
                 }
                 container.addChild(lighting);
             });

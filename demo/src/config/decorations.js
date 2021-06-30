@@ -12,7 +12,7 @@ export default [
         brightness: 1.0,
         hasRing: false,
         alpha: 0.9,
-        animation: 'blink',
+        animation: 'neon',
         lighting: true,
         decoration: {
             type: 'wallGraffiti',
@@ -118,41 +118,56 @@ export default [
             ]
         }
     },
+    // {
+    //     decoration: {
+    //         type: 'metadata',
+    //         objectType: 'controller',
+    //         resources: {
+    //             'controller-decoration': 'decorations/controller.png'
+    //         },
+    //         metadata: {
+    //             processors: [
+    //                 {
+    //                     type: 'sprite',
+    //                     once: true,
+    //                     payload: {
+    //                         texture: 'controller-decoration',
+    //                         width: 200,
+    //                         height: 200,
+    //                     },
+    //                     actions: [
+    //                         {
+    //                             action: 'Repeat',
+    //                             params: [
+    //                                 {
+    //                                     action: 'RotateBy',
+    //                                     params: [
+    //                                         Math.PI,
+    //                                         10,
+    //                                     ],
+    //                                 },
+    //                             ],
+    //                         },
+    //                     ],
+    //                 },
+    //             ],
+    //             zIndex: 4,
+    //         }
+    //     }
+    // },
     {
+        user: '54bff72ab32a10f73a57d017',
+        width: 350,
+        height: 350,
+        animation: 'fast',
         decoration: {
-            type: 'metadata',
+            type: 'object',
             objectType: 'controller',
-            resources: {
-                'controller-decoration': 'decorations/controller.png'
-            },
-            metadata: {
-                processors: [
-                    {
-                        type: 'sprite',
-                        once: true,
-                        payload: {
-                            texture: 'controller-decoration',
-                            width: 200,
-                            height: 200,
-                        },
-                        actions: [
-                            {
-                                action: 'Repeat',
-                                params: [
-                                    {
-                                        action: 'RotateBy',
-                                        params: [
-                                            Math.PI,
-                                            10,
-                                        ],
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                ],
-                zIndex: 4,
-            }
+            graphics: [
+                {
+                    url: 'https://s3.amazonaws.com/static.screeps.com/season1/controller_season1.svg',
+                }
+            ]
         }
     }
 ];
