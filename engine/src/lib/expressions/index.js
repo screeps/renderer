@@ -2,6 +2,7 @@ export { default as add } from './add';
 export { default as and } from './and';
 export { default as calc } from './calc';
 export { default as div } from './div';
+export { default as eq } from './eq';
 export { default as gt } from './gt';
 export { default as gte } from './gte';
 export { default as if } from './if';
