@@ -1,0 +1,42 @@
+name: Build npm package
+on: push
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: dorny/paths-filter@v2
+        id: changes
+        with:
+          filters: |
+            engine:
+              - 'engine/**'
+    outputs:
+      engine: ${{ steps.changes.outputs.engine }}
+  build:
+    runs-on: ubuntu-latest
+    needs: [check]
+    if: "needs.check.outputs.engine == true"
+    defaults:
+      run:
+        working-directory: ./engine
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v3
+      # Setup .npmrc file to publish to GitHub Packages
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '10.x'
+          registry-url: 'https://npm.pkg.github.com'
+          # Defaults to the user or organization that owns the workflow file
+          scope: '@screeps'
+      - name: Install
+        run: npm ci
+      - name: Build
+        run: npm run build
+      - name: Publish (github)
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
