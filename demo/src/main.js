@@ -83,6 +83,10 @@ function createWindow() {
     mainWindow = new BrowserWindow({
         width: 900,
         height: 900,
+        webPreferences: {
+            nodeIntegration: true,
+            contextIsolation: false,
+        },
     });
     mainWindow.setMenu(menu);
     mainWindow.loadURL(indexUrl);
