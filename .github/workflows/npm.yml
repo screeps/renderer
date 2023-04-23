@@ -11,15 +11,54 @@ jobs:
           filters: |
             engine:
               - 'engine/**'
+            metadata:
+              - 'metadata/**'
     outputs:
       engine: ${{ steps.changes.outputs.engine }}
-  build:
+      metadata: ${{ steps.changes.outputs.metadata }}
+  engine:
     runs-on: ubuntu-latest
     needs: [check]
     if: "needs.check.outputs.engine == 'true'"
     defaults:
       run:
         working-directory: ./engine
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v3
+      # Setup .npmrc file to publish to GitHub Packages
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '10.x'
+          registry-url: 'https://npm.pkg.github.com'
+          # Defaults to the user or organization that owns the workflow file
+          scope: '@screeps'
+      - name: Install
+        run: npm ci
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Publish (github)
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '10.x'
+          registry-url: 'https://registry.npmjs.org'
+          scope: '@screeps'
+      - name: Publish (npmjs)
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPMJS_TOKEN }}
+  metadata:
+    runs-on: ubuntu-latest
+    needs: [check]
+    if: "needs.check.outputs.metadata == 'true'"
+    defaults:
+      run:
+        working-directory: ./metadata
     permissions:
       contents: read
       packages: write
