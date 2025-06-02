@@ -39,7 +39,7 @@
     "pixi-filters": "^2.0.2",
     "pixi-layers": "github:pixijs/pixi-display#layers",
     "pixi.js": "^4.8.1",
-    "webpack": "^4.17.1",
+    "webpack": "^4.47.0",
     "webpack-cli": "^3.1.0"
   }
 }
