@@ -47,7 +47,7 @@ export default {
         {
             id: 'displayName',
             func: ({ calcs: { isOwner }, state: { name, user }, stateExtra: { users } }) =>
-                (isOwner ? name : users[user].username),
+                (isOwner ? name : users[user] ? users[user].username : ''),
         },
     ],
     processors: [
