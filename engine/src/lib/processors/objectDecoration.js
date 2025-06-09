@@ -34,8 +34,9 @@ export default (params) => {
     scope[id] = [];
 
     decorations.forEach((i) => {
-        if (i.decoration.type !== 'object' || state.user !== `${i.user}` ||
-            i.decoration.objectType !== state.type) {
+        if (i.decoration.type !== 'object' ||
+            i.decoration.objectType !== state.type ||
+            (!!i.user && state.user !== `${i.user}`)) {
             return;
         }
 

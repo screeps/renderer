@@ -1,6 +1,6 @@
 {
   "name": "@screeps/renderer-metadata",
-  "version": "1.5.13",
+  "version": "1.5.18",
   "description": "This library contains the renderer engine used in Screeps game.",
   "main": "dist/renderer-metadata.js",
   "files": [
@@ -20,13 +20,12 @@
     "prepublish": "npm run build"
   },
   "devDependencies": {
-    "@screeps/common": "^2.15.3",
+    "@screeps/common": "^2.15.4",
     "eslint": "^4.9.0",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-loader": "^2.1.0",
     "eslint-plugin-import": "^2.14.0",
-    "webpack": "^4.17.1",
+    "webpack": "^4.47.0",
     "webpack-cli": "^3.1.0"
-  },
-  "dependencies": {}
+  }
 }

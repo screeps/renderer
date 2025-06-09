@@ -32,7 +32,7 @@ export default class Canvas extends Component {
 
     /**
      * In this case, componentDidMount is used to grab the canvas container ref, and
-     * and hook up the PixiJS renderer
+     * hook up the PixiJS renderer
      */
     async componentDidMount() {
         const startTime = new Date();
