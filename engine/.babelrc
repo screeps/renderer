@@ -1,5 +1,5 @@
 {
-  "presets": ["es2017"],
+  "presets": ["@babel/preset-env"],
   "plugins": [
     "transform-class-properties",
     "transform-exponentiation-operator",

@@ -3,7 +3,7 @@
  */
 
 import '../../../metadata/dist/renderer-metadata';
-
+console.log(RENDERER_METADATA);
 export default {
     ATTACK_PENETRATION: 10,
     CELL_SIZE: 100,

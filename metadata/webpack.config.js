@@ -1,18 +1,15 @@
-/**
- * Created by vedi on 05/04/2017.
- */
-
-require('webpack');
+const path = require('path');
 
 const config = {
-    entry: `${__dirname}/src/index.js`,
+    entry: path.join(__dirname, 'src/index.js'),
+    mode: 'production',
     devtool: 'source-map',
     output: {
-        path: `${__dirname}/dist`,
+        path: path.join(__dirname, 'dist'),
         filename: 'renderer-metadata.js',
         library: 'RENDERER_METADATA',
         libraryTarget: 'window',
-        libraryExport: 'default',
+        libraryExport: 'default'
     },
 };
 

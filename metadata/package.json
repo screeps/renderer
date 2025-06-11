@@ -14,18 +14,18 @@
     "url": "https://github.com/screeps/renderer.git"
   },
   "scripts": {
-    "build": "webpack --progress --colors",
-    "dev": "webpack --progress --colors --watch",
-    "dev-no-progress": "webpack --colors --watch",
+    "build": "webpack",
+    "dev": "webpack --watch",
+    "dev-no-progress": "webpack --watch",
     "prepublish": "npm run build"
   },
   "devDependencies": {
     "@screeps/common": "^2.15.4",
-    "eslint": "^4.9.0",
-    "eslint-config-airbnb-base": "^12.1.0",
-    "eslint-loader": "^2.1.0",
-    "eslint-plugin-import": "^2.14.0",
-    "webpack": "^4.47.0",
-    "webpack-cli": "^3.1.0"
+    "eslint": "^8.57.1",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-webpack-plugin": "^5.0.2",
+    "webpack": "^5.99.9",
+    "webpack-cli": "^5.1.4"
   }
 }

@@ -2,7 +2,6 @@
  * Created by vedi on 05/04/2017.
  */
 
-require('webpack');
 const path = require('path');
 
 const libraryName = 'renderer';
@@ -12,22 +11,16 @@ const outputFile = `${libraryName}.js`;
 
 const config = {
     entry: `${__dirname}/src/index.js`,
+    mode: 'production',
     devtool: 'source-map',
     output: {
         path: `${__dirname}/dist`,
         filename: outputFile,
         library: libraryName,
         libraryTarget: 'umd',
-        umdNamedDefine: true,
     },
     module: {
         rules: [
-            {
-                test: /\.(js|jsx)$/,
-                enforce: 'pre',
-                loader: 'eslint-loader',
-                exclude: /node_modules/,
-            },
             {
                 test: /(\.js)$/,
                 use: [
@@ -44,8 +37,15 @@ const config = {
             path.join(__dirname, 'src'),
             'node_modules',
         ],
+        fallback: {
+            path: require.resolve('path-browserify'),
+            url: require.resolve('url'),
+        },
     },
-    plugins,
+    plugins: [
+        ...plugins
+        // ESLintPlugin removed due to FlatESLint error
+    ],
 };
 
 module.exports = config;

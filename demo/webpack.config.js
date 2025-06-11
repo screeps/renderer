@@ -14,17 +14,27 @@ if (process.argv.includes('--watch')) {
 const babelInclude = [APP_DIR, ...(!isProd ? [ENGINE_DIR] : [])];
 
 const config = {
+    mode: 'development',
+    devtool: 'source-map',
     entry: `${APP_DIR}/index.jsx`,
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.(js|jsx)$/,
                 include: babelInclude,
-                loader: 'babel-loader',
-            },
-            {
-                test: /\.json$/,
-                loader: 'json-loader',
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: [
+                            '@babel/preset-env',
+                            '@babel/preset-react',
+                        ],
+                        plugins: [
+                            '@babel/plugin-proposal-class-properties',
+                            '@babel/plugin-proposal-object-rest-spread',
+                        ],
+                    },
+                },
             },
         ],
     },
@@ -34,6 +44,9 @@ const config = {
     },
     resolve: {
         extensions: ['.js', '.json', '.jsx'],
+        fallback: {
+            path: require.resolve('path-browserify'),
+        },
     },
 };
 

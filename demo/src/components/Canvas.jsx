@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 
-import GameRenderer from '../../../engine/dist/renderer';
-// import GameRenderer from '../../../engine/src';
+// import GameRenderer from '../../../engine/dist/renderer';
+import GameRenderer from '../../../engine/src';
 import { resourceMap, rescaleResources } from '../config/resourceMap';
 import worldConfigs from '../config/worldConfigs';
 import decorations from '../config/decorations';
