@@ -1,10 +1,10 @@
-import { loader, Texture, BaseTexture, utils } from 'pixi.js';
+import { Loader, Texture, BaseTexture, utils, MIPMAP_MODES } from 'pixi.js';
 import actionHelper from './utils/actionHelper';
 
 const { TextureCache } = utils;
 
 const MIN_SVG_RENDER_SIZE = 100;
-const MAX_SVG_RENDER_SIZE = 3000;
+const MAX_SVG_RENDER_SIZE = 100;
 const STEP_SVG_RENDER_SIZE = 100;
 
 const svgCache = {};
@@ -21,11 +21,11 @@ export default class ResourceManager {
             STEP_SVG_RENDER_SIZE;
     }
 
-    load(resourceMap = {}, rescaleResources = []) {
+    load(resourceMap = {}) {
         return new Promise((resolve, reject) => {
             try {
-                Object.keys(resourceMap).forEach(key => loader.add(key, resourceMap[key]));
-                loader.load((loader, resources) => {
+                Object.keys(resourceMap).forEach(key => Loader.shared.add(key, resourceMap[key]));
+                Loader.shared.load((loader, resources) => {
                     Object.assign(this.loadedResources, resources);
                     resolve();
                 });
@@ -33,7 +33,7 @@ export default class ResourceManager {
                 reject(err);
             }
         })
-            .then(() => Promise.all(rescaleResources.map((key) => {
+            /*.then(() => Promise.all(rescaleResources.map((key) => {
                 const resource = this.loadedResources[key];
                 if (!resource) {
                     this.logger.error('Cannot create scaled textures for', key);
@@ -60,27 +60,30 @@ export default class ResourceManager {
                 })
                     .then(() => {
                         const promises = [];
-                        for (let size = MIN_SVG_RENDER_SIZE; size <= this.maxSvgSize;
-                            size += STEP_SVG_RENDER_SIZE) {
+                        for (let size = MIN_SVG_RENDER_SIZE; size <= this.maxSvgSize; size += STEP_SVG_RENDER_SIZE) {
                             let texture = TextureCache[resource.name + size];
                             if (!texture) {
-                                const baseTexture = new BaseTexture();
-                                baseTexture.sourceScale = size / this.world.options.VIEW_BOX;
-                                baseTexture.imageUrl = resource.url;
-                                baseTexture.source = resource.data;
-                                baseTexture._loadSvgSourceUsingString(svgCache[resource.name]);
-                                texture = new Texture(baseTexture);
+                                // Create a data URL for the SVG string
+                                const svgString = svgCache[resource.name];
+                                const svgBase64 = btoa(unescape(encodeURIComponent(svgString)));
+                                const svgDataUrl = `data:image/svg+xml;base64,${svgBase64}`;
+                                texture = Texture.from(svgDataUrl);
+                                texture.baseTexture.mipmap = MIPMAP_MODES.ON
                                 Texture.addToCache(texture, resource.name + size);
                             }
                             resource.scaledSvgTextures = resource.scaledSvgTextures || {};
                             resource.scaledSvgTextures[size] = texture;
+                            console.log('load texture', resource.name, size)
                             promises.push(
                                 new Promise(resolve =>
-                                    actionHelper.onTextureLoaded(texture, resolve)));
+                                    actionHelper.onTextureLoaded(texture, () => {
+                                        console.log('done texture', resource.name, size);
+                                        resolve();
+                                    })));
                         }
                         return Promise.all(promises);
                     });
-            })))
+            })))*/
             .then(() => this.loadedResources);
     }
 

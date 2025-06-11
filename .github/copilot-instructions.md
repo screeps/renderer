@@ -9,3 +9,7 @@ There are 3 apps in this repository, each with its own `package.json`:
 # Dev Environment
 
 The operating system is Windows 11. Always use absolute paths to set working directory in console commands.
+
+# Documentation
+
+Migration guide from PixiJS v4 to v5: https://pixijs.com/8.x/guides/migrations/v5

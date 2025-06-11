@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 
 // import GameRenderer from '../../../engine/dist/renderer';
 import GameRenderer from '../../../engine/src';
-import { resourceMap, rescaleResources } from '../config/resourceMap';
+import { resourceMap } from '../config/resourceMap';
 import worldConfigs from '../config/worldConfigs';
 import decorations from '../config/decorations';
 
@@ -57,7 +57,6 @@ export default class Canvas extends Component {
             resourceMap,
             worldConfigs,
             onGameLoop,
-            rescaleResources,
             countMetrics: true,
             useDefaultLogger: true,
             backgroundColor: 0x050505,

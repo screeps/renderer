@@ -4,14 +4,25 @@
 
 import 'pixi-layers';
 import 'pixi-filters';
-import { Container, WebGLRenderer, display, Graphics } from 'pixi.js';
+import { Container, Renderer, Graphics } from 'pixi.js';
 
 import ResourceManager from './ResourceManager';
 import PROCESSORS from './processors';
 import actionHelper from './utils/actionHelper';
 import GameObject from './GameObject';
 
-const { Layer, Stage } = display;
+window.PIXI.display.Group.compareZIndex = function (a, b) {
+   if (a.zIndex !== b.zIndex) {
+       return a.zIndex - b.zIndex;
+   }
+   if (a.zOrder > b.zOrder) {
+       return -1;
+   }
+   if (a.zOrder < b.zOrder) {
+       return 1;
+   }
+   return a.updateOrder - b.updateOrder;
+}
 
 export default class World {
     constructor(options) {
@@ -48,7 +59,7 @@ export default class World {
         });
 
         // renderer stuff
-        app.stage = new Stage();
+        app.stage = new window.PIXI.display.Stage(); // Use Container as the root stage
         app.stage.pivot.x = -CELL_SIZE / 2;
         app.stage.pivot.y = -CELL_SIZE / 2;
         this.app = app;
@@ -61,25 +72,24 @@ export default class World {
         this.defaultLayerId = null;
         this.unmaskedRendererInfo = null;
 
-        if (this.app.renderer instanceof WebGLRenderer) {
+        if (this.app.renderer instanceof Renderer) {
             const { gl } = this.app.renderer.state;
             const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
             this.unmaskedRendererInfo = debugInfo &&
                 gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL);
         }
 
-        const mask = new Graphics();
+        /*const mask = new Graphics();
         mask.drawRect(-CELL_SIZE / 2, -CELL_SIZE / 2, VIEW_BOX, VIEW_BOX);
         app.stage.addChild(mask);
-        app.stage.mask = mask;
+        app.stage.mask = mask;*/
     }
 
     async init() {
         const { stage } = this;
-        stage.resources = await this.resourceManager.load(this.resourceMap,
-            this.options.rescaleResources);
+        stage.resources = await this.resourceManager.load(this.resourceMap);
         this.metadata.layers.forEach(async ({ id, isDefault = false, afterCreate = () => {} }) => {
-            const layer = new Layer();
+            const layer = new window.PIXI.display.Layer();
             layer.group.enableSort = true;
             stage.addChild(layer);
             this.layers[id] = layer;
@@ -174,7 +184,7 @@ export default class World {
             size: this.app.renderer.width,
             maxSvgSize: this.resourceManager.maxSvgSize,
         };
-        if (this.app.renderer instanceof WebGLRenderer) {
+        if (this.app.renderer instanceof Renderer) {
             Object.assign(rendererMetrics, {
                 WebGL: 'enabled',
                 GPU: this.unmaskedRendererInfo,

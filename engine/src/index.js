@@ -1,7 +1,6 @@
-/**
- * Created by vedi on 05/04/2017.
- */
-
+import './pixi-global';
+import 'pixi-layers';
+import 'pixi-filters';
 import * as _PIXI from 'pixi.js';
 import _GameRenderer from './lib/GameRenderer';
 
@@ -12,7 +11,5 @@ if (window) {
 }
 
 export const GameRenderer = _GameRenderer;
-
 export const PIXI = _PIXI;
-
 export default GameRenderer;

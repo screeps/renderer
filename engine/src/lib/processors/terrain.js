@@ -3,15 +3,14 @@
  */
 
 import {
-    BLEND_MODES, extras, filters, Point, RenderTexture, Sprite, Texture,
-    WebGLRenderer, Graphics,
+    BLEND_MODES, TilingSprite, filters, Point, RenderTexture, Sprite, Texture,
+    Renderer, Graphics,
 } from 'pixi.js';
 
 import pathHelper from '../pathHelper';
 import actionHelper from '../utils/actionHelper';
 import { colorBrightness, hslToRgbStr, multiply } from '../utils/hsl';
 
-const { TilingSprite } = extras;
 const { BlurFilter } = filters;
 
 const WALLS_BLUR = 0.006;
@@ -31,7 +30,7 @@ function buildSvg(path, { size: { width, height }, VIEW_BOX }, pathOptions) {
     const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" ${
         svgOptionsStr} data-timestamp="${Date.now()}"><path ${pathOptionsStr} d="${path}" /></svg>`;
 
-    const sprite = Sprite.fromImage(`data:image/svg+xml;charset=utf8,${svg}`);
+    const sprite = Sprite.from(`data:image/svg+xml;charset=utf8,${svg}`);
     sprite._generatedSvgTexture = true;
     return sprite;
 }
@@ -112,7 +111,7 @@ export default (params) => {
             swampObjects = [];
             terrainObjects.swampObjects = swampObjects;
         }
-        if (app.renderer instanceof WebGLRenderer) {
+        if (app.renderer instanceof Renderer) {
             let tint;
             if (lighting === 'disabled') {
                 tint = 0x808080;
@@ -271,7 +270,7 @@ export default (params) => {
         wallObjects = [];
         terrainObjects.wallObjects = wallObjects;
 
-        if (app.renderer instanceof WebGLRenderer) {
+        if (app.renderer instanceof Renderer) {
             wallObjects[0] = RenderTexture.create(size.width, size.height);
 
             wallObjects[1] = setupObject(new Sprite(Texture.WHITE), {
@@ -398,7 +397,7 @@ export default (params) => {
 
         const background = new Graphics();
         let fill = 0x555555;
-        if (lighting === 'disabled' || !(app.renderer instanceof PIXI.WebGLRenderer)) {
+        if (lighting === 'disabled' || !(app.renderer instanceof Renderer)) {
             fill = 0x202020;
         }
         if (lighting === 'low') {
@@ -423,14 +422,14 @@ export default (params) => {
         let ground;
         if (decorationFloorLandscape) {
             if (decorationFloorLandscape.decoration.tileScale) {
-                ground = TilingSprite.fromImage(
+                ground = TilingSprite.from(
                     decorationFloorLandscape.decoration.floorForegroundUrl,
-                    VIEW_BOX, VIEW_BOX);
+                    {width: VIEW_BOX, height: VIEW_BOX});
                 ground.texture.baseTexture.mipmap = false;
                 ground.tileScale.x = decorationFloorLandscape.decoration.tileScale;
                 ground.tileScale.y = decorationFloorLandscape.decoration.tileScale;
             } else {
-                ground = Sprite.fromImage(decorationFloorLandscape.decoration.floorForegroundUrl);
+                ground = Sprite.from(decorationFloorLandscape.decoration.floorForegroundUrl);
             }
             let tint = colorBrightness(
                 parseInt(decorationFloorLandscape.floorForegroundColor.substr(1), 16),

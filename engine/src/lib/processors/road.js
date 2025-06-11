@@ -2,7 +2,7 @@
  * Created by vedi on 19/03/2017.
  */
 
-import { Graphics, WebGLRenderer } from 'pixi.js';
+import { Graphics, Renderer } from 'pixi.js';
 import { colorBrightness } from '../utils/hsl';
 
 const ROAD_COLOR = 0xaaaaaa;
@@ -85,7 +85,7 @@ export default (params) => {
         const graphics = new Graphics();
         graphics.parentLayer = terrainLayer;
         graphics.zIndex = 1;
-        if (!(app.renderer instanceof WebGLRenderer)) {
+        if (!(app.renderer instanceof Renderer)) {
             graphics.tint = 0xa0a0a0;
         } else {
             if (lighting === 'disabled') {

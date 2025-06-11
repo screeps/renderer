@@ -1,4 +1,4 @@
-import { ticker, Point } from 'pixi.js';
+import { Ticker, Point } from 'pixi.js';
 import actions from '../actions';
 import * as EXPRESSIONS from '../expressions';
 
@@ -105,18 +105,18 @@ export default {
             try {
                 fn(time);
             } catch (e) {
-                ticker.shared.remove(_handler);
+                Ticker.shared.remove(_handler);
             }
         }
-        ticker.shared.add(_handler);
-        sprite.on('removed', () => ticker.shared.remove(_handler));
+        Ticker.shared.add(_handler);
+        sprite.on('removed', () => Ticker.shared.remove(_handler));
     },
 
     alignPositionToPixels(object, stage) {
         if (!object._position) {
             object._position = new Point(object.x, object.y);
         }
-        object.position.copy(object._position);
+        object.position.copyFrom(object._position);
         const bounds = object.getBounds();
         object.x += (Math.round(bounds.x) - bounds.x) / stage.scale.x;
         object.y += (Math.round(bounds.y) - bounds.y) / stage.scale.y;
@@ -131,10 +131,6 @@ export default {
     },
 
     enableTextureMipmap(renderer, baseTexture) {
-        renderer.bindTexture(baseTexture, false, 0);
-        const glTex = baseTexture._glTextures[renderer.CONTEXT_UID];
-        glTex.enableMipmap();
-        glTex.enableLinearScaling();
     },
 
     setSvgResizeHandler(world, sprite, resource) {

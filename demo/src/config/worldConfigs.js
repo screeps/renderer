@@ -2,8 +2,7 @@
  * Created by vedi on 07/04/2017.
  */
 
-import '../../../metadata/dist/renderer-metadata';
-console.log(RENDERER_METADATA);
+import '../../../metadata/dist/renderer-metadata.js';
 export default {
     ATTACK_PENETRATION: 10,
     CELL_SIZE: 100,

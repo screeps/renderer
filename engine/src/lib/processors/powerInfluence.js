@@ -52,7 +52,7 @@ const INFLUENCE_TEXTURE = {
 
 function createCoverSprite(texture, rootContainer, scope, world) {
     const container = new Container();
-    container.position.copy(rootContainer.position);
+    container.position.copyFrom(rootContainer.position);
     rootContainer.parent.addChild(container);
 
     // we need to remove it manually because it is added to the parent
@@ -87,7 +87,7 @@ function createCoverSpriteAction(sprite, tickDuration, pos, delay = 0) {
         new AlphaTo(0, phaseDuration),
     ]);
     if (pos) {
-        sprite.position.copy(pos);
+        sprite.position.copyFrom(pos);
     }
     return { action, target: sprite };
 }

@@ -126,42 +126,4 @@ const resourceMap = {
     'ruin': 'ruin.svg'
 };
 
-const rescaleResources = [
-    'bodyPartBar',
-    'controller',
-    'controller-level',
-    'constructedWall',
-    'creep-npc',
-    'extension-border50',
-    'extension-border100',
-    'extension-border200',
-    'extractor',
-    'flag',
-    'flag-secondary',
-    'lab',
-    'link',
-    'link-border',
-    'nuker',
-    'nuker-border',
-    'powerBank',
-    'storage',
-    'storage-border',
-    'terminal-border',
-    'terminal-arrows',
-    'tombstone-border',
-    'tombstone-resource',
-    'tower-base',
-    'factory',
-    'factory-lvl0',
-    'factory-lvl1',
-    'factory-lvl2',
-    'factory-lvl3',
-    'factory-lvl4',
-    'factory-lvl5',
-    'factory-border',
-    'factory-highlight',
-    'invaderCore',
-    'ruin'
-];
-
-export { resourceMap, rescaleResources };
+export { resourceMap };

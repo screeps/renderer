@@ -45,7 +45,7 @@ export default (params) => {
         rootContainer.addChildAt(container, 0);
 
         i.decoration.graphics.forEach((graphic) => {
-            const sprite = Sprite.fromImage(graphic.url);
+            const sprite = Sprite.from(graphic.url);
             Object.assign(sprite, {
                 // blendMode: i.lighting ? 1 : 0,
                 width: i.width,
@@ -66,7 +66,7 @@ export default (params) => {
 
         if (i.lighting) {
             i.decoration.graphics.forEach((graphic) => {
-                const lighting = Sprite.fromImage(graphic.url);
+                const lighting = Sprite.from(graphic.url);
                 Object.assign(lighting, {
                     width: i.width,
                     height: i.height,

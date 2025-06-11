@@ -95,7 +95,6 @@ export default class GameRenderer {
             },
             worldConfigs,
             resourceMap,
-            rescaleResources,
             useDefaultLogger = false,
             logger = useDefaultLogger ? console : new Proxy({}, { get: () => () => {} }),
             objectFilter,
@@ -103,7 +102,9 @@ export default class GameRenderer {
         if (!this.released) {
             this.release();
         }
-        const app = new Application(width, height, {
+        const app = new Application({
+            width, 
+            height,
             antialias: true,
             transparent: !backgroundColor,
             forceCanvas: worldConfigs.forceCanvas,
@@ -118,7 +119,6 @@ export default class GameRenderer {
             app,
             logger,
             objectFilter,
-            rescaleResources,
             resourceMap,
             size: { width, height },
             ...worldConfigs,

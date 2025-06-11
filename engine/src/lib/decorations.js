@@ -1,4 +1,4 @@
-import { Container, Sprite, TilingSprite, WebGLRenderer } from 'pixi.js';
+import { Container, Sprite, TilingSprite, Renderer } from 'pixi.js';
 import { AlphaTo, Repeat, Sequence, Spawn } from './actions';
 import { colorBrightness, multiply } from './utils/hsl';
 
@@ -56,7 +56,7 @@ export function set(decorations, params) {
         },
     } = params;
 
-    if (!(world.app.renderer instanceof WebGLRenderer)) {
+    if (!(world.app.renderer instanceof Renderer)) {
         return;
     }
 
@@ -81,14 +81,15 @@ export function set(decorations, params) {
                 function _createSprite() {
                     let sprite;
                     if (decorationItem.decoration.tiling) {
-                        sprite = TilingSprite.fromImage(graphic.url,
-                            decorationItem.width * CELL_SIZE,
-                            decorationItem.height * CELL_SIZE);
+                        sprite = TilingSprite.from(graphic.url, {
+                            width: decorationItem.width * CELL_SIZE,
+                            height: decorationItem.height * CELL_SIZE
+                        });
                         sprite.texture.baseTexture.mipmap = false;
                         sprite.tileScale.x = decorationItem.tileScale;
                         sprite.tileScale.y = decorationItem.tileScale;
                     } else {
-                        sprite = Sprite.fromImage(graphic.url);
+                        sprite = Sprite.from(graphic.url);
                     }
                     Object.assign(sprite, {
                         anchor: {
@@ -148,7 +149,7 @@ export function set(decorations, params) {
             if (lighting === 'disabled') {
                 tint = multiply(tint, 0.6);
             }
-            const sprite = Sprite.fromImage(decorationItem.decoration.foregroundUrl);
+            const sprite = Sprite.from(decorationItem.decoration.foregroundUrl);
             Object.assign(sprite, {
                 x: -0.5 * CELL_SIZE,
                 y: -0.5 * CELL_SIZE,

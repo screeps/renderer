@@ -46,6 +46,9 @@ const config = {
         ...plugins
         // ESLintPlugin removed due to FlatESLint error
     ],
+    optimization: {
+        minimize: false,
+    }
 };
 
 module.exports = config;

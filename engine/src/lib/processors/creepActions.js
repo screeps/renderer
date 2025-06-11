@@ -2,7 +2,7 @@
  * Created by vedi on 19/03/2017.
  */
 
-import { Graphics, Sprite, filters, BLEND_MODES, Container, WebGLRenderer } from 'pixi.js';
+import { Graphics, Sprite, filters, BLEND_MODES, Container, Renderer } from 'pixi.js';
 import { calculateAngle, convertGameXYToWorld } from '../../../../helpers/mathHelper';
 
 import { AlphaTo, CallFunc, MoveBy, RotateTo, Sequence, DelayTime } from '../actions';
@@ -26,7 +26,7 @@ const COLORS = {
 
 function createCoverSprite(resources, rootContainer, scope, world) {
     const container = new Container();
-    container.position.copy(rootContainer.position);
+    container.position.set(rootContainer.position.x, rootContainer.position.y);
     container.alpha = 0;
     rootContainer.parent.addChild(container);
     scope.coverSprite = container;
@@ -156,7 +156,7 @@ function createCoverSpriteAction(scope, tint, tickDuration, pos, delay = 0) {
     scope.coverSprite.children[0].tint = tint;
     scope.coverSprite.children[1].tint = tint;
     if (pos) {
-        scope.coverSprite.position.copy(pos);
+        scope.coverSprite.position.copyFrom(pos);
     }
     return { action, target: scope.coverSprite };
 }
@@ -188,7 +188,7 @@ function createRangedShotAction(
         rangedAttackObject.filters = [new BlurFilter(blur)];
         rangedAttackObject.alpha = 0.7;
     }
-    if (world.app.renderer instanceof WebGLRenderer) {
+    if (world.app.renderer instanceof Renderer) {
         rangedAttackObject.blendMode = BLEND_MODES.ADD;
     }
     rangedAttackObject.parentLayer = world.layers.effects;

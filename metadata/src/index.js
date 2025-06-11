@@ -36,10 +36,14 @@ import tombstone from './objects/tombstone.metadata';
 import tower from './objects/tower.metadata';
 import invaderCore from './objects/invaderCore.metadata';
 import ruin from './objects/ruin.metadata';
+import { TilingSprite, Graphics, BLEND_MODES, filters } from 'pixi.js';
 
-const { VoidFilter } = PIXI.filters;
-const { TilingSprite } = PIXI.extras;
-const { Graphics, BLEND_MODES } = PIXI;
+// Add a pass-through filter for lighting
+class PassThroughFilter extends PIXI.Filter {
+  constructor() {
+    super(undefined, undefined, {});
+  }
+}
 
 export default {
     preprocessors: [
@@ -61,7 +65,7 @@ export default {
                     sprite.y = (-CELL_SIZE / 2) + (flipY ? VIEW_BOX - CELL_SIZE : 0);
                     sprite.tileScale.x = CELL_SIZE / texture.width;
                     sprite.tileScale.y = CELL_SIZE / texture.height;
-                    if (!(app.renderer instanceof PIXI.WebGLRenderer)) {
+                    if (!(app.renderer instanceof PIXI.Renderer)) {
                         sprite.tint = 0xa0a0a0;
                     } else {
                         if (lighting === 'disabled') {
@@ -89,11 +93,10 @@ export default {
             id: 'lighting',
             afterCreate: async (layer, { app, world: { options: { CELL_SIZE,
                 HALF_CELL_SIZE = CELL_SIZE / 2, VIEW_BOX, lighting = 'normal' } } }) => {
-                if (lighting !== 'disabled' && app.renderer instanceof PIXI.WebGLRenderer) {
-                    layer.filters = [new VoidFilter()];
-                    layer.filters[0].blendMode = PIXI.BLEND_MODES.MULTIPLY;
-
-                    const ambient = new PIXI.Graphics();
+                if (lighting !== 'disabled' && app.renderer instanceof PIXI.Renderer) {
+                    layer.filters = [new PassThroughFilter()];
+                    layer.filters[0].blendMode = BLEND_MODES.MULTIPLY;
+                    const ambient = new Graphics();
                     ambient.beginFill(0x808080, 1.0);
                     ambient.drawRect(-HALF_CELL_SIZE, -HALF_CELL_SIZE, VIEW_BOX, VIEW_BOX);
                     ambient.endFill();
@@ -105,7 +108,7 @@ export default {
 
                     layer.on('display', (element) => {
                         if (!element._overrideBlendMode) {
-                            element.blendMode = PIXI.BLEND_MODES.SCREEN;
+                            element.blendMode = BLEND_MODES.SCREEN;
                         }
                     });
                 } else {
