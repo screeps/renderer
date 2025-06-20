@@ -62,9 +62,11 @@ declare module 'render-engine' {
         applyState(state: State, tickDuration: number, globalOnly: boolean): void;
 
         runStatePreprocessor(preprocessors: Array<Preprocessor>,
-                             preprocessorParams: PreprocessorParams);
+                             preprocessorParams: PreprocessorParams);        release(): void;
 
-        release(): void;
+        getCachedResource(name: string): any;
+
+        getResource(name: string, url?: string): Promise<any>;
 
         get metrics(): Metrics;
 
@@ -121,17 +123,7 @@ declare module 'render-engine' {
 
         destructProcessor(scope: Scope,
                           processorMetadata: ProcessorMetadata,
-                          processorParams: ProcessorParams): void;
-
-        get rendererCounter(): number;
-    }
-
-    export class ResourceManager {
-        constructor(options: { logger: object, app: Application })
-        load(): Promise<ResourceDictionary>;
-        getResource(name: string, ...params: any[]): Promise<ResourceDictionary>;
-        getCachedResource(name: string): void|Resource;
-        release(): void;
+                          processorParams: ProcessorParams): void;        get rendererCounter(): number;
     }
 
     export type Metadata = {
@@ -441,11 +433,8 @@ declare module 'render-engine' {
 
     export interface CalculationParams extends StateParams {
         payload?: object;
-    }
-
-    export interface LayerParams {
+    }    export interface LayerParams {
         app: Application;
-        resourceManager: ResourceManager;
         world: World;
     }
 

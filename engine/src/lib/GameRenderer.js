@@ -106,7 +106,7 @@ export default class GameRenderer {
             width, 
             height,
             antialias: true,
-            transparent: !backgroundColor,
+            backgroundAlpha: backgroundColor ? 1 : 0,
             forceCanvas: worldConfigs.forceCanvas,
         });
         this.app = app;

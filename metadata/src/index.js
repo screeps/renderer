@@ -36,7 +36,6 @@ import tombstone from './objects/tombstone.metadata';
 import tower from './objects/tower.metadata';
 import invaderCore from './objects/invaderCore.metadata';
 import ruin from './objects/ruin.metadata';
-import { TilingSprite, Graphics, BLEND_MODES, filters } from 'pixi.js';
 
 // Add a pass-through filter for lighting
 class PassThroughFilter extends PIXI.Filter {
@@ -50,15 +49,14 @@ export default {
         // 'setBadgeUrls',
         'terrain',
     ],
-    layers: [
+    layers: [        
         {
             id: 'terrain',
-            afterCreate: async (layer, { app, resourceManager,
-                world: { options: { VIEW_BOX, CELL_SIZE,
-                    lighting = 'normal' } } }) => {
+            afterCreate: (layer, { app, world: { options: { VIEW_BOX, CELL_SIZE,
+                    lighting = 'normal' } } }) => {                
                 function setupExits(textureName, tileX, tileY, flipX, flipY) {
-                    const { texture } = resourceManager.getCachedResource(textureName);
-                    const sprite = new TilingSprite(texture,
+                    const texture = PIXI.Assets.get(textureName);
+                    const sprite = new PIXI.TilingSprite(texture,
                         tileX ? VIEW_BOX : CELL_SIZE,
                         tileY ? VIEW_BOX : CELL_SIZE);
                     sprite.x = (-CELL_SIZE / 2) + (flipX ? VIEW_BOX - CELL_SIZE : 0);
@@ -75,10 +73,11 @@ export default {
                             sprite.tint = 0xc0c0c0;
                         }
                     }
-                    sprite.blendMode = BLEND_MODES.ADD;
+                    sprite.blendMode = PIXI.BLEND_MODES.ADD;
                     sprite.alpha = 0.5;
                     sprite.zIndex = 1;
-                    layer.addChild(sprite);
+                    app.stage.addChild(sprite);
+                    sprite.parentLayer = layer;
                 }
 
                 setupExits('exit-left', false, true, false, false);
@@ -91,16 +90,24 @@ export default {
         { id: 'objects', isDefault: true },
         {
             id: 'lighting',
-            afterCreate: async (layer, { app, world: { options: { CELL_SIZE,
+            afterCreate: (layer, { app, world: { options: { CELL_SIZE,
                 HALF_CELL_SIZE = CELL_SIZE / 2, VIEW_BOX, lighting = 'normal' } } }) => {
                 if (lighting !== 'disabled' && app.renderer instanceof PIXI.Renderer) {
                     layer.filters = [new PassThroughFilter()];
-                    layer.filters[0].blendMode = BLEND_MODES.MULTIPLY;
-                    const ambient = new Graphics();
+                    layer.filters[0].blendMode = PIXI.BLEND_MODES.MULTIPLY;
+                    layer.filterArea = app.renderer.screen;
+                    const ambient = new PIXI.Graphics();
                     ambient.beginFill(0x808080, 1.0);
                     ambient.drawRect(-HALF_CELL_SIZE, -HALF_CELL_SIZE, VIEW_BOX, VIEW_BOX);
                     ambient.endFill();
+                    // Protect ambient from display hook blendMode changes
+                    ambient._overrideBlendMode = true;
+                    // Attach ambient to the lighting layer; do not re-add the layer to stage,
+                    // otherwise layers order may break and elements appear on wrong layers.
                     layer.addChild(ambient);
+                    // Keep explicit assignment for consistency with other display objects
+                    // that rely on parentLayer-based routing.
+                    ambient.parentLayer = layer;
 
                     if (lighting === 'low') {
                         layer.alpha = 0.5;
@@ -108,8 +115,9 @@ export default {
 
                     layer.on('display', (element) => {
                         if (!element._overrideBlendMode) {
-                            element.blendMode = BLEND_MODES.SCREEN;
+                            element.blendMode = PIXI.BLEND_MODES.SCREEN;
                         }
+                        // console.log(element.parentLayer.__id);
                     });
                 } else {
                     layer.on('display', (element) => {

@@ -2,27 +2,26 @@
  * Created by vedi on 18/03/2017.
  */
 
-import 'pixi-layers';
-import 'pixi-filters';
 import { Container, Renderer, Graphics } from 'pixi.js';
+import { Stage, Layer } from '@pixi/layers';
+import { Assets } from '@pixi/assets';
 
-import ResourceManager from './ResourceManager';
 import PROCESSORS from './processors';
 import actionHelper from './utils/actionHelper';
 import GameObject from './GameObject';
 
-window.PIXI.display.Group.compareZIndex = function (a, b) {
-   if (a.zIndex !== b.zIndex) {
-       return a.zIndex - b.zIndex;
-   }
-   if (a.zOrder > b.zOrder) {
-       return -1;
-   }
-   if (a.zOrder < b.zOrder) {
-       return 1;
-   }
-   return a.updateOrder - b.updateOrder;
-}
+// window.PIXI.display.Group.compareZIndex = function (a, b) {
+//    if (a.zIndex !== b.zIndex) {
+//        return a.zIndex - b.zIndex;
+//    }
+//    if (a.zOrder > b.zOrder) {
+//        return -1;
+//    }
+//    if (a.zOrder < b.zOrder) {
+//        return 1;
+//    }
+//    return a.updateOrder - b.updateOrder;
+// }
 
 export default class World {
     constructor(options) {
@@ -59,15 +58,15 @@ export default class World {
         });
 
         // renderer stuff
-        app.stage = new window.PIXI.display.Stage(); // Use Container as the root stage
+    app.stage = new Stage(); // Use Container as the root stage
+    // Ensure zIndex is respected for layers ordering
+    app.stage.sortableChildren = true;
         app.stage.pivot.x = -CELL_SIZE / 2;
-        app.stage.pivot.y = -CELL_SIZE / 2;
+        app.stage.pivot.y = -CELL_SIZE / 2;        
         this.app = app;
         this.stage = app.stage;
         this.stage.actionManager = actionManager;
         this.resourceMap = resourceMap;
-        this.resourceManager = new ResourceManager({ logger, world: this });
-        this.stage.resourceManager = this.resourceManager;
         this.layers = {};
         this.defaultLayerId = null;
         this.unmaskedRendererInfo = null;
@@ -83,15 +82,39 @@ export default class World {
         mask.drawRect(-CELL_SIZE / 2, -CELL_SIZE / 2, VIEW_BOX, VIEW_BOX);
         app.stage.addChild(mask);
         app.stage.mask = mask;*/
-    }
-
+    }    
     async init() {
-        const { stage } = this;
-        stage.resources = await this.resourceManager.load(this.resourceMap);
-        this.metadata.layers.forEach(async ({ id, isDefault = false, afterCreate = () => {} }) => {
-            const layer = new window.PIXI.display.Layer();
+        const { options: { logger } } = this;
+        
+        try {
+            // Add all assets to the Assets loader
+            Object.keys(this.resourceMap).forEach(key => {
+                Assets.add(key, this.resourceMap[key]);
+            });
+            
+            
+            // Load all assets
+            logger.debug('Loading resources...');
+            await Assets.load(Object.keys(this.resourceMap));
+            logger.debug('Resources loaded successfully');
+        } catch (err) {
+            logger.error('Failed to load resources:', err);
+            throw err;
+        }
+
+        this.metadata.layers.forEach(({ id, isDefault = false, afterCreate = () => {} }, index) => {
+            const layer = new Layer();
+            layer.__id = id;
             layer.group.enableSort = true;
-            stage.addChild(layer);
+            // Ensure children are sorted by their zIndex property
+            layer.group.on('sort', (sprite) => {
+                // Map zIndex (used across our code) to zOrder (used by @pixi/layers)
+                sprite.zOrder = sprite.zIndex || 0;
+            });
+            // Sorting should also consider children whose parentLayer differs from their parent
+            layer.group.sortPriority = 1;
+            layer.zIndex = index;
+            this.stage.addChild(layer);
             this.layers[id] = layer;
             if (isDefault) {
                 if (this.defaultLayerId) {
@@ -99,9 +122,8 @@ export default class World {
                 }
                 this.defaultLayerId = id;
             }
-            await afterCreate(layer, {
+            afterCreate(layer, {
                 app: this.app,
-                resourceManager: this.resourceManager,
                 world: this,
             });
         });
@@ -166,10 +188,32 @@ export default class World {
 
     runStatePreprocessor(preprocessors = [], preprocessorParams) {
         preprocessors.forEach(preprocessor => preprocessor(preprocessorParams));
-    }
-
+    }    
+    
     release() {
-        this.resourceManager.release();
+        Assets.reset();
+    }   
+
+    async getResource(name, url = name) {
+        const { options: { logger } } = this;
+        
+        // Check if already cached
+        const cached = Assets.get(name);
+        if (cached) {
+            logger.debug(`Getting cached resource ${name}`);
+            return cached;
+        }
+
+        // Load new resource
+        try {
+            logger.debug(`Loading resource ${name}`);
+            Assets.add(name, url);
+            const resource = await Assets.load(name);
+            return resource;
+        } catch (err) {
+            logger.warn(`Failed to load resource ${name}:`, err);
+            throw err;
+        }
     }
 
     get metrics() {
@@ -178,11 +222,8 @@ export default class World {
         Object.values(this.gameObjects).forEach((gameObject) => {
             gameObjectCounter += 1;
             rendererCounter += gameObject.rendererCounter;
-        });
-
-        const rendererMetrics = {
+        });        const rendererMetrics = {
             size: this.app.renderer.width,
-            maxSvgSize: this.resourceManager.maxSvgSize,
         };
         if (this.app.renderer instanceof Renderer) {
             Object.assign(rendererMetrics, {

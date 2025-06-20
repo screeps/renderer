@@ -3,6 +3,7 @@
  */
 
 import { Graphics, Sprite } from 'pixi.js';
+import { Assets } from '@pixi/assets';
 
 const maxParts = 50;
 const ANGLE_SHIFT = -Math.PI / 2;
@@ -59,8 +60,8 @@ function createBodyPartSprite(color, startAngle, endAngle, parent, bodySprites, 
     return bodyPartBarSprite;
 }
 
-function createToughSprite(resources, parent, bodySprites) {
-    const toughSprite = new Sprite(resources.tough.texture);
+function createToughSprite(parent, bodySprites) {
+    const toughSprite = new Sprite(Assets.get('tough'));
     toughSprite.width = 120;
     toughSprite.height = 120;
     toughSprite.anchor.x = 0.5;
@@ -91,8 +92,6 @@ export default ({
         parentId,
     } = {},
 }) => {
-    const { resources } = stage;
-
     const parent = parentId ? scope[parentId] : rootContainer;
     if (!parent) {
         logger.warn('No parent available with id', parentId);
@@ -154,6 +153,6 @@ export default ({
     });
 
     if (safeBody(body).filter(({ type, hits }) => type === 'tough' && hits > 0).length > 0) {
-        createToughSprite(resources, parent, scope.bodySprites);
+        createToughSprite(parent, scope.bodySprites);
     }
 };

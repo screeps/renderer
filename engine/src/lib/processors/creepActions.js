@@ -3,6 +3,7 @@
  */
 
 import { Graphics, Sprite, filters, BLEND_MODES, Container, Renderer } from 'pixi.js';
+import { Assets } from '@pixi/assets';
 import { calculateAngle, convertGameXYToWorld } from '../../../../helpers/mathHelper';
 
 import { AlphaTo, CallFunc, MoveBy, RotateTo, Sequence, DelayTime } from '../actions';
@@ -24,7 +25,7 @@ const COLORS = {
     transferEnergy: 0xffe533,
 };
 
-function createCoverSprite(resources, rootContainer, scope, world) {
+function createCoverSprite(rootContainer, scope, world) {
     const container = new Container();
     container.position.set(rootContainer.position.x, rootContainer.position.y);
     container.alpha = 0;
@@ -34,7 +35,7 @@ function createCoverSprite(resources, rootContainer, scope, world) {
     // we need to remove it manually because it is added to the parent
     rootContainer.on('removed', () => container.destroy());
 
-    const cover = new Sprite(resources.cover.texture);
+    const cover = new Sprite(Assets.get('cover'));
     // coverSprite.blendMode = BLEND_MODES.ADD;
     // coverSprite.width = 150;
     // coverSprite.height = 150;
@@ -45,7 +46,7 @@ function createCoverSprite(resources, rootContainer, scope, world) {
     cover.parentLayer = world.layers.effects;
     container.addChild(cover);
 
-    const flare = new Sprite(resources.flare2.texture);
+    const flare = new Sprite(Assets.get('flare2'));
     flare.blendMode = BLEND_MODES.ADD;
     flare.width = 300;
     flare.height = 300;
@@ -55,7 +56,7 @@ function createCoverSprite(resources, rootContainer, scope, world) {
     flare.parentLayer = world.layers.effects;
     container.addChild(flare);
 
-    const coverLighting = new Sprite(resources.glow.texture);
+    const coverLighting = new Sprite(Assets.get('glow'));
     coverLighting.anchor.x = 0.5;
     coverLighting.anchor.y = 0.5;
     coverLighting.x = 0;
@@ -67,8 +68,8 @@ function createCoverSprite(resources, rootContainer, scope, world) {
     container.addChild(coverLighting);
 }
 
-function createChildCoverSprite(resources, parent, scope, world) {
-    const sprite = new Sprite(resources.cover.texture);
+function createChildCoverSprite(parent, scope, world) {
+    const sprite = new Sprite(Assets.get('cover'));
     sprite.anchor.x = 0.5;
     sprite.anchor.y = 0.5;
     sprite.alpha = 0;
@@ -248,12 +249,11 @@ export default (params) => {
     }
     if (!prevState) {
         return;
-    }
-    if (!scope.coverSprite) {
-        createCoverSprite(stage.resources, rootContainer, scope, world);
+    }    if (!scope.coverSprite) {
+        createCoverSprite(rootContainer, scope, world);
     }
     if (!scope.childCoverSprite) {
-        createChildCoverSprite(stage.resources, parent, scope, world);
+        createChildCoverSprite(parent, scope, world);
     }
 
     const actionsToApply = [];

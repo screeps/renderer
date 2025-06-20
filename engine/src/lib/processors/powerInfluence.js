@@ -3,6 +3,7 @@
  */
 
 import { Sprite, Container } from 'pixi.js';
+import { Assets } from '@pixi/assets';
 import constants from '@screeps/common/lib/constants';
 
 import { convertGameXYToWorld } from '../../../../helpers/mathHelper';
@@ -58,7 +59,7 @@ function createCoverSprite(texture, rootContainer, scope, world) {
     // we need to remove it manually because it is added to the parent
     rootContainer.on('removed', () => container.destroy());
 
-    const cover = new Sprite(texture.texture);
+    const cover = new Sprite(texture);
     cover.anchor.x = 0.5;
     cover.anchor.y = 0.5;
     cover.width = 300;
@@ -124,8 +125,7 @@ export default (params) => {
         const textureKey = INFLUENCE_TEXTURE[power.id];
         if (!textureKey) {
             console.log('No texture key provided for power id', power.id);
-        }
-        const texture = stage.resources[textureKey];
+        }        const texture = Assets.get(textureKey);
         if (!texture) {
             console.log('No texture provided for key ', textureKey);
         }

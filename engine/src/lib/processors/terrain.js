@@ -6,6 +6,7 @@ import {
     BLEND_MODES, TilingSprite, filters, Point, RenderTexture, Sprite, Texture,
     Renderer, Graphics,
 } from 'pixi.js';
+import { Assets } from '@pixi/assets';
 
 import pathHelper from '../pathHelper';
 import actionHelper from '../utils/actionHelper';
@@ -111,85 +112,68 @@ export default (params) => {
             swampObjects = [];
             terrainObjects.swampObjects = swampObjects;
         }
-        if (app.renderer instanceof Renderer) {
-            let tint;
-            if (lighting === 'disabled') {
-                tint = 0x808080;
-            } else if (lighting === 'low') {
-                tint = 0xa0a0a0;
-            } else {
-                tint = 0xFFFFFF;
-            }
-            let fill = swampTexture !== 'disabled' ? '#4a501e' : '#465c03';
-            if (decorationFloorLandscape) {
-                fill = decorationFloorLandscape.swampColor;
-            }
-            let stroke = swampTexture !== 'disabled' ? '#4a501e' : '#3b4019';
-            if (decorationFloorLandscape) {
-                stroke = decorationFloorLandscape.swampStrokeColor;
-            }
-            swampObjects[0] = setupObject(
-                buildSvg(
-                    swampPath,
-                    { size, VIEW_BOX },
-                    {
-                        fill,
-                        stroke,
-                        'stroke-width': decorationFloorLandscape ? decorationFloorLandscape.swampStrokeWidth : 50,
-                        'paint-order': 'stroke',
-                    }
-                ),
-                {
-                    alpha: 0.4,
-                    tint,
-                }
-            );
-
-            if (swampTexture !== 'disabled') {
-                swampObjects[1] = setupObject(buildSvg(swampPath, { size, VIEW_BOX }, { fill: '#fff' }),
-                    { alpha: 0.25 });
-                swampObjects[2] = setupObject(buildSvg(swampPath, { size, VIEW_BOX }, { fill: '#fff' }),
-                    { alpha: 0.25 });
-                swampObjects[3] = setupObject(
-                    new TilingSprite(stage.resources.noise2.texture, VIEW_BOX, VIEW_BOX),
-                    {
-                        alpha: lighting === 'normal' ? 0.3 : 0.15,
-                        blendMode: BLEND_MODES.ADD,
-                        mask: swampObjects[1],
-                        tileScale: new Point(10, 10),
-                        tint: 0x66FF00,
-                    }
-                );
-
-                swampObjects[4] = setupObject(
-                    new TilingSprite(stage.resources.noise2.texture, VIEW_BOX, VIEW_BOX),
-                    {
-                        alpha: lighting === 'normal' ? 0.3 : 0.15,
-                        blendMode: BLEND_MODES.ADD,
-                        tileScale: new Point(14, 14),
-                        mask: swampObjects[2],
-                        tint: 0x66FF00,
-                    }
-                );
-
-                if (swampTexture === 'animated') {
-                    addTilePositionAnimation(swampObjects[3], 1.5, 1.5);
-                    addTilePositionAnimation(swampObjects[4], -1.35, -1.35);
-                }
-            }
+        
+        let tint;
+        if (lighting === 'disabled') {
+            tint = 0x808080;
+        } else if (lighting === 'low') {
+            tint = 0xa0a0a0;
         } else {
-            swampObjects[0] = setupObject(
-                buildSvg(
-                    swampPath,
-                    { size, VIEW_BOX },
-                    {
-                        fill: decorationFloorLandscape ? decorationFloorLandscape.swampColor : '#292b18',
-                        stroke: decorationFloorLandscape ? decorationFloorLandscape.swampStrokeColor : '#252715',
-                        'stroke-width': decorationFloorLandscape ? decorationFloorLandscape.swampStrokeWidth : 50,
-                        'paint-order': 'stroke',
-                    }
-                )
+            tint = 0xFFFFFF;
+        }
+        let fill = swampTexture !== 'disabled' ? '#4a501e' : '#465c03';
+        if (decorationFloorLandscape) {
+            fill = decorationFloorLandscape.swampColor;
+        }
+        let stroke = swampTexture !== 'disabled' ? '#4a501e' : '#3b4019';
+        if (decorationFloorLandscape) {
+            stroke = decorationFloorLandscape.swampStrokeColor;
+        }
+        swampObjects[0] = setupObject(
+            buildSvg(
+                swampPath,
+                { size, VIEW_BOX },
+                {
+                    fill,
+                    stroke,
+                    'stroke-width': decorationFloorLandscape ? decorationFloorLandscape.swampStrokeWidth : 50,
+                    'paint-order': 'stroke',
+                }
+            ),
+            {
+                alpha: 0.4,
+                tint,
+            }
+        );
+
+        if (swampTexture !== 'disabled') {
+            swampObjects[1] = setupObject(buildSvg(swampPath, { size, VIEW_BOX }, { fill: '#fff' }),
+                { alpha: 0.25 });
+            swampObjects[2] = setupObject(buildSvg(swampPath, { size, VIEW_BOX }, { fill: '#fff' }),
+                { alpha: 0.25 });                swampObjects[3] = setupObject(
+                new TilingSprite(Assets.get('noise2'), VIEW_BOX, VIEW_BOX),
+                {
+                    alpha: lighting === 'normal' ? 0.3 : 0.15,
+                    blendMode: BLEND_MODES.ADD,
+                    mask: swampObjects[1],
+                    tileScale: new Point(10, 10),
+                    tint: 0x66FF00,
+                }
+            );                swampObjects[4] = setupObject(
+                new TilingSprite(Assets.get('noise2'), VIEW_BOX, VIEW_BOX),
+                {
+                    alpha: lighting === 'normal' ? 0.3 : 0.15,
+                    blendMode: BLEND_MODES.ADD,
+                    tileScale: new Point(14, 14),
+                    mask: swampObjects[2],
+                    tint: 0x66FF00,
+                }
             );
+
+            if (swampTexture === 'animated') {
+                addTilePositionAnimation(swampObjects[3], 1.5, 1.5);
+                addTilePositionAnimation(swampObjects[4], -1.35, -1.35);
+            }
         }
     }
 
@@ -268,124 +252,111 @@ export default (params) => {
         let { wallObjects } = terrainObjects;
         const wallObjectsToDestroy = wallObjects || [];
         wallObjects = [];
-        terrainObjects.wallObjects = wallObjects;
+        terrainObjects.wallObjects = wallObjects;        
+        
+        wallObjects[0] = RenderTexture.create({ width: size.width, height: size.height });
 
-        if (app.renderer instanceof Renderer) {
-            wallObjects[0] = RenderTexture.create(size.width, size.height);
+        wallObjects[1] = setupObject(new Sprite(Texture.WHITE), {
+            zIndex: 2,
+            visible: false,
+        });
 
-            wallObjects[1] = setupObject(new Sprite(Texture.WHITE), {
-                zIndex: 2,
-                visible: false,
-            });
+        let backgroundFill = lighting === 'disabled' ? '#181818' : '#111';
+        let stroke = '#000';
+        if (decorationWallLandscape) {
+            backgroundFill = colorBrightness(decorationWallLandscape.backgroundColor,
+                decorationWallLandscape.backgroundBrightness);
 
-            let backgroundFill = lighting === 'disabled' ? '#181818' : '#111';
-            let stroke = '#000';
-            if (decorationWallLandscape) {
-                backgroundFill = colorBrightness(decorationWallLandscape.backgroundColor,
-                    decorationWallLandscape.backgroundBrightness);
+            stroke = colorBrightness(decorationWallLandscape.strokeColor,
+                decorationWallLandscape.strokeBrightness);
 
-                stroke = colorBrightness(decorationWallLandscape.strokeColor,
-                    decorationWallLandscape.strokeBrightness);
-
-                if (lighting === 'disabled') {
-                    backgroundFill = multiply(backgroundFill, 0.5);
-                    stroke = multiply(stroke, 0.3);
-                }
+            if (lighting === 'disabled') {
+                backgroundFill = multiply(backgroundFill, 0.5);
+                stroke = multiply(stroke, 0.3);
             }
-
-            const base = buildSvg(
-                wallPath,
-                { size, VIEW_BOX },
-                {
-                    fill: backgroundFill,
-                    stroke,
-                    'stroke-width': decorationWallLandscape ? decorationWallLandscape.strokeWidth : 10,
-                    'paint-order': 'stroke',
-                });
-
-            actionHelper.onTextureLoaded(base.texture, () => {
-                app.renderer.render(base, wallObjects[0]);
-                base.destroy(true);
-            });
-
-            const mask = buildSvg(wallPath, { size, VIEW_BOX }, { fill: '#fff' });
-            if (terrainObjects.wallMask.texture !== Texture.EMPTY) {
-                terrainObjects.wallMask.texture.destroy(true);
-            }
-            terrainObjects.wallMask.texture = mask.texture;
-            actionHelper.onTextureLoaded(mask.texture, () => {
-                if (lighting !== 'disabled') {
-                    const bump = new TilingSprite(stage.resources.noise1.texture, VIEW_BOX,
-                        VIEW_BOX);
-                    Object.assign(bump, {
-                        alpha: 0.2,
-                        blendMode: BLEND_MODES.ADD,
-                        tileScale: new Point(8 * sizeRatio, 8 * sizeRatio),
-                        mask,
-                    });
-                    app.renderer.render(bump, wallObjects[0], false);
-                    bump.destroy();
-                }
-                mask.destroy();
-                actionHelper.enableTextureMipmap(app.renderer, wallObjects[0].baseTexture);
-                [wallObjects[1].texture] = wallObjects;
-                wallObjects[1].visible = true;
-                if (wallObjectsToDestroy[1]) {
-                    wallObjectsToDestroy[1].destroy(true);
-                }
-            });
-
-            wallObjects[2] = RenderTexture.create(size.width, size.height);
-
-            wallObjects[3] = setupObject(new Sprite(Texture.WHITE), {
-                parentLayer: lightingLayer,
-                _overrideBlendMode: true,
-                blendMode: BLEND_MODES.MULTIPLY,
-                visible: false,
-            });
-
-            const shadow = buildSvg(wallPath, { size, VIEW_BOX }, { fill: '#000' });
-
-            actionHelper.onTextureLoaded(shadow.texture, () => {
-                shadow.filters = [new BlurFilter(size.width * WALLS_BLUR)];
-                app.renderer.render(shadow, wallObjects[2]);
-                shadow.destroy(true);
-                actionHelper.enableTextureMipmap(app.renderer, wallObjects[2].baseTexture);
-                [,, wallObjects[3].texture] = wallObjects;
-                wallObjects[3].visible = true;
-                if (wallObjectsToDestroy[3]) {
-                    wallObjectsToDestroy[3].destroy(true);
-                }
-            });
-
-            wallObjects[4] = setupObject(buildSvg(wallPath, { size, VIEW_BOX },
-                {
-                    fill: '#808080',
-                    stroke: decorationWallLandscape ? hslToRgbStr(0, 0, decorationWallLandscape.strokeLighting) : '#000000',
-                    'stroke-width': decorationWallLandscape ? decorationWallLandscape.strokeWidth : 10,
-                    'paint-order': 'stroke',
-                }),
-            { parentLayer: lightingLayer, visible: false });
-
-            actionHelper.onTextureLoaded(wallObjects[4].texture, () => {
-                wallObjects[4].visible = true;
-                if (wallObjectsToDestroy[4]) {
-                    wallObjectsToDestroy[4].destroy(true);
-                }
-            });
-        } else {
-            wallObjects[0] = setupObject(buildSvg(
-                wallPath,
-                { size, VIEW_BOX },
-                { fill: '#111', stroke: '#000', 'stroke-width': 10, 'paint-order': 'stroke' }
-            ), { zIndex: 2, visible: false });
-            actionHelper.onTextureLoaded(wallObjects[0].texture, () => {
-                wallObjects[0].visible = true;
-                if (wallObjectsToDestroy[0]) {
-                    wallObjectsToDestroy[0].destroy();
-                }
-            });
         }
+        
+        const base = buildSvg(
+            wallPath,
+            { size, VIEW_BOX },
+            {
+                fill: backgroundFill,
+                stroke,
+                'stroke-width': decorationWallLandscape ? decorationWallLandscape.strokeWidth : 10,
+                'paint-order': 'stroke',
+            });            
+        actionHelper.onTextureLoaded(base.texture, () => {
+            app.renderer.render(base, { renderTexture: wallObjects[0] });
+            base.destroy(true);
+        });
+
+        const mask = buildSvg(wallPath, { size, VIEW_BOX }, { fill: '#fff' });
+        if (terrainObjects.wallMask.texture !== Texture.EMPTY) {
+            terrainObjects.wallMask.texture.destroy(true);
+        }
+        terrainObjects.wallMask.texture = mask.texture;
+        actionHelper.onTextureLoaded(mask.texture, () => {               
+            if (lighting !== 'disabled') {
+                const bump = new TilingSprite(Assets.get('noise1'), VIEW_BOX,
+                    VIEW_BOX);
+                Object.assign(bump, {
+                    alpha: 0.2,
+                    blendMode: BLEND_MODES.ADD,
+                    tileScale: new Point(8 * sizeRatio, 8 * sizeRatio),
+                    mask,
+                });                    
+                app.renderer.render(bump, { renderTexture: wallObjects[0], clear: false });
+                bump.destroy();
+            }
+            mask.destroy();
+            actionHelper.enableTextureMipmap(app.renderer, wallObjects[0].baseTexture);
+            [wallObjects[1].texture] = wallObjects;
+            wallObjects[1].visible = true;
+            if (wallObjectsToDestroy[1]) {
+                wallObjectsToDestroy[1].destroy(true);
+            }
+        });
+
+        wallObjects[2] = RenderTexture.create({ width: size.width, height: size.height });
+
+        wallObjects[3] = setupObject(new Sprite(Texture.WHITE), {
+            parentLayer: lightingLayer,
+            _overrideBlendMode: true,
+            blendMode: BLEND_MODES.MULTIPLY,
+            zIndex: 1,
+            visible: false,
+        });
+
+        const shadow = buildSvg(wallPath, { size, VIEW_BOX }, { fill: '#000' });
+
+        actionHelper.onTextureLoaded(shadow.texture, () => {
+            shadow.filters = [new BlurFilter(size.width * WALLS_BLUR)];
+            app.renderer.render(shadow, { renderTexture: wallObjects[2] });
+            shadow.destroy(true);
+            actionHelper.enableTextureMipmap(app.renderer, wallObjects[2].baseTexture);
+            [,, wallObjects[3].texture] = wallObjects;
+            wallObjects[3].visible = true;
+            if (wallObjectsToDestroy[3]) {
+                wallObjectsToDestroy[3].destroy(true);
+            }
+        });
+
+        wallObjects[4] = setupObject(buildSvg(wallPath, { size, VIEW_BOX },
+            {
+                    fill: '#808080',
+                stroke: decorationWallLandscape ? hslToRgbStr(0, 0, decorationWallLandscape.strokeLighting) : '#000000',
+                'stroke-width': decorationWallLandscape ? decorationWallLandscape.strokeWidth : 10,
+                'paint-order': 'stroke',
+            }),
+    { parentLayer: lightingLayer, zIndex: 2, visible: false });
+
+        actionHelper.onTextureLoaded(wallObjects[4].texture, () => {
+            wallObjects[4].visible = true;
+            if (wallObjectsToDestroy[4]) {
+                wallObjectsToDestroy[4].destroy(true);
+            }
+        });
+        
     }
 
     // Floor
@@ -416,7 +387,8 @@ export default (params) => {
         background.beginFill(fill);
         background.drawRect(-HALF_CELL_SIZE, -HALF_CELL_SIZE, VIEW_BOX, VIEW_BOX);
         background.endFill();
-        terrainLayer.addChild(background);
+        stage.addChild(background);
+        background.parentLayer = terrainLayer;
         terrainObjects.previousFloor.background = background;
 
         let ground;
@@ -446,10 +418,9 @@ export default (params) => {
                 width: VIEW_BOX,
                 height: VIEW_BOX,
                 alpha: decorationFloorLandscape.floorForegroundAlpha,
-                tint,
-            });
+                tint,            });
         } else {
-            ground = new TilingSprite(stage.resources.ground.texture, VIEW_BOX, VIEW_BOX);
+            ground = new TilingSprite(Assets.get('ground'), VIEW_BOX, VIEW_BOX);
             ground.x = -HALF_CELL_SIZE;
             ground.y = -HALF_CELL_SIZE;
             ground.tileScale.x = 3;
@@ -459,10 +430,10 @@ export default (params) => {
             } else if (lighting === 'low') {
                 ground.alpha = 0.1;
             } else {
-                ground.alpha = 0.2;
+                ground.alpha = 0.2;            
             }
 
-            const ground2 = new TilingSprite(stage.resources['ground-mask'].texture, VIEW_BOX, VIEW_BOX);
+            const ground2 = new TilingSprite(Assets.get('ground-mask'), VIEW_BOX, VIEW_BOX);
             ground2.x = -HALF_CELL_SIZE;
             ground2.y = -HALF_CELL_SIZE;
             ground2.tileScale.x = 7;
@@ -476,9 +447,11 @@ export default (params) => {
                 ground2.alpha = 0.1;
             }
             terrainObjects.previousFloor.ground2 = ground2;
-            terrainLayer.addChild(ground2);
+            stage.addChild(ground2);
+            ground2.parentLayer = terrainLayer;
         }
-        terrainLayer.addChild(ground);
+        stage.addChild(ground);
+        ground.parentLayer = terrainLayer;
         terrainObjects.previousFloor.ground = ground;
 
         if (floorToDestroy) {

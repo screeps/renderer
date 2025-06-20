@@ -4,6 +4,7 @@
 
 import _ from 'lodash';
 import { Sprite } from 'pixi.js';
+import { Assets } from '@pixi/assets';
 import actionHelper from '../utils/actionHelper';
 
 import container from './container';
@@ -37,7 +38,6 @@ export default (params) => {
             texture = objectTexture,
             ...payload
         } = {},
-        stage: { resourceManager },
         ...otherParams
     } = params;
 
@@ -48,7 +48,7 @@ export default (params) => {
     let resource;
     const parsedTexture = actionHelper.parseExpression(texture, params);
     if (_.isString(parsedTexture)) {
-        resource = resourceManager.getCachedResource(parsedTexture);
+        resource = Assets.get(parsedTexture);
     } else {
         resource = texture;
         if (!resource) {
@@ -67,7 +67,7 @@ export default (params) => {
                 ...otherParams,
             },
             Sprite,
-            [resource.texture]
+            [resource]
         );
         actionHelper.setSvgResizeHandler(world, obj, resource);
         return obj;
@@ -82,7 +82,7 @@ export default (params) => {
                 ...otherParams,
             }
         );
-        resourceManager
+        world
             .getResource(texture)
             .then((loadedResource) => {
                 const obj = object(
@@ -94,7 +94,7 @@ export default (params) => {
                         ...otherParams,
                     },
                     Sprite,
-                    [loadedResource.texture]
+                    [loadedResource]
                 );
                 actionHelper.setSvgResizeHandler(world, obj, loadedResource);
                 obj.zIndex = -1000;

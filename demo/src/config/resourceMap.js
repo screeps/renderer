@@ -5,7 +5,6 @@
 const resourceMap = {
     berserk: 'berserk.svg',
     bodyPartBar: 'bodyPartBar.svg',
-    circle: 'circle.svg',
     'commander-lvl0': 'commander-lvl0.svg',
     'commander-lvl1': 'commander-lvl1.svg',
     'commander-lvl2': 'commander-lvl2.svg',
@@ -71,7 +70,6 @@ const resourceMap = {
     glow: 'glow.png',
     ground: 'ground.png',
     'ground-mask': 'ground-mask.png',
-    'ground-mask2': 'ground-mask2.png',
     kill: 'kill.svg',
     lab: 'lab.svg',
     'lab-highlight': 'lab-highlight.svg',

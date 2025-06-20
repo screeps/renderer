@@ -1,6 +1,4 @@
 import './pixi-global';
-import 'pixi-layers';
-import 'pixi-filters';
 import * as _PIXI from 'pixi.js';
 import _GameRenderer from './lib/GameRenderer';
 

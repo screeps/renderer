@@ -2,7 +2,7 @@
  * Created by vedi on 07/04/2017.
  */
 
-import '../../../metadata/dist/renderer-metadata.js';
+import RENDERER_METADATA from '../../../metadata/src/index';
 export default {
     ATTACK_PENETRATION: 10,
     CELL_SIZE: 100,
@@ -28,6 +28,5 @@ export default {
         showCreepSpeech: false,
         swampTexture: 'animated',
     },
-    lighting: 'normal',
-    forceCanvas: false,
+    lighting: 'normal'
 };

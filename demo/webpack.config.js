@@ -1,5 +1,6 @@
 require('webpack');
 const path = require('path');
+const { optimization } = require('../engine/webpack.config');
 
 const BUILD_DIR = path.resolve(__dirname, 'public');
 const APP_DIR = path.resolve(__dirname, 'src');
@@ -11,7 +12,7 @@ if (process.argv.includes('--watch')) {
     require('./server');
 }
 
-const babelInclude = [APP_DIR, ...(!isProd ? [ENGINE_DIR] : [])];
+const babelInclude = [APP_DIR, ENGINE_DIR];
 
 const config = {
     mode: 'development',
@@ -48,6 +49,9 @@ const config = {
             path: require.resolve('path-browserify'),
         },
     },
+    optimization: {
+        minimize: false
+    }
 };
 
 module.exports = config;

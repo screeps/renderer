@@ -12,4 +12,4 @@ The operating system is Windows 11. Always use absolute paths to set working dir
 
 # Documentation
 
-Migration guide from PixiJS v4 to v5: https://pixijs.com/8.x/guides/migrations/v5
+Migration guide from PixiJS v5 to v6: https://pixijs.com/8.x/guides/migrations/v6

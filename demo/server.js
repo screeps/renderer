@@ -21,6 +21,7 @@ const map = {
     '.svg': 'image/svg+xml',
     '.pdf': 'application/pdf',
     '.doc': 'application/msword',
+    '.map': 'application/json'
 };
 
 const searchPaths = ['./public', '../metadata/images'];
