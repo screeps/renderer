@@ -2,13 +2,13 @@
  * Created by vedi on 19/03/2017.
  */
 
-import { Graphics, Sprite, filters, BLEND_MODES, Container, Renderer } from 'pixi.js';
-import { Assets } from '@pixi/assets';
+import { Graphics, Sprite, BLEND_MODES, Container, Renderer, BlurFilter } from 'pixi.js';
+import * as PIXI from 'pixi.js';
+
+const { Assets } = PIXI;
 import { calculateAngle, convertGameXYToWorld } from '../../../../helpers/mathHelper';
 
 import { AlphaTo, CallFunc, MoveBy, RotateTo, Sequence, DelayTime } from '../actions';
-
-const { BlurFilter } = filters;
 
 const TWEEN_DURATION = 0.6;
 

@@ -3,7 +3,9 @@
  */
 
 import { Sprite, Container } from 'pixi.js';
-import { Assets } from '@pixi/assets';
+import * as PIXI from 'pixi.js';
+
+const { Assets } = PIXI;
 import constants from '@screeps/common/lib/constants';
 
 import { convertGameXYToWorld } from '../../../../helpers/mathHelper';

@@ -4,7 +4,9 @@
 
 import _ from 'lodash';
 import { Sprite } from 'pixi.js';
-import { Assets } from '@pixi/assets';
+import * as PIXI from 'pixi.js';
+
+const { Assets } = PIXI;
 import actionHelper from '../utils/actionHelper';
 
 import container from './container';
@@ -69,7 +71,6 @@ export default (params) => {
             Sprite,
             [resource]
         );
-        actionHelper.setSvgResizeHandler(world, obj, resource);
         return obj;
     } else {
         // wrapping to container
@@ -96,8 +97,7 @@ export default (params) => {
                     Sprite,
                     [loadedResource]
                 );
-                actionHelper.setSvgResizeHandler(world, obj, loadedResource);
-                obj.zIndex = -1000;
+                obj.zIndex = -1000
                 result.addChild(obj);
             });
         return result;

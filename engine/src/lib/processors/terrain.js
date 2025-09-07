@@ -3,16 +3,16 @@
  */
 
 import {
-    BLEND_MODES, TilingSprite, filters, Point, RenderTexture, Sprite, Texture,
+    BLEND_MODES, TilingSprite, BlurFilter, Point, RenderTexture, Sprite, Texture,
     Renderer, Graphics,
 } from 'pixi.js';
-import { Assets } from '@pixi/assets';
+import * as PIXI from 'pixi.js';
+
+const { Assets } = PIXI;
 
 import pathHelper from '../pathHelper';
 import actionHelper from '../utils/actionHelper';
 import { colorBrightness, hslToRgbStr, multiply } from '../utils/hsl';
-
-const { BlurFilter } = filters;
 
 const WALLS_BLUR = 0.006;
 // const SWAMPS_BLUR = 0.017;
@@ -309,7 +309,6 @@ export default (params) => {
                 bump.destroy();
             }
             mask.destroy();
-            actionHelper.enableTextureMipmap(app.renderer, wallObjects[0].baseTexture);
             [wallObjects[1].texture] = wallObjects;
             wallObjects[1].visible = true;
             if (wallObjectsToDestroy[1]) {
@@ -333,7 +332,6 @@ export default (params) => {
             shadow.filters = [new BlurFilter(size.width * WALLS_BLUR)];
             app.renderer.render(shadow, { renderTexture: wallObjects[2] });
             shadow.destroy(true);
-            actionHelper.enableTextureMipmap(app.renderer, wallObjects[2].baseTexture);
             [,, wallObjects[3].texture] = wallObjects;
             wallObjects[3].visible = true;
             if (wallObjectsToDestroy[3]) {

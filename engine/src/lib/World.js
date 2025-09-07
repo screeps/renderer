@@ -4,7 +4,9 @@
 
 import { Container, Renderer, Graphics } from 'pixi.js';
 import { Stage, Layer } from '@pixi/layers';
-import { Assets } from '@pixi/assets';
+import * as PIXI from 'pixi.js';
+
+const { Assets } = PIXI;
 
 import PROCESSORS from './processors';
 import actionHelper from './utils/actionHelper';
@@ -89,7 +91,7 @@ export default class World {
         try {
             // Add all assets to the Assets loader
             Object.keys(this.resourceMap).forEach(key => {
-                Assets.add(key, this.resourceMap[key]);
+                Assets.add({ alias: key, src: this.resourceMap[key] });
             });
             
             
@@ -207,7 +209,7 @@ export default class World {
         // Load new resource
         try {
             logger.debug(`Loading resource ${name}`);
-            Assets.add(name, url);
+            Assets.add({ alias: name, src: url });
             const resource = await Assets.load(name);
             return resource;
         } catch (err) {

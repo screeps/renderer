@@ -2,10 +2,18 @@
  * Created by vedi on 29/08/2017.
  */
 
-import { filters } from 'pixi.js';
+import { BlurFilter } from 'pixi.js';
 import actionHelper from '../utils/actionHelper';
 
-const { BlurFilter } = filters;
+// Helper function to validate and clamp color values for PixiJS v7 compatibility
+function validateColor(value) {
+    if (typeof value === 'number') {
+        // Ensure color value is within valid range (0x000000 to 0xFFFFFF)
+        // Clamp negative values to 0 and large values to maximum
+        return Math.min(0xFFFFFF, Math.max(0, Math.floor(value)));
+    }
+    return value;
+}
 
 export default (params, Class, constructorParams = []) => {
     const {
@@ -78,7 +86,18 @@ export default (params, Class, constructorParams = []) => {
     } else if (anchor.y === undefined) {
         anchor.y = 0.5;
     }
-    Object.assign(object, actionHelper.parseExpression(objectOptions, params));
+    
+    // Parse and validate object options, especially color values
+    const parsedOptions = actionHelper.parseExpression(objectOptions, params);
+    // Validate color properties that might cause issues in PixiJS v7
+    if (parsedOptions.tint !== undefined) {
+        parsedOptions.tint = validateColor(parsedOptions.tint);
+    }
+    if (parsedOptions.backgroundColor !== undefined) {
+        parsedOptions.backgroundColor = validateColor(parsedOptions.backgroundColor);
+    }
+    
+    Object.assign(object, parsedOptions);
     Object.assign(object.scale, actionHelper.parseExpression(scale, params));
     if (object.anchor) {
         Object.assign(object.anchor, actionHelper.parseExpression(anchor, params));

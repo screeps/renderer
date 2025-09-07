@@ -1,9 +1,17 @@
 import TimeableAction from './TimeableAction';
 
+// Helper function to validate color values
+function validateColor(color) {
+    if (typeof color === 'number') {
+        return Math.min(0xFFFFFF, Math.max(0, Math.floor(color)));
+    }
+    return color;
+}
+
 export default class TintTo extends TimeableAction {
     constructor(tint, time) {
         super(time);
-        this.tint = tint;
+        this.tint = validateColor(tint);
         this.reset();
     }
 
@@ -13,7 +21,7 @@ export default class TintTo extends TimeableAction {
     }
 
     finish(container) {
-        container.tint = this.tint;
+        container.tint = validateColor(this.tint);
         super.finish(container);
     }
 
@@ -41,6 +49,10 @@ export default class TintTo extends TimeableAction {
 
     static _packRGB({ r, g, b }) {
         // eslint-disable-next-line no-bitwise
-        return (r << 16) | (g << 8) | b;
+        // Clamp RGB components to valid range (0-255) to prevent invalid color values
+        const clampedR = Math.min(255, Math.max(0, Math.floor(r)));
+        const clampedG = Math.min(255, Math.max(0, Math.floor(g)));
+        const clampedB = Math.min(255, Math.max(0, Math.floor(b)));
+        return (clampedR << 16) | (clampedG << 8) | clampedB;
     }
 }

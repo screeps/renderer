@@ -102,7 +102,11 @@ export function colorBrightness(origColor, brightness) {
         return `#${pad(r)}${pad(g)}${pad(b)}`;
     }
     // eslint-disable-next-line no-bitwise
-    return b + (g << 8) + (r << 16);
+    // Ensure RGB components are clamped to 0-255 range
+    const clampedR = Math.min(255, Math.max(0, Math.round(r)));
+    const clampedG = Math.min(255, Math.max(0, Math.round(g)));
+    const clampedB = Math.min(255, Math.max(0, Math.round(b)));
+    return clampedB + (clampedG << 8) + (clampedR << 16);
 }
 
 export function multiply(origColor, factor) {
@@ -119,5 +123,9 @@ export function multiply(origColor, factor) {
         return `#${pad(r)}${pad(g)}${pad(b)}`;
     }
     // eslint-disable-next-line no-bitwise
-    return b + (g << 8) + (r << 16);
+    // Ensure RGB components are clamped to 0-255 range
+    const clampedR = Math.min(255, Math.max(0, r));
+    const clampedG = Math.min(255, Math.max(0, g));
+    const clampedB = Math.min(255, Math.max(0, b));
+    return clampedB + (clampedG << 8) + (clampedR << 16);
 }

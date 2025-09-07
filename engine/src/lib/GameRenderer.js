@@ -3,13 +3,14 @@
  */
 import _ from 'lodash';
 import * as PIXI from 'pixi.js';
+import { utils } from '@pixi/core';
 import actionHelper from './utils/actionHelper';
 
 import { ActionManager } from './actions';
 import World from './World';
 import * as decorations from './decorations';
 
-const { Application, utils } = PIXI;
+const { Application } = PIXI;
 
 const THRESHOLD = 500;
 
@@ -111,7 +112,7 @@ export default class GameRenderer {
         });
         this.app = app;
         if (backgroundColor) {
-            app.renderer.backgroundColor = backgroundColor;
+            app.renderer.background.color = backgroundColor;
         }
         this.actionManager = new ActionManager();
         this.world = new World({

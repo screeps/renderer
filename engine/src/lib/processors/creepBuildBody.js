@@ -3,7 +3,9 @@
  */
 
 import { Graphics, Sprite } from 'pixi.js';
-import { Assets } from '@pixi/assets';
+import * as PIXI from 'pixi.js';
+
+const { Assets } = PIXI;
 
 const maxParts = 50;
 const ANGLE_SHIFT = -Math.PI / 2;

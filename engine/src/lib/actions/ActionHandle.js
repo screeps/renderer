@@ -1,9 +1,10 @@
 import * as PIXI from 'pixi.js';
+import { utils } from '@pixi/core';
 
-export default class ActionHandle extends PIXI.utils.EventEmitter {
+export default class ActionHandle extends utils.EventEmitter {
     constructor(container, action) {
         super();
-        this._id = `_${PIXI.utils.uid()}`;
+        this._id = `_${utils.uid()}`;
         this.container = container;
         this.action = action;
 

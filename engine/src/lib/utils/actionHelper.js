@@ -128,35 +128,5 @@ export default {
             return;
         }
         texture.baseTexture.once('loaded', fn);
-    },
-
-    enableTextureMipmap(renderer, baseTexture) {
-    },
-
-    setSvgResizeHandler(world, sprite, resource) {
-        if (resource.scaledSvgTextures) {
-            const handler = () => {
-                const stageSize = world.app.stage.scale.x * world.options.VIEW_BOX;
-                let texture = resource.scaledSvgTextures[stageSize];
-                if (!texture) {
-                    const keys = Object.keys(resource.scaledSvgTextures);
-                    texture = resource.scaledSvgTextures[keys[keys.length - 1]];
-                }
-                this.onTextureLoaded(texture, () => {
-                    try {
-                        sprite.texture = texture;
-                        if (sprite._parsedWidth && sprite._parsedHeight) {
-                            sprite.scale.x = sprite._parsedWidth / texture.width;
-                            sprite.scale.y = sprite._parsedHeight / texture.height;
-                        }
-                    } catch (e) {
-                        // eslint-disable-next-line no-empty
-                    }
-                });
-            };
-            world.app.renderer.on('_resized', handler);
-            sprite.on('removed', () => world.app.renderer.off('_resized', handler));
-            handler();
-        }
-    },
+    }
 };

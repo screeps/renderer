@@ -54,8 +54,8 @@ export default {
             id: 'terrain',
             afterCreate: (layer, { app, world: { options: { VIEW_BOX, CELL_SIZE,
                     lighting = 'normal' } } }) => {                
-                function setupExits(textureName, tileX, tileY, flipX, flipY) {
-                    const texture = PIXI.Assets.get(textureName);
+                async function setupExits(textureName, tileX, tileY, flipX, flipY) {
+                    const texture = await PIXI.Assets.load(textureName);
                     const sprite = new PIXI.TilingSprite(texture,
                         tileX ? VIEW_BOX : CELL_SIZE,
                         tileY ? VIEW_BOX : CELL_SIZE);
