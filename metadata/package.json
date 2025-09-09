@@ -19,9 +19,6 @@
     "dev-no-progress": "webpack --watch",
     "prepublish": "npm run build"
   },
-  "publishConfig": {
-    "@screeps:registry": "https://npm.pkg.github.com"
-  },
   "devDependencies": {
     "@screeps/common": "^2.15.4",
     "eslint": "^8.57.1",

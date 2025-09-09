@@ -19,9 +19,6 @@
     "dev-no-progress": "webpack --watch",
     "prepublish": "npm run build"
   },
-  "publishConfig": {
-    "@screeps:registry": "https://npm.pkg.github.com"
-  },
   "devDependencies": {
     "@babel/core": "^7.27.4",
     "@babel/preset-env": "^7.27.2",
