@@ -27,11 +27,11 @@ jobs:
       contents: read
       packages: write
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v5
       # Setup .npmrc file to publish to GitHub Packages
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
-          node-version: '10.x'
+          node-version: 20
           registry-url: 'https://npm.pkg.github.com'
           # Defaults to the user or organization that owns the workflow file
           scope: '@screeps'
@@ -39,13 +39,15 @@ jobs:
         run: npm ci
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build
+        run: npm run build
       - name: Publish (github)
         run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
-          node-version: '10.x'
+          node-version: 20
           registry-url: 'https://registry.npmjs.org'
           scope: '@screeps'
       - name: Publish (npmjs)
@@ -63,11 +65,11 @@ jobs:
       contents: read
       packages: write
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v5
       # Setup .npmrc file to publish to GitHub Packages
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
-          node-version: '10.x'
+          node-version: 20
           registry-url: 'https://npm.pkg.github.com'
           # Defaults to the user or organization that owns the workflow file
           scope: '@screeps'
@@ -75,13 +77,15 @@ jobs:
         run: npm ci
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build
+        run: npm run build
       - name: Publish (github)
         run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
-          node-version: '10.x'
+          node-version: 20
           registry-url: 'https://registry.npmjs.org'
           scope: '@screeps'
       - name: Publish (npmjs)
