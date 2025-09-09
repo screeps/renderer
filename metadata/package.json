@@ -1,6 +1,6 @@
 {
   "name": "@screeps/renderer-metadata",
-  "version": "1.6.0-arena",
+  "version": "1.6.1-arena",
   "description": "This library contains the renderer engine used in Screeps game.",
   "main": "dist/renderer-metadata.js",
   "files": [
