@@ -50548,7 +50548,6 @@ function _getPrototypeOf(t) { return _getPrototypeOf = Object.setPrototypeOf ? O
 function _inherits(t, e) { if ("function" != typeof e && null !== e) throw new TypeError("Super expression must either be null or a function"); t.prototype = Object.create(e && e.prototype, { constructor: { value: t, writable: !0, configurable: !0 } }), Object.defineProperty(t, "prototype", { writable: !1 }), e && _setPrototypeOf(t, e); }
 function _setPrototypeOf(t, e) { return _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function (t, e) { return t.__proto__ = e, t; }, _setPrototypeOf(t, e); }
 
-
 var ActionHandle = /*#__PURE__*/function (_utils$EventEmitter) {
   function ActionHandle(container, action) {
     var _this;
@@ -52864,8 +52863,6 @@ const scaleGameToWorld = (value, {
 
 
 
-var creepActions_Assets = Assets;
-
 
 var TWEEN_DURATION = 0.6;
 var COLORS = {
@@ -52891,7 +52888,7 @@ function createCoverSprite(rootContainer, scope, world) {
   rootContainer.on('removed', function () {
     return container.destroy();
   });
-  var cover = new Sprite(creepActions_Assets.get('cover'));
+  var cover = new Sprite(Assets.get('cover'));
   // coverSprite.blendMode = BLEND_MODES.ADD;
   // coverSprite.width = 150;
   // coverSprite.height = 150;
@@ -52901,7 +52898,7 @@ function createCoverSprite(rootContainer, scope, world) {
   // cover.filters = [new BlurFilter(1)];
   cover.parentLayer = world.layers.effects;
   container.addChild(cover);
-  var flare = new Sprite(creepActions_Assets.get('flare2'));
+  var flare = new Sprite(Assets.get('flare2'));
   flare.blendMode = BLEND_MODES.ADD;
   flare.width = 300;
   flare.height = 300;
@@ -52910,7 +52907,7 @@ function createCoverSprite(rootContainer, scope, world) {
   flare.alpha = 0.05;
   flare.parentLayer = world.layers.effects;
   container.addChild(flare);
-  var coverLighting = new Sprite(creepActions_Assets.get('glow'));
+  var coverLighting = new Sprite(Assets.get('glow'));
   coverLighting.anchor.x = 0.5;
   coverLighting.anchor.y = 0.5;
   coverLighting.x = 0;
@@ -52922,7 +52919,7 @@ function createCoverSprite(rootContainer, scope, world) {
   container.addChild(coverLighting);
 }
 function createChildCoverSprite(parent, scope, world) {
-  var sprite = new Sprite(creepActions_Assets.get('cover'));
+  var sprite = new Sprite(Assets.get('cover'));
   sprite.anchor.x = 0.5;
   sprite.anchor.y = 0.5;
   sprite.alpha = 0;
@@ -53205,8 +53202,6 @@ function pushRangedShotActionWithBlur(actionsArray, stage, world, fromObject, to
  */
 
 
-
-var creepBuildBody_Assets = Assets;
 var maxParts = 50;
 var ANGLE_SHIFT = -Math.PI / 2;
 var PART_ANGLE = 2 * Math.PI / maxParts / 2;
@@ -53254,7 +53249,7 @@ function createBodyPartSprite(color, startAngle, endAngle, parent, bodySprites, 
   return bodyPartBarSprite;
 }
 function createToughSprite(parent, bodySprites) {
-  var toughSprite = new Sprite(creepBuildBody_Assets.get('tough'));
+  var toughSprite = new Sprite(Assets.get('tough'));
   toughSprite.width = 120;
   toughSprite.height = 120;
   toughSprite.anchor.x = 0.5;
@@ -53430,8 +53425,6 @@ function powerInfluence_toPrimitive(t, r) { if ("object" != powerInfluence_typeo
 
 
 
-var powerInfluence_Assets = Assets;
-
 
 
 var INFLUENCE_TEXTURE = (_INFLUENCE_TEXTURE = {}, powerInfluence_defineProperty(powerInfluence_defineProperty(powerInfluence_defineProperty(powerInfluence_defineProperty(powerInfluence_defineProperty(powerInfluence_defineProperty(powerInfluence_defineProperty(powerInfluence_defineProperty(powerInfluence_defineProperty(powerInfluence_defineProperty(_INFLUENCE_TEXTURE, (constants_default()).PWR_DISRUPT_SOURCE, 'disrupt-source'), (constants_default()).PWR_DISRUPT_SPAWN, 'disrupt-spawn'), (constants_default()).PWR_DISRUPT_TERMINAL, 'disrupt-terminal'), (constants_default()).PWR_DISRUPT_TOWER, 'disrupt-tower'), (constants_default()).PWR_REGEN_MINERAL, 'regen-mineral'), (constants_default()).PWR_REGEN_SOURCE, 'regen-source'), (constants_default()).PWR_GENERATE_OPS, 'generate-ops'), (constants_default()).PWR_OPERATE_EXTENSION, 'operate-extension'), (constants_default()).PWR_OPERATE_LAB, 'operate-lab'), (constants_default()).PWR_OPERATE_OBSERVER, 'operate-observer'), powerInfluence_defineProperty(powerInfluence_defineProperty(powerInfluence_defineProperty(powerInfluence_defineProperty(powerInfluence_defineProperty(powerInfluence_defineProperty(powerInfluence_defineProperty(powerInfluence_defineProperty(powerInfluence_defineProperty(powerInfluence_defineProperty(_INFLUENCE_TEXTURE, (constants_default()).PWR_OPERATE_SPAWN, 'operate-spawn'), (constants_default()).PWR_OPERATE_STORAGE, 'operate-storage'), (constants_default()).PWR_OPERATE_TERMINAL, 'operate-terminal'), (constants_default()).PWR_OPERATE_TOWER, 'operate-tower'), (constants_default()).PWR_SHIELD, 'shield'), (constants_default()).PWR_FORTIFY, 'fortify'), (constants_default()).PWR_OPERATE_CONTROLLER, 'operate-controller'), (constants_default()).PWR_OPERATE_POWER, 'operate-power'), (constants_default()).PWR_BERSERK, 'berserk'), (constants_default()).PWR_DEFEND, 'defend'), powerInfluence_defineProperty(powerInfluence_defineProperty(powerInfluence_defineProperty(powerInfluence_defineProperty(powerInfluence_defineProperty(powerInfluence_defineProperty(powerInfluence_defineProperty(powerInfluence_defineProperty(powerInfluence_defineProperty(powerInfluence_defineProperty(_INFLUENCE_TEXTURE, (constants_default()).PWR_DISABLE, 'disable'), (constants_default()).PWR_ENCOURAGE, 'encourage'), (constants_default()).PWR_EXHAUST, 'exhaust'), (constants_default()).PWR_RENEW, 'renew'), (constants_default()).PWR_SIGHT, 'sight'), (constants_default()).PWR_SUMMON, 'summon'), (constants_default()).PWR_DEMOLISH, 'demolish'), (constants_default()).PWR_HARVEST_ENERGY, 'harvest-energy'), (constants_default()).PWR_HARVEST_MINERAL, 'harvest-mineral'), (constants_default()).PWR_KILL, 'kill'), powerInfluence_defineProperty(powerInfluence_defineProperty(powerInfluence_defineProperty(powerInfluence_defineProperty(powerInfluence_defineProperty(powerInfluence_defineProperty(_INFLUENCE_TEXTURE, (constants_default()).PWR_MASS_REPAIR, 'mass-repair'), (constants_default()).PWR_PUNCH, 'punch'), (constants_default()).PWR_REFLECT, 'reflect'), (constants_default()).PWR_REINFORCE, 'reinforce'), (constants_default()).PWR_REMOTE_TRANSFER, 'remote-transfer'), (constants_default()).PWR_SNIPE, 'snipe'));
@@ -53502,7 +53495,7 @@ function powerInfluence_createCoverSpriteAction(sprite, tickDuration, pos) {
     if (!textureKey) {
       console.log('No texture key provided for power id', power.id);
     }
-    var texture = powerInfluence_Assets.get(textureKey);
+    var texture = Assets.get(textureKey);
     if (!texture) {
       console.log('No texture provided for key ', textureKey);
     }
@@ -54124,8 +54117,6 @@ function sprite_objectWithoutPropertiesLoose(r, e) { if (null == r) return {}; v
 
 
 
-var sprite_Assets = Assets;
-
 
 
 
@@ -54164,7 +54155,7 @@ var sprite_Assets = Assets;
   var resource;
   var parsedTexture = actionHelper.parseExpression(texture, params);
   if (lodash_default().isString(parsedTexture)) {
-    resource = sprite_Assets.get(parsedTexture);
+    resource = Assets.get(parsedTexture);
   } else {
     resource = texture;
     if (!resource) {
@@ -54472,8 +54463,6 @@ function terrain_arrayWithHoles(r) { if (Array.isArray(r)) return r; }
 
 
 
-var terrain_Assets = Assets;
-
 
 
 var WALLS_BLUR = 0.006;
@@ -54625,7 +54614,8 @@ function addTilePositionAnimation(sprite, dx, dy) {
       'paint-order': 'stroke'
     }), {
       alpha: 0.4,
-      tint: tint
+      tint: tint,
+      zIndex: 1
     });
     if (swampTexture !== 'disabled') {
       swampObjects[1] = setupObject(buildSvg(swampPath, {
@@ -54644,19 +54634,21 @@ function addTilePositionAnimation(sprite, dx, dy) {
       }), {
         alpha: 0.25
       });
-      swampObjects[3] = setupObject(new TilingSprite(terrain_Assets.get('noise2'), VIEW_BOX, VIEW_BOX), {
+      swampObjects[3] = setupObject(new TilingSprite(Assets.get('noise2'), VIEW_BOX, VIEW_BOX), {
         alpha: lighting === 'normal' ? 0.3 : 0.15,
         blendMode: BLEND_MODES.ADD,
         mask: swampObjects[1],
         tileScale: new Point(10, 10),
-        tint: 0x66FF00
+        tint: 0x66FF00,
+        zIndex: 1
       });
-      swampObjects[4] = setupObject(new TilingSprite(terrain_Assets.get('noise2'), VIEW_BOX, VIEW_BOX), {
+      swampObjects[4] = setupObject(new TilingSprite(Assets.get('noise2'), VIEW_BOX, VIEW_BOX), {
         alpha: lighting === 'normal' ? 0.3 : 0.15,
         blendMode: BLEND_MODES.ADD,
         tileScale: new Point(14, 14),
         mask: swampObjects[2],
-        tint: 0x66FF00
+        tint: 0x66FF00,
+        zIndex: 1
       });
       if (swampTexture === 'animated') {
         addTilePositionAnimation(swampObjects[3], 1.5, 1.5);
@@ -54803,7 +54795,7 @@ function addTilePositionAnimation(sprite, dx, dy) {
     terrainObjects.wallMask.texture = mask.texture;
     actionHelper.onTextureLoaded(mask.texture, function () {
       if (lighting !== 'disabled') {
-        var bump = new TilingSprite(terrain_Assets.get('noise1'), VIEW_BOX, VIEW_BOX);
+        var bump = new TilingSprite(Assets.get('noise1'), VIEW_BOX, VIEW_BOX);
         Object.assign(bump, {
           alpha: 0.2,
           blendMode: BLEND_MODES.ADD,
@@ -54935,7 +54927,7 @@ function addTilePositionAnimation(sprite, dx, dy) {
         tint: _tint
       });
     } else {
-      ground = new TilingSprite(terrain_Assets.get('ground'), VIEW_BOX, VIEW_BOX);
+      ground = new TilingSprite(Assets.get('ground'), VIEW_BOX, VIEW_BOX);
       ground.x = -HALF_CELL_SIZE;
       ground.y = -HALF_CELL_SIZE;
       ground.tileScale.x = 3;
@@ -54947,7 +54939,7 @@ function addTilePositionAnimation(sprite, dx, dy) {
       } else {
         ground.alpha = 0.2;
       }
-      var ground2 = new TilingSprite(terrain_Assets.get('ground-mask'), VIEW_BOX, VIEW_BOX);
+      var ground2 = new TilingSprite(Assets.get('ground-mask'), VIEW_BOX, VIEW_BOX);
       ground2.x = -HALF_CELL_SIZE;
       ground2.y = -HALF_CELL_SIZE;
       ground2.tileScale.x = 7;
@@ -55770,8 +55762,6 @@ function World_toPrimitive(t, r) { if ("object" != World_typeof(t) || !t) return
 
 
 
-var World_Assets = Assets;
-
 
 
 
@@ -55872,16 +55862,16 @@ var World = /*#__PURE__*/function () {
               _context.p = 1;
               // Add all assets to the Assets loader
               Object.keys(this.resourceMap).forEach(function (key) {
-                World_Assets.add({
+                Assets.add({
                   alias: key,
                   src: _this.resourceMap[key]
                 });
               });
 
               // Load all assets
-              logger.debug('Loading resources...');
+              logger.debug('Loading resources...', this.resourceMap);
               _context.n = 2;
-              return World_Assets.load(Object.keys(this.resourceMap));
+              return Assets.load(Object.keys(this.resourceMap));
             case 2:
               logger.debug('Resources loaded successfully');
               _context.n = 4;
@@ -56015,7 +56005,7 @@ var World = /*#__PURE__*/function () {
   }, {
     key: "release",
     value: function release() {
-      World_Assets.reset();
+      Assets.reset();
     }
   }, {
     key: "getResource",
@@ -56032,7 +56022,7 @@ var World = /*#__PURE__*/function () {
             case 0:
               url = _args2.length > 1 && _args2[1] !== undefined ? _args2[1] : name;
               logger = this.options.logger; // Check if already cached
-              cached = World_Assets.get(name);
+              cached = Assets.get(name);
               if (!cached) {
                 _context2.n = 1;
                 break;
@@ -56042,12 +56032,12 @@ var World = /*#__PURE__*/function () {
             case 1:
               _context2.p = 1;
               logger.debug("Loading resource ".concat(name));
-              World_Assets.add({
+              Assets.add({
                 alias: name,
                 src: url
               });
               _context2.n = 2;
-              return World_Assets.load(name);
+              return Assets.load(name);
             case 2:
               resource = _context2.v;
               return _context2.a(2, resource);
@@ -56260,8 +56250,6 @@ function GameRenderer_toPrimitive(t, r) { if ("object" != GameRenderer_typeof(t)
 
 
 
-
-var GameRenderer_Application = Application;
 var THRESHOLD = 500;
 var GameRenderer = /*#__PURE__*/function () {
   /**
@@ -56316,7 +56304,7 @@ var GameRenderer = /*#__PURE__*/function () {
               if (!this.released) {
                 this.release();
               }
-              app = new GameRenderer_Application({
+              app = new Application({
                 width: width,
                 height: height,
                 antialias: true,
