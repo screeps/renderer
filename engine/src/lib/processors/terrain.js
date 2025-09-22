@@ -141,6 +141,7 @@ export default (params) => {
             {
                 alpha: 0.4,
                 tint,
+                zIndex: 1, 
             }
         );
 
@@ -157,6 +158,7 @@ export default (params) => {
                     mask: swampObjects[1],
                     tileScale: new Point(10, 10),
                     tint: 0x66FF00,
+                    zIndex: 1,
                 }
             );                
             swampObjects[4] = setupObject(
@@ -167,6 +169,7 @@ export default (params) => {
                     tileScale: new Point(14, 14),
                     mask: swampObjects[2],
                     tint: 0x66FF00,
+                    zIndex: 1,
                 }
             );
 
