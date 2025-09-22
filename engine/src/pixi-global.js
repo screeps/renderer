@@ -1,5 +1,5 @@
 import * as PIXI from 'pixi.js';
-import { MIPMAP_MODES, SCALE_MODES, BaseTexture } from '@pixi/core';
+import { MIPMAP_MODES, SCALE_MODES, BaseTexture } from 'pixi.js';
 import { applyRendererMixin } from '@pixi/layers';
 
 

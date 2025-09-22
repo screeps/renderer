@@ -2,10 +2,8 @@
  * Created by vedi on 19/03/2017.
  */
 
-import { Graphics, Sprite, BLEND_MODES, Container, Renderer, BlurFilter } from 'pixi.js';
-import * as PIXI from 'pixi.js';
+import { Graphics, Sprite, BLEND_MODES, Container, Renderer, BlurFilter, Assets } from 'pixi.js';
 
-const { Assets } = PIXI;
 import { calculateAngle, convertGameXYToWorld } from '../../../../helpers/mathHelper';
 
 import { AlphaTo, CallFunc, MoveBy, RotateTo, Sequence, DelayTime } from '../actions';

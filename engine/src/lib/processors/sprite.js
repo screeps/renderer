@@ -3,10 +3,8 @@
  */
 
 import _ from 'lodash';
-import { Sprite } from 'pixi.js';
-import * as PIXI from 'pixi.js';
+import { Sprite, Assets } from 'pixi.js';
 
-const { Assets } = PIXI;
 import actionHelper from '../utils/actionHelper';
 
 import container from './container';

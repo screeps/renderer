@@ -2,11 +2,8 @@
  * Created by vedi on 18/03/2017.
  */
 
-import { Container, Renderer, Graphics } from 'pixi.js';
+import { Container, Renderer, Graphics, Assets } from 'pixi.js';
 import { Stage, Layer } from '@pixi/layers';
-import * as PIXI from 'pixi.js';
-
-const { Assets } = PIXI;
 
 import PROCESSORS from './processors';
 import actionHelper from './utils/actionHelper';
@@ -96,7 +93,7 @@ export default class World {
             
             
             // Load all assets
-            logger.debug('Loading resources...');
+            logger.debug('Loading resources...', this.resourceMap);
             await Assets.load(Object.keys(this.resourceMap));
             logger.debug('Resources loaded successfully');
         } catch (err) {

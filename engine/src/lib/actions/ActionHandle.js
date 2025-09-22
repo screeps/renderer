@@ -1,5 +1,4 @@
-import * as PIXI from 'pixi.js';
-import { utils } from '@pixi/core';
+import { utils } from 'pixi.js';
 
 export default class ActionHandle extends utils.EventEmitter {
     constructor(container, action) {

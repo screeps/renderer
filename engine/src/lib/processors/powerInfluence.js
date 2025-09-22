@@ -2,10 +2,8 @@
  * Created by vedi on 19/03/2017.
  */
 
-import { Sprite, Container } from 'pixi.js';
-import * as PIXI from 'pixi.js';
+import { Sprite, Container, Assets } from 'pixi.js';
 
-const { Assets } = PIXI;
 import constants from '@screeps/common/lib/constants';
 
 import { convertGameXYToWorld } from '../../../../helpers/mathHelper';

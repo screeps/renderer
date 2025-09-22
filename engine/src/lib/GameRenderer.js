@@ -2,15 +2,12 @@
  * Created by vedi on 04/04/2017.
  */
 import _ from 'lodash';
-import * as PIXI from 'pixi.js';
-import { utils } from '@pixi/core';
+import { utils, Application } from 'pixi.js';
 import actionHelper from './utils/actionHelper';
 
 import { ActionManager } from './actions';
 import World from './World';
 import * as decorations from './decorations';
-
-const { Application } = PIXI;
 
 const THRESHOLD = 500;
 

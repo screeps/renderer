@@ -2,10 +2,7 @@
  * Created by vedi on 19/03/2017.
  */
 
-import { Graphics, Sprite } from 'pixi.js';
-import * as PIXI from 'pixi.js';
-
-const { Assets } = PIXI;
+import { Graphics, Sprite, Assets } from 'pixi.js';
 
 const maxParts = 50;
 const ANGLE_SHIFT = -Math.PI / 2;

@@ -4,11 +4,9 @@
 
 import {
     BLEND_MODES, TilingSprite, BlurFilter, Point, RenderTexture, Sprite, Texture,
-    Renderer, Graphics,
+    Renderer, Graphics, Assets
 } from 'pixi.js';
-import * as PIXI from 'pixi.js';
 
-const { Assets } = PIXI;
 
 import pathHelper from '../pathHelper';
 import actionHelper from '../utils/actionHelper';
@@ -150,7 +148,8 @@ export default (params) => {
             swampObjects[1] = setupObject(buildSvg(swampPath, { size, VIEW_BOX }, { fill: '#fff' }),
                 { alpha: 0.25 });
             swampObjects[2] = setupObject(buildSvg(swampPath, { size, VIEW_BOX }, { fill: '#fff' }),
-                { alpha: 0.25 });                swampObjects[3] = setupObject(
+                { alpha: 0.25 });                
+            swampObjects[3] = setupObject(
                 new TilingSprite(Assets.get('noise2'), VIEW_BOX, VIEW_BOX),
                 {
                     alpha: lighting === 'normal' ? 0.3 : 0.15,
@@ -159,7 +158,8 @@ export default (params) => {
                     tileScale: new Point(10, 10),
                     tint: 0x66FF00,
                 }
-            );                swampObjects[4] = setupObject(
+            );                
+            swampObjects[4] = setupObject(
                 new TilingSprite(Assets.get('noise2'), VIEW_BOX, VIEW_BOX),
                 {
                     alpha: lighting === 'normal' ? 0.3 : 0.15,
