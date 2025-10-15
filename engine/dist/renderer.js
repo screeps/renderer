@@ -54789,10 +54789,7 @@ function addTilePositionAnimation(sprite, dx, dy) {
     }, {
       fill: '#fff'
     });
-    if (terrainObjects.wallMask.texture !== Texture.EMPTY) {
-      terrainObjects.wallMask.texture.destroy(true);
-    }
-    terrainObjects.wallMask.texture = mask.texture;
+    var previousMaskTexture = terrainObjects.wallMask.texture !== Texture.EMPTY ? terrainObjects.wallMask.texture : null;
     actionHelper.onTextureLoaded(mask.texture, function () {
       if (lighting !== 'disabled') {
         var bump = new TilingSprite(Assets.get('noise1'), VIEW_BOX, VIEW_BOX);
@@ -54808,13 +54805,20 @@ function addTilePositionAnimation(sprite, dx, dy) {
         });
         bump.destroy();
       }
+      terrainObjects.wallMask.texture = mask.texture;
       mask.destroy();
       var _wallObjects = wallObjects;
       var _wallObjects2 = terrain_slicedToArray(_wallObjects, 1);
       wallObjects[1].texture = _wallObjects2[0];
       wallObjects[1].visible = true;
+      if (wallObjectsToDestroy[0]) {
+        wallObjectsToDestroy[0].destroy(true);
+      }
       if (wallObjectsToDestroy[1]) {
         wallObjectsToDestroy[1].destroy(true);
+      }
+      if (previousMaskTexture && previousMaskTexture !== mask.texture) {
+        previousMaskTexture.destroy(true);
       }
     });
     wallObjects[2] = RenderTexture.create({
@@ -54844,6 +54848,9 @@ function addTilePositionAnimation(sprite, dx, dy) {
       var _wallObjects4 = terrain_slicedToArray(_wallObjects3, 3);
       wallObjects[3].texture = _wallObjects4[2];
       wallObjects[3].visible = true;
+      if (wallObjectsToDestroy[2]) {
+        wallObjectsToDestroy[2].destroy(true);
+      }
       if (wallObjectsToDestroy[3]) {
         wallObjectsToDestroy[3].destroy(true);
       }
@@ -55810,18 +55817,21 @@ var World = /*#__PURE__*/function () {
       var _ref2 = World_slicedToArray(_ref, 2),
         objectMetadata = _ref2[1];
       if (objectMetadata) {
-        var _objectMetadata$actio = objectMetadata.actions,
-          actions = _objectMetadata$actio === void 0 ? [] : _objectMetadata$actio,
-          _objectMetadata$calcu = objectMetadata.calculations,
-          calculations = _objectMetadata$calcu === void 0 ? [] : _objectMetadata$calcu,
-          _objectMetadata$data = objectMetadata.data,
-          data = _objectMetadata$data === void 0 ? [] : _objectMetadata$data,
-          _objectMetadata$proce = objectMetadata.processors,
-          processors = _objectMetadata$proce === void 0 ? [] : _objectMetadata$proce;
-        objectMetadata.actions = [].concat(World_toConsumableArray(allActions), World_toConsumableArray(actions));
-        objectMetadata.data = World_objectSpread(World_objectSpread({}, allData), data);
-        objectMetadata.calculations = [].concat(World_toConsumableArray(allCalculations), World_toConsumableArray(calculations));
-        objectMetadata.processors = [].concat(World_toConsumableArray(allProcessors), World_toConsumableArray(processors));
+        if (!objectMetadata._initialized) {
+          var _objectMetadata$actio = objectMetadata.actions,
+            actions = _objectMetadata$actio === void 0 ? [] : _objectMetadata$actio,
+            _objectMetadata$calcu = objectMetadata.calculations,
+            calculations = _objectMetadata$calcu === void 0 ? [] : _objectMetadata$calcu,
+            _objectMetadata$data = objectMetadata.data,
+            data = _objectMetadata$data === void 0 ? [] : _objectMetadata$data,
+            _objectMetadata$proce = objectMetadata.processors,
+            processors = _objectMetadata$proce === void 0 ? [] : _objectMetadata$proce;
+          objectMetadata.actions = [].concat(World_toConsumableArray(allActions), World_toConsumableArray(actions));
+          objectMetadata.data = World_objectSpread(World_objectSpread({}, allData), data);
+          objectMetadata.calculations = [].concat(World_toConsumableArray(allCalculations), World_toConsumableArray(calculations));
+          objectMetadata.processors = [].concat(World_toConsumableArray(allProcessors), World_toConsumableArray(processors));
+          objectMetadata._initialized = true;
+        }
       }
     });
 
@@ -56006,6 +56016,7 @@ var World = /*#__PURE__*/function () {
     key: "release",
     value: function release() {
       Assets.reset();
+      this.removeAllObjects();
     }
   }, {
     key: "getResource",
