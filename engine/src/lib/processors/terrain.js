@@ -294,10 +294,9 @@ export default (params) => {
         });
 
         const mask = buildSvg(wallPath, { size, VIEW_BOX }, { fill: '#fff' });
-        if (terrainObjects.wallMask.texture !== Texture.EMPTY) {
-            terrainObjects.wallMask.texture.destroy(true);
-        }
-        terrainObjects.wallMask.texture = mask.texture;
+        const previousMaskTexture = terrainObjects.wallMask.texture !== Texture.EMPTY
+            ? terrainObjects.wallMask.texture
+            : null;
         actionHelper.onTextureLoaded(mask.texture, () => {               
             if (lighting !== 'disabled') {
                 const bump = new TilingSprite(Assets.get('noise1'), VIEW_BOX,
@@ -311,11 +310,19 @@ export default (params) => {
                 app.renderer.render(bump, { renderTexture: wallObjects[0], clear: false });
                 bump.destroy();
             }
+            terrainObjects.wallMask.texture = mask.texture;
             mask.destroy();
             [wallObjects[1].texture] = wallObjects;
             wallObjects[1].visible = true;
+            
+            if (wallObjectsToDestroy[0]) {
+                wallObjectsToDestroy[0].destroy(true);
+            }
             if (wallObjectsToDestroy[1]) {
                 wallObjectsToDestroy[1].destroy(true);
+            }
+            if (previousMaskTexture && previousMaskTexture !== mask.texture) {
+                previousMaskTexture.destroy(true);
             }
         });
 
@@ -337,6 +344,10 @@ export default (params) => {
             shadow.destroy(true);
             [,, wallObjects[3].texture] = wallObjects;
             wallObjects[3].visible = true;
+            
+            if (wallObjectsToDestroy[2]) {
+                wallObjectsToDestroy[2].destroy(true);
+            }
             if (wallObjectsToDestroy[3]) {
                 wallObjectsToDestroy[3].destroy(true);
             }

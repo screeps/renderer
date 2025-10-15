@@ -43,16 +43,19 @@ export default class World {
         } = metadataObjects;
         Object.entries(otherObjectMetadata).forEach(([, objectMetadata]) => {
             if (objectMetadata) {
-                const {
-                    actions = [],
-                    calculations = [],
-                    data = [],
-                    processors = [],
-                } = objectMetadata;
-                objectMetadata.actions = [...allActions, ...actions];
-                objectMetadata.data = { ...allData, ...data };
-                objectMetadata.calculations = [...allCalculations, ...calculations];
-                objectMetadata.processors = [...allProcessors, ...processors];
+                if (!objectMetadata._initialized) {
+                    const {
+                        actions = [],
+                        calculations = [],
+                        data = [],
+                        processors = [],
+                    } = objectMetadata;
+                    objectMetadata.actions = [...allActions, ...actions];
+                    objectMetadata.data = { ...allData, ...data };
+                    objectMetadata.calculations = [...allCalculations, ...calculations];
+                    objectMetadata.processors = [...allProcessors, ...processors];
+                    objectMetadata._initialized = true;
+                }
             }
         });
 
@@ -191,7 +194,8 @@ export default class World {
     
     release() {
         Assets.reset();
-    }   
+        this.removeAllObjects();
+    }    
 
     async getResource(name, url = name) {
         const { options: { logger } } = this;
