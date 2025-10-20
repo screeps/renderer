@@ -1,6 +1,15 @@
 const CELL_SIZE = 100;
 
 export default {
+    calculations: [
+        {
+            id: 'color',
+            props: ['color'],
+            func: ({ state: { color } }) =>
+                color ? parseInt(color.substring(1), 16) : undefined,
+        },
+    ],
+
     processors: [
         {
             type: 'sprite',
@@ -14,26 +23,17 @@ export default {
             },
         },
         {
-            type: 'text',
-            props: ['user'],
+            type: 'sprite',
+            props: ['color'],
             layer: 'effects',
-            shouldRun: ({ stateExtra: { gameData: { showFlagsNames } } }) => !!showFlagsNames,
             payload: {
-                text: { $state: 'name' },
-                style: {
-                    align: 'center',
-                    fill: { $calc: 'flagColor' },
-                    fontFamily: 'Roboto, sans-serif',
-                    fontSize: 60,
-                    stroke: '#111',
-                    strokeThickness: 10,
-                },
-                anchor: {
-                    x: 0.5,
-                    y: -0.5,
-                },
+                texture: 'flag-secondary',
+                width: 200,
+                height: 200,
+                tint: { $calc: 'color' },
             },
-        },
+            when: ({ state: { color } }) => !!color,
+        }
     ],
     actions: [
         {
