@@ -53766,8 +53766,6 @@ function fillRoads(states) {
     scope = params.scope,
     stateExtra = params.stateExtra,
     _params$world = params.world,
-    app = _params$world.app,
-    terrainLayer = _params$world.layers.terrain,
     _params$world$options = _params$world.options,
     CELL_SIZE = _params$world$options.CELL_SIZE,
     _params$world$options2 = _params$world$options.lighting,
@@ -53816,17 +53814,12 @@ function fillRoads(states) {
     var l = CELL_SIZE;
     var lb = l;
     var graphics = new Graphics();
-    graphics.parentLayer = terrainLayer;
-    graphics.zIndex = 1;
-    if (!(app.renderer instanceof Renderer)) {
+    graphics.zIndex = -1;
+    if (lighting === 'disabled') {
       graphics.tint = 0xa0a0a0;
-    } else {
-      if (lighting === 'disabled') {
-        graphics.tint = 0xa0a0a0;
-      }
-      if (lighting === 'low') {
-        graphics.tint = 0xc0c0c0;
-      }
+    }
+    if (lighting === 'low') {
+      graphics.tint = 0xc0c0c0;
     }
     var color = decorationFloorLandscape ? colorBrightness(parseInt(decorationFloorLandscape.roadsColor.substring(1), 16), decorationFloorLandscape.roadsBrightness) : ROAD_COLOR;
     graphics.clear();

@@ -36,8 +36,6 @@ export default (params) => {
         scope,
         stateExtra,
         world: {
-            app,
-            layers: { terrain: terrainLayer },
             options: { CELL_SIZE, lighting = 'normal' },
             decorations,
         },
@@ -83,18 +81,14 @@ export default (params) => {
         const lb = l;
 
         const graphics = new Graphics();
-        graphics.parentLayer = terrainLayer;
-        graphics.zIndex = 1;
-        if (!(app.renderer instanceof Renderer)) {
+        graphics.zIndex = -1;
+        if (lighting === 'disabled') {
             graphics.tint = 0xa0a0a0;
-        } else {
-            if (lighting === 'disabled') {
-                graphics.tint = 0xa0a0a0;
-            }
-            if (lighting === 'low') {
-                graphics.tint = 0xc0c0c0;
-            }
         }
+        if (lighting === 'low') {
+            graphics.tint = 0xc0c0c0;
+        }
+
 
         const color = decorationFloorLandscape ?
             colorBrightness(parseInt(decorationFloorLandscape.roadsColor.substring(1), 16),

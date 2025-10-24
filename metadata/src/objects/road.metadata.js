@@ -6,7 +6,6 @@ export default {
     processors: [
         {
             type: 'road',
-            layer: 'objects',
         },
     ],
     disappearProcessor: { type: 'disappear' },
