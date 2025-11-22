@@ -54679,10 +54679,8 @@ function addTilePositionAnimation(sprite, dx, dy) {
       rampartsPath = _pathHelper2.result;
     rampartsObject.md5 = rampartsMd5;
     if (rampartsPath) {
-      if (rampartsObject.sprite) {
-        rampartsObject.sprite.destroy(rampartsObject.sprite._generatedSvgTexture);
-      }
-      rampartsObject.sprite = setupObject(buildSvg(rampartsPath, {
+      var spriteToDestroy = rampartsObject.sprite;
+      var newSprite = buildSvg(rampartsPath, {
         size: size,
         VIEW_BOX: VIEW_BOX
       }, {
@@ -54690,10 +54688,23 @@ function addTilePositionAnimation(sprite, dx, dy) {
         stroke: users[_id].color,
         'stroke-width': 25,
         'paint-order': 'stroke'
-      }), {
+      });
+      rampartsObject.sprite = setupObject(newSprite, {
         alpha: 0.4,
         blendMode: BLEND_MODES.ADD,
-        parentLayer: effectsLayer
+        parentLayer: effectsLayer,
+        visible: false
+      });
+
+      // Destroy old sprite only after new texture is loaded
+      actionHelper.onTextureLoaded(newSprite.texture, function () {
+        // Safety check: only update visibility if this sprite is still the current one
+        if (rampartsObject.sprite === newSprite) {
+          rampartsObject.sprite.visible = true;
+        }
+        if (spriteToDestroy) {
+          spriteToDestroy.destroy(spriteToDestroy._generatedSvgTexture);
+        }
       });
     } else if (rampartsPath === false && rampartsObject.sprite) {
       rampartsObject.sprite.destroy(rampartsObject.sprite._generatedSvgTexture);
