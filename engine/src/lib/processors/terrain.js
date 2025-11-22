@@ -198,10 +198,8 @@ export default (params) => {
             rampartsObject.md5, true);
         rampartsObject.md5 = rampartsMd5;
         if (rampartsPath) {
-            if (rampartsObject.sprite) {
-                rampartsObject.sprite.destroy(rampartsObject.sprite._generatedSvgTexture);
-            }
-            rampartsObject.sprite = setupObject(buildSvg(
+            const spriteToDestroy = rampartsObject.sprite;
+            const newSprite = buildSvg(
                 rampartsPath,
                 { size, VIEW_BOX },
                 {
@@ -210,10 +208,23 @@ export default (params) => {
                     'stroke-width': 25,
                     'paint-order': 'stroke',
                 }
-            ), {
+            );
+            rampartsObject.sprite = setupObject(newSprite, {
                 alpha: 0.4,
                 blendMode: BLEND_MODES.ADD,
                 parentLayer: effectsLayer,
+                visible: false,
+            });
+            
+            // Destroy old sprite only after new texture is loaded
+            actionHelper.onTextureLoaded(newSprite.texture, () => {
+                // Safety check: only update visibility if this sprite is still the current one
+                if (rampartsObject.sprite === newSprite) {
+                    rampartsObject.sprite.visible = true;
+                }
+                if (spriteToDestroy) {
+                    spriteToDestroy.destroy(spriteToDestroy._generatedSvgTexture);
+                }
             });
         } else if (rampartsPath === false && rampartsObject.sprite) {
             rampartsObject.sprite.destroy(rampartsObject.sprite._generatedSvgTexture);
