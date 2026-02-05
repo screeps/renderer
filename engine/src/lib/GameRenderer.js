@@ -180,7 +180,6 @@ export default class GameRenderer {
      */
     set zoomLevel(value) {
         const { app: { stage, renderer } = {} } = this;
-        value = Math.round(value / (100 / 5000)) * (100 / 5000);
         if (stage) {
             const oldScale = stage.scale.x;
             stage.scale.x = value;
