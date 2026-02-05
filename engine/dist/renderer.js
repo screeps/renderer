@@ -56419,7 +56419,6 @@ var GameRenderer = /*#__PURE__*/function () {
         _this$app4 = _this$app3 === void 0 ? {} : _this$app3,
         stage = _this$app4.stage,
         renderer = _this$app4.renderer;
-      value = Math.round(value / (100 / 5000)) * (100 / 5000);
       if (stage) {
         var oldScale = stage.scale.x;
         stage.scale.x = value;
