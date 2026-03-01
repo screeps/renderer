@@ -24,7 +24,11 @@ export const getRenderPath = (objectsArray, filter, prevMd5, diagonalConnect = f
 
     objectsArray.forEach((objectArray) => {
         objectArray.forEach((object) => {
-            if (object.x === null || object.y === null) {
+            if(!object) {
+                console.error('null object');
+                return;
+            }
+            if (object.x === null || object.x === undefined || object.y === null || object.y === undefined) {
                 console.error('null coordinates in object', object);
                 return;
             }
