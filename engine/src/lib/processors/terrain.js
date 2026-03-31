@@ -50,9 +50,9 @@ export default (params) => {
             layers: { terrain: terrainLayer, lighting: lightingLayer, effects: effectsLayer },
             options: { size: rendererSize },
         },
-        state: { gameData: { swampTexture = 'animated' }, objects, users = {}, setTerrain },
+        state: { gameData: { player, swampTexture = 'animated' }, objects, users = {}, setTerrain },
         world: {
-            options: { CELL_SIZE, RENDER_SIZE: size = rendererSize, VIEW_BOX, HALF_CELL_SIZE = CELL_SIZE / 2, lighting = 'normal' },
+            options: { CELL_SIZE, RENDER_SIZE: size = rendererSize, VIEW_BOX, HALF_CELL_SIZE = CELL_SIZE / 2, lighting = 'normal', userOwnerColor },
         },
     } = params;
 
@@ -195,19 +195,23 @@ export default (params) => {
         const { md5: rampartsMd5, result: rampartsPath } = pathHelper(params.world.options,
             [objects],
             ({ type, isPublic, user }) => type === 'rampart' && !isPublic && user === _id,
-            rampartsObject.md5, true);
+            rampartsObject.md5, false);
         rampartsObject.md5 = rampartsMd5;
         if (rampartsPath) {
             const spriteToDestroy = rampartsObject.sprite;
             const newSprite = buildSvg(
                 rampartsPath,
                 { size, VIEW_BOX },
-                {
-                    fill: multiply(users[_id].color, 0.3),
-                    stroke: users[_id].color,
-                    'stroke-width': 25,
-                    'paint-order': 'stroke',
-                }
+                userOwnerColor
+                    ? (player === _id
+                        ? { fill: '#105010', stroke: '#44ff44', 'stroke-width': 25, 'paint-order': 'stroke' }
+                        : { fill: '#501010', stroke: '#ff4444', 'stroke-width': 25, 'paint-order': 'stroke' })
+                    : {
+                        fill: multiply(users[_id].color, 0.3),
+                        stroke: users[_id].color,
+                        'stroke-width': 25,
+                        'paint-order': 'stroke',
+                    }
             );
             rampartsObject.sprite = setupObject(newSprite, {
                 alpha: 0.4,

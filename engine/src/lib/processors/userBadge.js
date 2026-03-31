@@ -44,7 +44,7 @@ export default (params) => {
         const scope = { [parentId]: parent };
         return sprite({ payload: spritePayload, scope, ...otherParams });
     } else {
-        const color = actionHelper.parseExpression(payloadColor, params);
+        const color = Number.isInteger(payloadColor) ? payloadColor : actionHelper.parseExpression(payloadColor, params);
         return circle({ payload: { radius, color, parentId }, scope, ...otherParams });
     }
 };

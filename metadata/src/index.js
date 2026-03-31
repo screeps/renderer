@@ -46,7 +46,7 @@ class PassThroughFilter extends PIXI.Filter {
 
 export default {
     preprocessors: [
-        // 'setBadgeUrls',
+        'setBadgeUrls',
         'terrain',
     ],
     layers: [        

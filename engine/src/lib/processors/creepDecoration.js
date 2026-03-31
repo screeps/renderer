@@ -58,7 +58,7 @@ export default (params) => {
                 width: i.width,
                 height: i.height,
                 anchor: { x: 0.5, y: 0.5 },
-                parentLayer: i.position === 'below' ? layers.objects : layers.effects,
+                ...(i.position !== 'below' && { parentLayer: layers.effects }),
                 zIndex: 1,
             });
             if (i[graphic.alpha] !== undefined) {

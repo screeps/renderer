@@ -43,7 +43,7 @@ export default {
             payload: {
                 width: 40,
                 height: 50,
-                tint: 0x5555555,
+                tint: 0x555555,
             },
         },
         {
@@ -51,7 +51,7 @@ export default {
             id: 'otherResourcesBar',
             props: ['store', 'energyBackgroundHeight', 'resourcesTotal'],
             shouldRun: ({ state: { store = {} }, calcs: { resourcesTotal } }) =>
-                store['energy']||0 + store['power']||0 < resourcesTotal,
+                (store['energy']||0) + (store['power']||0) < resourcesTotal,
             payload: {
                 pivot: {
                     y: { $calc: 'energyBackgroundHeight' },

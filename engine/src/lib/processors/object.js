@@ -8,9 +8,8 @@ import actionHelper from '../utils/actionHelper';
 // Helper function to validate and clamp color values for PixiJS v7 compatibility
 function validateColor(value) {
     if (typeof value === 'number') {
-        // Ensure color value is within valid range (0x000000 to 0xFFFFFF)
-        // Clamp negative values to 0 and large values to maximum
-        return Math.min(0xFFFFFF, Math.max(0, Math.floor(value)));
+        // Mask to 24-bit RGB range (0x000000 to 0xFFFFFF)
+        return Math.floor(value) & 0xFFFFFF;
     }
     return value;
 }

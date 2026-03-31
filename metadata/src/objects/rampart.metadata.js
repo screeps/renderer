@@ -1,4 +1,12 @@
 export default {
+    calculations: [
+        {
+            id: 'rampartColor',
+            once: true,
+            func: ({ state: { user }, stateExtra: { gameData: { player } }, world: { options: { userOwnerColor } }, calcs: { playerColor } }) =>
+                userOwnerColor ? playerColor : (user === player ? 0x44FF44 : 0xFF4444),
+        },
+    ],
     processors: [
         {
             type: 'sprite',
@@ -9,7 +17,7 @@ export default {
                 width: 100,
                 height: 100,
                 alpha: 0.5,
-                tint: { $calc: 'playerColor' },
+                tint: { $calc: 'rampartColor' },
             },
             shouldRun: ({ state: { isPublic } }) => !!isPublic,
         },

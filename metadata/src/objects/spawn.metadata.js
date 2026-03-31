@@ -49,6 +49,11 @@ export default {
             func: ({ calcs: { isOwner }, state: { name, user }, stateExtra: { users } }) =>
                 (isOwner ? name : users[user] ? users[user].username : ''),
         },
+        {
+            id: 'badgeColor',
+            func: ({ calcs: { playerColor }, world: { options: { userOwnerColor } } }) =>
+                userOwnerColor ? ellipse3.color : playerColor,
+        },
     ],
     processors: [
         {
@@ -75,7 +80,7 @@ export default {
             once: true,
             payload: {
                 parentId: 'black',
-                color: { $calc: 'playerColor' },
+                color: { $calc: 'badgeColor' },
                 radius: ellipse3.radius,
             },
         },

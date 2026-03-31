@@ -23,7 +23,10 @@ export default {
         {
             id: 'playerColorHex',
             props: ['user'],
-            func: ({ stateExtra: { users }, state: { user } }) => {
+            func: ({ stateExtra: { users }, state: { user }, world: { options: { userOwnerColor } }, calcs: { isOwner } }) => {
+                if (userOwnerColor) {
+                    return isOwner ? '#8fbb93' : '#FF7777';
+                }
                 if (users[user] && users[user].color) {
                     return users[user].color;
                 } else {
@@ -34,8 +37,18 @@ export default {
         {
             id: 'playerColor',
             props: ['user'],
-            func: ({ calcs: { playerColorHex } }) =>
-                parseInt(playerColorHex.substr(1), 16),
+            func: ({ calcs: { playerColorHex, isOwner }, world: { options: { userOwnerColor } } }) => {
+                if (userOwnerColor) {
+                    if (isOwner === undefined) {
+                        return 0xBBBBBB;
+                    } else if (isOwner) {
+                        return 0x8fbb93;
+                    } else {
+                        return 0xFF7777;
+                    }
+                }
+                return parseInt(playerColorHex.substr(1), 16);
+            },
         },
         {
             id: 'playerColorIntense',

@@ -119,9 +119,19 @@ export default {
             payload: {
                 parentId: 'mainContainer',
                 radius: 26,
+                color: 0x222222,
+            },
+            when: (params) => isNotNpc(params) && params.world.options.userOwnerColor,
+        },
+        {
+            type: 'userBadge',
+            once: true,
+            payload: {
+                parentId: 'mainContainer',
+                radius: 26,
                 color: { $calc: 'playerColor' },
             },
-            when: isNotNpc,
+            when: (params) => isNotNpc(params) && !params.world.options.userOwnerColor,
         },
         {
             type: 'circle',

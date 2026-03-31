@@ -2,7 +2,7 @@
  * Created by vedi on 22/08/2017.
  */
 
-import { Container, TextMetrics, TextStyle, Graphics, Point } from 'pixi.js';
+import { Container, TextMetrics, TextStyle, Graphics } from 'pixi.js';
 
 import object from './object';
 import text from './text';
@@ -35,15 +35,28 @@ export default (params) => {
     const bubbleHeight = 100;
     const bubbleOffset = -170;
 
+    const r = 30;
+    const left = -bubbleWidth / 2;
+    const right = bubbleWidth / 2;
+    const top = bubbleOffset;
+    const bottom = bubbleOffset + bubbleHeight;
+
     const graphics = new Graphics();
     graphics.lineStyle(8, 0x000000);
     graphics.beginFill(backgroundColor);
-    graphics.drawRoundedRect(-bubbleWidth / 2, bubbleOffset, bubbleWidth, bubbleHeight, 30);
-    graphics.drawPolygon([
-        new Point(30, -74),
-        new Point(0, -44),
-        new Point(-30, -74),
-    ]);
+    graphics.moveTo(left + r, top);
+    graphics.lineTo(right - r, top);
+    graphics.arc(right - r, top + r, r, -Math.PI / 2, 0);
+    graphics.lineTo(right, bottom - r);
+    graphics.arc(right - r, bottom - r, r, 0, Math.PI / 2);
+    graphics.lineTo(30, bottom);
+    graphics.lineTo(0, -44);
+    graphics.lineTo(-30, bottom);
+    graphics.lineTo(left + r, bottom);
+    graphics.arc(left + r, bottom - r, r, Math.PI / 2, Math.PI);
+    graphics.lineTo(left, top + r);
+    graphics.arc(left + r, top + r, r, Math.PI, Math.PI * 3 / 2);
+    graphics.closePath();
     graphics.endFill();
     container.addChild(graphics);
 

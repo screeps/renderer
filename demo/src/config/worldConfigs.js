@@ -28,5 +28,7 @@ export default {
         showCreepSpeech: false,
         swampTexture: 'animated',
     },
-    lighting: 'normal'
+    lighting: 'normal',
+    userOwnerColor: true,
+    userFlagColor: true
 };
