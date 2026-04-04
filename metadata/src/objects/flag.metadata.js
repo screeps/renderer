@@ -64,8 +64,8 @@ export default {
             type: 'text',
             props: ['color'],
             layer: 'effects',
-            when: ({ world: { options: { userFlagColor } } }) => !!userFlagColor,
-            shouldRun: ({ stateExtra: { gameData: { showFlagsNames } } }) => !!showFlagsNames,
+            when: ({ world: { options: { userFlagColor } }, stateExtra: { gameData: { showFlagsNames } } }) => 
+                !!userFlagColor && !!showFlagsNames,
             payload: {
                 text: { $state: 'name' },
                 style: {
