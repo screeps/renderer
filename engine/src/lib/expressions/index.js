@@ -17,6 +17,7 @@ export { default as processorParam } from './processorParam';
 export { default as random } from './random';
 export { default as rel } from './rel';
 export { default as state } from './state';
+export { default as stateExtra } from './stateExtra';
 export { default as sub } from './sub';
 export { default as idx } from './idx';
 export { default as concat } from './concat';
