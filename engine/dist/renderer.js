@@ -19311,6 +19311,7 @@ Object.assign(exports, {
     ERR_NOT_ENOUGH_EXTENSIONS: -6,
     ERR_RCL_NOT_ENOUGH: -14,
     ERR_GCL_NOT_ENOUGH: -15,
+    ERR_ACCESS_DENIED: -16,
 
     FIND_EXIT_TOP: 1,
     FIND_EXIT_RIGHT: 3,
@@ -24891,6 +24892,7 @@ __webpack_require__.d(expressions_namespaceObject, {
   random: () => (random),
   rel: () => (rel),
   state: () => (state),
+  stateExtra: () => (stateExtra),
   sub: () => (sub)
 });
 
@@ -52355,6 +52357,18 @@ function min_arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.leng
   }
   return typeof result === 'number' ? koef * result : result;
 });
+;// ./src/lib/expressions/stateExtra.js
+
+/* harmony default export */ const stateExtra = (function (fieldName, _ref, stateParams) {
+  var defaultValue = _ref["default"],
+    _ref$koef = _ref.koef,
+    koef = _ref$koef === void 0 ? 1 : _ref$koef;
+  var result = resolveProp(stateParams.stateExtra, fieldName);
+  if (result === undefined) {
+    result = defaultValue;
+  }
+  return typeof result === 'number' ? koef * result : result;
+});
 ;// ./src/lib/expressions/sub.js
 function _toArray(r) { return sub_arrayWithHoles(r) || sub_iterableToArray(r) || sub_unsupportedIterableToArray(r) || sub_nonIterableRest(); }
 function sub_nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -52394,6 +52408,7 @@ function idx_arrayWithHoles(r) { if (Array.isArray(r)) return r; }
   return result;
 });
 ;// ./src/lib/expressions/index.js
+
 
 
 
@@ -55359,7 +55374,6 @@ function creepDecoration_toPrimitive(t, r) { if ("object" != creepDecoration_typ
           x: 0.5,
           y: 0.5
         },
-        parentLayer: layers.objects,
         zIndex: 1
       });
       if (i[graphic.alpha] !== undefined) {
